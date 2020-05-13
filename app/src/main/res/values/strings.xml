@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Pet2U</string>
+    <string name="Nome_cadastro">Nome</string>
+    <string name="botao_cadastrar">Cadastrar</string>
+</resources>
