@@ -58,15 +58,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-//        botao_entrar = findViewById(R.id.EntrarLogin);
-//        botao_entrar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), PerfilUsuarioActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
+        botao_entrar = findViewById(R.id.EntrarLogin);
+        botao_entrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PerfilPet.class);
+                startActivity(intent);
+            }
+        });
+
 //        cadastrarUsuario = findViewById(R.id.CriarNovaConta);
 //        cadastrarUsuario.setOnClickListener(new View.OnClickListener() {
 //            @Override

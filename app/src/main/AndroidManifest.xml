@@ -16,7 +16,6 @@
             tools:ignore="LockedOrientationActivity"
             ></activity>
         <activity android:name=".ListagemPetshopActivity" />
-        <activity android:name=".PerfilPetshopActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".CadUsuario2Activity" />
         <activity android:name=".PerfilUsuarioActivity" />
