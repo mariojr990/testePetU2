@@ -10,11 +10,15 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
 
-    private Button botao_entrar, cadastrarUsuario, entrarcomfacebook;
+    private Button botao_entrar, entrarcomfacebook;
     private EditText campoEmail, campoSenha;
     private Switch tipoAcesso;
+
+    private FirebaseAuth autenticacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         inicializaComponentes();
+        //autenticacao = ConfiguracaoFi
 
         botao_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
