@@ -6,132 +6,94 @@
     android:layout_height="match_parent"
     tools:context=".ListagemPetshopActivity">
 
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="250dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="34dp"
+        android:paddingLeft="5dp"
+        android:text="PetshopName"
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_width="83dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="47dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/pet2ulogoapp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/pet2ulogo"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-234dp" />
+        android:layout_marginTop="1dp"
+        android:paddingLeft="5dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum."
+        app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <ImageView
+        android:id="@+id/logoPet2uListagemPet"
+        android:layout_width="0dp"
+        android:layout_height="181dp"
+        android:contentDescription="@string/logo_pet2u"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pet2ulogo" />
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="326dp"
+        android:layout_width="350dp"
         android:layout_height="42dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/corPequisarListagemPetshop"
         android:gravity="center"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="185dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoPet2uListagemPet">
 
-    <LinearLayout
-        android:id="@+id/caixaPetshop"
-        android:layout_width="416dp"
-        android:layout_height="102dp"
-        android:background="@drawable/bg_petshop"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="242dp">
+    </SearchView>
 
-        <LinearLayout
-            android:id="@+id/layoutHorizontal"
-            android:layout_width="400dp"
-            android:layout_height="116dp"
-            android:orientation="horizontal"
-            android:padding="16dp">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="250dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="32dp"
+        android:paddingLeft="5dp"
+        android:text="PetshopName"
+        app:layout_constraintEnd_toEndOf="@+id/searchView"
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
-            <LinearLayout
-                android:id="@+id/layoutFoto"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:orientation="vertical">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="83dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:srcCompat="@drawable/pet2ulogoapp" />
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scaleType="fitStart"
-                    app:srcCompat="@drawable/pet2ulogoapp" />
-            </LinearLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="147dp" />
 
-            <LinearLayout
-                android:id="@+id/layoutNome"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="vertical"
-                android:paddingLeft="8dp">
-
-                <TextView
-                    android:id="@+id/textNomePet"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Nome do Petshop" />
-
-                <TextView
-                    android:id="@+id/textDescPet"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Descrição do Petshop" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/caixaPetshop2"
-        android:layout_width="416dp"
-        android:layout_height="102dp"
-        android:background="@drawable/bg_petshop"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="358dp">
-
-        <LinearLayout
-            android:id="@+id/layoutHorizontal"
-            android:layout_width="400dp"
-            android:layout_height="116dp"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <LinearLayout
-                android:id="@+id/layoutFoto"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scaleType="fitStart"
-                    app:srcCompat="@drawable/pet2ulogoapp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layoutNome2"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="vertical"
-                android:paddingLeft="8dp">
-
-                <TextView
-                    android:id="@+id/textNomePet2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Nome do Petshop" />
-
-                <TextView
-                    android:id="@+id/textDescPet"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Descrição do Petshop" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum."
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
