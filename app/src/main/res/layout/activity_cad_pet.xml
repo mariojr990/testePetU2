@@ -26,7 +26,7 @@
         tools:layout_editor_absoluteX="115dp" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/EmailLoginUsuario"
         android:layout_width="315dp"
         android:layout_height="42dp"
         android:layout_marginTop="29dp"
@@ -47,7 +47,7 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText7" />
+        app:layout_constraintTop_toBottomOf="@+id/EmailLoginUsuario" />
 
     <EditText
         android:id="@+id/editText9"
@@ -76,14 +76,14 @@
         app:layout_constraintTop_toBottomOf="@+id/editText8" />
 
     <EditText
-        android:id="@+id/editText11"
+        android:id="@+id/SenhaLoginUsuario"
         android:layout_width="315dp"
         android:layout_height="42dp"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="532dp" />
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="453dp" />
 
     <EditText
         android:id="@+id/editText12"
@@ -92,8 +92,8 @@
         android:ems="10"
         android:hint="Confirmar Senha"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="600dp" />
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="502dp" />
 
     <Button
         android:id="@+id/button2"
