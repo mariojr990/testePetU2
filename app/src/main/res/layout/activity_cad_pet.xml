@@ -39,11 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtCadPet01" />
 
     <EditText
-<<<<<<< HEAD
-        android:id="@+id/EmailLoginUsuario"
-=======
         android:id="@+id/inputNomeDonoPet"
->>>>>>> db58a25ff3d1a02de4c463fb565550ae7a4c4108
         android:layout_width="315dp"
         android:layout_height="42dp"
         android:layout_marginTop="29dp"
@@ -64,11 +60,7 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintTop_toBottomOf="@+id/EmailLoginUsuario" />
-=======
         app:layout_constraintTop_toBottomOf="@+id/inputNomeDonoPet" />
->>>>>>> db58a25ff3d1a02de4c463fb565550ae7a4c4108
 
     <EditText
         android:id="@+id/inputCPFDonoPet"
@@ -97,25 +89,16 @@
         app:layout_constraintTop_toBottomOf="@+id/inputEmailDonoPet" />
 
     <EditText
-<<<<<<< HEAD
-        android:id="@+id/SenhaLoginUsuario"
-=======
         android:id="@+id/inputSenhaDonoPet"
->>>>>>> db58a25ff3d1a02de4c463fb565550ae7a4c4108
         android:layout_width="315dp"
         android:layout_height="42dp"
         android:layout_marginTop="14dp"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
-<<<<<<< HEAD
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="453dp" />
-=======
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputCPFDonoPet" />
->>>>>>> db58a25ff3d1a02de4c463fb565550ae7a4c4108
 
     <EditText
         android:id="@+id/inputConfirmarSenhaDonoPet"
@@ -125,14 +108,9 @@
         android:ems="10"
         android:hint="Confirmar Senha"
         android:inputType="textPassword"
-<<<<<<< HEAD
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="502dp" />
-=======
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputSenhaDonoPet" />
->>>>>>> db58a25ff3d1a02de4c463fb565550ae7a4c4108
+        app:layout_constraintTop_toBottomOf="@+id/inputSenhaDonoPet"/>
 
     <Button
         android:id="@+id/botaoContinuarPet"
