@@ -4,12 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class CadPetActivity extends AppCompatActivity {
+public class CadPet2Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cad_pet);
+        setContentView(R.layout.activity_cad_pet2);
         getSupportActionBar().hide();
     }
 }
