@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button botao_entrar, cadastrarUsuario, entrarcomfacebook;
+    private Button botao_entrar, entrarcomfacebook;
     private EditText campoEmail, campoSenha;
     private Switch tipoAcesso;
 
