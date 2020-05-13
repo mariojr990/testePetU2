@@ -4,12 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class PerfilUsuario2Activity extends AppCompatActivity {
+public class CadUsuario2Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil_usuario2);
+        setContentView(R.layout.activity_cad_usuario2);
         getSupportActionBar().hide();
     }
 }

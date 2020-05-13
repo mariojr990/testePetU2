@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".PerfilUsuario2Activity"/>
+        <activity android:name=".CadUsuario2Activity"/>
         <activity android:name=".PerfilUsuarioActivity"/>
         <activity android:name=".CadPetActivity" />
         <activity android:name=".CadPet2Activity" />
