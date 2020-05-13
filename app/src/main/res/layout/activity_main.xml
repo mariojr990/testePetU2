@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,14 +8,17 @@
     android:layout_width="match_parent"
 
     >
+
 <androidx.constraintlayout.widget.ConstraintLayout
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center|center_horizontal"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/LogoCadUsuario"
+        android:id="@+id/LogoLogin"
         android:layout_width="0dp"
         android:layout_height="181dp"
         android:scaleType="fitXY"
@@ -23,102 +27,120 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pet2ulogo" />
 
-    <TextView
-        android:id="@+id/txtCadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-thin"
-        android:text="Cadastro"
-        android:textSize="46sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogoCadUsuario" />
-
     <EditText
-        android:id="@+id/inputNome"
+        android:id="@+id/EmailLoginUsuario"
         android:layout_width="315dp"
         android:layout_height="42dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
-        android:hint="@string/Nome_cadastro"
+        android:hint="Email"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCadastro" />
+        app:layout_constraintTop_toBottomOf="@+id/Logintxt" />
 
     <EditText
-        android:id="@+id/inputEmail"
+        android:id="@+id/SenhaLoginUsuario"
         android:layout_width="315dp"
         android:layout_height="42dp"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputNome" />
-
-    <EditText
-        android:id="@+id/inputCPF"
-        android:layout_width="150dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:hint="CPF"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/inputEmail"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
-
-    <EditText
-        android:id="@+id/inputTelefone"
-        android:layout_width="150dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:hint="Telefone"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="@+id/inputEmail"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
-
-    <EditText
-        android:id="@+id/inputSenha"
-        android:layout_width="315dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="3dp"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputTelefone" />
+        app:layout_constraintTop_toBottomOf="@+id/EmailLoginUsuario" />
 
-    <EditText
-        android:id="@+id/inputConfirmarSenha"
-        android:layout_width="315dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:hint="Confirmar Senha"
-        android:inputType="textPassword"
+    <TextView
+        android:id="@+id/Logintxt"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="17dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="Login"
+        android:textSize="46sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/LogoLogin" />
+
+    <TextView
+        android:id="@+id/petshopswitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="PetShop"
+        android:textColor="#1E1E1E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toEndOf="@+id/UsuarioPetshop"
+        app:layout_constraintTop_toBottomOf="@+id/SenhaLoginUsuario" />
+
+    <TextView
+        android:id="@+id/usuarioswitch"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginTop="16dp"
+        android:text="Usuário"
+        android:textColor="#1E1E1E"
+        app:layout_constraintEnd_toStartOf="@+id/UsuarioPetshop"
+        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SenhaLoginUsuario" />
+
+    <Switch
+        android:id="@+id/UsuarioPetshop"
+        android:layout_width="46dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/Cor_botoes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SenhaLoginUsuario" />
 
     <Button
-        android:id="@+id/botaoContinuarUsuario"
-        android:layout_width="244dp"
-        android:layout_height="47dp"
+        android:id="@+id/EntrarLogin"
+        android:layout_width="269dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="56dp"
+        android:background="@color/Cor_botoes"
+        android:fontFamily="@font/armata"
+        android:text="@string/entrarPerfil"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UsuarioPetshop" />
+
+    <Button
+        android:id="@+id/CriarNovaConta"
+        android:layout_width="282dp"
+        android:layout_height="41dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="20dp"
-        android:background="@color/Cor_botoes"
-        android:text="@string/botao_continuarPet"
+        android:background="#DA284F"
+        android:fontFamily="@font/armata"
+        android:text="@string/criar_nova_conta_do_pet2u"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EntrarComFacebook"
+        android:onClick="cadastrarUsuario"
+        />
+
+    <Button
+        android:id="@+id/EntrarComFacebook"
+        android:layout_width="192dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="24dp"
+        android:background="#2A62B1"
+        android:fontFamily="@font/armata"
+        android:text="@string/entrar_com_facebook"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputConfirmarSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/EntrarLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

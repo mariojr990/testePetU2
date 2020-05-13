@@ -16,12 +16,12 @@
             tools:ignore="LockedOrientationActivity"
             ></activity>
         <activity android:name=".ListagemPetshopActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".CadUsuario2Activity" />
         <activity android:name=".PerfilUsuarioActivity" />
         <activity android:name=".CadPetActivity" />
         <activity android:name=".CadPet2Activity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".CadUsuario1Activity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

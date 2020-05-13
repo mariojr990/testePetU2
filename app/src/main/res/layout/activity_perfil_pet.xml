@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="426dp"
-        android:layout_height="219dp"
+        android:layout_height="204dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/petshopcapa" />
 
@@ -25,7 +25,8 @@
     <TextView
         android:id="@+id/infoPet"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="47dp"
+        android:paddingLeft="7px"
         android:text=" Informações do Petshop" />
 
     <com.ogaclejapan.smarttablayout.SmartTabLayout
