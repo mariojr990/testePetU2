@@ -7,4 +7,7 @@
     <string name="entrarPerfil">Entrar</string>
     <string name="botao_continuarPet">Continuar</string>
     <string name="logo_pet2u">Logo pet2U</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
