@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CadPet2Activity">
 
     <ImageView
         android:id="@+id/logoCadPet02"
-        android:layout_width="429dp"
+        android:layout_width="0dp"
         android:layout_height="181dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -66,16 +74,11 @@
         android:id="@+id/inputCnpjPetshop"
         android:layout_width="150dp"
         android:layout_height="42dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
         android:ems="10"
         android:hint="CNPJ"
         android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/inputTelefonePetshop"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/inputRazaoSocialPetshop"
         app:layout_constraintTop_toBottomOf="@+id/inputRazaoSocialPetshop" />
 
     <EditText
@@ -83,27 +86,21 @@
         android:layout_width="150dp"
         android:layout_height="42dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
         android:ems="10"
         android:hint="Telefone"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/inputRazaoSocialPetshop"
         app:layout_constraintTop_toBottomOf="@+id/inputRazaoSocialPetshop" />
 
     <EditText
         android:id="@+id/inputCepPetshop"
         android:layout_width="150dp"
         android:layout_height="42dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="CEP"
         android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/inputUfPetshop"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/inputCnpjPetshop"
         app:layout_constraintTop_toBottomOf="@+id/inputCnpjPetshop" />
 
     <EditText
@@ -111,12 +108,10 @@
         android:layout_width="150dp"
         android:layout_height="42dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
         android:ems="10"
         android:hint="UF"
         android:inputType="textShortMessage|none|text"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/inputTelefonePetshop"
         app:layout_constraintTop_toBottomOf="@+id/inputTelefonePetshop" />
 
     <EditText
@@ -127,9 +122,7 @@
         android:ems="10"
         android:hint="Cidade"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/inputBairroPetshop"
-        app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/inputCepPetshop"
         app:layout_constraintTop_toBottomOf="@+id/inputCepPetshop" />
 
     <EditText
@@ -137,12 +130,10 @@
         android:layout_width="150dp"
         android:layout_height="42dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
         android:ems="10"
         android:hint="Bairro"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/inputUfPetshop"
         app:layout_constraintTop_toBottomOf="@+id/inputUfPetshop" />
 
     <EditText
@@ -165,9 +156,7 @@
         android:ems="10"
         android:hint="Número"
         android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/inputComplementoPetshop"
-        app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/inputEnderecoPetshop"
         app:layout_constraintTop_toBottomOf="@+id/inputEnderecoPetshop" />
 
     <EditText
@@ -175,12 +164,10 @@
         android:layout_width="150dp"
         android:layout_height="42dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
         android:ems="10"
         android:hint="Complemento"
         android:inputType="textLongMessage|text"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/inputEnderecoPetshop"
         app:layout_constraintTop_toBottomOf="@+id/inputEnderecoPetshop" />
 
     <Button
@@ -188,11 +175,14 @@
         android:layout_width="244dp"
         android:layout_height="47dp"
         android:layout_marginTop="24dp"
+        android:layout_marginBottom="20dp"
         android:background="@color/Cor_botoes"
         android:text="@string/botao_cadastrar"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputNumeroPetshop" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

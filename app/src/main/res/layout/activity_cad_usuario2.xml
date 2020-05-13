@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CadUsuario2Activity">
 
     <ImageView
         android:id="@+id/logoCadUsu2"
-        android:layout_width="429dp"
+        android:layout_width="0dp"
         android:layout_height="181dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,9 +42,7 @@
         android:ems="10"
         android:hint="CEP"
         android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/inputUfUsuario2"
-        app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/inputCidadeUsuario2"
         app:layout_constraintTop_toBottomOf="@+id/txtCadUsuario2" />
 
     <EditText
@@ -45,12 +50,10 @@
         android:layout_width="150dp"
         android:layout_height="42dp"
         android:layout_marginTop="29dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
         android:ems="10"
         android:hint="UF"
         android:inputType="textShortMessage|none|text"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/inputBairroUsuario2"
         app:layout_constraintTop_toBottomOf="@+id/txtCadUsuario2" />
 
     <EditText
@@ -61,9 +64,7 @@
         android:ems="10"
         android:hint="Cidade"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/inputBairroUsuario2"
-        app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/inputEnderecoUsuario2"
         app:layout_constraintTop_toBottomOf="@+id/inputCepUsuario2" />
 
     <EditText
@@ -71,12 +72,10 @@
         android:layout_width="150dp"
         android:layout_height="42dp"
         android:layout_marginTop="14dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
         android:ems="10"
         android:hint="Bairro"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/inputEnderecoUsuario2"
         app:layout_constraintTop_toBottomOf="@+id/inputUfUsuario2" />
 
     <EditText
@@ -111,8 +110,8 @@
         android:ems="10"
         android:hint="Número"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/inputComplementoUsuario2"
+        app:layout_constraintStart_toStartOf="@+id/inputComplementoUsuario2"
         app:layout_constraintTop_toBottomOf="@+id/inputComplementoUsuario2" />
 
     <Button
@@ -120,11 +119,14 @@
         android:layout_width="244dp"
         android:layout_height="47dp"
         android:layout_marginTop="24dp"
+        android:layout_marginBottom="20dp"
         android:background="@color/Cor_botoes"
         android:text="@string/botao_cadastrar"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputNumeroUsuario2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

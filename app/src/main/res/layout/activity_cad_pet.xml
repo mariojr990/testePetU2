@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+
+    >
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CadPetActivity">
 
     <ImageView
         android:id="@+id/logoCadPetshop01"
-        android:layout_width="429dp"
+        android:layout_width="0dp"
         android:layout_height="181dp"
+        android:contentDescription="@string/logo_pet2u"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -48,7 +58,8 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCadPet03" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCadPet03"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/inputEmailDonoPet"
@@ -60,19 +71,19 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputNomeDonoPet" />
+        app:layout_constraintTop_toBottomOf="@+id/inputNomeDonoPet"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/inputCPFDonoPet"
         android:layout_width="150dp"
         android:layout_height="42dp"
         android:layout_marginTop="14dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="CPF"
         android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/inputTelefoneDonoPet"
-        app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/inputEmailDonoPet"
         app:layout_constraintTop_toBottomOf="@+id/inputEmailDonoPet" />
 
     <EditText
@@ -80,12 +91,11 @@
         android:layout_width="150dp"
         android:layout_height="42dp"
         android:layout_marginTop="14dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="Telefone"
         android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/inputEmailDonoPet"
         app:layout_constraintTop_toBottomOf="@+id/inputEmailDonoPet" />
 
     <EditText
@@ -98,7 +108,8 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputCPFDonoPet" />
+        app:layout_constraintTop_toBottomOf="@+id/inputCPFDonoPet"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/inputConfirmarSenhaDonoPet"
@@ -110,19 +121,23 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputSenhaDonoPet"/>
+        app:layout_constraintTop_toBottomOf="@+id/inputSenhaDonoPet"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/botaoContinuarPet"
         android:layout_width="244dp"
         android:layout_height="47dp"
         android:layout_marginTop="24dp"
+        android:layout_marginBottom="20dp"
         android:background="@color/Cor_botoes"
-        android:text="Continuar"
+        android:text="@string/botao_continuarPet"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputConfirmarSenhaDonoPet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

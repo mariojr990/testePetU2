@@ -2,4 +2,9 @@
     <string name="app_name">Pet2U</string>
     <string name="Nome_cadastro">Nome</string>
     <string name="botao_cadastrar">Cadastrar</string>
+    <string name="entrar_com_facebook">Entrar com Facebook</string>
+    <string name="criar_nova_conta_do_pet2u">Criar nova conta do Pet2U</string>
+    <string name="entrarPerfil">Entrar</string>
+    <string name="botao_continuarPet">Continuar</string>
+    <string name="logo_pet2u">Logo pet2U</string>
 </resources>
