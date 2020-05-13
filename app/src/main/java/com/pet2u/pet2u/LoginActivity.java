@@ -10,7 +10,7 @@ import android.os.Bundle;
 public class LoginActivity extends AppCompatActivity {
 
     private Button botao_entrar;
-
+    //private Button cadastrarUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,5 +27,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+//        cadastrarUsuario = findViewById(R.id.CriarNovaConta);
+//        cadastrarUsuario.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent2 = new Intent (getApplicationContext(), MainActivity.class);
+//                startActivity(intent2);
+//            }
+//        });
     }
 }
