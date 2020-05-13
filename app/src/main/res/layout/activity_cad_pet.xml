@@ -7,38 +7,51 @@
     tools:context=".CadPetActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logoCadPetshop01"
         android:layout_width="429dp"
         android:layout_height="181dp"
-        app:srcCompat="@drawable/pet2ulogo"
-        tools:layout_editor_absoluteX="-9dp"
-        tools:layout_editor_absoluteY="-4dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pet2ulogo" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtCadPet01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-thin"
-        android:text="Cadastro"
+        android:text="Cadastro Petshop"
         android:textSize="46sp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:layout_editor_absoluteX="115dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoCadPetshop01" />
+
+    <TextView
+        android:id="@+id/txtCadPet03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Informações do dono do Petshop"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCadPet01" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/inputNomeDonoPet"
         android:layout_width="315dp"
         android:layout_height="42dp"
         android:layout_marginTop="29dp"
         android:ems="10"
-        android:hint="Nome dono Petshop"
+        android:hint="@string/Nome_cadastro"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCadPet03" />
 
     <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/inputEmailDonoPet"
         android:layout_width="315dp"
         android:layout_height="42dp"
         android:layout_marginTop="14dp"
@@ -47,23 +60,23 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText7" />
+        app:layout_constraintTop_toBottomOf="@+id/inputNomeDonoPet" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/inputCPFDonoPet"
         android:layout_width="150dp"
         android:layout_height="42dp"
         android:layout_marginTop="14dp"
         android:ems="10"
         android:hint="CPF"
         android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/editText10"
+        app:layout_constraintEnd_toStartOf="@+id/inputTelefoneDonoPet"
         app:layout_constraintHorizontal_bias="0.761"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText8" />
+        app:layout_constraintTop_toBottomOf="@+id/inputEmailDonoPet" />
 
     <EditText
-        android:id="@+id/editText10"
+        android:id="@+id/inputTelefoneDonoPet"
         android:layout_width="150dp"
         android:layout_height="42dp"
         android:layout_marginTop="14dp"
@@ -73,35 +86,43 @@
         android:hint="Telefone"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText8" />
+        app:layout_constraintTop_toBottomOf="@+id/inputEmailDonoPet" />
 
     <EditText
-        android:id="@+id/editText11"
+        android:id="@+id/inputSenhaDonoPet"
         android:layout_width="315dp"
         android:layout_height="42dp"
+        android:layout_marginTop="14dp"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="532dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputCPFDonoPet" />
 
     <EditText
-        android:id="@+id/editText12"
+        android:id="@+id/inputConfirmarSenhaDonoPet"
         android:layout_width="315dp"
         android:layout_height="42dp"
+        android:layout_marginTop="14dp"
         android:ems="10"
         android:hint="Confirmar Senha"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="600dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputSenhaDonoPet" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/botaoContinuarPet"
         android:layout_width="244dp"
         android:layout_height="47dp"
+        android:layout_marginTop="24dp"
         android:background="@color/Cor_botoes"
-        android:text="@string/botao_cadastrar"
+        android:text="Continuar"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="553dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputConfirmarSenhaDonoPet" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
