@@ -94,19 +94,31 @@
             app:layout_constraintTop_toBottomOf="@+id/inputTelefone" />
 
         <Button
-            android:id="@+id/botaoContinuarUsuario"
+            android:id="@+id/botaoCadastrarrUsuario"
             android:layout_width="244dp"
             android:layout_height="47dp"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="20dp"
             android:background="@color/Cor_botoes"
-            android:text="@string/botao_continuarPet"
+            android:text="@string/botao_cadastrar"
             android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputSenha" />
+
+        <Button
+            android:id="@+id/botaoVoltar"
+            android:layout_width="100dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/Cor_botoes"
+            android:text="Voltar"
+            android:textColor="@color/design_default_color_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/botaoCadastrarrUsuario"
+            app:layout_constraintStart_toStartOf="@+id/botaoCadastrarrUsuario"
+            app:layout_constraintTop_toBottomOf="@+id/botaoCadastrarrUsuario" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -5,4 +5,5 @@
     <color name="colorAccent">#00A3FF</color>
     <color name="Cor_botoes">#00A3FF</color>
     <color name="corPequisarListagemPetshop">#37075D7A</color>
+    <color name="Cor_botoes_vermelhos" > #DA284F </color>
 </resources>

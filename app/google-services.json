@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "179717724771-8d3md9hbn2ej3isl5od1ro0k7aglfh3n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pet2u.pet2u",
+            "certificate_hash": "fae2cbae1eea76ec608c977886741ed01e6dc030"
+          }
+        },
+        {
           "client_id": "179717724771-rok58674iec93qda99sur958lcslnssi.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
