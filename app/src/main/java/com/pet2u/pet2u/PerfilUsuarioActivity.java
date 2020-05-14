@@ -68,7 +68,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         if(user == null){
             finish();
         }else{
-//            query = databaseReference.child("Usuario").equalTo(emaill);
+//        query = databaseReference.child("Usuario").equalTo(emaill);
             email.setText(user.getEmail());
             nomeCompleto.setText(user.getUid());
         }

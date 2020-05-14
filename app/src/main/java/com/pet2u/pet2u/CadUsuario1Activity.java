@@ -63,7 +63,7 @@ public class CadUsuario1Activity extends AppCompatActivity {
                 usu.setCampoSenha(senha);
                 usu.setCampoCPF(cpf);
                 usu.setCampoTelefone(telefone);
-                databaseReference.child("Usuario").child(usu.getCampoCPF()).setValue(usu);
+                databaseReference.child("Usuario").child(usu.getCampoEmail()).setValue(usu);
                 limparCampos();
 
             }
