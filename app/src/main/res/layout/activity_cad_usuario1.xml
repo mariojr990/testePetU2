@@ -93,18 +93,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputTelefone" />
 
-        <EditText
-            android:id="@+id/inputConfirmarSenha"
-            android:layout_width="315dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="14dp"
-            android:ems="10"
-            android:hint="Confirmar Senha"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputSenha" />
-
         <Button
             android:id="@+id/botaoContinuarUsuario"
             android:layout_width="244dp"
@@ -118,7 +106,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputConfirmarSenha" />
+            app:layout_constraintTop_toBottomOf="@+id/inputSenha" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

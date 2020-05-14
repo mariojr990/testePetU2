@@ -6,10 +6,10 @@
     tools:context=".Fragment.RacaoFragment">
 
     <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:text="Pets"
-    android:textSize="30sp" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Ração"
+        android:textSize="30sp" />
 
 </FrameLayout>
