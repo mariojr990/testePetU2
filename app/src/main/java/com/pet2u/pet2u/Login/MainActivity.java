@@ -9,8 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.os.Bundle;
+import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +20,6 @@ import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.login.Login;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -34,7 +33,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 
-import com.pet2u.pet2u.ConexaoDB.Firebase;
+import com.pet2u.pet2u.Petshop.CadPet1_Activity;
+import com.pet2u.pet2u.Petshop.CadPet2_Activity;
 import com.pet2u.pet2u.Petshop.PerfilPet;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.Usuario.CadUsuario1_Activity;
@@ -43,18 +43,17 @@ import com.pet2u.pet2u.Usuario.PerfilUsuario_Activity;
 import com.pet2u.pet2u.modelo.Usuario;
 
 import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button botao_entrar, botao_criar_conta;
+    private Button botao_entrar, botao_criar_contausu, botao_criar_contapet;
     private LoginButton botao_entrarcomfacebook;
     private EditText campoEmail, campoSenha;
     private Switch tipoAcesso;
     private FirebaseAuth.AuthStateListener authStateListener;
     private Usuario usu;
     private CallbackManager mCallbackManager;
-    private TextView textViewUser;
+    private TextView textViewUser, loginpet, loginusu;
     private AccessTokenTracker accessTokenTracker;
     private static final String TAG = "FacebookAuthentication";
 
@@ -113,6 +112,25 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        tipoAcesso.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    botao_criar_contapet.setVisibility(View.VISIBLE);
+                    botao_criar_contausu.setVisibility(View.INVISIBLE);
+                    botao_entrarcomfacebook.setVisibility(View.INVISIBLE);
+                    loginusu.setVisibility(View.INVISIBLE);
+                    loginpet.setVisibility(View.VISIBLE);
+                }else {
+                    botao_criar_contapet.setVisibility(View.INVISIBLE);
+                    botao_criar_contausu.setVisibility(View.VISIBLE);
+                    botao_entrarcomfacebook.setVisibility(View.VISIBLE);
+                    loginpet.setVisibility(View.INVISIBLE);
+                    loginusu.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
 
     }
 
@@ -167,13 +185,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void eventoClicks() {
-        botao_criar_conta.setOnClickListener(new View.OnClickListener() {
+        botao_criar_contausu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), CadUsuario1_Activity.class);
                 startActivity(i);
             }
         });
+
+
+
         
         botao_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,12 +213,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        botao_entrarcomfacebook.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        botao_criar_contapet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CadPet2_Activity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -217,7 +239,12 @@ public class MainActivity extends AppCompatActivity {
                             Intent i = new Intent(MainActivity.this, PerfilUsuario_Activity.class);
                             startActivity(i);
                             finish();
-                         }else{
+                         }else if(tipoAcesso.isChecked() && task.isSuccessful()){
+                            Intent i = new Intent(MainActivity.this, PerfilPet.class);
+                            startActivity(i);
+                            campoEmail.setText("");
+                            campoSenha.setText("");
+                        }else{
                             String excecao = "";
                             try {
                                 throw task.getException();
@@ -252,8 +279,11 @@ public class MainActivity extends AppCompatActivity {
         campoEmail = findViewById(R.id.EmailLoginUsuario);
         campoSenha = findViewById(R.id.SenhaLoginUsuario);
         tipoAcesso = findViewById(R.id.UsuarioPetshop);
-        botao_criar_conta = findViewById(R.id.CriarNovaConta);
+        botao_criar_contausu = findViewById(R.id.CriarNovaContaUsu);
         textViewUser = findViewById(R.id.txtImagem);
+        botao_criar_contapet = findViewById(R.id.CriarNovaContaPet);
+        loginusu = findViewById(R.id.Logintxt);
+        loginpet = findViewById(R.id.LoginPet);
 
     }
 }

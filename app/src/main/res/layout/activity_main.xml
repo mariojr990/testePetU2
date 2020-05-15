@@ -57,12 +57,25 @@
 
     <TextView
         android:id="@+id/Logintxt"
-        android:layout_width="110dp"
+        android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:layout_marginTop="17dp"
         android:fontFamily="sans-serif-thin"
-        android:text="Login"
+        android:text="Login de Usuário"
         android:textSize="46sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LogoLogin" />
+    <TextView
+        android:id="@+id/LoginPet"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginTop="17dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="Login de PetShop"
+        android:textSize="46sp"
+        android:visibility="gone"
+        tools:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LogoLogin" />
@@ -127,8 +140,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EntrarLogin" />
 
+
     <Button
-        android:id="@+id/CriarNovaConta"
+        android:id="@+id/CriarNovaContaPet"
+        android:layout_width="282dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/Cor_botoes_vermelhos"
+        android:fontFamily="@font/armata"
+        android:onClick="cadastrarPetshop"
+        android:text="criar conta de petshop"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_button"
+        app:layout_constraintVertical_bias="1.0"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/CriarNovaContaUsu"
         android:layout_width="282dp"
         android:layout_height="41dp"
         android:layout_marginTop="15dp"
@@ -136,7 +169,7 @@
         android:background="@color/Cor_botoes_vermelhos"
         android:fontFamily="@font/armata"
         android:onClick="cadastrarUsuario"
-        android:text="@string/criar_nova_conta_do_pet2u"
+        android:text="CRIAR NOVA CONTA DE USUÁRIO"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
