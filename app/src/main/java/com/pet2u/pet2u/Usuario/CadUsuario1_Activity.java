@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,27 +13,24 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthEmailException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
-import com.pet2u.pet2u.ConexaoDB.Firebase;
+import com.pet2u.pet2u.Helper.Criptografia;
+import com.pet2u.pet2u.Helper.DateCustom;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Usuario;
+
 
 public class CadUsuario1_Activity extends AppCompatActivity {
 
     private Button botao_cadastro, botao_voltar;
     private EditText campoNome, campoEmail, campoSenha, campoCPF, campoTelefone;
     private FirebaseAuth auth;
-    private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference databaseReference;
+    private Usuario usu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,16 +62,14 @@ public class CadUsuario1_Activity extends AppCompatActivity {
                 if ( nome.isEmpty() || email.isEmpty() || senha.isEmpty() || cpf.isEmpty() || telefone.isEmpty()){
                     alert("Preencha todos os campos!");
                 }else{
-                    Usuario usu = new Usuario();
+                    usu = new Usuario();
+                    usu.setNome(nome);
+                    usu.setEmail(email);
+                    usu.setSenha(senha);
+                    usu.setCPF(cpf);
+                    usu.setTelefone(telefone);
 
-                    usu.setCampoNome(nome);
-                    usu.setCampoEmail(email);
-                    usu.setCampoSenha(senha);
-                    usu.setCampoCPF(cpf);
-                    usu.setCampoTelefone(telefone);
-
-                    criarUser(usu.getCampoEmail(), usu.getCampoSenha());
-                    databaseReference.child("Usuario").child(usu.getCampoEmail()).setValue(usu);
+                    criarUser(usu.getEmail(), usu.getSenha());
                     limparCampos();
 
                 }
@@ -94,6 +90,13 @@ public class CadUsuario1_Activity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+
+                            String idUsuario = Criptografia.codificar(usu.getEmail());
+                            usu.setDataCadastro(DateCustom.dataAtual());
+                            usu.setIdUsuario(idUsuario);
+                            usu.salvar();
+
+
                             alert("Usuário cadastrado com sucesso!");
                             Intent i = new Intent(CadUsuario1_Activity.this, PerfilUsuario_Activity.class);
                             startActivity(i);
@@ -131,10 +134,6 @@ public class CadUsuario1_Activity extends AppCompatActivity {
         campoSenha = findViewById(R.id.inputSenha);
         botao_cadastro = findViewById(R.id.botaoCadastrarrUsuario);
         botao_voltar = findViewById(R.id.botaoVoltar);
-
-        FirebaseApp.initializeApp(CadUsuario1_Activity.this);
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
 
     }
 

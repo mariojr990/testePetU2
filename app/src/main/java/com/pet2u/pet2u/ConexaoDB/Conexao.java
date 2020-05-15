@@ -1,20 +1,29 @@
 package com.pet2u.pet2u.ConexaoDB;
 
-import androidx.annotation.NonNull;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Conexao {
     private static FirebaseAuth firebaseAuth;
-    private static FirebaseAuth.AuthStateListener authStateListener;
-    private static FirebaseUser firebaseUser;
+    private static DatabaseReference firebaseDatabase;
 
     private Conexao(){
 
 
     }
 
+    //Retorna a instancia do FirebaseDatabase
+    public static DatabaseReference getFirebaseDatabase(){
+
+        if(firebaseDatabase == null){
+            firebaseDatabase = FirebaseDatabase.getInstance().getReference();
+        }
+        return firebaseDatabase;
+    }
+
+    // Retorna a instancia do AUTH
     public static FirebaseAuth getFirebaseAuth(){
         if (firebaseAuth == null){
             inicializarFireBaseAuth();
@@ -24,21 +33,7 @@ public class Conexao {
 
     private static void inicializarFireBaseAuth(){
         firebaseAuth = FirebaseAuth.getInstance();
-        authStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if(user != null){
-                    firebaseUser = user;
-                }
-            }
-        };
-        firebaseAuth.addAuthStateListener(authStateListener);
 
-    }
-
-    public static FirebaseUser getFirebaseUser(){
-        return firebaseUser;
     }
 
     public static void logOut(){

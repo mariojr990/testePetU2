@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.ConexaoDB.Firebase;
+import com.pet2u.pet2u.Petshop.PerfilPet;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.Usuario.CadUsuario1_Activity;
 import com.pet2u.pet2u.Usuario.EsqueceuSenha_Activity;
@@ -27,7 +28,7 @@ import com.pet2u.pet2u.modelo.Usuario;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button botao_entrar, entrarcomfacebook, botao_criar_conta;
+    private Button botao_entrar, botao_entrarcomfacebook, botao_criar_conta;
     private EditText campoEmail, campoSenha;
     private Switch tipoAcesso;
     private Usuario usu;
@@ -65,18 +66,21 @@ public class MainActivity extends AppCompatActivity {
                 String senha = campoSenha.getText().toString();
 
                 if ( !email.isEmpty() && !senha.isEmpty()) {
-                    usu = new Usuario();
-                    usu.setCampoEmail(email);
-                    usu.setCampoSenha(senha);
-
-                    login(usu.getCampoEmail(), usu.getCampoSenha());
-
+                    login(email, senha);
                 }else
                 {
                     Toast.makeText(MainActivity.this,
                             "Preencha os campos!",
                             Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        botao_entrarcomfacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), PerfilPet.class);
+                startActivity(i);
             }
         });
 
@@ -99,8 +103,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(i);
                             campoEmail.setText("");
                             campoSenha.setText("");
-                            finish();
-                        }else{
+                         }else{
                             String excecao = "";
                             try {
                                 throw task.getException();
@@ -124,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void inicializaComponentes(){
         botao_entrar = findViewById(R.id.EntrarLogin);
-        entrarcomfacebook = findViewById(R.id.EntrarComFacebook);
+        botao_entrarcomfacebook = findViewById(R.id.EntrarComFacebook);
         campoEmail = findViewById(R.id.EmailLoginUsuario);
         campoSenha = findViewById(R.id.SenhaLoginUsuario);
         tipoAcesso = findViewById(R.id.UsuarioPetshop);

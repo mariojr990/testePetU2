@@ -1,54 +1,83 @@
 package com.pet2u.pet2u.modelo;
 
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
+import com.pet2u.pet2u.ConexaoDB.Conexao;
+
 public class Usuario {
-    private String campoNome, campoEmail, campoSenha, campoCPF, campoTelefone;
+    private String idUsuario, Nome, Email, Senha, CPF, Telefone, dataCadastro;
+    private DatabaseReference databaseReference;
 
     public Usuario() {
     }
 
-    public String getCampoNome() {
-        return campoNome;
+    public void salvar(){
+
+        databaseReference = Conexao.getFirebaseDatabase();
+        databaseReference.child("Usuario").child(this.idUsuario).setValue(this);
     }
 
-    public void setCampoNome(String campoNome) {
-        this.campoNome = campoNome;
+    public String getDataCadastro() {
+        return dataCadastro;
     }
 
-    public String getCampoEmail() {
-        return campoEmail;
+    public void setDataCadastro(String dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
-    public void setCampoEmail(String campoEmail) {
-        this.campoEmail = campoEmail;
+    @Exclude
+    public String getIdUsuario() {
+        return idUsuario;
     }
 
-    public String getCampoSenha() {
-        return campoSenha;
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public void setCampoSenha(String campoSenha) {
-        this.campoSenha = campoSenha;
+    public String getNome() {
+        return Nome;
     }
 
-    public String getCampoCPF() {
-        return campoCPF;
+    public void setNome(String Nome) {
+        this.Nome = Nome;
     }
 
-    public void setCampoCPF(String campoCPF) {
-        this.campoCPF = campoCPF;
+    public String getEmail() {
+        return Email;
     }
 
-    public String getCampoTelefone() {
-        return campoTelefone;
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
 
-    public void setCampoTelefone(String campoTelefone) {
-        this.campoTelefone = campoTelefone;
+    @Exclude
+    public String getSenha() {
+        return Senha;
+    }
+
+    public void setSenha(String Senha) {
+        this.Senha = Senha;
+    }
+
+    public String getCPF() {
+        return CPF;
+    }
+
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
+
+    public String getTelefone() {
+        return Telefone;
+    }
+
+    public void setTelefone(String Telefone) {
+        this.Telefone = Telefone;
     }
 
     @Override
     public String toString() {
-        return campoNome;
+        return Nome;
     }
 }
