@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.Helper.DateCustom;
+import com.pet2u.pet2u.Login.MainActivity;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Petshop;
 
@@ -41,13 +42,14 @@ public class CadPet2_Activity extends AppCompatActivity {
         Clicks();
     }
 
-    private void Clicks(){
+    private void Clicks() {
         botao_voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
 
         botao_cadastroPet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,9 +87,6 @@ public class CadPet2_Activity extends AppCompatActivity {
                     petshop.setBairro(bairro);
                     petshop.setEndereco(endereco);
                     petshop.setNumero(numero);
-                    if(complemento.isEmpty()){
-                        petshop.setComplemento("");
-                    }
                     petshop.setComplemento(complemento);
 
                     criarPet(petshop.getEmail(), petshop.getSenha());
@@ -112,11 +111,10 @@ public class CadPet2_Activity extends AppCompatActivity {
                             petshop.setidPetshop(idPetshop);
                             petshop.salvar();
 
-
-                            alert("Usuário cadastrado com sucesso!");
-                            Intent i = new Intent(CadPet2_Activity.this, PerfilPet1Activity.class);
-                            startActivity(i);
-                            finish();
+                            alert("Petshop cadastrado com sucesso!");
+//                            Intent i = new Intent(getApplicationContext(), PerfilPet1Activity.class);
+//                            startActivity(i);
+//                            finish();
                         }else{
                             String excecao = "";
                             try {
@@ -132,6 +130,7 @@ public class CadPet2_Activity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                             alert(excecao);
+
                         }
                     }
                 });
@@ -172,7 +171,7 @@ public class CadPet2_Activity extends AppCompatActivity {
         campoNumero = findViewById(R.id.inputNumeroPetshop);
         campoComplemento = findViewById(R.id.inputComplementoPetshop);
         botao_cadastroPet = findViewById(R.id.botaoCadastrarPetshop);
-        botao_voltar = findViewById(R.id.botaoVoltar);
+        botao_voltar = findViewById(R.id.botaoVoltar2);
     }
 
     @Override
