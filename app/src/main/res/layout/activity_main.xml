@@ -105,7 +105,7 @@
         android:id="@+id/EntrarLogin"
         android:layout_width="269dp"
         android:layout_height="0dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="20dp"
         android:background="@color/Cor_botoes"
         android:fontFamily="@font/armata"
         android:text="@string/entrarPerfil"
@@ -119,17 +119,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:onClick="redefinirSenha"
         android:text="Esqueceu sua senha?"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/EntrarComFacebook"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EntrarLogin"
-        app:layout_constraintVertical_bias="0.0"
-        android:onClick="redefinirSenha"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/EntrarLogin" />
 
     <Button
         android:id="@+id/CriarNovaConta"
@@ -144,23 +140,32 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EntrarComFacebook" />
+        app:layout_constraintTop_toBottomOf="@+id/login_button"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <Button
-        android:id="@+id/EntrarComFacebook"
-        android:layout_width="192dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="15dp"
-        android:background="#2A62B1"
-        android:fontFamily="@font/armata"
-        android:text="@string/entrar_com_facebook"
-        android:textColor="#FFFFFF"
+    <TextView
+        android:id="@+id/txtImagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EsqueceuSuaSenha" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="200dp"
+        android:layout_height="41dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:text="Logar com Facebook"
+        android:textColor="#FFFFFF"
+        android:background="@color/com_facebook_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtImagem" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

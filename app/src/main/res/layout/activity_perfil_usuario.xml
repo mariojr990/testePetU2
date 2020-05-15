@@ -37,7 +37,19 @@
             android:id="@+id/nomeCompletoUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nome Completo"
+            android:text="@string/Nome_cadastro"
+            android:textColor="@android:color/background_light"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/avatarPerfilUsuario" />
+
+        <TextView
+            android:id="@+id/editarEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="E-mail"
             android:textColor="@android:color/background_light"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +67,7 @@
             app:srcCompat="@drawable/pet2uobackgroundoptionseditarperfil" />
 
         <ImageView
-            android:id="@+id/backgroundEdit2"
+            android:id="@+id/backgroundEdit3"
             android:layout_width="269dp"
             android:layout_height="68dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -63,17 +75,8 @@
             app:layout_constraintTop_toBottomOf="@+id/backgroundEdit1"
             app:srcCompat="@drawable/pet2uobackgroundoptionseditarperfil" />
 
-        <ImageView
-            android:id="@+id/backgroundEdit3"
-            android:layout_width="269dp"
-            android:layout_height="68dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/backgroundEdit2"
-            app:srcCompat="@drawable/pet2uobackgroundoptionseditarperfil" />
-
         <Button
-            android:id="@+id/botaoEdit1"
+            android:id="@+id/botaoAlterarTelefone"
             android:layout_width="36dp"
             android:layout_height="30dp"
             android:layout_marginTop="18dp"
@@ -84,18 +87,7 @@
             app:layout_constraintTop_toTopOf="@+id/backgroundEdit1" />
 
         <Button
-            android:id="@+id/botaoEdit2"
-            android:layout_width="36dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/botao_edit_perfil"
-            app:layout_constraintEnd_toEndOf="@+id/backgroundEdit2"
-            app:layout_constraintHorizontal_bias="0.051"
-            app:layout_constraintStart_toStartOf="@+id/backgroundEdit2"
-            app:layout_constraintTop_toTopOf="@+id/backgroundEdit2" />
-
-        <Button
-            android:id="@+id/botaoEdit3"
+            android:id="@+id/botaoAlterarSenha"
             android:layout_width="36dp"
             android:layout_height="30dp"
             android:layout_marginTop="18dp"
@@ -103,7 +95,7 @@
             app:layout_constraintEnd_toEndOf="@+id/backgroundEdit3"
             app:layout_constraintHorizontal_bias="0.051"
             app:layout_constraintStart_toStartOf="@+id/backgroundEdit3"
-            app:layout_constraintTop_toBottomOf="@+id/backgroundEdit2" />
+            app:layout_constraintTop_toBottomOf="@+id/backgroundEdit1" />
 
         <TextView
             android:id="@+id/editarTelefone"
@@ -114,20 +106,8 @@
             android:textColor="@android:color/background_light"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/backgroundEdit1"
-            app:layout_constraintStart_toEndOf="@+id/botaoEdit1"
+            app:layout_constraintStart_toEndOf="@+id/botaoAlterarTelefone"
             app:layout_constraintTop_toTopOf="@+id/backgroundEdit1" />
-
-        <TextView
-            android:id="@+id/editarEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:text="Alterar Email"
-            android:textColor="@android:color/background_light"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/backgroundEdit2"
-            app:layout_constraintStart_toEndOf="@+id/botaoEdit2"
-            app:layout_constraintTop_toTopOf="@+id/backgroundEdit2" />
 
         <TextView
             android:id="@+id/editarSenha"
@@ -139,20 +119,21 @@
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/backgroundEdit3"
             app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toEndOf="@+id/botaoEdit3"
-            app:layout_constraintTop_toBottomOf="@+id/backgroundEdit2" />
+            app:layout_constraintStart_toEndOf="@+id/botaoAlterarSenha"
+            app:layout_constraintTop_toBottomOf="@+id/backgroundEdit1" />
 
         <Button
             android:id="@+id/botao_logout"
-            android:layout_width="177dp"
+            android:layout_width="0dp"
             android:layout_height="32dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:layout_marginBottom="30dp"
             android:background="@color/Cor_botoes_vermelhos"
             android:text="LogOut"
             android:textColor="@color/design_default_color_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/backgroundEdit3"
+            app:layout_constraintHorizontal_bias="0.61"
             app:layout_constraintStart_toStartOf="@+id/backgroundEdit3"
             app:layout_constraintTop_toBottomOf="@+id/backgroundEdit3" />
 
@@ -166,19 +147,6 @@
             app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="@+id/backgroundEdit1"
             app:layout_constraintTop_toTopOf="@+id/backgroundEdit1" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginRight="2dp"
-            android:text="E-mail:"
-            app:layout_constraintEnd_toEndOf="@+id/backgroundEdit2"
-            app:layout_constraintHorizontal_bias="0.6"
-            app:layout_constraintStart_toStartOf="@+id/backgroundEdit2"
-            app:layout_constraintTop_toBottomOf="@+id/backgroundEdit1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

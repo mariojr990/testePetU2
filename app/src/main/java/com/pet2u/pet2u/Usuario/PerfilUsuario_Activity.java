@@ -3,6 +3,7 @@ package com.pet2u.pet2u.Usuario;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,14 +16,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
-import com.pet2u.pet2u.ConexaoDB.Firebase;
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Usuario;
 
 public class PerfilUsuario_Activity extends AppCompatActivity {
     private TextView nomeCompleto, telefone, email, senha;
-    private Button botao_logout;
+    private Button botao_logout, botao_alterarSenha, botao_alterarTelefone;
 
     private String nomeRecuperado, teleRecuperado, emailRecuperado;
 
@@ -47,6 +47,22 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
                 finish();
             }
         });
+
+        botao_alterarSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), EsqueceuSenha_Activity.class);
+                startActivity(i);
+            }
+        });
+
+        botao_alterarTelefone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), EditarTelefone_aActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -56,7 +72,6 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         databaseReference = Conexao.getFirebaseDatabase();
         user = auth.getCurrentUser();
         verificaUser();
-        //recuperarDados();
 
     }
 
@@ -89,15 +104,8 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
                 }
             });
 
-//            email.setText(emailRecuperado);
-//            nomeCompleto.setText(nomeRecuperado);
-//            telefone.setText(teleRecuperado);
         }
     }
-
-//    public void recuperarDados(){
-//
-//    }
 
     private void inicializaComponentes(){
         nomeCompleto = findViewById(R.id.nomeCompletoUsuario);
@@ -105,6 +113,8 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         email = findViewById(R.id.editarEmail);
         senha = findViewById(R.id.editarSenha);
         botao_logout = findViewById(R.id.botao_logout);
+        botao_alterarSenha = findViewById(R.id.botaoAlterarSenha);
+        botao_alterarTelefone = findViewById(R.id.botaoAlterarTelefone);
 
     }
 

@@ -17,7 +17,7 @@ import com.pet2u.pet2u.R;
 
 public class EsqueceuSenha_Activity extends AppCompatActivity {
     private EditText campoEmail;
-    private Button botao_enviar;
+    private Button botao_enviar, botao_voltar;
 
     private FirebaseAuth auth;
 
@@ -36,6 +36,13 @@ public class EsqueceuSenha_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = campoEmail.getText().toString().trim();
                 resetSenha(email);
+            }
+        });
+
+        botao_voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -68,8 +75,8 @@ public class EsqueceuSenha_Activity extends AppCompatActivity {
     }
 
     private void inicializaComponentes(){
-        campoEmail = findViewById(R.id.inputEmail2Redefinir);
-        botao_enviar = findViewById(R.id.botao_enviar);
-
+        campoEmail = findViewById(R.id.inputEditarEmail);
+        botao_enviar = findViewById(R.id.botao_Enviar);
+        botao_voltar = findViewById(R.id.botao_voltar_redefinir_senha);
     }
 }

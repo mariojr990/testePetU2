@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Pet2U</string>
+    <string name="facebook_app_id">607915716476684</string>
+    <string name="fb_login_protocol_scheme">fb607915716476684</string>
     <string name="Nome_cadastro">Nome</string>
     <string name="botao_cadastrar">Cadastrar</string>
     <string name="entrar_com_facebook">Entrar com Facebook</string>

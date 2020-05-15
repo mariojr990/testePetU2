@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
     >
 <androidx.constraintlayout.widget.ConstraintLayout
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Usuario.EsqueceuSenha_Activity">
+    tools:context=".Usuario.EditarTelefone_aActivity">
 
     <ImageView
-        android:id="@+id/logoRedefinirSenha"
+        android:id="@+id/logoRedefinirTelefone"
         android:layout_width="0dp"
         android:layout_height="181dp"
         android:scaleType="fitXY"
@@ -24,54 +23,54 @@
         app:srcCompat="@drawable/pet2ulogo" />
 
     <TextView
-        android:id="@+id/txtAlterarSenha"
+        android:id="@+id/txtAlterarTelefone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
         android:fontFamily="sans-serif-thin"
-        android:text="Redefinir Senha"
+        android:text="Alterar Telefone"
         android:textSize="46sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoRedefinirSenha" />
-
-    <EditText
-        android:id="@+id/inputEditarEmail"
-        android:layout_width="315dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="64dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDescricaoAlterarSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/logoRedefinirTelefone" />
 
     <TextView
-        android:id="@+id/txtDescricaoAlterarSenha"
+        android:id="@+id/txtDescricaoAlterarTelefone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Digite o E-mail da conta cadastrada"
+        android:text="Digite o novo Número"
         android:textSize="14sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAlterarSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/txtAlterarTelefone" />
+
+    <EditText
+        android:id="@+id/inputEditarTelefone"
+        android:layout_width="315dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:hint="Número"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescricaoAlterarTelefone" />
 
     <Button
-        android:id="@+id/botao_Enviar"
+        android:id="@+id/botao_Enviar_Redefinir_Telefone"
         android:layout_width="224dp"
         android:layout_height="43dp"
         android:layout_marginTop="39dp"
         android:background="@color/Cor_botoes"
-        android:text="Enviar"
+        android:text="Alterar"
         android:textColor="@color/design_default_color_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEditarEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/inputEditarTelefone" />
 
     <Button
-        android:id="@+id/botao_voltar_redefinir_senha"
+        android:id="@+id/botao_voltar_redefinir_Telefone"
         android:layout_width="100dp"
         android:layout_height="28dp"
         android:layout_marginTop="10dp"
@@ -80,9 +79,8 @@
         android:text="Voltar"
         android:textColor="@color/design_default_color_background"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/botao_Enviar"
-        app:layout_constraintStart_toStartOf="@+id/botao_Enviar"
-        app:layout_constraintTop_toBottomOf="@+id/botao_Enviar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="@+id/botao_Enviar_Redefinir_Telefone"
+        app:layout_constraintStart_toStartOf="@+id/botao_Enviar_Redefinir_Telefone"
+        app:layout_constraintTop_toBottomOf="@+id/botao_Enviar_Redefinir_Telefone" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
