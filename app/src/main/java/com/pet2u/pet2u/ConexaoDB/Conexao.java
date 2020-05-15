@@ -1,4 +1,4 @@
-package com.pet2u.pet2u;
+package com.pet2u.pet2u.ConexaoDB;
 
 import androidx.annotation.NonNull;
 

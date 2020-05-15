@@ -1,11 +1,10 @@
-package com.pet2u.pet2u;
+package com.pet2u.pet2u.Usuario;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,9 +17,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.pet2u.pet2u.ConexaoDB.Conexao;
+import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Usuario;
 
-public class CadUsuario1Activity extends AppCompatActivity {
+public class CadUsuario1_Activity extends AppCompatActivity {
 
     private Button botao_cadastro, botao_voltar;
     private EditText campoNome, campoEmail, campoSenha, campoCPF, campoTelefone;
@@ -80,12 +81,12 @@ public class CadUsuario1Activity extends AppCompatActivity {
 
     private void criarUser(String email, String senha) {
         auth.createUserWithEmailAndPassword(email, senha)
-                .addOnCompleteListener(CadUsuario1Activity.this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(CadUsuario1_Activity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             alert("Usuário cadastrado com sucesso!");
-                            Intent i = new Intent(CadUsuario1Activity.this, PerfilUsuarioActivity.class);
+                            Intent i = new Intent(CadUsuario1_Activity.this, PerfilUsuario_Activity.class);
                             startActivity(i);
                             finish();
                         }else{
@@ -96,7 +97,7 @@ public class CadUsuario1Activity extends AppCompatActivity {
     }
 
     private void alert(String msg){
-        Toast.makeText(CadUsuario1Activity.this, msg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(CadUsuario1_Activity.this, msg, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -109,7 +110,7 @@ public class CadUsuario1Activity extends AppCompatActivity {
         botao_cadastro = findViewById(R.id.botaoCadastrarrUsuario);
         botao_voltar = findViewById(R.id.botaoVoltar);
 
-        FirebaseApp.initializeApp(CadUsuario1Activity.this);
+        FirebaseApp.initializeApp(CadUsuario1_Activity.this);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
 

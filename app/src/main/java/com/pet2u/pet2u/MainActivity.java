@@ -15,6 +15,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.pet2u.pet2u.ConexaoDB.Conexao;
+import com.pet2u.pet2u.Usuario.CadUsuario1_Activity;
+import com.pet2u.pet2u.Usuario.EsqueceuSenha_Activity;
+import com.pet2u.pet2u.Usuario.PerfilUsuario_Activity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         botao_criar_conta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), CadUsuario1Activity.class);
+                Intent i = new Intent(getApplicationContext(), CadUsuario1_Activity.class);
                 startActivity(i);
             }
         });
@@ -70,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void redefinirSenha(View view){
-        Intent intent = new Intent(this, EsqueceuSenhaActivity.class);
+        Intent intent = new Intent(this, EsqueceuSenha_Activity.class);
         startActivity(intent);
         campoEmail.setText("");
         campoSenha.setText("");
@@ -82,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Intent i = new Intent(MainActivity.this, PerfilUsuarioActivity.class);
+                            Intent i = new Intent(MainActivity.this, PerfilUsuario_Activity.class);
                             startActivity(i);
                             campoEmail.setText("");
                             campoSenha.setText("");

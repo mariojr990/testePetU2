@@ -1,4 +1,4 @@
-package com.pet2u.pet2u;
+package com.pet2u.pet2u.Petshop;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -14,6 +14,7 @@ import com.pet2u.pet2u.Fragment.OutrosFragment;
 import com.pet2u.pet2u.Fragment.PetsFragment;
 import com.pet2u.pet2u.Fragment.RacaoFragment;
 import com.pet2u.pet2u.Fragment.ServicosFragment;
+import com.pet2u.pet2u.R;
 
 public class PerfilPet extends AppCompatActivity {
 

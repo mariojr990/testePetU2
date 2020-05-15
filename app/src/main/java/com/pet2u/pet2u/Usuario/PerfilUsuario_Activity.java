@@ -1,27 +1,18 @@
-package com.pet2u.pet2u;
+package com.pet2u.pet2u.Usuario;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.pet2u.pet2u.modelo.Usuario;
+import com.pet2u.pet2u.ConexaoDB.Conexao;
+import com.pet2u.pet2u.R;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class PerfilUsuarioActivity extends AppCompatActivity {
+public class PerfilUsuario_Activity extends AppCompatActivity {
     private TextView nomeCompleto, telefone, email, senha;
     private Button botao_logout;
 

@@ -12,20 +12,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EsqueceuSenhaActivity"></activity>
+        <activity android:name=".Usuario.EsqueceuSenha_Activity"></activity>
         <activity
-            android:name=".PerfilPet"
+            android:name=".Petshop.PerfilPet"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".ListagemPetshopActivity" />
+        <activity android:name=".Petshop.ListagemPetshop_Activity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".CadUsuario2Activity" />
-        <activity android:name=".PerfilUsuarioActivity" />
-        <activity android:name=".CadPetActivity" />
-        <activity android:name=".CadPet2Activity" />
-        <activity android:name=".CadUsuario1Activity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".Usuario.CadUsuario2_Activity" />
+        <activity android:name=".Usuario.PerfilUsuario_Activity" />
+        <activity android:name=".Petshop.CadPet1_Activity" />
+        <activity android:name=".Petshop.CadPet2_Activity" />
+        <activity android:name=".Usuario.CadUsuario1_Activity" />
+        <activity android:name=".Splash_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.pet2u.pet2u;
+package com.pet2u.pet2u.Usuario;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,8 +12,10 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.pet2u.pet2u.ConexaoDB.Conexao;
+import com.pet2u.pet2u.R;
 
-public class EsqueceuSenhaActivity extends AppCompatActivity {
+public class EsqueceuSenha_Activity extends AppCompatActivity {
     private EditText campoEmail;
     private Button botao_enviar;
 
@@ -40,7 +42,7 @@ public class EsqueceuSenhaActivity extends AppCompatActivity {
 
     private void resetSenha(String email) {
         auth.sendPasswordResetEmail(email)
-                .addOnCompleteListener(EsqueceuSenhaActivity.this, new OnCompleteListener<Void>() {
+                .addOnCompleteListener(EsqueceuSenha_Activity.this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
@@ -54,7 +56,7 @@ public class EsqueceuSenhaActivity extends AppCompatActivity {
     }
 
     private void alert(String s) {
-        Toast.makeText(EsqueceuSenhaActivity.this, s, Toast.LENGTH_SHORT).show();
+        Toast.makeText(EsqueceuSenha_Activity.this, s, Toast.LENGTH_SHORT).show();
     }
 
 

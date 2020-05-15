@@ -11,7 +11,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EsqueceuSenhaActivity">
+    tools:context=".Usuario.EsqueceuSenha_Activity">
 
     <ImageView
         android:id="@+id/logoRedefinirSenha"
