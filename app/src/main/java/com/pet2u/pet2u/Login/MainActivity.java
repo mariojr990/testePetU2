@@ -213,14 +213,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        botao_criar_contapet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CadPet2_Activity.class);
-                startActivity(intent);
-            }
-        });
+//        botao_criar_contapet.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, CadPet2_Activity.class);
+//                startActivity(intent);
+//            }
+//        });
 
+    }
+
+    public void cadastrarPetshop(View view){
+        Intent intent = new Intent(this, CadPet2_Activity.class);
+        startActivity(intent);
     }
 
     public void redefinirSenha(View view){

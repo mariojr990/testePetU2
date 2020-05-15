@@ -26,8 +26,8 @@ import com.pet2u.pet2u.modelo.Petshop;
 
 public class CadPet2_Activity extends AppCompatActivity {
 
-    private EditText campoNome, campoRazaoSocial, campoCNPJ, campoTelefone, campoSenha, campoEmail, campoCEP
-                   , campoUF, campoCidade, campoBairro, campoEndereco, campoNumero, campoComplemento;
+    private EditText campoNome, campoRazaoSocial, campoCNPJ, campoTelefone, campoSenha, campoEmail, campoCEP;
+    private EditText campoCidade, campoBairro, campoEndereco, campoNumero, campoComplemento, campoUF;
     private Button botao_cadastroPet, botao_voltar;
     private FirebaseAuth auth;
     private Petshop petshop;
@@ -38,7 +38,6 @@ public class CadPet2_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_cad_pet2);
         getSupportActionBar().hide();
         inicializaComponentes();
-
         Clicks();
     }
 
@@ -132,7 +131,7 @@ public class CadPet2_Activity extends AppCompatActivity {
                                 excecao = "Erro ao cadastrar usuário: " + e.getMessage();
                                 e.printStackTrace();
                             }
-                            alert("Error!");
+                            alert(excecao);
                         }
                     }
                 });
@@ -160,7 +159,7 @@ public class CadPet2_Activity extends AppCompatActivity {
 
     private void inicializaComponentes(){
         campoNome = findViewById(R.id.inputNomePetshop);
-        campoRazaoSocial = findViewById(R.id.inputEmail_Petshop);
+        campoRazaoSocial = findViewById(R.id.inputRazaoSocialPetshop2);
         campoCNPJ = findViewById(R.id.inputCnpjPetshop);
         campoTelefone = findViewById(R.id.inputTelefonePetshop);
         campoSenha = findViewById(R.id.editText_senhaPet);
