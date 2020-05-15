@@ -1,4 +1,4 @@
-package com.pet2u.pet2u;
+package com.pet2u.pet2u.Login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,16 +15,22 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
+import com.pet2u.pet2u.ConexaoDB.Firebase;
+import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.Usuario.CadUsuario1_Activity;
 import com.pet2u.pet2u.Usuario.EsqueceuSenha_Activity;
 import com.pet2u.pet2u.Usuario.PerfilUsuario_Activity;
+import com.pet2u.pet2u.modelo.Usuario;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button botao_entrar, entrarcomfacebook, botao_criar_conta;
     private EditText campoEmail, campoSenha;
     private Switch tipoAcesso;
+    private Usuario usu;
 
     private FirebaseAuth auth, autenticacaopetshop;
 
@@ -59,8 +65,11 @@ public class MainActivity extends AppCompatActivity {
                 String senha = campoSenha.getText().toString();
 
                 if ( !email.isEmpty() && !senha.isEmpty()) {
+                    usu = new Usuario();
+                    usu.setCampoEmail(email);
+                    usu.setCampoSenha(senha);
 
-                    login(email, senha);
+                    login(usu.getCampoEmail(), usu.getCampoSenha());
 
                 }else
                 {
@@ -90,8 +99,20 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(i);
                             campoEmail.setText("");
                             campoSenha.setText("");
+                            finish();
                         }else{
-                            alert("E-mail ou senha errados");
+                            String excecao = "";
+                            try {
+                                throw task.getException();
+                            }catch (FirebaseAuthInvalidCredentialsException e){
+                                excecao = "E-mail ou senha não correspondem a um usuário cadastrado";
+                            }catch (FirebaseAuthInvalidUserException e){
+                                excecao = "Usuário não está cadastrado";
+                            }catch (Exception e){
+                                excecao = "Erro ao Logar: " + e.getMessage();
+                                e.printStackTrace();
+                            }
+                            alert(excecao);
                         }
                     }
                 });

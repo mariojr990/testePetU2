@@ -19,13 +19,13 @@
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
         <activity android:name=".Petshop.ListagemPetshop_Activity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".Login.MainActivity" />
         <activity android:name=".Usuario.CadUsuario2_Activity" />
         <activity android:name=".Usuario.PerfilUsuario_Activity" />
         <activity android:name=".Petshop.CadPet1_Activity" />
         <activity android:name=".Petshop.CadPet2_Activity" />
         <activity android:name=".Usuario.CadUsuario1_Activity" />
-        <activity android:name=".Splash_Activity">
+        <activity android:name=".Login.Splash_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

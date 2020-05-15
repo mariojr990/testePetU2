@@ -15,7 +15,7 @@
     android:layout_height="match_parent"
     android:gravity="center|center_horizontal"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Login.MainActivity">
 
     <ImageView
         android:id="@+id/LogoLogin"

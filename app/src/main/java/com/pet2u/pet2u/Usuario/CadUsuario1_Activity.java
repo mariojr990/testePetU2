@@ -15,9 +15,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthEmailException;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
+import com.pet2u.pet2u.ConexaoDB.Firebase;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Usuario;
 
@@ -55,28 +60,32 @@ public class CadUsuario1_Activity extends AppCompatActivity {
                 String senha = campoSenha.getText().toString().trim();
                 String cpf = campoCPF.getText().toString().trim();
                 String telefone = campoTelefone.getText().toString().trim();
-                criarUser(email, senha);
 
-                Usuario usu = new Usuario();
+                if ( nome.isEmpty() || email.isEmpty() || senha.isEmpty() || cpf.isEmpty() || telefone.isEmpty()){
+                    alert("Preencha todos os campos!");
+                }else{
+                    Usuario usu = new Usuario();
 
-                usu.setCampoNome(nome);
-                usu.setCampoEmail(email);
-                usu.setCampoSenha(senha);
-                usu.setCampoCPF(cpf);
-                usu.setCampoTelefone(telefone);
-                databaseReference.child("Usuario").child(usu.getCampoEmail()).setValue(usu);
-                limparCampos();
+                    usu.setCampoNome(nome);
+                    usu.setCampoEmail(email);
+                    usu.setCampoSenha(senha);
+                    usu.setCampoCPF(cpf);
+                    usu.setCampoTelefone(telefone);
+
+                    criarUser(usu.getCampoEmail(), usu.getCampoSenha());
+                    databaseReference.child("Usuario").child(usu.getCampoEmail()).setValue(usu);
+                    limparCampos();
+
+                }
+
 
             }
         });
     }
 
     private void limparCampos() {
-        campoEmail.setText("");
-        campoNome.setText("");
         campoSenha.setText("");
         campoCPF.setText(null);
-        campoTelefone.setText(null);
     }
 
     private void criarUser(String email, String senha) {
@@ -90,7 +99,20 @@ public class CadUsuario1_Activity extends AppCompatActivity {
                             startActivity(i);
                             finish();
                         }else{
-                            alert("Erro ao efetuar o cadastro");
+                            String excecao = "";
+                            try {
+                                throw task.getException();
+                            }catch (FirebaseAuthWeakPasswordException e){
+                                excecao = "Digite uma senha mais forte!";
+                            }catch (FirebaseAuthInvalidCredentialsException e){
+                                excecao = "Por favor, digite um e-mail válido";
+                            }catch (FirebaseAuthUserCollisionException e){
+                                excecao = "Esta conta já foi cadastrada";
+                            }catch (Exception e){
+                                excecao = "Erro ao cadastrar usuário: " + e.getMessage();
+                                e.printStackTrace();
+                            }
+                            alert(excecao);
                         }
                     }
                 });
