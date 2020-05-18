@@ -24,8 +24,6 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
     private TextView nomeCompleto, telefone, email, senha;
     private Button botao_logout, botao_alterarSenha, botao_alterarTelefone;
 
-    private String nomeRecuperado, teleRecuperado, emailRecuperado;
-
     private FirebaseAuth auth;
     private FirebaseUser user;
     private DatabaseReference databaseReference;
@@ -89,9 +87,6 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Usuario usuario = dataSnapshot.getValue(Usuario.class);
-                    nomeRecuperado = usuario.getNome();
-                    emailRecuperado = usuario.getEmail();
-                    teleRecuperado = usuario.getTelefone();
 
                     nomeCompleto.setText(usuario.getNome());
                     email.setText(usuario.getEmail());

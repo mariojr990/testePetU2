@@ -6,16 +6,25 @@ import com.google.firebase.database.Exclude;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 
 public class Usuario {
-    private String idUsuario, Nome, Email, Senha, CPF, Telefone, dataCadastro;
+    private String idUsuario, Nome, Email, Senha, CPF, Telefone, dataCadastro, tipoUsuario;
     private DatabaseReference databaseReference;
 
     public Usuario() {
     }
 
+
     public void salvar(){
 
         databaseReference = Conexao.getFirebaseDatabase();
         databaseReference.child("Usuario").child(this.idUsuario).setValue(this);
+    }
+
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 
     public String getDataCadastro() {

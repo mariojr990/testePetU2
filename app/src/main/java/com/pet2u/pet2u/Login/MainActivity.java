@@ -30,14 +30,22 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 
+import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.Petshop.Cad_do_Pet_Activity;
 import com.pet2u.pet2u.Petshop.PerfilPet;
+import com.pet2u.pet2u.Petshop.PerfilPet1Activity;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.Usuario.CadUsuario1_Activity;
 import com.pet2u.pet2u.Usuario.EsqueceuSenha_Activity;
 import com.pet2u.pet2u.Usuario.PerfilUsuario_Activity;
+import com.pet2u.pet2u.modelo.Petshop;
 import com.pet2u.pet2u.modelo.Usuario;
 
 
@@ -48,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private Switch tipoAcesso;
     private Usuario usu;
     private TextView textViewUser, loginpet, loginusu;
+    private String tipoUsuario;
 
 //    private LoginButton botao_entrarcomfacebook;
 //    private FirebaseAuth.AuthStateListener authStateListener;
@@ -56,13 +65,15 @@ public class MainActivity extends AppCompatActivity {
 //    private static final String TAG = "FacebookAuthentication";
 
 
-    private FirebaseAuth auth, autenticacaopetshop;
+    private FirebaseAuth auth;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //verificarUsuarioLogado();
         auth = Conexao.getFirebaseAuth();
+        databaseReference = Conexao.getFirebaseDatabase();
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         inicializaComponentes();
@@ -147,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //    } */
 
-
+        // Funcionalidade na qual lista se o switch está checked ou não (Usário ou petshop)
         tipoAcesso.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -187,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //    }
 
+    // Método onde se encontra todos os eventos de click nos botões
     private void eventoClicks() {
         botao_criar_contausu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,16 +209,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-        
         botao_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = campoEmail.getText().toString();
                 String senha = campoSenha.getText().toString();
-
+                verificarUsuario(email);
                 if ( !email.isEmpty() && !senha.isEmpty()) {
-                    login(email, senha);
+                    if(tipoUsuario.equals("P")){
+                        login_petshop(email, senha);
+                    }else{
+                        login_usuario(email, senha);
+
+                    }
                 }else
                 {
                     Toast.makeText(MainActivity.this,
@@ -216,6 +231,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         botao_criar_contapet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -223,6 +239,73 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+    }
+
+    private void verificarUsuario(String email){
+
+        String idUsuario = Criptografia.codificar(email);
+
+        DatabaseReference usuarioRef = databaseReference.child("Usuario").child(idUsuario);
+
+        usuarioRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Usuario usuario = dataSnapshot.getValue(Usuario.class);
+
+                  tipoUsuario = usuario.getTipoUsuario();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+//        else{
+//            DatabaseReference usuarioRef2 = databaseReference.child("Petshop").child(idUsuario);
+//            usuarioRef2.addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                    Petshop petshop = dataSnapshot.getValue(Petshop.class);
+//                    tipoUsuario = petshop.getTipoUsuario();
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                }
+//            });
+//        }
+
+    }
+
+    private void login_petshop(String email, String senha) {
+        auth.signInWithEmailAndPassword(email, senha)
+                .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Intent i = new Intent(MainActivity.this, PerfilPet1Activity.class);
+                            startActivity(i);
+                            finish();
+                        }else{
+                            String excecao = "";
+                            try {
+                                throw task.getException();
+                            }catch (FirebaseAuthInvalidCredentialsException e){
+                                excecao = "E-mail ou senha não correspondem a um usuário cadastrado";
+                            }catch (FirebaseAuthInvalidUserException e){
+                                excecao = "Usuário não está cadastrado";
+                            }catch (Exception e){
+                                excecao = "Erro ao Logar: " + e.getMessage();
+                                e.printStackTrace();
+                            }
+                            alert(excecao);
+                        }
+                    }
+                });
 
     }
 
@@ -238,7 +321,7 @@ public class MainActivity extends AppCompatActivity {
         campoSenha.setText("");
     }
 
-    private void login(String email, String senha) {
+    private void login_usuario(String email, String senha) {
         auth.signInWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -247,12 +330,7 @@ public class MainActivity extends AppCompatActivity {
                             Intent i = new Intent(MainActivity.this, PerfilUsuario_Activity.class);
                             startActivity(i);
                             finish();
-                         }else if(tipoAcesso.isChecked() && task.isSuccessful()){
-                            Intent i = new Intent(MainActivity.this, PerfilPet.class);
-                            startActivity(i);
-                            campoEmail.setText("");
-                            campoSenha.setText("");
-                        }else{
+                         }else{
                             String excecao = "";
                             try {
                                 throw task.getException();

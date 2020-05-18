@@ -93,6 +93,7 @@ public class CadUsuario1_Activity extends AppCompatActivity {
                             String idUsuario = Criptografia.codificar(usu.getEmail());
                             usu.setDataCadastro(DateCustom.dataAtual());
                             usu.setIdUsuario(idUsuario);
+                            usu.setTipoUsuario("U");
                             usu.salvar();
 
 
