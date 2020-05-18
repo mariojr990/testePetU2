@@ -156,7 +156,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button"
+        app:layout_constraintTop_toBottomOf="@+id/EsqueceuSuaSenha"
         app:layout_constraintVertical_bias="1.0"
         tools:visibility="visible" />
 
@@ -174,7 +174,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button"
+        app:layout_constraintTop_toBottomOf="@+id/EsqueceuSuaSenha"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
@@ -187,6 +187,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EsqueceuSuaSenha" />
 
+    <!--
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="200dp"
@@ -199,6 +200,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtImagem" />
+    -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

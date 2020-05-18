@@ -15,13 +15,17 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
+//       Imports FACEBOOK
+//import com.facebook.AccessToken;
+//import com.facebook.AccessTokenTracker;
+//import com.facebook.CallbackManager;
+//import com.facebook.FacebookCallback;
+//import com.facebook.FacebookException;
+//import com.facebook.login.LoginResult;
+//import com.facebook.login.widget.LoginButton;
+//import com.facebook.FacebookSdk;
+
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -42,20 +46,20 @@ import com.pet2u.pet2u.Usuario.EsqueceuSenha_Activity;
 import com.pet2u.pet2u.Usuario.PerfilUsuario_Activity;
 import com.pet2u.pet2u.modelo.Usuario;
 
-import com.facebook.FacebookSdk;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button botao_entrar, botao_criar_contausu, botao_criar_contapet;
-    private LoginButton botao_entrarcomfacebook;
+//    private LoginButton botao_entrarcomfacebook;
     private EditText campoEmail, campoSenha;
     private Switch tipoAcesso;
-    private FirebaseAuth.AuthStateListener authStateListener;
     private Usuario usu;
-    private CallbackManager mCallbackManager;
     private TextView textViewUser, loginpet, loginusu;
-    private AccessTokenTracker accessTokenTracker;
-    private static final String TAG = "FacebookAuthentication";
+
+//    private FirebaseAuth.AuthStateListener authStateListener;
+//    private CallbackManager mCallbackManager;
+//    private AccessTokenTracker accessTokenTracker;
+//    private static final String TAG = "FacebookAuthentication";
 
 
     private FirebaseAuth auth, autenticacaopetshop;
@@ -69,48 +73,85 @@ public class MainActivity extends AppCompatActivity {
         inicializaComponentes();
         eventoClicks();
 
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        botao_entrarcomfacebook = findViewById(R.id.login_button);
-        botao_entrarcomfacebook.setReadPermissions("email", "public_profile");
-        mCallbackManager = CallbackManager.Factory.create();
-        botao_entrarcomfacebook.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                Log.d(TAG, "onSucess" + loginResult);
-                handleFacebookToken(loginResult.getAccessToken());
-            }
 
-            @Override
-            public void onCancel() {
-                Log.d(TAG, "onCancel");
-            }
+//         ------------ TUDO DA FUNCIONALIDADE DO FACEBOOK ------------
 
-            @Override
-            public void onError(FacebookException error) {
-                Log.d(TAG, "onError" + error);
-            }
-        });
+//        FacebookSdk.sdkInitialize(getApplicationContext());
+//        botao_entrarcomfacebook = findViewById(R.id.login_button);
+//        botao_entrarcomfacebook.setReadPermissions("email", "public_profile");
+//        mCallbackManager = CallbackManager.Factory.create();
+//        botao_entrarcomfacebook.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//                Log.d(TAG, "onSucess" + loginResult);
+//                handleFacebookToken(loginResult.getAccessToken());
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//                Log.d(TAG, "onCancel");
+//            }
+//
+//            @Override
+//            public void onError(FacebookException error) {
+//                Log.d(TAG, "onError" + error);
+//            }
+//        });
 
-        authStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if(user != null){
-                    updateUI(user);
-                }else{
-                    updateUI(null);
-                }
-            }
-        };
+//        authStateListener = new FirebaseAuth.AuthStateListener() {
+//            @Override
+//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+//                FirebaseUser user = firebaseAuth.getCurrentUser();
+//                if(user != null){
+//                    updateUI(user);
+//                }else{
+//                    updateUI(null);
+//                }
+//            }
+//        };
+//
+//        accessTokenTracker = new AccessTokenTracker() {
+//            @Override
+//            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+//                if(currentAccessToken == null){
+//                    auth.signOut();
+//                }
+//            }
+//        };
 
-        accessTokenTracker = new AccessTokenTracker() {
-            @Override
-            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-                if(currentAccessToken == null){
-                    auth.signOut();
-                }
-            }
-        };
+        //    private void handleFacebookToken(AccessToken accessToken) {
+//        Log.d(TAG, "handleFacebookToken" + accessToken);
+//        AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
+//        auth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//                if(task.isSuccessful()){
+//                    Log.d(TAG, "Login com credenciais bem sucedido");
+//                    FirebaseUser user = auth.getCurrentUser();
+//                    updateUI(user);
+//                }else{
+//                    Log.d(TAG, "Login com credenciais falhou", task.getException());
+//                    alert("Autenticação falhou");
+//                    updateUI(null);
+//                }
+//            }
+//        });
+//    }
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        mCallbackManager.onActivityResult(requestCode, resultCode, data);
+//        super.onActivityResult(requestCode, resultCode, data);
+//    }
+//
+//    private void updateUI(FirebaseUser user) {
+//        if(user != null){
+//            textViewUser.setText(user.getDisplayName());
+//        }else{
+//            textViewUser.setText("");
+//        }
+//    }
+
 
         tipoAcesso.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -118,13 +159,13 @@ public class MainActivity extends AppCompatActivity {
                 if(isChecked){
                     botao_criar_contapet.setVisibility(View.VISIBLE);
                     botao_criar_contausu.setVisibility(View.INVISIBLE);
-                    botao_entrarcomfacebook.setVisibility(View.INVISIBLE);
+                    //botao_entrarcomfacebook.setVisibility(View.INVISIBLE);
                     loginusu.setVisibility(View.INVISIBLE);
                     loginpet.setVisibility(View.VISIBLE);
                 }else {
                     botao_criar_contapet.setVisibility(View.INVISIBLE);
                     botao_criar_contausu.setVisibility(View.VISIBLE);
-                    botao_entrarcomfacebook.setVisibility(View.VISIBLE);
+                    //botao_entrarcomfacebook.setVisibility(View.VISIBLE);
                     loginpet.setVisibility(View.INVISIBLE);
                     loginusu.setVisibility(View.VISIBLE);
                 }
@@ -134,55 +175,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void handleFacebookToken(AccessToken accessToken) {
-        Log.d(TAG, "handleFacebookToken" + accessToken);
-        AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
-        auth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    Log.d(TAG, "Login com credenciais bem sucedido");
-                    FirebaseUser user = auth.getCurrentUser();
-                    updateUI(user);
-                }else{
-                    Log.d(TAG, "Login com credenciais falhou", task.getException());
-                    alert("Autenticação falhou");
-                    updateUI(null);
-                }
-            }
-        });
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        mCallbackManager.onActivityResult(requestCode, resultCode, data);
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    private void updateUI(FirebaseUser user) {
-        if(user != null){
-            textViewUser.setText(user.getDisplayName());
-        }else{
-            textViewUser.setText("");
-        }
-    }
 
 
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        auth.addAuthStateListener(authStateListener);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-        if(authStateListener != null){
-            auth.removeAuthStateListener(authStateListener);
-        }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        auth.addAuthStateListener(authStateListener);
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//
+//        if(authStateListener != null){
+//            auth.removeAuthStateListener(authStateListener);
+//        }
+//    }
 
     private void eventoClicks() {
         botao_criar_contausu.setOnClickListener(new View.OnClickListener() {
