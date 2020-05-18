@@ -44,12 +44,12 @@ import com.pet2u.pet2u.modelo.Usuario;
 public class MainActivity extends AppCompatActivity {
 
     private Button botao_entrar, botao_criar_contausu, botao_criar_contapet;
-//    private LoginButton botao_entrarcomfacebook;
     private EditText campoEmail, campoSenha;
     private Switch tipoAcesso;
     private Usuario usu;
     private TextView textViewUser, loginpet, loginusu;
 
+//    private LoginButton botao_entrarcomfacebook;
 //    private FirebaseAuth.AuthStateListener authStateListener;
 //    private CallbackManager mCallbackManager;
 //    private AccessTokenTracker accessTokenTracker;
@@ -61,14 +61,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        verificarUsuarioLogado();
+        //verificarUsuarioLogado();
+        auth = Conexao.getFirebaseAuth();
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         inicializaComponentes();
         eventoClicks();
 
-
-//         ------------ TUDO DA FUNCIONALIDADE DO FACEBOOK ------------
+ /*       ------------ TUDO DA FUNCIONALIDADE DO FACEBOOK ------------
+//
 
 //        FacebookSdk.sdkInitialize(getApplicationContext());
 //        botao_entrarcomfacebook = findViewById(R.id.login_button);
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
 //        }else{
 //            textViewUser.setText("");
 //        }
-//    }
+//    } */
 
 
         tipoAcesso.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -274,7 +275,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void verificarUsuarioLogado(){
-        auth = Conexao.getFirebaseAuth();
         if(auth.getCurrentUser() != null){
             Intent i = new Intent(MainActivity.this, PerfilUsuario_Activity.class);
             startActivity(i);
