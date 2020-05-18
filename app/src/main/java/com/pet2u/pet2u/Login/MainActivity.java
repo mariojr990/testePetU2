@@ -1,11 +1,9 @@
 package com.pet2u.pet2u.Login;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.os.Bundle;
@@ -28,17 +26,13 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-import com.google.firebase.auth.FirebaseUser;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 
-import com.pet2u.pet2u.Petshop.CadPet1_Activity;
-import com.pet2u.pet2u.Petshop.CadPet2_Activity;
+import com.pet2u.pet2u.Petshop.Cad_do_Pet_Activity;
 import com.pet2u.pet2u.Petshop.PerfilPet;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.Usuario.CadUsuario1_Activity;
@@ -224,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
         botao_criar_contapet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CadPet2_Activity.class);
+                Intent intent = new Intent(MainActivity.this, Cad_do_Pet_Activity.class);
                 startActivity(intent);
             }
         });
@@ -232,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void cadastrarPetshop(View view){
-        Intent intent = new Intent(this, CadPet2_Activity.class);
+        Intent intent = new Intent(this, Cad_do_Pet_Activity.class);
         startActivity(intent);
     }
 

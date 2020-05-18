@@ -11,7 +11,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Petshop.CadPet2_Activity">
+    tools:context=".Petshop.Cad_do_Pet_Activity">
 
     <EditText
         android:id="@+id/inputRazaoSocialPetshop2"

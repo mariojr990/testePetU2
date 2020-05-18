@@ -3,7 +3,6 @@ package com.pet2u.pet2u.Petshop;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,12 +19,11 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.Helper.DateCustom;
-import com.pet2u.pet2u.Login.MainActivity;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Petshop;
 
 
-public class CadPet2_Activity extends AppCompatActivity {
+public class Cad_do_Pet_Activity extends AppCompatActivity {
 
     private EditText campoNome, campoRazaoSocial, campoCNPJ, campoTelefone, campoSenha, campoEmail, campoCEP;
     private EditText campoCidade, campoBairro, campoEndereco, campoNumero, campoComplemento, campoUF;
@@ -36,7 +34,7 @@ public class CadPet2_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cad_pet2);
+        setContentView(R.layout.activity_cad_do_pet);
         getSupportActionBar().hide();
         inicializaComponentes();
         Clicks();
@@ -101,7 +99,7 @@ public class CadPet2_Activity extends AppCompatActivity {
 
     private void criarPet(String email, String senha) {
         auth.createUserWithEmailAndPassword(email, senha)
-                .addOnCompleteListener(CadPet2_Activity.this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(Cad_do_Pet_Activity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
@@ -137,7 +135,7 @@ public class CadPet2_Activity extends AppCompatActivity {
     }
 
     private void alert(String msg){
-        Toast.makeText(CadPet2_Activity.this, msg,Toast.LENGTH_SHORT).show();
+        Toast.makeText(Cad_do_Pet_Activity.this, msg,Toast.LENGTH_SHORT).show();
     }
     private void limparCampos(){
         campoNome.setText("");

@@ -25,8 +25,8 @@
         <activity android:name=".Login.MainActivity" />
         <activity android:name=".Usuario.CadUsuario2_Activity" />
         <activity android:name=".Usuario.PerfilUsuario_Activity" />
-        <activity android:name=".Petshop.CadPet1_Activity" />
-        <activity android:name=".Petshop.CadPet2_Activity" />
+        <activity android:name=".Petshop.Cad_Dono_Pet_Activity" />
+        <activity android:name=".Petshop.Cad_do_Pet_Activity" />
         <activity android:name=".Usuario.CadUsuario1_Activity" />
         <activity android:name=".Login.Splash_Activity">
             <intent-filter>
