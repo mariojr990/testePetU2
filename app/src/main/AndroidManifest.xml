@@ -22,6 +22,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
         <activity android:name=".Petshop.ListagemPetshop_Activity" />
+        <activity android:name=".Petshop.PerfilPet1Activity" />
         <activity android:name=".Login.MainActivity" />
         <activity android:name=".Usuario.CadUsuario2_Activity" />
         <activity android:name=".Usuario.PerfilUsuario_Activity" />

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.os.Bundle;
@@ -56,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
     private Switch tipoAcesso;
     private Usuario usu;
     private TextView textViewUser, loginpet, loginusu;
-    private String tipoUsuario;
 
 //    private LoginButton botao_entrarcomfacebook;
 //    private FirebaseAuth.AuthStateListener authStateListener;
@@ -212,22 +212,7 @@ public class MainActivity extends AppCompatActivity {
         botao_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = campoEmail.getText().toString();
-                String senha = campoSenha.getText().toString();
-                verificarUsuario(email);
-                if ( !email.isEmpty() && !senha.isEmpty()) {
-                    if(tipoUsuario.equals("P")){
-                        login_petshop(email, senha);
-                    }else{
-                        login_usuario(email, senha);
-
-                    }
-                }else
-                {
-                    Toast.makeText(MainActivity.this,
-                            "Preencha os campos!",
-                            Toast.LENGTH_SHORT).show();
-                }
+                verificarUsuario();
             }
         });
 
@@ -242,12 +227,64 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void verificarUsuario(String email){
+    private void verificarUsuario(){
 
+        String email = campoEmail.getText().toString();
+        String senha = campoSenha.getText().toString();
         String idUsuario = Criptografia.codificar(email);
 
-        DatabaseReference usuarioRef = databaseReference.child("Usuario").child(idUsuario);
+        if (email.isEmpty() && senha.isEmpty()) {
+            Toast.makeText(MainActivity.this, "Preencha os campos!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        if (!tipoAcesso.isChecked()) {
+            DatabaseReference usuarioRef = databaseReference.child("Usuario").child(idUsuario);
+            ValueEventListener eventListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    if (dataSnapshot.exists()) {
+                        login_usuario(campoEmail.getText().toString(), campoSenha.getText().toString());
+                    }
+                    else {
+                        alert("Cadastro Não Existente");
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError dbError) {
+                    Log.d("Cancelou", dbError.getMessage()); //Don't ignore errors!
+                }
+            };
+            usuarioRef.addListenerForSingleValueEvent(eventListener);
+        }
+
+        else if (tipoAcesso.isChecked()) {
+            DatabaseReference usuarioRef = databaseReference.child("Petshop").child(idUsuario);
+            ValueEventListener eventListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    if (dataSnapshot.exists()) {
+                        login_petshop(campoEmail.getText().toString(), campoSenha.getText().toString());
+                    }
+                    else {
+                        alert("Cadastro Não Existente");
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError dbError) {
+                    Log.d("Cancelou", dbError.getMessage()); //Don't ignore errors!
+                }
+            };
+            usuarioRef.addListenerForSingleValueEvent(eventListener);
+        }
+    };
+
+
+        /*
         usuarioRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -262,6 +299,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        */
 
 //        else{
 //            DatabaseReference usuarioRef2 = databaseReference.child("Petshop").child(idUsuario);
@@ -279,7 +317,6 @@ public class MainActivity extends AppCompatActivity {
 //            });
 //        }
 
-    }
 
     private void login_petshop(String email, String senha) {
         auth.signInWithEmailAndPassword(email, senha)
@@ -289,7 +326,6 @@ public class MainActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Intent i = new Intent(MainActivity.this, PerfilPet1Activity.class);
                             startActivity(i);
-                            finish();
                         }else{
                             String excecao = "";
                             try {
@@ -329,7 +365,6 @@ public class MainActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Intent i = new Intent(MainActivity.this, PerfilUsuario_Activity.class);
                             startActivity(i);
-                            finish();
                          }else{
                             String excecao = "";
                             try {
