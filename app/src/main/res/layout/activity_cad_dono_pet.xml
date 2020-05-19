@@ -11,7 +11,7 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".Petshop.Cad_Dono_Pet_Activity">
 
     <ImageView
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-thin"
-        android:text="Cadastro Petshop"
+        android:text="@string/Title_cadastro_petshop"
         android:textSize="46sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
         android:id="@+id/txtCadPet03"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Informações do dono do Petshop"
+        android:text="@string/subtitle_cadDonoPet"
         android:textSize="12sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +54,7 @@
         android:layout_height="42dp"
         android:layout_marginTop="29dp"
         android:ems="10"
-        android:hint="@string/Nome_cadastro"
+        android:hint="@string/Input_nome"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,13 +66,13 @@
         android:layout_width="315dp"
         android:layout_height="42dp"
         android:layout_marginTop="14dp"
+        android:autofillHints=""
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/input_email"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputNomeDonoPet"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/inputNomeDonoPet" />
 
     <EditText
         android:id="@+id/inputCPFDonoPet"
@@ -81,7 +81,7 @@
         android:layout_marginTop="14dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="CPF"
+        android:hint="@string/input_cpf"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="@+id/inputEmailDonoPet"
         app:layout_constraintTop_toBottomOf="@+id/inputEmailDonoPet" />
@@ -93,7 +93,7 @@
         android:layout_marginTop="14dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="Telefone"
+        android:hint="@string/input_telefone"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="@+id/inputEmailDonoPet"
         app:layout_constraintTop_toBottomOf="@+id/inputEmailDonoPet" />
@@ -103,13 +103,13 @@
         android:layout_width="315dp"
         android:layout_height="42dp"
         android:layout_marginTop="14dp"
+        android:autofillHints=""
         android:ems="10"
-        android:hint="Senha"
+        android:hint="@string/input_senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputCPFDonoPet"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/inputCPFDonoPet" />
 
     <EditText
         android:id="@+id/inputConfirmarSenhaDonoPet"
@@ -117,7 +117,7 @@
         android:layout_height="42dp"
         android:layout_marginTop="14dp"
         android:ems="10"
-        android:hint="Confirmar Senha"
+        android:hint="@string/input_confirmar_senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

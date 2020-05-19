@@ -205,6 +205,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), CadUsuario1_Activity.class);
                 startActivity(i);
+                limparCampos();
             }
         });
 
@@ -222,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Cad_do_Pet_Activity.class);
                 startActivity(intent);
+                limparCampos();
             }
         });
 
@@ -326,6 +328,7 @@ public class MainActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Intent i = new Intent(MainActivity.this, PerfilPet1Activity.class);
                             startActivity(i);
+                            limparCampos();
                         }else{
                             String excecao = "";
                             try {
@@ -345,16 +348,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void cadastrarPetshop(View view){
-        Intent intent = new Intent(this, Cad_do_Pet_Activity.class);
-        startActivity(intent);
-    }
-
-    public void redefinirSenha(View view){
+     public void redefinirSenha(View view){
         Intent intent = new Intent(this, EsqueceuSenha_Activity.class);
         startActivity(intent);
-        campoEmail.setText("");
-        campoSenha.setText("");
+        limparCampos();
     }
 
     private void login_usuario(String email, String senha) {
@@ -365,6 +362,7 @@ public class MainActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Intent i = new Intent(MainActivity.this, PerfilUsuario_Activity.class);
                             startActivity(i);
+                            limparCampos();
                          }else{
                             String excecao = "";
                             try {
@@ -394,6 +392,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void limparCampos(){
+        campoEmail.setText("");
+        campoSenha.setText("");
+    }
     private void inicializaComponentes(){
         botao_entrar = findViewById(R.id.EntrarLogin);
         campoEmail = findViewById(R.id.EmailLoginUsuario);

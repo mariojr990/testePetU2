@@ -26,7 +26,7 @@ public class EditarTelefone_aActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editar_telefone_a);
+        setContentView(R.layout.activity_editar_telefone);
         getSupportActionBar().hide();
         inicializaComponentes();
         eventoClick();

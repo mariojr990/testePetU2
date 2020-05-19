@@ -10,7 +10,7 @@
 
         android:id="@+id/Descricao"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#FFFFFF"
         tools:context=".Petshop.PerfilPet1Activity">
 
@@ -18,6 +18,7 @@
             android:id="@+id/logoPerfilusuario2"
             android:layout_width="0dp"
             android:layout_height="327dp"
+            android:contentDescription="@string/logo_pet2u"
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -30,6 +31,7 @@
             android:layout_width="145dp"
             android:layout_height="106dp"
             android:layout_marginTop="144dp"
+            android:contentDescription="@string/descricao_avatar_do_usuario"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/logoPerfilusuario2"
@@ -40,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Nome Petshop"
+            android:text="@string/nome_petshop_perfil"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +60,7 @@
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
             android:background="#FFFFFF"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque efficitur ante lectus, eget sodales erat lobortis venenatis. Fusce ipsum quam, bibendum id vulputate vitae, molestie sit amet justo. Nullam convallis, elit at luctus iaculis, mauris odio laoreet dolor, tincidunt cursus lacus mi sed ligula. Fusce dictum risus suscipit varius varius. Donec auctor porta tincidunt. Morbi turpis lorem, malesuada vel lectus at, lobortis mattis purus. Fusce ut augue ac tortor semper sagittis sit amet a dui."
+            android:text="@string/Descricao_petshop"
             android:textColor="#050505"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -74,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Descrição Petshop"
+            android:text="@string/Title_descricao_petshop"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/textView5"
             app:layout_constraintEnd_toEndOf="parent"
@@ -102,7 +104,7 @@
                 android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Novo Serviço"
+                android:text="@string/botao_novo_servico"
                 android:textSize="18sp" />
 
             <Switch
@@ -114,7 +116,7 @@
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Novo Produto"
+                android:text="@string/txt_novo_produto"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -123,7 +125,7 @@
             android:layout_width="186dp"
             android:layout_height="43dp"
             android:background="@color/Cor_botoes"
-            android:text="Cadastrar Novo Produto"
+            android:text="@string/botao_cadastrar_novo_produto"
             android:textColor="#FFFFFF"
             android:visibility="gone"
             tools:visibility="visible"
@@ -139,7 +141,7 @@
             android:layout_width="186dp"
             android:layout_height="43dp"
             android:background="@color/Cor_botoes"
-            android:text="Cadastrar Novo Servico"
+            android:text="@string/botao_cadastrar_novo_servico"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -156,7 +158,7 @@
             android:layout_marginRight="24dp"
             android:layout_marginBottom="24dp"
             android:background="@color/Cor_botoes_vermelhos"
-            android:text="Logout"
+            android:text="@string/botao_logout"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
