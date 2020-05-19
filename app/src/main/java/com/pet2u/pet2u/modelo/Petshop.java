@@ -5,7 +5,7 @@ import com.google.firebase.database.Exclude;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 
 public class Petshop {
-    private String idPetshop, nome, razao_social, cnpj, telefone, cep, uf, bairro, cidade, endereco, numero, complemento, senha, email, dataCadastro, tipoUsuario;
+    private String idPetshop, nome, razao_social, cnpj, telefone, cep, uf, bairro, cidade, endereco, numero, complemento, senha, email, dataCadastro, tipoUsuario, descricaoPetshop;
     private DatabaseReference databaseReference;
 
     public Petshop() {
@@ -15,6 +15,14 @@ public class Petshop {
 
         databaseReference = Conexao.getFirebaseDatabase();
         databaseReference.child("Petshop").child(this.idPetshop).setValue(this);
+    }
+
+    public String getDescricaoPetshop() {
+        return descricaoPetshop;
+    }
+
+    public void setDescricaoPetshop(String descricaoPetshop) {
+        this.descricaoPetshop = descricaoPetshop;
     }
     public String getTipoUsuario() {
         return tipoUsuario;

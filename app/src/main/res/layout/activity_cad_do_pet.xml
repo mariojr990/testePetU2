@@ -220,13 +220,13 @@
         android:id="@+id/botaoCadastrarPetshop"
         android:layout_width="244dp"
         android:layout_height="47dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="24dp"
         android:background="@color/Cor_botoes"
         android:text="@string/botao_cadastrar"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/editText_senhaPet"
-        app:layout_constraintStart_toStartOf="@+id/editText_senhaPet"
-        app:layout_constraintTop_toBottomOf="@+id/editText_senhaPet" />
+        app:layout_constraintEnd_toEndOf="@+id/descreva_petshop"
+        app:layout_constraintStart_toStartOf="@+id/descreva_petshop"
+        app:layout_constraintTop_toBottomOf="@+id/descreva_petshop" />
 
     <Button
         android:id="@+id/botaoVoltar2"
@@ -256,6 +256,31 @@
         app:layout_constraintStart_toStartOf="@+id/inputComplementoPetshop"
         app:layout_constraintTop_toBottomOf="@+id/inputComplementoPetshop"
         android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/descreva_petshop"
+        android:layout_width="315dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="3dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/descreva_seu_petshop"
+        android:inputType="textMultiLine"
+        android:maxLength="300"
+        app:layout_constraintEnd_toEndOf="@+id/editText_senhaPet"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/editText_senhaPet"
+        app:layout_constraintTop_toBottomOf="@+id/descricao_petshop"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/descricao_petshop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/descricao_petshop_cadastro"
+        app:layout_constraintStart_toStartOf="@+id/editText_senhaPet"
+        app:layout_constraintTop_toBottomOf="@+id/editText_senhaPet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
