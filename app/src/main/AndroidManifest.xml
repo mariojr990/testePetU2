@@ -21,7 +21,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".Petshop.ListagemPetshop_Activity" />
+        <activity android:name=".Login.Splash_Activity" />
         <activity android:name=".Petshop.PerfilPet1Activity" />
         <activity android:name=".Login.MainActivity" />
         <activity android:name=".Usuario.CadUsuario2_Activity" />
@@ -29,7 +29,7 @@
         <activity android:name=".Petshop.Cad_Dono_Pet_Activity" />
         <activity android:name=".Petshop.Cad_do_Pet_Activity" />
         <activity android:name=".Usuario.CadUsuario1_Activity" />
-        <activity android:name=".Login.Splash_Activity">
+        <activity android:name=".Petshop.ListagemPetshop_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

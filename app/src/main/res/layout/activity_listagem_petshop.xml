@@ -2,126 +2,55 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayoutCompat"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Petshop.ListagemPetshop_Activity">
 
+
     <ImageView
         android:id="@+id/logoPet2uListagemPet"
-        android:layout_width="0dp"
-        android:layout_height="181dp"
+        android:layout_width="423dp"
+        android:layout_height="173dp"
+        android:layout_marginBottom="1dp"
         android:contentDescription="@string/logo_pet2u"
         android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/searchView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pet2ulogo" />
 
     <SearchView
-        android:id="@+id/searchViewPetshopList"
-        android:layout_width="411dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="32dp"
-        android:background="@color/corPequisarListagemPetshop"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:id="@+id/searchView2"
+        android:layout_width="426dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#DFDFDF"
+        app:layout_constraintBottom_toTopOf="@+id/listasPetshop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.411"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoPet2uListagemPet">
+        app:layout_constraintTop_toBottomOf="@+id/logoPet2uListagemPet"></SearchView>
 
-    </SearchView>
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="0dp"
-        android:layout_height="57dp"
-        android:paddingLeft="5dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum."
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="250dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
-        android:paddingLeft="5dp"
-        android:text="PetshopName"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listasPetshop"
+        android:layout_width="411dp"
+        android:layout_height="505dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="3dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchViewPetshopList" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView2" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="83dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="52dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/pet2ulogoapp" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="250dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="32dp"
-        android:paddingLeft="5dp"
-        android:text="PetshopName"
-        app:layout_constraintEnd_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="250dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="36dp"
-        android:paddingLeft="5dp"
-        android:text="PetshopName"
-        app:layout_constraintEnd_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="83dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/searchViewPetshopList"
-        app:srcCompat="@drawable/pet2ulogoapp" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="83dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="52dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/pet2ulogoapp" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="250dp"
-        android:layout_height="57dp"
-        android:paddingLeft="5dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum."
-        app:layout_constraintEnd_toEndOf="@+id/textView11"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="250dp"
-        android:layout_height="57dp"
-        android:paddingLeft="5dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum."
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
