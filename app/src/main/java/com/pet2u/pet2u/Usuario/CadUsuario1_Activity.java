@@ -51,7 +51,7 @@ public class CadUsuario1_Activity extends AppCompatActivity {
         botao_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = campoEmail.getText().toString().trim();
+                String email = campoEmail.getText().toString().trim().toLowerCase();
                 String nome = campoNome.getText().toString().trim();
                 String senha = campoSenha.getText().toString().trim();
                 String cpf = campoCPF.getText().toString().trim();

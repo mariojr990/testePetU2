@@ -231,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void verificarUsuario(){
 
-        String email = campoEmail.getText().toString();
+        String email = campoEmail.getText().toString().toLowerCase();
         String senha = campoSenha.getText().toString();
         String idUsuario = Criptografia.codificar(email);
 
@@ -247,7 +247,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
                     if (dataSnapshot.exists()) {
-                        login_usuario(campoEmail.getText().toString(), campoSenha.getText().toString());
+                        login_usuario(campoEmail.getText().toString().toLowerCase(), campoSenha.getText().toString());
                     }
                     else {
                         alert("Cadastro Não Existente");
@@ -269,7 +269,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
                     if (dataSnapshot.exists()) {
-                        login_petshop(campoEmail.getText().toString(), campoSenha.getText().toString());
+                        login_petshop(campoEmail.getText().toString().toLowerCase(), campoSenha.getText().toString());
                     }
                     else {
                         alert("Cadastro Não Existente");
@@ -321,7 +321,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void login_petshop(String email, String senha) {
-        auth.signInWithEmailAndPassword(email, senha)
+        auth.signInWithEmailAndPassword(email.toLowerCase(), senha)
                 .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -355,7 +355,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void login_usuario(String email, String senha) {
-        auth.signInWithEmailAndPassword(email, senha)
+        auth.signInWithEmailAndPassword(email.toLowerCase(), senha)
                 .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {

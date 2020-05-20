@@ -60,7 +60,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                 String cnpj = campoCNPJ.getText().toString().trim();
                 String telefone = campoTelefone.getText().toString().trim();
                 String senha = campoSenha.getText().toString().trim();
-                String email = campoEmail.getText().toString().trim();
+                String email = campoEmail.getText().toString().trim().toLowerCase();
                 String cep = campoCEP.getText().toString().trim();
                 String uf = campoUF.getText().toString().trim();
                 String cidade = campoCidade.getText().toString().trim();
@@ -93,7 +93,6 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                     petshop.setTipoUsuario("P");
 
                     criarPet(petshop.getEmail(), petshop.getSenha());
-                    limparCampos();
 
                 }
             }
@@ -113,7 +112,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                             petshop.setDataCadastro(DateCustom.dataAtual());
                             petshop.setidPetshop(idPetshop);
                             petshop.salvar();
-
+                            limparCampos();
                             alert("Petshop cadastrado com sucesso!");
 
                             startActivity(new Intent(getApplicationContext(), PerfilPet1Activity.class));
@@ -151,6 +150,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
         campoUF.setText("");
         campoCidade.setText("");
         campoBairro.setText("");
+        campoComplemento.setText("");
         campoEndereco.setText("");
         campoCEP.setText(null);
         campoNumero.setText(null);
