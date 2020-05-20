@@ -10,7 +10,7 @@
 
         android:id="@+id/Descricao"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#FFFFFF"
         tools:context=".Petshop.PerfilPet1Activity">
 
@@ -18,6 +18,7 @@
             android:id="@+id/logoPerfilusuario2"
             android:layout_width="0dp"
             android:layout_height="327dp"
+            android:contentDescription="@string/logo_pet2u"
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -29,18 +30,18 @@
             android:id="@+id/avatarPerfilUsuario2"
             android:layout_width="145dp"
             android:layout_height="106dp"
-            android:layout_marginTop="144dp"
+            android:layout_marginTop="165dp"
+            android:contentDescription="@string/descricao_avatar_do_usuario"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/logoPerfilusuario2"
             app:srcCompat="@drawable/pet2uiconeavatar" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/nome_petshop_perfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Nome Petshop"
+            android:text="@string/nome_petshop_perfil"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,35 +49,53 @@
             app:layout_constraintTop_toBottomOf="@+id/avatarPerfilUsuario2" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/email_petshop_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="@string/input_email"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/avatarPerfilUsuario2" />
+
+        <TextView
+            android:id="@+id/descricao_petshop_perfil"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
             android:background="#FFFFFF"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque efficitur ante lectus, eget sodales erat lobortis venenatis. Fusce ipsum quam, bibendum id vulputate vitae, molestie sit amet justo. Nullam convallis, elit at luctus iaculis, mauris odio laoreet dolor, tincidunt cursus lacus mi sed ligula. Fusce dictum risus suscipit varius varius. Donec auctor porta tincidunt. Morbi turpis lorem, malesuada vel lectus at, lobortis mattis purus. Fusce ut augue ac tortor semper sagittis sit amet a dui."
-            android:textColor="#050505"
+            android:justificationMode="inter_word"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/Descricao_petshop"
+            android:textColor="@android:color/secondary_text_light"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/logoPerfilusuario2"
-            app:layout_constraintVertical_bias="0.178" />
+            app:layout_constraintVertical_bias="0.178"
+            tools:targetApi="o" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/Descricao_pet_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="Descrição Petshop"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView5"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="3dp"
+            android:text="@string/Title_descricao_petshop"
+            android:textColor="@android:color/secondary_text_light"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@+id/descricao_petshop_perfil"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -96,13 +115,13 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5">
+            app:layout_constraintTop_toBottomOf="@+id/descricao_petshop_perfil">
 
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Novo Serviço"
+                android:text="@string/botao_novo_servico"
                 android:textSize="18sp" />
 
             <Switch
@@ -114,32 +133,32 @@
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Novo Produto"
+                android:text="@string/txt_novo_produto"
                 android:textSize="18sp" />
         </LinearLayout>
 
         <Button
             android:id="@+id/tipoCadastroProduto"
-            android:layout_width="186dp"
+            android:layout_width="206dp"
             android:layout_height="43dp"
             android:background="@color/Cor_botoes"
-            android:text="Cadastrar Novo Produto"
+            android:text="@string/botao_cadastrar_novo_produto"
             android:textColor="#FFFFFF"
             android:visibility="gone"
-            tools:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            app:layout_constraintVertical_bias="0.264" />
+            app:layout_constraintVertical_bias="0.264"
+            tools:visibility="visible" />
 
         <Button
             android:id="@+id/tipoCadastroServico"
-            android:layout_width="186dp"
+            android:layout_width="206dp"
             android:layout_height="43dp"
             android:background="@color/Cor_botoes"
-            android:text="Cadastrar Novo Servico"
+            android:text="@string/botao_cadastrar_novo_servico"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -156,7 +175,7 @@
             android:layout_marginRight="24dp"
             android:layout_marginBottom="24dp"
             android:background="@color/Cor_botoes_vermelhos"
-            android:text="Logout"
+            android:text="@string/botao_logout"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

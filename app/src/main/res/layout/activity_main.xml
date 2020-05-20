@@ -12,7 +12,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
 
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:gravity="center|center_horizontal"
     android:orientation="vertical"
     tools:context=".Login.MainActivity">
@@ -21,6 +21,7 @@
         android:id="@+id/LogoLogin"
         android:layout_width="0dp"
         android:layout_height="181dp"
+        android:contentDescription="@string/logo_pet2u"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,11 +36,13 @@
         android:drawableLeft="@drawable/ic_email_blue"
         android:drawablePadding="4dp"
         android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName"
+        android:hint="@string/input_email"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Logintxt" />
+        app:layout_constraintTop_toBottomOf="@+id/Logintxt"
+        android:drawableStart="@drawable/ic_email_blue"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/SenhaLoginUsuario"
@@ -49,11 +52,13 @@
         android:drawableLeft="@drawable/ic_lock_blue"
         android:drawablePadding="4dp"
         android:ems="10"
-        android:hint="Senha"
+        android:hint="@string/input_senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EmailLoginUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/EmailLoginUsuario"
+        android:autofillHints=""
+        android:drawableStart="@drawable/ic_lock_blue" />
 
     <TextView
         android:id="@+id/Logintxt"
@@ -61,7 +66,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="17dp"
         android:fontFamily="sans-serif-thin"
-        android:text="Login de Usuário"
+        android:text="@string/Title_login_de_usuario"
         android:textSize="46sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +77,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="17dp"
         android:fontFamily="sans-serif-thin"
-        android:text="Login de PetShop"
+        android:text="@string/Title_login_de_petshop"
         android:textSize="46sp"
         android:visibility="gone"
         tools:visibility="visible"
@@ -85,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="PetShop"
+        android:text="@string/petshop_loginPage"
         android:textColor="#1E1E1E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
@@ -97,7 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:layout_marginTop="16dp"
-        android:text="Usuário"
+        android:text="@string/usuario_loginPage"
         android:textColor="#1E1E1E"
         app:layout_constraintEnd_toStartOf="@+id/UsuarioPetshop"
         app:layout_constraintHorizontal_bias="0.914"
@@ -133,7 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:onClick="redefinirSenha"
-        android:text="Esqueceu sua senha?"
+        android:text="@string/esqueceu_sua_senha_login"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -150,7 +155,7 @@
         android:background="@color/Cor_botoes_vermelhos"
         android:fontFamily="@font/armata"
         android:onClick="cadastrarPetshop"
-        android:text="criar conta de petshop"
+        android:text="@string/botao_criar_conta_de_petshop"
         android:textColor="#FFFFFF"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -169,7 +174,7 @@
         android:background="@color/Cor_botoes_vermelhos"
         android:fontFamily="@font/armata"
         android:onClick="cadastrarUsuario"
-        android:text="CRIAR NOVA CONTA DE USUÁRIO"
+        android:text="@string/botao_criar_nova_conta_de_usuario"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

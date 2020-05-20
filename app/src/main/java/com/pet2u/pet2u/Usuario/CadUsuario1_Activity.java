@@ -38,7 +38,6 @@ public class CadUsuario1_Activity extends AppCompatActivity {
         getSupportActionBar().hide();
         inicializaComponentes();
         eventoClicks();
-
     }
 
     private void eventoClicks() {
@@ -52,7 +51,7 @@ public class CadUsuario1_Activity extends AppCompatActivity {
         botao_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = campoEmail.getText().toString().trim();
+                String email = campoEmail.getText().toString().trim().toLowerCase();
                 String nome = campoNome.getText().toString().trim();
                 String senha = campoSenha.getText().toString().trim();
                 String cpf = campoCPF.getText().toString().trim();
@@ -70,18 +69,17 @@ public class CadUsuario1_Activity extends AppCompatActivity {
 
                     criarUser(usu.getEmail(), usu.getSenha());
                     limparCampos();
-
                 }
-
-
             }
         });
     }
+
 
     private void limparCampos() {
         campoSenha.setText("");
         campoCPF.setText(null);
     }
+
 
     private void criarUser(String email, String senha) {
         auth.createUserWithEmailAndPassword(email, senha)
@@ -121,8 +119,14 @@ public class CadUsuario1_Activity extends AppCompatActivity {
                 });
     }
 
+
     private void alert(String msg){
         Toast.makeText(CadUsuario1_Activity.this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    private void validarCampos(){
+
+
     }
 
 

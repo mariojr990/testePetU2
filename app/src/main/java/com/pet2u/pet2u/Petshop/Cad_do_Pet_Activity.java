@@ -29,6 +29,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
     private EditText campoNome, campoRazaoSocial, campoCNPJ, campoTelefone, campoSenha, campoEmail, campoCEP;
     private EditText campoCidade, campoBairro, campoEndereco, campoNumero, campoComplemento, campoUF;
     private Button botao_cadastroPet, botao_voltar;
+    private EditText descricao_petshop;
     private FirebaseAuth auth;
     private Petshop petshop;
 
@@ -59,7 +60,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                 String cnpj = campoCNPJ.getText().toString().trim();
                 String telefone = campoTelefone.getText().toString().trim();
                 String senha = campoSenha.getText().toString().trim();
-                String email = campoEmail.getText().toString().trim();
+                String email = campoEmail.getText().toString().trim().toLowerCase();
                 String cep = campoCEP.getText().toString().trim();
                 String uf = campoUF.getText().toString().trim();
                 String cidade = campoCidade.getText().toString().trim();
@@ -67,9 +68,10 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                 String endereco = campoEndereco.getText().toString().trim();
                 String numero = campoNumero.getText().toString().trim();
                 String complemento = campoComplemento.getText().toString().trim();
+                String descricao = descricao_petshop.getText().toString().trim();
 
                 if ( nome.isEmpty() || razaoSocial.isEmpty() || cnpj.isEmpty() || telefone.isEmpty() || senha.isEmpty() || email.isEmpty() ||
-                     cep.isEmpty() || uf.isEmpty() || cidade.isEmpty() || bairro.isEmpty() || endereco.isEmpty() || numero.isEmpty()){
+                     cep.isEmpty() || uf.isEmpty() || cidade.isEmpty() || bairro.isEmpty() || endereco.isEmpty() || numero.isEmpty() || descricao.isEmpty()){
                     alert("Preencha todos os campos!");
                 }else{
 
@@ -87,10 +89,10 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                     petshop.setEndereco(endereco);
                     petshop.setNumero(numero);
                     petshop.setComplemento(complemento);
+                    petshop.setDescricaoPetshop(descricao);
                     petshop.setTipoUsuario("P");
 
                     criarPet(petshop.getEmail(), petshop.getSenha());
-                    limparCampos();
 
                 }
             }
@@ -110,7 +112,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                             petshop.setDataCadastro(DateCustom.dataAtual());
                             petshop.setidPetshop(idPetshop);
                             petshop.salvar();
-
+                            limparCampos();
                             alert("Petshop cadastrado com sucesso!");
 
                             startActivity(new Intent(getApplicationContext(), PerfilPet1Activity.class));
@@ -148,6 +150,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
         campoUF.setText("");
         campoCidade.setText("");
         campoBairro.setText("");
+        campoComplemento.setText("");
         campoEndereco.setText("");
         campoCEP.setText(null);
         campoNumero.setText(null);
@@ -172,6 +175,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
         campoComplemento = findViewById(R.id.inputComplementoPetshop);
         botao_cadastroPet = findViewById(R.id.botaoCadastrarPetshop);
         botao_voltar = findViewById(R.id.botaoVoltar2);
+        descricao_petshop = findViewById(R.id.descreva_petshop);
     }
 
     @Override

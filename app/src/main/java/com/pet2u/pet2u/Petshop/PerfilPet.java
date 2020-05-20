@@ -25,9 +25,9 @@ public class PerfilPet extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_pet);
-
         smartTabLayout = findViewById(R.id.viewPagerTab);
         viewPager = findViewById(R.id.viewPager);
+        getSupportActionBar().hide();
 
         //Configurar adapter para abas
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
