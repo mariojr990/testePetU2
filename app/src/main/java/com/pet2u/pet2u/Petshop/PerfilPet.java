@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
@@ -27,7 +28,11 @@ public class PerfilPet extends AppCompatActivity {
         setContentView(R.layout.activity_perfil_pet);
         smartTabLayout = findViewById(R.id.viewPagerTab);
         viewPager = findViewById(R.id.viewPager);
-        getSupportActionBar().hide();
+        TextView nomePet = findViewById(R.id.nomePet);
+        TextView infoPet = findViewById(R.id.infoPet);
+
+        nomePet.setText(getIntent().getExtras().getString("nomePetshop"));
+        infoPet.setText(getIntent().getExtras().getString("descricaoPetshop"));
 
         //Configurar adapter para abas
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(

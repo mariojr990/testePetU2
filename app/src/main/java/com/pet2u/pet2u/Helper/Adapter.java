@@ -15,17 +15,28 @@ import androidx.recyclerview.widget.RecyclerView;
 import 	androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 import com.pet2u.pet2u.R;
+import com.pet2u.pet2u.modelo.Petshop;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements Filterable {
 
     private LayoutInflater layoutInflater;
-    private List<String> data;
-    private List<String> dataSearch;
+    private List<Petshop> data;
+    private List<Petshop> dataSearch;
+    private OnItemClickListener mListener;
 
-    public Adapter(Context context, List<String> data) {
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
+
+    public Adapter(Context context, List<Petshop> data) {
         this.layoutInflater = LayoutInflater.from(context);
         this.data = data;
         dataSearch = new ArrayList<>(data);
@@ -40,7 +51,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        String title = data.get(i);
+        String title = data.get(i).getNome();
         viewHolder.nomePetshop.setText(title);
     }
 
@@ -57,15 +68,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
     private Filter filter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            List<String> filteredList = new ArrayList<>();
+            List<Petshop> filteredList = new ArrayList<>();
             if (constraint == null || constraint.length() == 0) {
                 filteredList.addAll(dataSearch);
             }
             else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
-                for (String item : dataSearch) {
-                    if (item.toLowerCase().contains(filterPattern)) {
+                for (Petshop item : dataSearch) {
+                    if (Normalizer.normalize(item.getNome().toLowerCase(), Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").contains(filterPattern)) {
                         filteredList.add(item);
                     }
                 }
@@ -95,6 +106,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
             tempoDeEsperaPetshop = itemView.findViewById(R.id.tempoDeEsperaPetshop);
             scorePetshop = itemView.findViewById(R.id.scorePetshop);
             imagemPetshop = itemView.findViewById(R.id.imagemPetshop);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(mListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            mListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
 
     }
