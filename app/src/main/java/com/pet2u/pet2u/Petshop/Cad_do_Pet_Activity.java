@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,13 +23,18 @@ import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.Helper.DateCustom;
 import com.pet2u.pet2u.R;
+import com.pet2u.pet2u.domain.Address;
+import com.pet2u.pet2u.domain.Util;
+import com.pet2u.pet2u.domain.ZipCodeListener;
 import com.pet2u.pet2u.modelo.Petshop;
 
 
 public class Cad_do_Pet_Activity extends AppCompatActivity {
 
     private EditText campoNome, campoRazaoSocial, campoCNPJ, campoTelefone, campoSenha, campoEmail, campoCEP;
-    private EditText campoCidade, campoBairro, campoEndereco, campoNumero, campoComplemento, campoUF;
+    private EditText campoCidade, campoBairro, campoEndereco, campoNumero, campoComplemento;
+    private Spinner campoUF;
+    private Util util;
     private Button botao_cadastroPet, botao_voltar;
     private EditText descricao_petshop;
     private FirebaseAuth auth;
@@ -40,6 +47,59 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
         getSupportActionBar().hide();
         inicializaComponentes();
         Clicks();
+
+        campoCEP = (EditText) findViewById(R.id.inputCepPetshop);
+        campoCEP.addTextChangedListener( new ZipCodeListener(this) );
+
+        Spinner spStates = (Spinner) findViewById(R.id.inputUfPetshop);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter
+                .createFromResource(this,
+                        R.array.states,
+                        android.R.layout.simple_spinner_item);
+        spStates.setAdapter(adapter);
+
+        util = new Util(this,
+                R.id.inputCepPetshop,
+                R.id.inputUfPetshop,
+                R.id.inputCidadePetshop,
+                R.id.inputBairroPetshop,
+                R.id.inputEnderecoPetshop,
+                R.id.inputNumeroPetshop);
+    }
+
+    private String getZipCode(){
+        return campoCEP.getText().toString();
+    }
+
+    public String getUriRequest(){
+        return "https://viacep.com.br/ws/"+getZipCode()+"/json/";
+    }
+
+    public void lockFields( boolean isToLock ){
+        util.lockFields( isToLock );
+    }
+
+    public void setAddressFields( Address address){
+        setSpinner( R.id.inputUfPetshop, R.array.states, address.getUf() );
+        setField( R.id.inputEnderecoPetshop, address.getLogradouro() );
+        setField( R.id.inputComplementoPetshop, address.getComplemento() );
+        setField( R.id.inputBairroPetshop, address.getBairro() );
+        setField( R.id.inputCidadePetshop, address.getLocalidade() );
+    }
+    private void setField( int fieldId, String data ){
+        ((EditText) findViewById( fieldId )).setText( data );
+    }
+
+    private void setSpinner( int fieldId, int arrayId, String uf ){
+        Spinner spinner = (Spinner) findViewById( fieldId );
+        String[] states = getResources().getStringArray(arrayId);
+
+        for( int i = 0; i < states.length; i++ ){
+            if( states[i].equals(uf) ){
+                spinner.setSelection( i );
+                break;
+            }
+        }
     }
 
     private void Clicks() {
@@ -62,7 +122,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                 String senha = campoSenha.getText().toString().trim();
                 String email = campoEmail.getText().toString().trim().toLowerCase();
                 String cep = campoCEP.getText().toString().trim();
-                String uf = campoUF.getText().toString().trim();
+                String uf = campoUF.getSelectedItem().toString();
                 String cidade = campoCidade.getText().toString().trim();
                 String bairro = campoBairro.getText().toString().trim();
                 String endereco = campoEndereco.getText().toString().trim();
@@ -147,7 +207,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
         campoComplemento.setText("");
         campoSenha.setText("");
         campoEmail.setText("");
-        campoUF.setText("");
+        campoUF.setAdapter(null);
         campoCidade.setText("");
         campoBairro.setText("");
         campoComplemento.setText("");

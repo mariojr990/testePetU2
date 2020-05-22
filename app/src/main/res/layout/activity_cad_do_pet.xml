@@ -175,16 +175,11 @@
         app:layout_constraintStart_toEndOf="@+id/inputUfPetshop"
         app:layout_constraintTop_toBottomOf="@+id/inputCepPetshop" />
 
-    <EditText
+    <Spinner
         android:id="@+id/inputUfPetshop"
-        android:layout_width="60dp"
+        android:layout_width="100dp"
         android:layout_height="42dp"
         android:layout_marginTop="5dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/input_uf"
-        android:inputType="textShortMessage|none|text|textCapCharacters"
-        android:maxLength="2"
         app:layout_constraintStart_toStartOf="@+id/inputCepPetshop"
         app:layout_constraintTop_toBottomOf="@+id/inputCepPetshop" />
 
