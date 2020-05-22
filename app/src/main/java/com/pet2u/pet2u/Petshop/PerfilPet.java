@@ -45,7 +45,6 @@ public class PerfilPet extends AppCompatActivity {
                         .add("Outros", OutrosFragment.class)
                 .create()
         );
-
         viewPager.setAdapter(adapter);
         smartTabLayout.setViewPager(viewPager);
     }
