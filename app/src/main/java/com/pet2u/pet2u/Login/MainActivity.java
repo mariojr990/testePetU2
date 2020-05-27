@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 //    private CallbackManager mCallbackManager;
 //    private AccessTokenTracker accessTokenTracker;
 //    private static final String TAG = "FacebookAuthentication";
-
+// a
 
     private FirebaseAuth auth;
     private DatabaseReference databaseReference;
