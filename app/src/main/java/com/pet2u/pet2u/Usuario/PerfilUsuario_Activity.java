@@ -117,7 +117,6 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         botao_logout = findViewById(R.id.botao_logout);
         botao_alterarSenha = findViewById(R.id.botaoAlterarSenha);
         botao_alterarTelefone = findViewById(R.id.botaoAlterarTelefone);
-        button_vet_pets = findViewById(R.id.button_vet_pets);
     }
 
 }

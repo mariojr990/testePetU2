@@ -91,8 +91,5 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
                 return false;
             }
         });
-
-
     }
-
 }
