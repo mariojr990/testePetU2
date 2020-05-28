@@ -328,9 +328,13 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Intent i = new Intent(MainActivity.this, PerfilPet1Activity.class);
-                            startActivity(i);
-                            limparCampos();
+                            if(auth.getCurrentUser().isEmailVerified()){
+                                Intent i = new Intent(MainActivity.this, PerfilPet1Activity.class);
+                                startActivity(i);
+                                limparCampos();
+                            }else{
+                                alert("Por favor, verificar o seu email");
+                            }
                         }else{
                             String excecao = "";
                             try {
@@ -362,9 +366,13 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Intent i = new Intent(MainActivity.this, ListagemPetshop_Activity.class);
-                            startActivity(i);
-                            limparCampos();
+                            if(auth.getCurrentUser().isEmailVerified()){
+                                Intent i = new Intent(MainActivity.this, ListagemPetshop_Activity.class);
+                                startActivity(i);
+                                limparCampos();
+                            }else{
+                                alert("Por favor, verificar o seu email");
+                            }
                          }else{
                             String excecao = "";
                             try {

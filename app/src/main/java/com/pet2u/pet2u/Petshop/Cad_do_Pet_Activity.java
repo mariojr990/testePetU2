@@ -1,8 +1,10 @@
 package com.pet2u.pet2u.Petshop;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +25,8 @@ import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.Helper.DateCustom;
 import com.pet2u.pet2u.R;
+import com.pet2u.pet2u.Usuario.CadUsuario1_Activity;
+import com.pet2u.pet2u.Usuario.PerfilUsuario_Activity;
 import com.pet2u.pet2u.domain.Address;
 import com.pet2u.pet2u.domain.Util;
 import com.pet2u.pet2u.domain.ZipCodeListener;
@@ -167,16 +171,22 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            auth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        String idPetshop = Criptografia.codificar(petshop.getEmail());
+                                        petshop.setDataCadastro(DateCustom.dataAtual());
+                                        petshop.setidPetshop(idPetshop);
+                                        petshop.salvar();
+                                        limparCampos();
+                                        exibirConfirmacao();
 
-                            String idPetshop = Criptografia.codificar(petshop.getEmail());
-                            petshop.setDataCadastro(DateCustom.dataAtual());
-                            petshop.setidPetshop(idPetshop);
-                            petshop.salvar();
-                            limparCampos();
-                            alert("Petshop cadastrado com sucesso!");
-
-                            startActivity(new Intent(getApplicationContext(), PerfilPet1Activity.class));
-                            finish();
+                                    }else{
+                                        alert(task.getException().getMessage());
+                                    }
+                                }
+                            });
                         }else{
                             String excecao = "";
                             try {
@@ -196,6 +206,22 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void exibirConfirmacao() {
+        AlertDialog.Builder caixaDialogo = new AlertDialog.Builder(this);
+        caixaDialogo.setTitle("Cadastro");
+        caixaDialogo.setIcon(android.R.drawable.ic_menu_info_details);
+        caixaDialogo.setMessage("Sua conta foi cadastrada com sucesso, um E-mail de verificação foi enviado.");
+        caixaDialogo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(Cad_do_Pet_Activity.this, PerfilUsuario_Activity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        caixaDialogo.show();
     }
 
     private void alert(String msg){

@@ -1,8 +1,10 @@
 package com.pet2u.pet2u.Usuario;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -75,11 +77,6 @@ public class CadUsuario1_Activity extends AppCompatActivity {
     }
 
 
-    private void limparCampos() {
-        campoSenha.setText("");
-        campoCPF.setText(null);
-    }
-
 
     private void criarUser(String email, String senha) {
         auth.createUserWithEmailAndPassword(email, senha)
@@ -87,18 +84,24 @@ public class CadUsuario1_Activity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            auth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
+                                        String idUsuario = Criptografia.codificar(usu.getEmail());
+                                        usu.setDataCadastro(DateCustom.dataAtual());
+                                        usu.setIdUsuario(idUsuario);
+                                        usu.setTipoUsuario("U");
+                                        usu.salvar();
+                                        exibirConfirmacao();
 
-                            String idUsuario = Criptografia.codificar(usu.getEmail());
-                            usu.setDataCadastro(DateCustom.dataAtual());
-                            usu.setIdUsuario(idUsuario);
-                            usu.setTipoUsuario("U");
-                            usu.salvar();
+                                    }else{
+                                        alert(task.getException().getMessage());
+                                    }
 
+                                }
+                            });
 
-                            alert("Usuário cadastrado com sucesso!");
-                            Intent i = new Intent(CadUsuario1_Activity.this, PerfilUsuario_Activity.class);
-                            startActivity(i);
-                            finish();
                         }else{
                             String excecao = "";
                             try {
@@ -119,16 +122,32 @@ public class CadUsuario1_Activity extends AppCompatActivity {
                 });
     }
 
+    private void exibirConfirmacao() {
+        AlertDialog.Builder caixaDialogo = new AlertDialog.Builder(this);
+        caixaDialogo.setTitle("Cadastro");
+        caixaDialogo.setIcon(android.R.drawable.ic_menu_info_details);
+        caixaDialogo.setMessage("Sua conta foi cadastrada com sucesso, um E-mail de verificação foi enviado.");
+        caixaDialogo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(CadUsuario1_Activity.this, PerfilUsuario_Activity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        caixaDialogo.show();
+    }
+
 
     private void alert(String msg){
         Toast.makeText(CadUsuario1_Activity.this, msg, Toast.LENGTH_SHORT).show();
     }
 
-    private void validarCampos(){
 
-
+    private void limparCampos() {
+        campoSenha.setText("");
+        campoCPF.setText(null);
     }
-
 
     private void inicializaComponentes(){
         campoNome = findViewById(R.id.inputNome);
