@@ -40,6 +40,7 @@ import com.pet2u.pet2u.ConexaoDB.Conexao;
 
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.Petshop.Cad_do_Pet_Activity;
+import com.pet2u.pet2u.Petshop.ListagemPetshop_Activity;
 import com.pet2u.pet2u.Petshop.PerfilPet;
 import com.pet2u.pet2u.Petshop.PerfilPet1Activity;
 import com.pet2u.pet2u.R;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 //    private CallbackManager mCallbackManager;
 //    private AccessTokenTracker accessTokenTracker;
 //    private static final String TAG = "FacebookAuthentication";
-
+// a
 
     private FirebaseAuth auth;
     private DatabaseReference databaseReference;
@@ -321,6 +322,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void login_petshop(String email, String senha) {
+        Log.d("test", "só de flinstons");
         auth.signInWithEmailAndPassword(email.toLowerCase(), senha)
                 .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -360,7 +362,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Intent i = new Intent(MainActivity.this, PerfilUsuario_Activity.class);
+                            Intent i = new Intent(MainActivity.this, ListagemPetshop_Activity.class);
                             startActivity(i);
                             limparCampos();
                          }else{

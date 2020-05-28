@@ -68,6 +68,12 @@ app:stl_drawDecorationAfterTab="false"
 android:id="@+id/viewPager"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-/>
+>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listaProdutos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</androidx.viewpager.widget.ViewPager>
 
 </LinearLayout>

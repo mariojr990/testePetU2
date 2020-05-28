@@ -182,16 +182,5 @@
             app:layout_constraintTop_toBottomOf="@+id/backgroundEdit3"
             app:layout_constraintVertical_bias="1.0" />
 
-        <Button
-            android:id="@+id/button_vet_pets"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="252dp"
-            android:text="Ver_Pets"
-            app:layout_constraintEnd_toStartOf="@+id/avatarPerfilUsuario"
-            app:layout_constraintHorizontal_bias="0.688"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/logoPerfilusuario" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -124,8 +124,11 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         botao_logout = findViewById(R.id.botao_logout);
         botao_alterarSenha = findViewById(R.id.botaoAlterarSenha);
         botao_alterarTelefone = findViewById(R.id.botaoAlterarTelefone);
+<<<<<<< HEAD
         button_vet_pets = findViewById(R.id.button_vet_pets);
         botao_alterarNome= findViewById(R.id.botaoAlterarNome);
+=======
+>>>>>>> 63ca63a4da93ecf3e49b062ffd25c6c5ee762410
     }
 
 }
