@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Petshop.CadastroProdutoActivity"></activity>
+        <activity android:name=".Usuario.EditarNomeActivity"></activity>
+        <activity android:name=".Petshop.CadastroProdutoActivity" />
         <activity android:name=".Petshop.CadastroServicoActivity" />
         <activity android:name=".Usuario.EditarTelefone_aActivity" />
         <activity android:name=".Usuario.EsqueceuSenha_Activity" />
@@ -35,11 +36,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-<!--        <meta-data-->
-<!--            android:name="com.facebook.sdk.ApplicationId"-->
-<!--            android:value="@string/facebook_app_id" />-->
+        </activity> <!-- <meta-data -->
+        <!-- android:name="com.facebook.sdk.ApplicationId" -->
+        <!-- android:value="@string/facebook_app_id" /> -->
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

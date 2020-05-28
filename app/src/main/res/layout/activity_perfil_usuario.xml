@@ -58,71 +58,111 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/avatarPerfilUsuario" />
 
+
+        <ImageView
+            android:id="@+id/backgroundEditNome"
+            android:layout_width="269dp"
+            android:layout_height="68dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginBottom="20dp"
+            android:contentDescription="@string/fundo_editar_usuario"
+            app:layout_constraintBottom_toTopOf="@+id/backgroundEdit1"
+            app:layout_constraintEnd_toEndOf="@+id/backgroundEdit1"
+            app:layout_constraintStart_toStartOf="@+id/backgroundEdit1"
+            app:layout_constraintTop_toBottomOf="@+id/logoPerfilusuario"
+            app:srcCompat="@drawable/pet2uobackgroundoptionseditarperfil" />
+
+        <TextView
+            android:id="@+id/editarNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Editar Nome"
+            android:textColor="@android:color/background_light"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/backgroundEditNome"
+            app:layout_constraintHorizontal_bias="0.341"
+            app:layout_constraintStart_toEndOf="@+id/botaoAlterarNome"
+            app:layout_constraintTop_toTopOf="@+id/backgroundEditNome" />
+
+        <Button
+            android:id="@+id/botaoAlterarNome"
+            android:layout_width="36dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/botao_edit_perfil"
+            app:layout_constraintEnd_toEndOf="@+id/backgroundEditNome"
+            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintStart_toStartOf="@+id/backgroundEditNome"
+            app:layout_constraintTop_toTopOf="@+id/backgroundEditNome" />
+
         <ImageView
             android:id="@+id/backgroundEdit1"
             android:layout_width="269dp"
             android:layout_height="68dp"
-            android:layout_marginTop="42dp"
+            android:layout_marginTop="136dp"
             android:contentDescription="@string/fundo_editar_usuario"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/logoPerfilusuario"
             app:srcCompat="@drawable/pet2uobackgroundoptionseditarperfil" />
 
-        <ImageView
-            android:id="@+id/backgroundEdit3"
-            android:layout_width="269dp"
-            android:layout_height="68dp"
-            android:contentDescription="@string/fundo_editar_usuario"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/backgroundEdit1"
-            app:srcCompat="@drawable/pet2uobackgroundoptionseditarperfil" />
-
         <Button
             android:id="@+id/botaoAlterarTelefone"
             android:layout_width="36dp"
             android:layout_height="30dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/botao_edit_perfil"
             app:layout_constraintEnd_toEndOf="@+id/backgroundEdit1"
             app:layout_constraintHorizontal_bias="0.051"
             app:layout_constraintStart_toStartOf="@+id/backgroundEdit1"
             app:layout_constraintTop_toTopOf="@+id/backgroundEdit1" />
 
-        <Button
-            android:id="@+id/botaoAlterarSenha"
-            android:layout_width="36dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/botao_edit_perfil"
-            app:layout_constraintEnd_toEndOf="@+id/backgroundEdit3"
-            app:layout_constraintHorizontal_bias="0.051"
-            app:layout_constraintStart_toStartOf="@+id/backgroundEdit3"
-            app:layout_constraintTop_toBottomOf="@+id/backgroundEdit1" />
-
         <TextView
             android:id="@+id/editarTelefone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="24dp"
             android:text="@string/txt_alterar_telefone"
             android:textColor="@android:color/background_light"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/backgroundEdit1"
+            app:layout_constraintHorizontal_bias="0.323"
             app:layout_constraintStart_toEndOf="@+id/botaoAlterarTelefone"
             app:layout_constraintTop_toTopOf="@+id/backgroundEdit1" />
+
+        <ImageView
+            android:id="@+id/backgroundEdit3"
+            android:layout_width="269dp"
+            android:layout_height="68dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/fundo_editar_usuario"
+            app:layout_constraintEnd_toEndOf="@+id/backgroundEdit1"
+            app:layout_constraintStart_toStartOf="@+id/backgroundEdit1"
+            app:layout_constraintTop_toBottomOf="@+id/backgroundEdit1"
+            app:srcCompat="@drawable/pet2uobackgroundoptionseditarperfil" />
+
+        <Button
+            android:id="@+id/botaoAlterarSenha"
+            android:layout_width="36dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/botao_edit_perfil"
+            app:layout_constraintEnd_toEndOf="@+id/backgroundEdit3"
+            app:layout_constraintHorizontal_bias="0.055"
+            app:layout_constraintStart_toStartOf="@+id/backgroundEdit3"
+            app:layout_constraintTop_toBottomOf="@+id/backgroundEdit1" />
 
         <TextView
             android:id="@+id/editarSenha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="48dp"
             android:text="@string/txt_alterar_senha"
             android:textColor="@android:color/background_light"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/backgroundEdit3"
-            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintHorizontal_bias="0.335"
             app:layout_constraintStart_toEndOf="@+id/botaoAlterarSenha"
             app:layout_constraintTop_toBottomOf="@+id/backgroundEdit1" />
 
@@ -137,20 +177,10 @@
             android:textColor="@color/design_default_color_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/backgroundEdit3"
-            app:layout_constraintHorizontal_bias="0.61"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/backgroundEdit3"
-            app:layout_constraintTop_toBottomOf="@+id/backgroundEdit3" />
-
-        <TextView
-            android:id="@+id/nome_petshop_perfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="@string/input_telefone"
-            app:layout_constraintEnd_toEndOf="@+id/backgroundEdit1"
-            app:layout_constraintHorizontal_bias="0.6"
-            app:layout_constraintStart_toStartOf="@+id/backgroundEdit1"
-            app:layout_constraintTop_toTopOf="@+id/backgroundEdit1" />
+            app:layout_constraintTop_toBottomOf="@+id/backgroundEdit3"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/button_vet_pets"

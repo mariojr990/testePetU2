@@ -23,7 +23,7 @@ import com.pet2u.pet2u.modelo.Usuario;
 
 public class PerfilUsuario_Activity extends AppCompatActivity {
     private TextView nomeCompleto, telefone, email, senha;
-    private Button botao_logout, botao_alterarSenha, botao_alterarTelefone, button_vet_pets;
+    private Button botao_logout, botao_alterarSenha, botao_alterarTelefone, button_vet_pets, botao_alterarNome;
 
     private FirebaseAuth auth;
     private FirebaseUser user;
@@ -62,10 +62,17 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
         button_vet_pets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), ListagemPetshop_Activity.class));
+            }
+        });
+        botao_alterarNome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), EditarNomeActivity.class));
             }
         });
     }
@@ -118,6 +125,7 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         botao_alterarSenha = findViewById(R.id.botaoAlterarSenha);
         botao_alterarTelefone = findViewById(R.id.botaoAlterarTelefone);
         button_vet_pets = findViewById(R.id.button_vet_pets);
+        botao_alterarNome= findViewById(R.id.botaoAlterarNome);
     }
 
 }

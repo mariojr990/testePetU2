@@ -19,9 +19,10 @@ public class EditarTelefone_aActivity extends AppCompatActivity {
 
     private TextView campoTelefone;
     private Button botao_enviar, botao_voltar;
-
     private DatabaseReference firebaseDatabase = Conexao.getFirebaseDatabase();
     private FirebaseAuth auth= Conexao.getFirebaseAuth();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

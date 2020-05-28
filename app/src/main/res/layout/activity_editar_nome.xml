@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Usuario.EditarNomeActivity">
+
+    <Button
+        android:id="@+id/botao_Enviar_Redefinir_Nome"
+        android:layout_width="224dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="39dp"
+        android:background="@color/Cor_botoes"
+        android:text="@string/botao_alterar"
+        android:textColor="@color/design_default_color_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputEditarNome" />
+
+    <Button
+        android:id="@+id/botao_voltar_redefinir_Nome"
+        android:layout_width="100dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/Cor_botoes"
+        android:text="@string/botao_voltar"
+        android:textColor="@color/design_default_color_background"
+        app:layout_constraintEnd_toEndOf="@+id/botao_Enviar_Redefinir_Nome"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@+id/botao_Enviar_Redefinir_Nome"
+        app:layout_constraintTop_toBottomOf="@+id/botao_Enviar_Redefinir_Nome" />
+
+    <EditText
+        android:id="@+id/inputEditarNome"
+        android:layout_width="315dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="64dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/Input_nome"
+        android:inputType="none"
+        android:maxLength="50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescricaoAlterarNome2" />
+
+    <TextView
+        android:id="@+id/txtDescricaoAlterarNome2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAlterarTelefone2"
+        tools:text="Digite novo o nome" />
+
+    <TextView
+        android:id="@+id/txtAlterarTelefone2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="@string/alterar_nome"
+        android:textSize="46sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoRedefinirNome4" />
+
+    <ImageView
+        android:id="@+id/logoRedefinirNome4"
+        android:layout_width="0dp"
+        android:layout_height="181dp"
+        android:contentDescription="@string/logo_pet2u"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pet2ulogo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
