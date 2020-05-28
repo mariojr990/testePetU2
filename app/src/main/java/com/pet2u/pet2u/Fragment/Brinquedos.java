@@ -26,12 +26,12 @@ public class Brinquedos extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_brinquedos, container, false);
-        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.listaProdutos);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+      //  View rootView = inflater.inflate(R.layout.fragment_brinquedos, container, false);
+//        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.listaProdutos);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
 
-        return rootView;
+        return inflater.inflate(R.layout.fragment_brinquedos, container, false);
     }
 }
