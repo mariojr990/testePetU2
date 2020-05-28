@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.Helper.DateCustom;
+import com.pet2u.pet2u.Login.MainActivity;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Usuario;
 
@@ -130,7 +131,7 @@ public class CadUsuario1_Activity extends AppCompatActivity {
         caixaDialogo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent i = new Intent(CadUsuario1_Activity.this, PerfilUsuario_Activity.class);
+                Intent i = new Intent(CadUsuario1_Activity.this, MainActivity.class);
                 startActivity(i);
                 finish();
             }

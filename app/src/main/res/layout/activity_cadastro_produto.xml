@@ -6,4 +6,102 @@
     android:layout_height="match_parent"
     tools:context=".Petshop.CadastroProdutoActivity">
 
+    <TextView
+        android:id="@+id/txtCadastro2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="Cadastro Produto"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="412dp"
+        android:layout_height="177dp"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pet2ulogo" />
+
+    <EditText
+        android:id="@+id/editTextNomeProduto"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:hint="Nome do Produto"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCadastro2" />
+
+    <EditText
+        android:id="@+id/editTextMarcaProduto"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:hint="Marca"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomeProduto" />
+
+    <EditText
+        android:id="@+id/editTextValorProduto"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:hint="Valor"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMarcaProduto" />
+
+    <Button
+        android:id="@+id/botaoCadastrarProduto"
+        android:layout_width="164dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/Cor_botoes"
+        android:text="Cadastar Produto"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/editTextValorProduto"
+        app:layout_constraintHorizontal_bias="0.811"
+        app:layout_constraintStart_toEndOf="@+id/botaoVoltar"
+        app:layout_constraintTop_toBottomOf="@+id/editTextValorProduto" />
+
+    <Button
+        android:id="@+id/botaoVoltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/Cor_botoes_vermelhos"
+        android:text="@string/botao_voltar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/editTextValorProduto"
+        app:layout_constraintTop_toBottomOf="@+id/editTextValorProduto" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
