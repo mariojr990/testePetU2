@@ -7,7 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SearchView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -18,6 +21,7 @@ import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Adapter;
 import com.pet2u.pet2u.Login.MainActivity;
 import com.pet2u.pet2u.R;
+import com.pet2u.pet2u.Usuario.PerfilUsuario_Activity;
 import com.pet2u.pet2u.modelo.Petshop;
 
 import java.text.Normalizer;
@@ -30,12 +34,15 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
     Adapter adapter;
     ArrayList<Petshop> items;
     private DatabaseReference databaseReference;
+    private Button icone_home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listagem_petshop);
         getSupportActionBar().hide();
+        inicializaComponentes();
+        clicks();
 
         databaseReference = Conexao.getFirebaseDatabase();
         items = new ArrayList<>();
@@ -92,4 +99,20 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
             }
         });
     }
+
+    private void clicks() {
+        icone_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ListagemPetshop_Activity.this, PerfilUsuario_Activity.class));
+            }
+        });
+    }
+
+
+
+    private void inicializaComponentes() {
+        icone_home = findViewById(R.id.icone_home);
+    }
+
 }

@@ -23,7 +23,7 @@ import com.pet2u.pet2u.modelo.Usuario;
 
 public class PerfilUsuario_Activity extends AppCompatActivity {
     private TextView nomeCompleto, telefone, email, senha;
-    private Button botao_logout, botao_alterarSenha, botao_alterarTelefone, button_vet_pets, botao_alterarNome;
+    private Button botao_logout, botao_alterarSenha, botao_alterarTelefone, botao_alterarNome, petshops_list;
 
     private FirebaseAuth auth;
     private FirebaseUser user;
@@ -50,29 +50,28 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         botao_alterarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), EsqueceuSenha_Activity.class);
-                startActivity(i);
+                startActivity(new Intent(getApplicationContext(), EsqueceuSenha_Activity.class));
             }
         });
 
         botao_alterarTelefone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), EditarTelefone_aActivity.class);
-                startActivity(i);
+                startActivity(new Intent(getApplicationContext(), EditarTelefone_aActivity.class));
             }
         });
 
-        button_vet_pets.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), ListagemPetshop_Activity.class));
-            }
-        });
         botao_alterarNome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), EditarNomeActivity.class));
+            }
+        });
+
+        petshops_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ListagemPetshop_Activity.class));
             }
         });
     }
@@ -84,7 +83,6 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         databaseReference = Conexao.getFirebaseDatabase();
         user = auth.getCurrentUser();
         verificaUser();
-
     }
 
     private void verificaUser() {
@@ -125,6 +123,7 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         botao_alterarSenha = findViewById(R.id.botaoAlterarSenha);
         botao_alterarTelefone = findViewById(R.id.botaoAlterarTelefone);
         botao_alterarNome= findViewById(R.id.botaoAlterarNome);
+        petshops_list = findViewById(R.id.petshops_list);
 
     }
 
