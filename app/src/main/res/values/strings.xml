@@ -146,4 +146,9 @@
     <string name="pet2u_logo_desen">pet2u_logo_desen</string>
     <string name="editar_nome">Editar Nome</string>
 
+
+    <string name="perfil_petshop_infoLoja">Informações da Loja</string>
+    <string name="perfil_petshop_maisInfo">Mais Informações</string>
+    <string name="perfil_petshop_menu">Menu</string>
+
 </resources>

@@ -1,79 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FrameLayoutPrincipal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Petshop.PerfilPet">
 
-    <ImageView
-        android:id="@+id/imageView4"
+    <ScrollView
+        android:id="@+id/petshopPerfilScrollView"
         android:layout_width="match_parent"
-        android:layout_height="204dp"
-        android:layout_gravity="center"
-        android:contentDescription="@string/imagem_do_petshop"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/petshopcapa" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/nomePet"
+        <LinearLayout
+            android:id="@+id/LinearLayoutDoScroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="204dp"
+                android:contentDescription="@string/imagem_do_petshop"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/petshopcapa" />
+
+            <TextView
+                android:id="@+id/nomePet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/Perfil_petshop_name"
+                android:textSize="36sp" />
+
+            <TextView
+                android:id="@+id/tagsPetshop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:paddingRight="20dp"
+                android:text="$$ • Cachorros • Gatos • Pássaros • 24 Horas" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:paddingRight="20dp">
+
+                <TextView
+                    android:id="@+id/tempoPetshop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30-45 Min • " />
+
+                <RatingBar
+                    android:id="@+id/pontuacaoPetshop"
+                    style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:isIndicator="false"
+                    android:numStars="5" />
+
+                <TextView
+                    android:id="@+id/precoDeliveryPetshop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=" • 3.99R$" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divisor1PerfilPetshop"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="?android:attr/listDivider"
+                android:clickable="false"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp">
+
+                <TextView
+                    android:id="@+id/restaurantInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/perfil_petshop_infoLoja"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/enderecoPetshop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.085"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/enderecoPetshop"
+                    android:layout_width="228dp"
+                    android:layout_height="26dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="QSD 6, Casa 39"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.114"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/restaurantInfo"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <Button
+                    android:id="@+id/maisInfoButton"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="119dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="276dp"
+                    android:layout_marginLeft="276dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:autoText="false"
+                    android:background="#00FF1A1A"
+                    android:text="@string/perfil_petshop_maisInfo"
+                    android:textAllCaps="false"
+                    android:textColor="#2658E1"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/divisor2PerfilPetshop"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:id="@+id/textoMenuPetshop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="15dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="15dp"
+                android:text="@string/perfil_petshop_menu"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divisor2PerfilPetshop2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="?android:attr/listDivider" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listaProdutos"
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:paddingLeft="20dp"
+                android:paddingTop="0dp"
+                android:paddingRight="20dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/toolbarPerfilPetshop"
+        layout="@layout/toolbar_perfil_petshop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/Perfil_petshop_name"
-        android:textSize="36sp" />
+        android:background="#FFFFFF" />
 
-    <TextView
-        android:id="@+id/infoPet"
-        android:layout_width="match_parent"
-        android:layout_height="47dp"
-        android:paddingStart="7dp"
-        android:paddingLeft="7dp"
-        android:paddingRight="7dp"
-        android:text="@string/informacoes_do_petshop" />
-
-    <com.ogaclejapan.smarttablayout.SmartTabLayout
-android:id="@+id/viewPagerTab"
-android:layout_width="match_parent"
-android:layout_height="48dp"
-app:stl_indicatorAlwaysInCenter="false"
-app:stl_indicatorWithoutPadding="false"
-app:stl_indicatorInFront="false"
-app:stl_indicatorInterpolation="smart"
-app:stl_indicatorGravity="bottom"
-app:stl_indicatorColor="#40C4FF"
-app:stl_indicatorThickness="4dp"
-app:stl_indicatorWidth="auto"
-app:stl_indicatorCornerRadius="2dp"
-app:stl_overlineColor="#4D000000"
-app:stl_overlineThickness="0dp"
-app:stl_underlineColor="#4D000000"
-app:stl_underlineThickness="1dp"
-app:stl_dividerColor="#4D000000"
-app:stl_dividerThickness="1dp"
-app:stl_defaultTabBackground="?attr/selectableItemBackground"
-app:stl_defaultTabTextAllCaps="true"
-app:stl_defaultTabTextColor="#FC000000"
-app:stl_defaultTabTextSize="12sp"
-app:stl_defaultTabTextHorizontalPadding="16dp"
-app:stl_defaultTabTextMinWidth="0dp"
-app:stl_distributeEvenly="false"
-app:stl_clickable="true"
-app:stl_titleOffset="24dp"
-app:stl_drawDecorationAfterTab="false"
-    />
-
-<androidx.viewpager.widget.ViewPager
-android:id="@+id/viewPager"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
->
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listaProdutos"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</androidx.viewpager.widget.ViewPager>
-
-</LinearLayout>
+</FrameLayout>

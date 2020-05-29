@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:id="@+id/tituloPetshopToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Flinston's Petshop"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="39dp"
+                android:layout_height="36dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.981"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_search" />
+
+            <Button
+                android:id="@+id/seta_voltar"
+                android:layout_width="20dp"
+                android:layout_height="27dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/setavoltar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            app:tabGravity="center"
+            app:tabMode="scrollable">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabItemRacoes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rações" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabItemBrinquedos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brinquedos" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabItemVasilhas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vasilhas" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabItemCasinhas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Casinhas" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabItemServicos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Serviços" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.SearchView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -34,15 +33,13 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
     Adapter adapter;
     ArrayList<Petshop> items;
     private DatabaseReference databaseReference;
-    private Button icone_home;
-
+    private Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listagem_petshop);
         getSupportActionBar().hide();
-        inicializaComponentes();
-        clicks();
+        button = findViewById(R.id.botao_a);
 
         databaseReference = Conexao.getFirebaseDatabase();
         items = new ArrayList<>();
@@ -58,6 +55,8 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
                     Petshop petshopClicked = new Petshop();
                     petshopClicked.setNome((String) singleUser.get("nome"));
                     petshopClicked.setDescricaoPetshop((String) singleUser.get("descricaoPetshop"));
+                    petshopClicked.setEndereco((String) singleUser.get("endereco"));
+                    petshopClicked.setEmail((String) singleUser.get("email"));
                     items.add(petshopClicked);
                     listaPetshops = findViewById(R.id.listasPetshop);
                     listaPetshops.setLayoutManager(new LinearLayoutManager(ListagemPetshop_Activity.this));
@@ -71,6 +70,8 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
                             Intent perfilDoPetshop = new Intent(ListagemPetshop_Activity.this, PerfilPet.class);
                             perfilDoPetshop.putExtra("nomePetshop", items.get(position).getNome());
                             perfilDoPetshop.putExtra("descricaoPetshop", items.get(position).getDescricaoPetshop());
+                            perfilDoPetshop.putExtra("enderecoPetshop", items.get(position).getEndereco());
+                            perfilDoPetshop.putExtra("emailPetshop", items.get(position).getEmail());
                             startActivity(perfilDoPetshop);
                         }
                     });
@@ -98,21 +99,14 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
                 return false;
             }
         });
-    }
 
-    private void clicks() {
-        icone_home.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ListagemPetshop_Activity.this, PerfilUsuario_Activity.class));
+                startActivity(new Intent(getApplicationContext(), PerfilUsuario_Activity.class));
             }
         });
     }
 
-
-
-    private void inicializaComponentes() {
-        icone_home = findViewById(R.id.icone_home);
-    }
 
 }
