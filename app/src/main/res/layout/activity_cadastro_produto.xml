@@ -6,27 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".Petshop.CadastroProdutoActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="419dp"
+        android:layout_height="32dp"
+        android:background="@color/Cor_botoes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logobrancopet2u"
+            android:layout_width="81dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginEnd="334dp"
+            android:layout_marginRight="334dp"
+            android:contentDescription="@string/logo_pet2u"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ptlogobranco" />
+
+        <Button
+            android:id="@+id/botaoVoltar2"
+            android:layout_width="49dp"
+            android:layout_height="33dp"
+            android:background="@drawable/pngtree_exit_icon_vectors_png_image_1737870"
+            android:onClick="botaoVoltarLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/txtCadastro2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="sans-serif-thin"
         android:text="Cadastro Produto"
         android:textSize="40sp"
+        android:onClick="botaoVoltarPerfilPet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="412dp"
-        android:layout_height="177dp"
-        android:contentDescription="TODO"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pet2ulogo" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <EditText
         android:id="@+id/editTextNomeProduto"
@@ -82,26 +109,13 @@
         android:id="@+id/botaoCadastrarProduto"
         android:layout_width="164dp"
         android:layout_height="48dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginRight="116dp"
         android:background="@color/Cor_botoes"
         android:text="Cadastar Produto"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/editTextValorProduto"
-        app:layout_constraintHorizontal_bias="0.811"
-        app:layout_constraintStart_toEndOf="@+id/botaoVoltar"
-        app:layout_constraintTop_toBottomOf="@+id/editTextValorProduto" />
-
-    <Button
-        android:id="@+id/botaoVoltar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="36dp"
-        android:background="@color/Cor_botoes_vermelhos"
-        android:text="@string/botao_voltar"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/editTextValorProduto"
         app:layout_constraintTop_toBottomOf="@+id/editTextValorProduto" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

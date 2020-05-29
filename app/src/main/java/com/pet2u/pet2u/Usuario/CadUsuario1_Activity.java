@@ -44,12 +44,12 @@ public class CadUsuario1_Activity extends AppCompatActivity {
     }
 
     private void eventoClicks() {
-        botao_voltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+//        botao_voltar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
 
         botao_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,6 +159,12 @@ public class CadUsuario1_Activity extends AppCompatActivity {
         botao_cadastro = findViewById(R.id.botaoCadastrarrUsuario);
         botao_voltar = findViewById(R.id.botaoVoltar);
 
+    }
+
+    public void botaoVoltarLogin(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 

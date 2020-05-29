@@ -9,135 +9,163 @@
 
     >
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".Petshop.Cad_Dono_Pet_Activity">
-
-    <ImageView
-        android:id="@+id/logoCadPetshop01"
-        android:layout_width="0dp"
-        android:layout_height="181dp"
-        android:contentDescription="@string/logo_pet2u"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pet2ulogo" />
-
-    <TextView
-        android:id="@+id/txtCadPet01"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-thin"
-        android:text="@string/Title_cadastro_petshop"
-        android:textSize="46sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoCadPetshop01" />
+        tools:context=".Petshop.Cad_Dono_Pet_Activity">
 
-    <TextView
-        android:id="@+id/txtCadPet03"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/subtitle_cadDonoPet"
-        android:textSize="12sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCadPet01" />
+        <TextView
+            android:id="@+id/txtCadPet01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif-thin"
+            android:text="@string/Title_cadastro_petshop"
+            android:textSize="46sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
-    <EditText
-        android:id="@+id/inputNomeDonoPet"
-        android:layout_width="315dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="29dp"
-        android:ems="10"
-        android:hint="@string/Input_nome"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCadPet03"
-        android:autofillHints="" />
+        <TextView
+            android:id="@+id/txtCadPet03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subtitle_cadDonoPet"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCadPet01" />
 
-    <EditText
-        android:id="@+id/inputEmailDonoPet"
-        android:layout_width="315dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="14dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/input_email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputNomeDonoPet" />
+        <EditText
+            android:id="@+id/inputNomeDonoPet"
+            android:layout_width="400dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="29dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/Input_nome"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCadPet03" />
 
-    <EditText
-        android:id="@+id/inputCPFDonoPet"
-        android:layout_width="150dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="14dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/input_cpf"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/inputEmailDonoPet"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmailDonoPet" />
+        <EditText
+            android:id="@+id/inputEmailDonoPet"
+            android:layout_width="400dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="14dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/input_email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputNomeDonoPet" />
 
-    <EditText
-        android:id="@+id/inputTelefoneDonoPet"
-        android:layout_width="150dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="14dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/input_telefone"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="@+id/inputEmailDonoPet"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmailDonoPet" />
+        <EditText
+            android:id="@+id/inputCPFDonoPet"
+            android:layout_width="400dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/input_cpf"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputEmailDonoPet" />
 
-    <EditText
-        android:id="@+id/inputSenhaDonoPet"
-        android:layout_width="315dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="14dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/input_senha"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputCPFDonoPet" />
+        <EditText
+            android:id="@+id/inputTelefoneDonoPet"
+            android:layout_width="400dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/input_telefone"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputCPFDonoPet" />
 
-    <EditText
-        android:id="@+id/inputConfirmarSenhaDonoPet"
-        android:layout_width="315dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:hint="@string/input_confirmar_senha"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputSenhaDonoPet"
-        android:autofillHints="" />
+        <EditText
+            android:id="@+id/inputSenhaDonoPet"
+            android:layout_width="400dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/input_senha"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputTelefoneDonoPet" />
 
-    <Button
-        android:id="@+id/botaoContinuarPet"
-        android:layout_width="244dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/Cor_botoes"
-        android:text="@string/botao_continuarPet"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputConfirmarSenhaDonoPet" />
+        <EditText
+            android:id="@+id/inputConfirmarSenhaDonoPet"
+            android:layout_width="400dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/input_confirmar_senha"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputSenhaDonoPet" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/botaoContinuarPet"
+            android:layout_width="244dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/Cor_botoes"
+            android:text="@string/botao_continuarPet"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputConfirmarSenhaDonoPet" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/Cor_botoes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/logobrancopet2u"
+                android:layout_width="81dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginEnd="334dp"
+                android:layout_marginRight="334dp"
+                android:contentDescription="@string/logo_pet2u"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.005"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/ptlogobranco" />
+
+            <Button
+                android:id="@+id/botaoVoltar2"
+                android:layout_width="49dp"
+                android:layout_height="33dp"
+                android:background="@drawable/pngtree_exit_icon_vectors_png_image_1737870"
+                android:onClick="botaoVoltarLogin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

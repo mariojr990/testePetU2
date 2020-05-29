@@ -65,10 +65,15 @@ public class EditarTelefone_aActivity extends AppCompatActivity {
 
     }
 
+    public void botaoVoltarPerfil(View view){
+        Intent intent = new Intent(this, PerfilUsuario_Activity.class);
+        startActivity(intent);
+        finish();
+    }
 
     private void inicializaComponentes(){
         campoTelefone = findViewById(R.id.inputEditarTelefone);
         botao_enviar = findViewById(R.id.botao_Enviar_Redefinir_Telefone);
-        botao_voltar = findViewById(R.id.botao_voltar_redefinir_Telefone);
+        //botao_voltar = findViewById(R.id.botao_voltar_redefinir_Telefone);
     }
 }

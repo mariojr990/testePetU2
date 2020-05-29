@@ -8,34 +8,58 @@
     tools:context=".Petshop.ListagemPetshop_Activity">
 
 
-    <ImageView
-        android:id="@+id/logoPet2uListagemPet"
-        android:layout_width="0dp"
-        android:layout_height="181dp"
-        android:contentDescription="@string/logo_pet2u"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/searchView2"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="413dp"
+        android:layout_height="34dp"
+        android:background="@color/Cor_botoes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pet2ulogo" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logobrancopet2u"
+            android:layout_width="81dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginEnd="334dp"
+            android:layout_marginRight="334dp"
+            android:contentDescription="@string/logo_pet2u"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ptlogobranco" />
+
+        <Button
+            android:id="@+id/icone_home"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_home_"
+            android:onClick="botaoVoltarLogin"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="374dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <SearchView
         android:id="@+id/searchView2"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
+        android:layout_width="377dp"
+        android:layout_height="45dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="5dp"
         android:background="#DFDFDF"
         app:layout_constraintBottom_toTopOf="@+id/listasPetshop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.411"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoPet2uListagemPet"></SearchView>
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0"></SearchView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listasPetshop"
@@ -52,17 +76,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView2" />
-
-    <Button
-        android:id="@+id/botao_a"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/ic_home_"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.98"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

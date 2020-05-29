@@ -39,7 +39,7 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listagem_petshop);
         getSupportActionBar().hide();
-        button = findViewById(R.id.botao_a);
+        //button = findViewById(R.id.botao_a);
 
         databaseReference = Conexao.getFirebaseDatabase();
         items = new ArrayList<>();
@@ -100,12 +100,18 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
             }
         });
 
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), PerfilUsuario_Activity.class));
             }
         });
+    }
+
+    public void botaoVoltarLogin(View view){
+        Intent intent = new Intent(this, PerfilUsuario_Activity.class);
+        startActivity(intent);
     }
 
 

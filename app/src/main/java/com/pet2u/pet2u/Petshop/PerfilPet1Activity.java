@@ -49,7 +49,7 @@ public class PerfilPet1Activity extends AppCompatActivity {
             public void onClick(View v) {
                 if (tipoCadastro.isChecked()){//CADASTRAR NOVO PRODUTO
                     tipoCadastroProduto.setVisibility(View.VISIBLE);
-                    tipoCadastroServico.setVisibility(View.GONE);
+                    tipoCadastroServico.setVisibility(View.INVISIBLE);
 
                     tipoCadastroProduto.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -60,7 +60,7 @@ public class PerfilPet1Activity extends AppCompatActivity {
 
                 }else{//CADASTRAR NOVO SERVIÇO
                     tipoCadastroServico.setVisibility(View.VISIBLE);
-                    tipoCadastroProduto.setVisibility(View.GONE);
+                    tipoCadastroProduto.setVisibility(View.INVISIBLE);
                     tipoCadastroServico.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

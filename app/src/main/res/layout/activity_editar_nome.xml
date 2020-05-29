@@ -6,6 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".Usuario.EditarNomeActivity">
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="413dp"
+        android:layout_height="35dp"
+        android:background="@color/Cor_botoes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logobrancopet2u"
+            android:layout_width="81dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginEnd="334dp"
+            android:layout_marginRight="334dp"
+            android:contentDescription="@string/logo_pet2u"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.005"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ptlogobranco" />
+
+        <Button
+            android:id="@+id/petshops_list"
+            android:layout_width="34dp"
+            android:layout_height="32dp"
+            android:background="@drawable/pngtree_exit_icon_vectors_png_image_1737870"
+            android:onClick="botaoVoltarPerfil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <Button
         android:id="@+id/botao_Enviar_Redefinir_Nome"
         android:layout_width="224dp"
@@ -18,22 +56,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputEditarNome" />
 
-    <Button
-        android:id="@+id/botao_voltar_redefinir_Nome"
-        android:layout_width="100dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/Cor_botoes"
-        android:text="@string/botao_voltar"
-        android:textColor="@color/design_default_color_background"
-        app:layout_constraintEnd_toEndOf="@+id/botao_Enviar_Redefinir_Nome"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="@+id/botao_Enviar_Redefinir_Nome"
-        app:layout_constraintTop_toBottomOf="@+id/botao_Enviar_Redefinir_Nome" />
-
     <EditText
         android:id="@+id/inputEditarNome"
-        android:layout_width="315dp"
+        android:layout_width="400dp"
         android:layout_height="42dp"
         android:layout_marginTop="64dp"
         android:autofillHints=""
@@ -61,23 +86,12 @@
         android:id="@+id/txtAlterarTelefone2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="sans-serif-thin"
         android:text="@string/alterar_nome"
         android:textSize="46sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoRedefinirNome4" />
-
-    <ImageView
-        android:id="@+id/logoRedefinirNome4"
-        android:layout_width="0dp"
-        android:layout_height="181dp"
-        android:contentDescription="@string/logo_pet2u"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pet2ulogo" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

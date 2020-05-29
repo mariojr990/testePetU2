@@ -102,5 +102,15 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_desenvolvido_por"
             app:srcCompat="@drawable/pet2ulogoapp" />
 
+        <Button
+            android:id="@+id/botaoVoltar"
+            android:layout_width="49dp"
+            android:layout_height="33dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/pngtree_exit_icon_vectors_png_image_1737870"
+            android:onClick="botaoVoltarUsu"
+            app:layout_constraintBottom_toBottomOf="@+id/logo_pet2u_sobre"
+            app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

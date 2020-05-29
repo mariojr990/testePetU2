@@ -20,6 +20,7 @@ import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.Login.MainActivity;
 import com.pet2u.pet2u.Petshop.ListagemPetshop_Activity;
 import com.pet2u.pet2u.R;
+import com.pet2u.pet2u.Sobre.Sobre;
 import com.pet2u.pet2u.modelo.Usuario;
 
 public class PerfilUsuario_Activity extends AppCompatActivity {
@@ -115,6 +116,11 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
             });
 
         }
+    }
+
+    public void botaoSobre(View view){
+        Intent intent = new Intent(this, Sobre.class);
+        startActivity(intent);
     }
 
     private void inicializaComponentes(){

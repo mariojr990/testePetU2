@@ -101,12 +101,17 @@ public class CadastroProdutoActivity extends AppCompatActivity {
         campoMarcaProduto.setText("");
     }
 
+    public void botaoVoltarPerfilPet(View view){
+        Intent intent = new Intent(this, PerfilPet1Activity.class);
+        startActivity(intent);
+        finish();
+    }
 
     private void inicializaComponenetes(){
         campoNomeProduto = findViewById(R.id.editTextNomeProduto);
         campoMarcaProduto = findViewById(R.id.editTextMarcaProduto);
         campoValorProduto = findViewById(R.id.editTextValorProduto);
-        botaoVoltar = findViewById(R.id.botaoVoltar);
+        //botaoVoltar = findViewById(R.id.botaoVoltar);
         botaoCadastrarProduto = findViewById(R.id.botaoCadastrarProduto);
     }
 

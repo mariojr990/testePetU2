@@ -3,6 +3,7 @@ package com.pet2u.pet2u.Usuario;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
+import com.pet2u.pet2u.Login.MainActivity;
+import com.pet2u.pet2u.Petshop.ListagemPetshop_Activity;
 import com.pet2u.pet2u.R;
 
 public class EsqueceuSenha_Activity extends AppCompatActivity {
@@ -39,12 +42,12 @@ public class EsqueceuSenha_Activity extends AppCompatActivity {
             }
         });
 
-        botao_voltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+//        botao_voltar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
     }
 
     private void resetSenha(String email) {
@@ -74,9 +77,21 @@ public class EsqueceuSenha_Activity extends AppCompatActivity {
 
     }
 
+    public void botaoVoltarPerfil(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void botaoPetshopList(View view){
+        Intent intent = new Intent(this, ListagemPetshop_Activity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private void inicializaComponentes(){
         campoEmail = findViewById(R.id.inputEditarEmail);
         botao_enviar = findViewById(R.id.botao_Enviar);
-        botao_voltar = findViewById(R.id.botao_voltar_redefinir_senha);
+        //botao_voltar = findViewById(R.id.botao_voltar_redefinir_senha);
     }
 }

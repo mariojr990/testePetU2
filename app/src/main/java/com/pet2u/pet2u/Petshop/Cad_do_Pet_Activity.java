@@ -246,6 +246,12 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
 
     }
 
+    public void botaoVoltarLogin(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private void inicializaComponentes(){
         campoNome = findViewById(R.id.inputNomePetshop);
         campoRazaoSocial = findViewById(R.id.inputRazaoSocialPetshop2);

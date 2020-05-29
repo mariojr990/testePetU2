@@ -30,12 +30,12 @@ public class EditarNomeActivity extends AppCompatActivity {
     }
 
     private void eventoClick() {
-        botao_voltar_nome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+//        botao_voltar_nome.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
 
         botao_enviar_nome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,9 +61,15 @@ public class EditarNomeActivity extends AppCompatActivity {
 
     }
 
+    public void botaoVoltarPerfil(View view){
+        Intent intent = new Intent(this, PerfilUsuario_Activity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private void inicializaComponentes(){
     botao_enviar_nome = findViewById(R.id.botao_Enviar_Redefinir_Nome);
-    botao_voltar_nome= findViewById(R.id.botao_voltar_redefinir_Nome);
+    //botao_voltar_nome= findViewById(R.id.botao_voltar_redefinir_Nome);
     campoNome = findViewById(R.id.inputEditarNome);
     }
 }
