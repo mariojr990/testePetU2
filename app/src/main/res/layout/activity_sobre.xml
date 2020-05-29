@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".modelo.sobre">
+
+        <ImageView
+            android:id="@+id/logo_pet2u_sobre"
+            android:layout_width="0dp"
+            android:layout_height="323dp"
+            android:contentDescription="@string/imagem_pet2u_sobre"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pet2ulogoSobre" />
+
+        <TextView
+            android:id="@+id/sobreapp"
+            android:layout_width="134dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/sobreapp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo_pet2u_sobre" />
+
+        <TextView
+            android:id="@+id/infoapp"
+            android:layout_width="356dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/txt_sobre_o_app"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sobreapp" />
+
+        <TextView
+            android:id="@+id/versao_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/versao_app"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoapp" />
+
+        <TextView
+            android:id="@+id/desenvolvido_por"
+            android:layout_width="120dp"
+            android:layout_height="17dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/desenvolvido_por"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/versao_app" />
+
+        <TextView
+            android:id="@+id/txt_desenvolvido_por"
+            android:layout_width="136dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/txt_desenvolvido_por"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/desenvolvido_por" />
+
+        <TextView
+            android:id="@+id/termos_condicoes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/termos_condicoes"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.484"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pet2u_logo_desen" />
+
+        <ImageView
+            android:id="@+id/pet2u_logo_desen"
+            android:layout_width="78dp"
+            android:layout_height="67dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/pet2u_logo_desen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_desenvolvido_por"
+            app:srcCompat="@drawable/pet2ulogoapp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
