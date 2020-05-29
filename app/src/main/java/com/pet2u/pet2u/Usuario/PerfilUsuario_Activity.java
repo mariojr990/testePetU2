@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Criptografia;
+import com.pet2u.pet2u.Login.MainActivity;
 import com.pet2u.pet2u.Petshop.ListagemPetshop_Activity;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Usuario;
@@ -43,7 +44,9 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Conexao.logOut();
-                finish();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
 
