@@ -58,19 +58,19 @@
 
         <TextView
             android:id="@+id/desenvolvido_por"
-            android:layout_width="120dp"
-            android:layout_height="17dp"
+            android:layout_width="115dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="20dp"
             android:text="@string/desenvolvido_por"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/versao_app"
+            app:layout_constraintStart_toStartOf="@+id/versao_app"
             app:layout_constraintTop_toBottomOf="@+id/versao_app" />
 
         <TextView
             android:id="@+id/txt_desenvolvido_por"
-            android:layout_width="136dp"
-            android:layout_height="20dp"
+            android:layout_width="123dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:text="@string/txt_desenvolvido_por"
             app:layout_constraintEnd_toEndOf="parent"
@@ -86,9 +86,8 @@
             android:text="@string/termos_condicoes"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.484"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/pet2u_logo_desen"
+            app:layout_constraintStart_toStartOf="@+id/pet2u_logo_desen"
             app:layout_constraintTop_toBottomOf="@+id/pet2u_logo_desen" />
 
         <ImageView
@@ -103,14 +102,17 @@
             app:srcCompat="@drawable/pet2ulogoapp" />
 
         <Button
-            android:id="@+id/botaoVoltar"
-            android:layout_width="49dp"
-            android:layout_height="33dp"
-            android:layout_marginBottom="8dp"
+            android:id="@+id/botaoVoltarSobre"
+            android:layout_width="34dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/pngtree_exit_icon_vectors_png_image_1737870"
-            android:onClick="botaoVoltarUsu"
+            android:onClick="botaoVoltarSobre"
             app:layout_constraintBottom_toBottomOf="@+id/logo_pet2u_sobre"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/logo_pet2u_sobre"
+            app:layout_constraintVertical_bias="0.04000002" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

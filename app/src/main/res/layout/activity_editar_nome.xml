@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="413dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
         android:background="@color/Cor_botoes"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,29 +17,26 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/logobrancopet2u"
+            android:id="@+id/logobrancopet2u_editarNome"
             android:layout_width="81dp"
             android:layout_height="34dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginEnd="334dp"
-            android:layout_marginRight="334dp"
             android:contentDescription="@string/logo_pet2u"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.005"
+            app:layout_constraintHorizontal_bias="0.02"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/ptlogobranco" />
 
         <Button
-            android:id="@+id/petshops_list"
+            android:id="@+id/botaoVoltar_alterarNome"
             android:layout_width="34dp"
             android:layout_height="32dp"
             android:background="@drawable/pngtree_exit_icon_vectors_png_image_1737870"
-            android:onClick="botaoVoltarPerfil"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -68,10 +65,10 @@
         android:maxLength="50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDescricaoAlterarNome2" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDescricaoAlterarNome" />
 
     <TextView
-        android:id="@+id/txtDescricaoAlterarNome2"
+        android:id="@+id/txtDescricaoAlterarNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -79,11 +76,11 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAlterarTelefone2"
+        app:layout_constraintTop_toBottomOf="@+id/txtAlterarNome"
         tools:text="Digite novo o nome" />
 
     <TextView
-        android:id="@+id/txtAlterarTelefone2"
+        android:id="@+id/txtAlterarNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"

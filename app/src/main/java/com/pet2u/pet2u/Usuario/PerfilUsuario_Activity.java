@@ -24,8 +24,8 @@ import com.pet2u.pet2u.Sobre.Sobre;
 import com.pet2u.pet2u.modelo.Usuario;
 
 public class PerfilUsuario_Activity extends AppCompatActivity {
-    private TextView nomeCompleto, telefone, email, senha;
-    private Button botao_logout, botao_alterarSenha, botao_alterarTelefone, botao_alterarNome, petshops_list;
+    private TextView nomeCompleto, telefone, email;
+    private Button botao_logout, botao_alterarSenha, botao_alterarTelefone, botao_alterarNome, botao_petshops_list, botao_sobre;
 
     private FirebaseAuth auth;
     private FirebaseUser user;
@@ -72,10 +72,16 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
             }
         });
 
-        petshops_list.setOnClickListener(new View.OnClickListener() {
+        botao_petshops_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), ListagemPetshop_Activity.class));
+            }
+        });
+        botao_sobre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Sobre.class));
             }
         });
     }
@@ -118,22 +124,16 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         }
     }
 
-    public void botaoSobre(View view){
-        Intent intent = new Intent(this, Sobre.class);
-        startActivity(intent);
-    }
-
     private void inicializaComponentes(){
         nomeCompleto = findViewById(R.id.nomeCompletoUsuario);
         telefone = findViewById(R.id.editarTelefone);
         email = findViewById(R.id.editarEmail);
-        senha = findViewById(R.id.editarSenha);
         botao_logout = findViewById(R.id.botao_logout);
         botao_alterarSenha = findViewById(R.id.botaoAlterarSenha);
         botao_alterarTelefone = findViewById(R.id.botaoAlterarTelefone);
         botao_alterarNome= findViewById(R.id.botaoAlterarNome);
-        petshops_list = findViewById(R.id.petshops_list);
-
+        botao_petshops_list = findViewById(R.id.botaoIrpara_listagemPetshop_perfilUsu);
+        botao_sobre = findViewById(R.id.botaosobrePerfilUsuario);
     }
 
 }

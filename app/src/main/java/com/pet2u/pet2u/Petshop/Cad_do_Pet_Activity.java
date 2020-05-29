@@ -26,8 +26,6 @@ import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.Helper.DateCustom;
 import com.pet2u.pet2u.Login.MainActivity;
 import com.pet2u.pet2u.R;
-import com.pet2u.pet2u.Usuario.CadUsuario1_Activity;
-import com.pet2u.pet2u.Usuario.PerfilUsuario_Activity;
 import com.pet2u.pet2u.domain.Address;
 import com.pet2u.pet2u.domain.Util;
 import com.pet2u.pet2u.domain.ZipCodeListener;
@@ -139,26 +137,29 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                      cep.isEmpty() || uf.isEmpty() || cidade.isEmpty() || bairro.isEmpty() || endereco.isEmpty() || numero.isEmpty() || descricao.isEmpty()){
                     alert("Preencha todos os campos!");
                 }else{
+                    if(isCNPJ(cnpj)){
+                        petshop = new Petshop();
+                        petshop.setNome(nome);
+                        petshop.setRazao_social(razaoSocial);
+                        petshop.setCnpj(cnpj);
+                        petshop.setTelefone(telefone);
+                        petshop.setSenha(senha);
+                        petshop.setEmail(email);
+                        petshop.setCep(cep);
+                        petshop.setUf(uf);
+                        petshop.setCidade(cidade);
+                        petshop.setBairro(bairro);
+                        petshop.setEndereco(endereco);
+                        petshop.setNumero(numero);
+                        petshop.setComplemento(complemento);
+                        petshop.setDescricaoPetshop(descricao);
+                        petshop.setTipoUsuario("P");
 
-                    petshop = new Petshop();
-                    petshop.setNome(nome);
-                    petshop.setRazao_social(razaoSocial);
-                    petshop.setCnpj(cnpj);
-                    petshop.setTelefone(telefone);
-                    petshop.setSenha(senha);
-                    petshop.setEmail(email);
-                    petshop.setCep(cep);
-                    petshop.setUf(uf);
-                    petshop.setCidade(cidade);
-                    petshop.setBairro(bairro);
-                    petshop.setEndereco(endereco);
-                    petshop.setNumero(numero);
-                    petshop.setComplemento(complemento);
-                    petshop.setDescricaoPetshop(descricao);
-                    petshop.setTipoUsuario("P");
+                        criarPet(petshop.getEmail(), petshop.getSenha());
 
-                    criarPet(petshop.getEmail(), petshop.getSenha());
-
+                    }else{
+                        alert("CNPJ inválido");
+                    }
                 }
             }
         });
@@ -225,6 +226,64 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
         caixaDialogo.show();
     }
 
+    private boolean isCNPJ(String CNPJ) {
+
+        CNPJ = removeCaracteresEspeciais(CNPJ);
+
+        // considera-se erro CNPJ's formados por uma sequencia de numeros iguais
+        if (CNPJ.equals("00000000000000") || CNPJ.equals("11111111111111") || CNPJ.equals("22222222222222") || CNPJ.equals("33333333333333") || CNPJ.equals("44444444444444") || CNPJ.equals("55555555555555") || CNPJ.equals("66666666666666") || CNPJ.equals("77777777777777") || CNPJ.equals("88888888888888") || CNPJ.equals("99999999999999") || (CNPJ.length() != 14))
+            return (false);
+
+        char dig13, dig14;
+        int sm, i, r, num, peso;
+
+        // "try" - protege o código para eventuais erros de conversao de tipo (int)
+        try {
+            // Calculo do 1o. Digito Verificador
+            sm = 0;
+            peso = 2;
+            for (i = 11; i >= 0; i--) {
+                num = (int) (CNPJ.charAt(i) - 48);
+                sm = sm + (num * peso);
+                peso = peso + 1;
+                if (peso == 10)
+                    peso = 2;
+            }
+
+            r = sm % 11;
+            if ((r == 0) || (r == 1))
+                dig13 = '0';
+            else
+                dig13 = (char) ((11 - r) + 48);
+
+            // Calculo do 2o. Digito Verificador
+            sm = 0;
+            peso = 2;
+            for (i = 12; i >= 0; i--) {
+                num = (int) (CNPJ.charAt(i) - 48);
+                sm = sm + (num * peso);
+                peso = peso + 1;
+                if (peso == 10)
+                    peso = 2;
+            }
+
+            r = sm % 11;
+            if ((r == 0) || (r == 1))
+                dig14 = '0';
+            else
+                dig14 = (char) ((11 - r) + 48);
+
+            // Verifica se os dígitos calculados conferem com os dígitos informados.
+            if ((dig13 == CNPJ.charAt(12)) && (dig14 == CNPJ.charAt(13)))
+                return (true);
+            else
+                return (false);
+        } catch (Exception erro) {
+            erro.printStackTrace();
+            return (false);
+        }
+    }
+
     private void alert(String msg){
         Toast.makeText(Cad_do_Pet_Activity.this, msg,Toast.LENGTH_SHORT).show();
     }
@@ -246,10 +305,17 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
 
     }
 
-    public void botaoVoltarLogin(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
+    private String removeCaracteresEspeciais(String doc) {
+        if (doc.contains(".")) {
+            doc = doc.replace(".", "");
+        }
+        if (doc.contains("-")) {
+            doc = doc.replace("-", "");
+        }
+        if (doc.contains("/")) {
+            doc = doc.replace("/", "");
+        }
+        return doc;
     }
 
     private void inicializaComponentes(){
@@ -267,7 +333,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
         campoNumero = findViewById(R.id.inputNumeroPetshop);
         campoComplemento = findViewById(R.id.inputComplementoPetshop);
         botao_cadastroPet = findViewById(R.id.botaoCadastrarPetshop);
-        botao_voltar = findViewById(R.id.botaoVoltar2);
+        botao_voltar = findViewById(R.id.botaoVoltarCadPetshop);
         descricao_petshop = findViewById(R.id.descreva_petshop);
     }
 

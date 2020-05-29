@@ -16,35 +16,33 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="35dp"
             android:background="@color/Cor_botoes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/logobrancopet2u"
+                android:id="@+id/logobrancopet2u_cadPet"
                 android:layout_width="81dp"
                 android:layout_height="34dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginEnd="334dp"
-                android:layout_marginRight="334dp"
                 android:contentDescription="@string/logo_pet2u"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.02"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/ptlogobranco" />
 
             <Button
-                android:id="@+id/botaoVoltar2"
-                android:layout_width="49dp"
-                android:layout_height="33dp"
+                android:id="@+id/botaoVoltarCadPetshop"
+                android:layout_width="34dp"
+                android:layout_height="32dp"
                 android:background="@drawable/pngtree_exit_icon_vectors_png_image_1737870"
-                android:onClick="botaoVoltarLogin"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -241,13 +239,13 @@
             android:id="@+id/botaoCadastrarPetshop"
             android:layout_width="244dp"
             android:layout_height="47dp"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="28dp"
             android:background="@color/Cor_botoes"
             android:text="@string/botao_cadastrar"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/descreva_petshop"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/descreva_petshop"
             app:layout_constraintTop_toBottomOf="@+id/descreva_petshop"
             app:layout_constraintVertical_bias="0.107" />
@@ -268,9 +266,10 @@
 
         <EditText
             android:id="@+id/descreva_petshop"
-            android:layout_width="315dp"
+            android:layout_width="0dp"
             android:layout_height="112dp"
             android:layout_marginTop="3dp"
+            android:autofillHints=""
             android:ems="10"
             android:gravity="start|top"
             android:hint="@string/descreva_seu_petshop"
@@ -279,8 +278,7 @@
             app:layout_constraintEnd_toEndOf="@+id/editText_senhaPet"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/editText_senhaPet"
-            app:layout_constraintTop_toBottomOf="@+id/descricao_petshop"
-            android:autofillHints="" />
+            app:layout_constraintTop_toBottomOf="@+id/descricao_petshop" />
 
         <TextView
             android:id="@+id/descricao_petshop"

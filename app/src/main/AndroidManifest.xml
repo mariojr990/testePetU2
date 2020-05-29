@@ -18,6 +18,7 @@
         <activity android:name=".Usuario.EditarTelefone_aActivity" />
         <activity android:name=".Usuario.EsqueceuSenha_Activity" />
         <activity android:name=".Petshop.PerfilPet1Activity" />
+        <activity android:name=".Sobre.Sobre" />
         <activity
             android:name=".Petshop.PerfilPet"
             android:screenOrientation="portrait"

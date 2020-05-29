@@ -35,7 +35,7 @@ public class CadastroProdutoActivity extends AppCompatActivity {
         botaoVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),PerfilPet1Activity.class));
+                startActivity(new Intent(getApplicationContext(), PerfilPet1Activity.class));
                 finish();
             }
         });
@@ -101,17 +101,11 @@ public class CadastroProdutoActivity extends AppCompatActivity {
         campoMarcaProduto.setText("");
     }
 
-    public void botaoVoltarPerfilPet(View view){
-        Intent intent = new Intent(this, PerfilPet1Activity.class);
-        startActivity(intent);
-        finish();
-    }
-
     private void inicializaComponenetes(){
         campoNomeProduto = findViewById(R.id.editTextNomeProduto);
         campoMarcaProduto = findViewById(R.id.editTextMarcaProduto);
         campoValorProduto = findViewById(R.id.editTextValorProduto);
-        //botaoVoltar = findViewById(R.id.botaoVoltar);
+        botaoVoltar = findViewById(R.id.botaoVoltarCadProduto);
         botaoCadastrarProduto = findViewById(R.id.botaoCadastrarProduto);
     }
 

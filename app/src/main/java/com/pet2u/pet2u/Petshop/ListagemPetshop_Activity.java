@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.SearchView;
 
@@ -18,7 +17,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Adapter;
-import com.pet2u.pet2u.Login.MainActivity;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.Usuario.PerfilUsuario_Activity;
 import com.pet2u.pet2u.modelo.Petshop;
@@ -39,7 +37,7 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listagem_petshop);
         getSupportActionBar().hide();
-        //button = findViewById(R.id.botao_a);
+        button = findViewById(R.id.botao_perfil_listagemPet);
 
         databaseReference = Conexao.getFirebaseDatabase();
         items = new ArrayList<>();
@@ -108,11 +106,5 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
             }
         });
     }
-
-    public void botaoVoltarLogin(View view){
-        Intent intent = new Intent(this, PerfilUsuario_Activity.class);
-        startActivity(intent);
-    }
-
 
 }

@@ -133,36 +133,34 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="35dp"
             android:background="@color/Cor_botoes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/logobrancopet2u"
+                android:id="@+id/logobrancopet2u_donoPet"
                 android:layout_width="81dp"
                 android:layout_height="34dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginEnd="334dp"
-                android:layout_marginRight="334dp"
                 android:contentDescription="@string/logo_pet2u"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.005"
+                app:layout_constraintHorizontal_bias="0.02"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/ptlogobranco" />
 
             <Button
-                android:id="@+id/botaoVoltar2"
-                android:layout_width="49dp"
-                android:layout_height="33dp"
+                android:id="@+id/botaoVoltarCadDonoPethsop"
+                android:layout_width="34dp"
+                android:layout_height="32dp"
                 android:background="@drawable/pngtree_exit_icon_vectors_png_image_1737870"
                 android:onClick="botaoVoltarLogin"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

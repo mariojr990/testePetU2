@@ -15,35 +15,33 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="35dp"
             android:background="@color/Cor_botoes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/logobrancopet2u"
+                android:id="@+id/logobrancopet2u_perfilUsu"
                 android:layout_width="81dp"
                 android:layout_height="34dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginEnd="334dp"
-                android:layout_marginRight="334dp"
                 android:contentDescription="@string/logo_pet2u"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.02"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/ptlogobranco" />
 
             <Button
-                android:id="@+id/petshops_list"
+                android:id="@+id/botaoIrpara_listagemPetshop_perfilUsu"
                 android:layout_width="34dp"
                 android:layout_height="32dp"
                 android:background="@drawable/ic_petshops"
-                android:onClick="botaoPetshopList"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.984"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -52,11 +50,11 @@
             android:id="@+id/avatarPerfilUsuario"
             android:layout_width="145dp"
             android:layout_height="106dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="16dp"
             android:contentDescription="@string/descricao_avatar_do_usuario"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
             app:srcCompat="@drawable/pet2uiconeavatar" />
 
         <TextView
@@ -87,6 +85,7 @@
             android:id="@+id/backgroundEditNome"
             android:layout_width="269dp"
             android:layout_height="68dp"
+            android:layout_marginTop="24dp"
             android:layout_marginBottom="20dp"
             android:contentDescription="@string/fundo_editar_usuario"
             app:layout_constraintBottom_toTopOf="@+id/backgroundEdit1"
@@ -101,7 +100,7 @@
             android:id="@+id/editarNome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="26dp"
             android:text="@string/editar_nome"
             android:textColor="@android:color/background_light"
             android:textSize="12sp"
@@ -126,7 +125,7 @@
             android:id="@+id/editarTelefone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="26dp"
             android:text="@string/txt_alterar_telefone"
             android:textColor="@android:color/background_light"
             android:textSize="12sp"
@@ -150,7 +149,7 @@
             android:id="@+id/editarSenha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="26dp"
             android:text="@string/txt_alterar_senha"
             android:textColor="@android:color/background_light"
             android:textSize="12sp"
@@ -162,7 +161,7 @@
             android:id="@+id/botaoAlterarNome"
             android:layout_width="36dp"
             android:layout_height="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="18dp"
             android:background="@drawable/botao_edit_perfil"
             app:layout_constraintEnd_toEndOf="@+id/backgroundEditNome"
             app:layout_constraintHorizontal_bias="0.051"
@@ -173,7 +172,7 @@
             android:id="@+id/botaoAlterarTelefone"
             android:layout_width="36dp"
             android:layout_height="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="18dp"
             android:background="@drawable/botao_edit_perfil"
             app:layout_constraintEnd_toEndOf="@+id/backgroundEdit1"
             app:layout_constraintHorizontal_bias="0.051"
@@ -184,12 +183,12 @@
             android:id="@+id/botaoAlterarSenha"
             android:layout_width="36dp"
             android:layout_height="30dp"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="18dp"
             android:background="@drawable/botao_edit_perfil"
             app:layout_constraintEnd_toEndOf="@+id/backgroundEdit3"
             app:layout_constraintHorizontal_bias="0.051"
             app:layout_constraintStart_toStartOf="@+id/backgroundEdit3"
-            app:layout_constraintTop_toBottomOf="@+id/backgroundEdit1" />
+            app:layout_constraintTop_toTopOf="@+id/backgroundEdit3" />
 
         <Button
             android:id="@+id/botao_logout"
@@ -208,15 +207,14 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/botaosobre"
+            android:id="@+id/botaosobrePerfilUsuario"
             android:layout_width="83dp"
             android:layout_height="21dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:background="#FFFFFF"
-            android:onClick="botaoSobre"
-            android:text="sobre"
+            android:text="@string/sobre_pet2u"
             android:textColor="#655F5F"
             app:layout_constraintBottom_toTopOf="@+id/backgroundEditNome"
             app:layout_constraintEnd_toEndOf="parent"

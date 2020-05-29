@@ -42,12 +42,12 @@ public class EsqueceuSenha_Activity extends AppCompatActivity {
             }
         });
 
-//        botao_voltar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                finish();
-//            }
-//        });
+        botao_voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void resetSenha(String email) {
@@ -77,21 +77,9 @@ public class EsqueceuSenha_Activity extends AppCompatActivity {
 
     }
 
-    public void botaoVoltarPerfil(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public void botaoPetshopList(View view){
-        Intent intent = new Intent(this, ListagemPetshop_Activity.class);
-        startActivity(intent);
-        finish();
-    }
-
     private void inicializaComponentes(){
         campoEmail = findViewById(R.id.inputEditarEmail);
         botao_enviar = findViewById(R.id.botao_Enviar);
-        //botao_voltar = findViewById(R.id.botao_voltar_redefinir_senha);
+        botao_voltar = findViewById(R.id.botaoVoltar_redefinirSenha);
     }
 }
