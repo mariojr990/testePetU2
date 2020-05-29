@@ -4,7 +4,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 
-public class Produto {
+public class Produto_Cadastro {
     private String nome;
     private String marca;
     private String emailPetShop;
@@ -13,7 +13,7 @@ public class Produto {
     private String dataCadastro;
     private DatabaseReference databaseReference;
 
-    public Produto() {
+    public Produto_Cadastro() {
     }
 
     public void salvar(){

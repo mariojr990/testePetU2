@@ -1,8 +1,7 @@
 package com.pet2u.pet2u.Petshop;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,13 +13,13 @@ import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.Helper.DateCustom;
 import com.pet2u.pet2u.R;
-import com.pet2u.pet2u.modelo.Produto;
+import com.pet2u.pet2u.modelo.Produto_Cadastro;
 import java.util.UUID;
 
 public class CadastroProdutoActivity extends AppCompatActivity {
     private Button botaoCadastrarProduto, botaoVoltar;
     private EditText campoNomeProduto, campoMarcaProduto, campoValorProduto;
-    private Produto produto;
+    private Produto_Cadastro produto;
     private FirebaseAuth auth;
 
     @Override
@@ -51,7 +50,7 @@ public class CadastroProdutoActivity extends AppCompatActivity {
                     alert("Preencha todos os campos");
                 }
                 else{
-                    produto= new Produto();
+                    produto= new Produto_Cadastro();
                     String email = Criptografia.codificar(auth.getCurrentUser().getEmail());
                     produto.setIdProduto(UUID.randomUUID().toString());
                     produto.setEmailPetShop(email);

@@ -6,12 +6,12 @@ import android.os.Bundle;
 
 import com.pet2u.pet2u.R;
 
-public class CadUsuario2_Activity extends AppCompatActivity {
+public class CadUsuarioEndereco_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cad_usuario2);
+        setContentView(R.layout.activity_cad_usuario_endereco);
         getSupportActionBar().hide();
 
     }
