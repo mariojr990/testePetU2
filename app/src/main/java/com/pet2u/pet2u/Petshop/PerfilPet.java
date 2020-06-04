@@ -89,9 +89,15 @@ public class PerfilPet extends AppCompatActivity {
                         produtos.add(produtoClicked);
                     }
                 }
+
                 listaProdutos.setLayoutManager(new LinearLayoutManager(PerfilPet.this));
+                listaProdutos.setNestedScrollingEnabled(false);
                 adapter = new AdapterListaProdutos(PerfilPet.this, produtos);
                 listaProdutos.setAdapter(adapter);
+                int viewSize = adapter.getItemCount() * 368;
+                ViewGroup.LayoutParams layoutParams = listaProdutos.getLayoutParams();
+                layoutParams.height = viewSize;
+                listaProdutos.setLayoutParams(layoutParams);
             }
 
             @Override

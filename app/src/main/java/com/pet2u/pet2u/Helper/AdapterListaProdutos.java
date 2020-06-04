@@ -99,6 +99,7 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        int viewSize;
         TextView tituloProduto, descricaoProduto, valorProduto;
         ImageView imagemProduto;
 
@@ -108,6 +109,8 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
             descricaoProduto = itemView.findViewById(R.id.descricaoProduto);
             valorProduto = itemView.findViewById(R.id.valorProduto);
             imagemProduto = itemView.findViewById(R.id.imagemProduto);
+            itemView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+            viewSize= itemView.getMeasuredHeight();
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
