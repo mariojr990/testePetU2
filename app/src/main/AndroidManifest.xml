@@ -4,7 +4,7 @@
     package="com.pet2u.pet2u">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,35 +13,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Usuario.EditarNomeActivity"></activity>
+        <activity android:name=".Usuario.EditarNomeActivity" />
         <activity android:name=".Petshop.CadastroProdutoActivity" />
         <activity android:name=".Petshop.CadastroServicoActivity" />
         <activity android:name=".Usuario.EditarTelefone_aActivity" />
         <activity android:name=".Usuario.EsqueceuSenha_Activity" />
         <activity android:name=".Petshop.PerfilPet1Activity" />
-
         <activity android:name=".Sobre.Sobre" />
         <activity
             android:name=".Petshop.PerfilPet"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".Petshop.ListagemPetshop_Activity" />
+        <activity android:name=".Login.Splash_Activity" />
         <activity android:name=".Login.MainActivity" />
         <activity android:name=".Usuario.CadUsuarioEndereco_Activity" />
         <activity android:name=".Usuario.PerfilUsuario_Activity" />
         <activity android:name=".Petshop.Cad_Dono_Pet_Activity" />
         <activity android:name=".Petshop.Cad_do_Pet_Activity" />
         <activity android:name=".Usuario.CadUsuario1_Activity" />
-        <activity android:name=".Login.Splash_Activity">
+        <activity android:name=".Petshop.ListagemPetshop_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- <meta-data -->
+        </activity> <!-- <meta-data -->
         <!-- android:name="com.facebook.sdk.ApplicationId" -->
         <!-- android:value="@string/facebook_app_id" /> -->
         <meta-data

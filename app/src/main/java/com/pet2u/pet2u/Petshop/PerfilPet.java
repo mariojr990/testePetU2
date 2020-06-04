@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
@@ -65,7 +67,6 @@ public class PerfilPet extends AppCompatActivity {
         toolbarPerfilPetshop = findViewById(R.id.toolbarPerfilPetshop);
         toolbarPerfilPetshop.setVisibility(View.INVISIBLE);
         Button botao_voltar = findViewById(R.id.seta_voltar);
-
         produtos = new ArrayList<>();
         isToolbarOpen = false;
 
@@ -99,6 +100,9 @@ public class PerfilPet extends AppCompatActivity {
             }
         };
         usuarioRef.addListenerForSingleValueEvent(eventListener);
+
+
+
 
         //LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
         //listaProdutos.setLayoutParams(lp);
@@ -139,16 +143,12 @@ public class PerfilPet extends AppCompatActivity {
 
             }
         });
-
-
         botao_voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
     }
-
 
 }

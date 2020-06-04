@@ -54,7 +54,6 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         String title = data.get(i).getNome();
         viewHolder.tituloProduto.setText(title);
-
     }
 
     @Override
@@ -96,6 +95,7 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
             notifyDataSetChanged();
         }
     };
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 

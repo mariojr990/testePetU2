@@ -151,7 +151,7 @@
     <string name="fundo_editar_usuario">fundo_editar_usuario</string>
     <string name="alterar_nome">Alterar Nome</string>
 
-       <!--SOBRE -->
+    <!--SOBRE -->
     <string name="sobreapp">Sobre o aplicativo</string>
     <string name="txt_sobre_o_app">O Pet2U é o método mais rápido de comprar produtos e serviços para o seu pet. O seu melhor amigo merece.</string>
     <string name="desenvolvido_por">Desenvolvido por</string>
