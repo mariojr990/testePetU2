@@ -2,6 +2,7 @@ package com.pet2u.pet2u.Helper;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +54,7 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         String title = data.get(i).getNome();
         viewHolder.tituloProduto.setText(title);
+
     }
 
     @Override

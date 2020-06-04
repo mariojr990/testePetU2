@@ -14,6 +14,7 @@ import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -59,6 +60,7 @@ public class PerfilPet extends AppCompatActivity {
         TextView enderecoPetshop = findViewById(R.id.enderecoPetshop);
         TextView tituloPetshop = findViewById(R.id.tituloPetshopToolbar);
         emailCriptografado = Criptografia.codificar(getIntent().getExtras().getString("emailPetshop"));
+        listaProdutos = findViewById(R.id.listaProdutos);
         Button maisInfoButton = findViewById(R.id.maisInfoButton);
         toolbarPerfilPetshop = findViewById(R.id.toolbarPerfilPetshop);
         toolbarPerfilPetshop.setVisibility(View.INVISIBLE);
@@ -84,12 +86,11 @@ public class PerfilPet extends AppCompatActivity {
                         produtoClicked.setNome((String) singleUser.get("nome"));
                         produtoClicked.setValor((String) singleUser.get("valor"));
                         produtos.add(produtoClicked);
-                        listaProdutos = findViewById(R.id.listaProdutos);
-                        listaProdutos.setLayoutManager(new LinearLayoutManager(PerfilPet.this));
-                        adapter = new AdapterListaProdutos(PerfilPet.this, produtos);
-                        listaProdutos.setAdapter(adapter);
                     }
                 }
+                listaProdutos.setLayoutManager(new LinearLayoutManager(PerfilPet.this));
+                adapter = new AdapterListaProdutos(PerfilPet.this, produtos);
+                listaProdutos.setAdapter(adapter);
             }
 
             @Override
@@ -98,6 +99,9 @@ public class PerfilPet extends AppCompatActivity {
             }
         };
         usuarioRef.addListenerForSingleValueEvent(eventListener);
+
+        //LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
+        //listaProdutos.setLayoutParams(lp);
 
         petshopPerfilScrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override

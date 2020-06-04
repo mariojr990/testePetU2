@@ -57,6 +57,7 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
                     petshopClicked.setEmail((String) singleUser.get("email"));
                     items.add(petshopClicked);
                     listaPetshops = findViewById(R.id.listasPetshop);
+                    listaPetshops.setHasFixedSize(false);
                     listaPetshops.setLayoutManager(new LinearLayoutManager(ListagemPetshop_Activity.this));
                     adapter = new Adapter(ListagemPetshop_Activity.this, items);
                     listaPetshops.setAdapter(adapter);

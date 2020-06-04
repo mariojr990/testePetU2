@@ -168,17 +168,24 @@
                 android:layout_marginTop="10dp"
                 android:background="?android:attr/listDivider" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listaProdutos"
+            <LinearLayout
+                android:id="@+id/LayoutListaProdutos"
                 android:layout_width="match_parent"
-                android:layout_height="600dp"
-                android:clipChildren="false"
-                android:clipToPadding="false"
-                android:paddingLeft="20dp"
-                android:paddingTop="0dp"
-                android:paddingRight="20dp">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            </androidx.recyclerview.widget.RecyclerView>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listaProdutos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="0dp"
+                    android:paddingRight="20dp">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
