@@ -7,13 +7,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -59,11 +62,11 @@ public class PerfilPet extends AppCompatActivity {
         TextView enderecoPetshop = findViewById(R.id.enderecoPetshop);
         TextView tituloPetshop = findViewById(R.id.tituloPetshopToolbar);
         emailCriptografado = Criptografia.codificar(getIntent().getExtras().getString("emailPetshop"));
+        listaProdutos = findViewById(R.id.listaProdutos);
         Button maisInfoButton = findViewById(R.id.maisInfoButton);
         toolbarPerfilPetshop = findViewById(R.id.toolbarPerfilPetshop);
         toolbarPerfilPetshop.setVisibility(View.INVISIBLE);
         Button botao_voltar = findViewById(R.id.seta_voltar);
-
         produtos = new ArrayList<>();
         isToolbarOpen = false;
 
@@ -84,12 +87,11 @@ public class PerfilPet extends AppCompatActivity {
                         produtoClicked.setNome((String) singleUser.get("nome"));
                         produtoClicked.setValor((String) singleUser.get("valor"));
                         produtos.add(produtoClicked);
-                        listaProdutos = findViewById(R.id.listaProdutos);
-                        listaProdutos.setLayoutManager(new LinearLayoutManager(PerfilPet.this));
-                        adapter = new AdapterListaProdutos(PerfilPet.this, produtos);
-                        listaProdutos.setAdapter(adapter);
                     }
                 }
+                listaProdutos.setLayoutManager(new LinearLayoutManager(PerfilPet.this));
+                adapter = new AdapterListaProdutos(PerfilPet.this, produtos);
+                listaProdutos.setAdapter(adapter);
             }
 
             @Override
@@ -98,6 +100,12 @@ public class PerfilPet extends AppCompatActivity {
             }
         };
         usuarioRef.addListenerForSingleValueEvent(eventListener);
+
+
+
+
+        //LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
+        //listaProdutos.setLayoutParams(lp);
 
         petshopPerfilScrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override
@@ -135,16 +143,12 @@ public class PerfilPet extends AppCompatActivity {
 
             }
         });
-
-
         botao_voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
     }
-
 
 }

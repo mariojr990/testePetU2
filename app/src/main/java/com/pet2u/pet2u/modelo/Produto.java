@@ -6,6 +6,7 @@ import com.pet2u.pet2u.ConexaoDB.Conexao;
 
 public class Produto {
     private String idProduto, nome, descricaoProduto, valor, imagem;
+    private int height;
     private DatabaseReference databaseReference;
 
     public Produto() {
@@ -48,6 +49,14 @@ public class Produto {
 
     public void setValor(String valor) {
         this.valor = valor;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     @Override

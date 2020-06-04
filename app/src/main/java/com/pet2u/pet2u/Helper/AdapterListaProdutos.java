@@ -2,6 +2,7 @@ package com.pet2u.pet2u.Helper;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,6 +95,7 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
             notifyDataSetChanged();
         }
     };
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
