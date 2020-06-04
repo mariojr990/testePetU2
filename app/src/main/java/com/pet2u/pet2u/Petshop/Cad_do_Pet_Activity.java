@@ -139,6 +139,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                 }else{
                     if(isCNPJ(cnpj)){
                         petshop = new Petshop();
+                        petshop.setScore("10");
                         petshop.setNome(nome);
                         petshop.setRazao_social(razaoSocial);
                         petshop.setCnpj(cnpj);

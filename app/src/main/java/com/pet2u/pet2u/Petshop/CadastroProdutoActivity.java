@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
@@ -21,6 +23,7 @@ public class CadastroProdutoActivity extends AppCompatActivity {
     private EditText campoNomeProduto, campoMarcaProduto, campoValorProduto;
     private Produto_Cadastro produto;
     private FirebaseAuth auth;
+    private Spinner campoCategoria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,8 @@ public class CadastroProdutoActivity extends AppCompatActivity {
                 String nome = campoNomeProduto.getText().toString().trim();
                 String marca = campoMarcaProduto.getText().toString().trim();
                 String valor = campoValorProduto.getText().toString().trim();
+                valor = valor.replace(".", ",");
+                String categoria = campoCategoria.getSelectedItem().toString();
 
                 if (nome.isEmpty() || marca.isEmpty() || valor.isEmpty()){
                     alert("Preencha todos os campos");
@@ -56,6 +61,7 @@ public class CadastroProdutoActivity extends AppCompatActivity {
                     produto.setEmailPetShop(email);
                     produto.setDataCadastro(DateCustom.dataAtual());
                     produto.setNome(nome);
+                    produto.setCategoria(categoria);
                     produto.setMarca(marca);
                     produto.setValor(valor);
                     produto.salvar();
@@ -107,6 +113,14 @@ public class CadastroProdutoActivity extends AppCompatActivity {
         campoValorProduto = findViewById(R.id.editTextValorProduto);
         botaoVoltar = findViewById(R.id.botaoVoltarCadProduto);
         botaoCadastrarProduto = findViewById(R.id.botaoCadastrarProduto);
+        campoCategoria = findViewById(R.id.ListaCategoria);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter
+                .createFromResource(this,
+                        R.array.categorias,
+                        android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        campoCategoria.setAdapter(adapter);
     }
 
     @Override

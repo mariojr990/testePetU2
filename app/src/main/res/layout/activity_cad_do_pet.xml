@@ -274,7 +274,7 @@
             android:gravity="start|top"
             android:hint="@string/descreva_seu_petshop"
             android:inputType="textMultiLine"
-            android:maxLength="300"
+            android:maxLength="180"
             app:layout_constraintEnd_toEndOf="@+id/editText_senhaPet"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/editText_senhaPet"

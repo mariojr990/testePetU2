@@ -7,7 +7,7 @@ import com.pet2u.pet2u.ConexaoDB.Conexao;
 import java.util.ArrayList;
 
 public class Petshop {
-    private String idPetshop, nome, razao_social, cnpj, telefone, cep, uf, bairro, cidade, endereco, numero, complemento, senha, email, dataCadastro, tipoUsuario, descricaoPetshop;
+    private String idPetshop, nome, razao_social, cnpj, telefone, cep, uf, bairro, cidade, endereco, numero, complemento, senha, email, dataCadastro, tipoUsuario, descricaoPetshop, score;
     private DatabaseReference databaseReference;
 
     public Petshop() {
@@ -17,6 +17,14 @@ public class Petshop {
 
         databaseReference = Conexao.getFirebaseDatabase();
         databaseReference.child("Petshop").child(this.idPetshop).setValue(this);
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
     }
 
     public String getDescricaoPetshop() {

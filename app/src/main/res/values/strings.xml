@@ -55,6 +55,22 @@
         <item>"TO</item>
     </string-array>
 
+    <string-array name="categorias">
+        <item>Rações</item>
+        <item>Saúde</item>
+        <item>Limpeza e Higiene</item>
+        <item>Acessórios para Alimentação</item>
+        <item>Adestramento</item>
+        <item>Bijuterias</item>
+        <item>Brinquedos</item>
+        <item>Caixas e Bolsas de Transporte</item>
+        <item>Caminhas e Outros</item>
+        <item>Casinha e Acessórios</item>
+        <item>Coleiras, Guias e Peitorais</item>
+        <item>Ossinhos e Petiscos</item>
+        <item>Roupas e Acessórios</item>
+        <item>Shampoos e Cosméticos</item>
+    </string-array>
 
     <!-- INPUTS  -->
     <string name="input_confirmar_senha">Confirmar Senha</string>

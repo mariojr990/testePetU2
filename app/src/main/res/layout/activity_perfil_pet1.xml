@@ -129,7 +129,7 @@
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_novo_produto"
+                android:text="@string/botao_novo_servico"
                 android:textSize="18sp" />
 
             <Switch
@@ -141,7 +141,7 @@
                 android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/botao_novo_servico"
+                android:text="@string/txt_novo_produto"
                 android:textSize="18sp" />
         </LinearLayout>
 
