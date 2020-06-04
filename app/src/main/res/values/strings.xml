@@ -113,7 +113,7 @@
     <string name="imagem_do_petshop">Imagem_do_Petshop</string>
     <string name="informacoes_do_petshop">Informações do Petshop</string>
     <string name="nome_petshop_perfil">Nome Petshop</string>
-    <string name="Descricao_petshop">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque efficitur ante lectus, eget sodales erat lobortis venenatis. Fusce ipsum quam, bibendum id vulputate vitae, molestie sit amet justo. Nullam convallis, elit at luctus iaculis, mauris odio laoreet dolor, tincidunt cursus lacus mi sed ligula. Fusce dictum risus suscipit varius varius. Donec auctor porta tincidunt. Morbi turpis lorem, malesuada vel lectus at, lobortis mattis purus. Fusce ut augue ac tortor semper sagittis sit amet a dui.</string>
+    <string name="Descricao_petshop">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque efficitur ante lectus.</string>
 
     <string name="Title_descricao_petshop">Descrição do Petshop</string>
     <string name="Title_login_de_petshop">Login de PetShop</string>
@@ -151,7 +151,7 @@
     <string name="fundo_editar_usuario">fundo_editar_usuario</string>
     <string name="alterar_nome">Alterar Nome</string>
 
-       <!--SOBRE -->
+    <!--SOBRE -->
     <string name="sobreapp">Sobre o aplicativo</string>
     <string name="txt_sobre_o_app">O Pet2U é o método mais rápido de comprar produtos e serviços para o seu pet. O seu melhor amigo merece.</string>
     <string name="desenvolvido_por">Desenvolvido por</string>
@@ -167,5 +167,6 @@
     <string name="perfil_petshop_maisInfo">Mais Informações</string>
     <string name="perfil_petshop_menu">Menu</string>
     <string name="sobre_pet2u">sobre</string>
+    <string name="title_activity_teste">teste</string>
 
 </resources>

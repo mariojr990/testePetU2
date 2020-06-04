@@ -25,7 +25,7 @@ import com.pet2u.pet2u.modelo.Usuario;
 
 public class PerfilUsuario_Activity extends AppCompatActivity {
     private TextView nomeCompleto, telefone, email;
-    private Button botao_logout, botao_alterarSenha, botao_alterarTelefone, botao_alterarNome, botao_petshops_list, botao_sobre;
+    private Button botao_alterarSenha, botao_alterarTelefone, botao_alterarNome, botao_petshops_list;
 
     private FirebaseAuth auth;
     private FirebaseUser user;
@@ -41,15 +41,6 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
     }
 
     private void eventoClick() {
-        botao_logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Conexao.logOut();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-            }
-        });
 
         botao_alterarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,12 +69,19 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ListagemPetshop_Activity.class));
             }
         });
-        botao_sobre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Sobre.class));
-            }
-        });
+    }
+
+    public void ClickListagemPetshop(View view){
+        startActivity(new Intent(getApplicationContext(), ListagemPetshop_Activity.class));
+    }
+    public void clickLogoutUsuario(View view){
+        Conexao.logOut();
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+    public void clickSobre(View view){
+        startActivity(new Intent(getApplicationContext(), Sobre.class));
     }
 
     @Override
@@ -128,12 +126,10 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         nomeCompleto = findViewById(R.id.nomeCompletoUsuario);
         telefone = findViewById(R.id.editarTelefone);
         email = findViewById(R.id.editarEmail);
-        botao_logout = findViewById(R.id.botao_logout);
         botao_alterarSenha = findViewById(R.id.botaoAlterarSenha);
         botao_alterarTelefone = findViewById(R.id.botaoAlterarTelefone);
         botao_alterarNome= findViewById(R.id.botaoAlterarNome);
         botao_petshops_list = findViewById(R.id.botaoIrpara_listagemPetshop_perfilUsu);
-        botao_sobre = findViewById(R.id.botaosobrePerfilUsuario);
     }
 
 }

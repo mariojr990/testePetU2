@@ -24,8 +24,6 @@ import com.pet2u.pet2u.modelo.Petshop;
 import com.pet2u.pet2u.modelo.Usuario;
 
 public class PerfilPet1Activity extends AppCompatActivity {
-    private Switch tipoCadastro;
-    private Button logout, tipoCadastroProduto,tipoCadastroServico;
     private TextView descricao_petshop, nome_petshop, email_petshop_perfil;
 
     private DatabaseReference databaseReference;
@@ -39,48 +37,61 @@ public class PerfilPet1Activity extends AppCompatActivity {
         getSupportActionBar().hide();
         inicializaComponentes();
         verificaUser();
-        eventoClicks();
+        //eventoClicks();
 
     }
 
-    private void eventoClicks() {
-        tipoCadastro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (tipoCadastro.isChecked()){//CADASTRAR NOVO PRODUTO
-                    tipoCadastroProduto.setVisibility(View.VISIBLE);
-                    tipoCadastroServico.setVisibility(View.INVISIBLE);
-
-                    tipoCadastroProduto.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            startActivity(new Intent(getApplicationContext(), CadastroProdutoActivity.class));
-                        }
-                    });
-
-                }else{//CADASTRAR NOVO SERVIÇO
-                    tipoCadastroServico.setVisibility(View.VISIBLE);
-                    tipoCadastroProduto.setVisibility(View.INVISIBLE);
-                    tipoCadastroServico.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            startActivity(new Intent(getApplicationContext(), CadastroServicoActivity.class));
-                        }
-                    });
-                }
-            }
-        });
-
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Conexao.logOut();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-            }
-        });
+    public void ClickNovoProduto(View view ){
+        startActivity(new Intent(getApplicationContext(), CadastroProdutoActivity.class));
     }
+    public void clickNovoServico(View view ){
+        startActivity(new Intent(getApplicationContext(), CadastroServicoActivity.class));
+    }
+    public void clickLogout(View view ){
+        Conexao.logOut();
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+//    private void eventoClicks() {
+//        tipoCadastro.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (tipoCadastro.isChecked()){//CADASTRAR NOVO PRODUTO
+//                    tipoCadastroProduto.setVisibility(View.VISIBLE);
+//                    tipoCadastroServico.setVisibility(View.INVISIBLE);
+//
+//                    tipoCadastroProduto.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            startActivity(new Intent(getApplicationContext(), CadastroProdutoActivity.class));
+//                        }
+//                    });
+//
+//                }else{//CADASTRAR NOVO SERVIÇO
+//                    tipoCadastroServico.setVisibility(View.VISIBLE);
+//                    tipoCadastroProduto.setVisibility(View.INVISIBLE);
+//                    tipoCadastroServico.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            startActivity(new Intent(getApplicationContext(), CadastroServicoActivity.class));
+//                        }
+//                    });
+//                }
+//            }
+//        });
+//
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Conexao.logOut();
+//                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                startActivity(intent);
+//            }
+//        });
+//    }
 
 
     private void verificaUser() {
@@ -115,10 +126,6 @@ public class PerfilPet1Activity extends AppCompatActivity {
     public void inicializaComponentes(){
         descricao_petshop = findViewById(R.id.descricao_petshop_perfil);
         nome_petshop = findViewById(R.id.nome_petshop_perfil);
-        tipoCadastro = findViewById(R.id.tipoCadastro);
-        logout = findViewById(R.id.sairLogout);
-        tipoCadastroProduto = findViewById(R.id.tipoCadastroProduto);
-        tipoCadastroServico = findViewById(R.id.tipoCadastroServico);
         email_petshop_perfil = findViewById(R.id.email_petshop_perfil);
 
         auth = Conexao.getFirebaseAuth();
