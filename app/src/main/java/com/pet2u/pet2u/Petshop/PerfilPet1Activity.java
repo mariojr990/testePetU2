@@ -1,37 +1,40 @@
 package com.pet2u.pet2u.Petshop;
 
-import android.Manifest;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Switch;
-import android.widget.TextView;
+        import android.Manifest;
+        import android.content.DialogInterface;
+        import android.content.Intent;
+        import android.content.pm.PackageManager;
+        import android.net.Uri;
+        import android.os.Bundle;
+        import android.util.Log;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.ImageButton;
+        import android.widget.ImageView;
+        import android.widget.Switch;
+        import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+        import androidx.annotation.NonNull;
+        import androidx.annotation.Nullable;
+        import androidx.appcompat.app.AlertDialog;
+        import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.StorageReference;
-import com.pet2u.pet2u.ConexaoDB.Conexao;
-import com.pet2u.pet2u.Helper.Criptografia;
-import com.pet2u.pet2u.Helper.Permissao;
-import com.pet2u.pet2u.Login.MainActivity;
-import com.pet2u.pet2u.R;
-import com.pet2u.pet2u.modelo.Petshop;
+        import com.google.android.gms.tasks.OnFailureListener;
+        import com.google.android.gms.tasks.OnSuccessListener;
+        import com.google.firebase.auth.FirebaseAuth;
+        import com.google.firebase.auth.FirebaseUser;
+        import com.google.firebase.database.DataSnapshot;
+        import com.google.firebase.database.DatabaseError;
+        import com.google.firebase.database.DatabaseReference;
+        import com.google.firebase.database.ValueEventListener;
+        import com.google.firebase.storage.StorageReference;
+        import com.google.firebase.storage.UploadTask;
+        import com.pet2u.pet2u.ConexaoDB.Conexao;
+        import com.pet2u.pet2u.Helper.Criptografia;
+        import com.pet2u.pet2u.Helper.Permissao;
+        import com.pet2u.pet2u.Login.MainActivity;
+        import com.pet2u.pet2u.R;
+        import com.pet2u.pet2u.modelo.Petshop;
 
 public class PerfilPet1Activity extends AppCompatActivity {
     private static final int CODIGO_SELECAO_FOTO = 1;
@@ -62,6 +65,7 @@ public class PerfilPet1Activity extends AppCompatActivity {
         getSupportActionBar().hide();
         inicializaComponentes();
         verificaUser();
+        eventoClicks();
 
     }
 
@@ -89,6 +93,18 @@ public class PerfilPet1Activity extends AppCompatActivity {
         });
         AlertDialog dialog=builder.create();
         dialog.show();
+    }
+
+    private void eventoClicks() {
+        //SELECIONAR FOTO
+        botaoSelecionarFoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(intent, CODIGO_SELECAO_FOTO);
+            }
+        });
     }
 
     public void ClickNovoProduto(View view ){
@@ -159,3 +175,4 @@ public class PerfilPet1Activity extends AppCompatActivity {
         storageReference = Conexao.getFirebaseStorage();
     }
 }
+
