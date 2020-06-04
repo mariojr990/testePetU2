@@ -117,7 +117,7 @@
             tools:ignore="VectorDrawableCompat" />
 
     </com.github.clans.fab.FloatingActionMenu>
-
+    <!--
     <ImageView
         android:id="@+id/avatarPerfilUsuario2"
         android:layout_width="145dp"
@@ -125,6 +125,22 @@
         android:layout_marginTop="20dp"
         android:contentDescription="@string/descricao_avatar_do_usuario"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:srcCompat="@drawable/pet2uiconeavatar" />
+        -->
+
+    <ImageButton
+        android:id="@+id/BotaoSelecionarFoto"
+        android:layout_width="145dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="20dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:contentDescription="@string/descricao_avatar_do_usuario"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         app:srcCompat="@drawable/pet2uiconeavatar" />
@@ -141,7 +157,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatarPerfilUsuario2" />
+        app:layout_constraintTop_toBottomOf="@+id/BotaoSelecionarFoto" />
 
     <TextView
         android:id="@+id/email_petshop_perfil"
