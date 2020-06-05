@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
-import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,15 +32,13 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
     ArrayList<Petshop> items;
     private DatabaseReference databaseReference;
     private Button button;
-    private TextView scorePetshop;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listagem_petshop);
         getSupportActionBar().hide();
         button = findViewById(R.id.botao_perfil_listagemPet);
-        scorePetshop = findViewById(R.id.scorePetshop);
+
         databaseReference = Conexao.getFirebaseDatabase();
         items = new ArrayList<>();
 
@@ -58,10 +55,10 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
                     petshopClicked.setDescricaoPetshop((String) singleUser.get("descricaoPetshop"));
                     petshopClicked.setEndereco((String) singleUser.get("endereco"));
                     petshopClicked.setEmail((String) singleUser.get("email"));
-                    petshopClicked.setTelefone((String) singleUser.get("telefone"));
                     petshopClicked.setScore((String) singleUser.get("score"));
                     items.add(petshopClicked);
                     listaPetshops = findViewById(R.id.listasPetshop);
+                    listaPetshops.setHasFixedSize(false);
                     listaPetshops.setLayoutManager(new LinearLayoutManager(ListagemPetshop_Activity.this));
                     adapter = new Adapter(ListagemPetshop_Activity.this, items);
                     listaPetshops.setAdapter(adapter);
@@ -75,7 +72,6 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
                             perfilDoPetshop.putExtra("descricaoPetshop", items.get(position).getDescricaoPetshop());
                             perfilDoPetshop.putExtra("enderecoPetshop", items.get(position).getEndereco());
                             perfilDoPetshop.putExtra("emailPetshop", items.get(position).getEmail());
-                            perfilDoPetshop.putExtra("telefonePetshop", items.get(position).getTelefone());
                             startActivity(perfilDoPetshop);
                         }
                     });

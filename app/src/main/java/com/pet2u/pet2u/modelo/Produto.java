@@ -5,8 +5,7 @@ import com.google.firebase.database.Exclude;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 
 public class Produto {
-    private String idProduto, nome, descricaoProduto, valor, imagem;
-    private int height;
+    private String idProduto, nome, descricaoProduto, valor, categoria, tituloCategoria, imagem;
     private DatabaseReference databaseReference;
 
     public Produto() {
@@ -51,12 +50,20 @@ public class Produto {
         this.valor = valor;
     }
 
-    public int getHeight() {
-        return height;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getTituloCategoria() {
+        return tituloCategoria;
+    }
+
+    public void setTituloCategoria(String categoria) {
+        this.tituloCategoria = tituloCategoria;
     }
 
     @Override

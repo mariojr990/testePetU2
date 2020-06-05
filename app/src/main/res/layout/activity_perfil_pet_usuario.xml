@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Petshop.PerfilPet">
+    tools:context=".Petshop.PerfilPet_Usuario">
 
     <ScrollView
         android:id="@+id/petshopPerfilScrollView"

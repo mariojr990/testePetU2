@@ -1,35 +1,43 @@
 package com.pet2u.pet2u.Petshop;
 
-        import android.Manifest;
-        import android.content.DialogInterface;
-        import android.content.Intent;
-        import android.content.pm.PackageManager;
-        import android.net.Uri;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.ImageButton;
-        import android.widget.ImageView;
-        import android.widget.TextView;
+import android.Manifest;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Switch;
+import android.widget.TextView;
 
-        import androidx.annotation.NonNull;
-        import androidx.annotation.Nullable;
-        import androidx.appcompat.app.AlertDialog;
-        import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import com.squareup.picasso.Picasso;
 
-        import com.google.firebase.auth.FirebaseAuth;
-        import com.google.firebase.auth.FirebaseUser;
-        import com.google.firebase.database.DataSnapshot;
-        import com.google.firebase.database.DatabaseError;
-        import com.google.firebase.database.DatabaseReference;
-        import com.google.firebase.database.ValueEventListener;
-        import com.google.firebase.storage.StorageReference;
-        import com.pet2u.pet2u.ConexaoDB.Conexao;
-        import com.pet2u.pet2u.Helper.Criptografia;
-        import com.pet2u.pet2u.Helper.Permissao;
-        import com.pet2u.pet2u.Login.MainActivity;
-        import com.pet2u.pet2u.R;
-        import com.pet2u.pet2u.modelo.Petshop;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.pet2u.pet2u.ConexaoDB.Conexao;
+import com.pet2u.pet2u.Helper.Criptografia;
+import com.pet2u.pet2u.Helper.Permissao;
+import com.pet2u.pet2u.Login.MainActivity;
+import com.pet2u.pet2u.R;
+import com.pet2u.pet2u.modelo.Petshop;
 
 public class PerfilPet_petshop extends AppCompatActivity {
     private static final int CODIGO_SELECAO_FOTO = 1;
@@ -100,7 +108,6 @@ public class PerfilPet_petshop extends AppCompatActivity {
                 startActivityForResult(intent, CODIGO_SELECAO_FOTO);
             }
         });
-
     }
 
     public void ClickNovoProduto(View view ){
@@ -124,35 +131,41 @@ public class PerfilPet_petshop extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 Uri imageData=data.getData();
                 botaoSelecionarFoto.setImageURI(imageData);
-                //storageReference.child("FotoPerfil.jpg");
-                storageReference.child("FotoPerfil/" + Criptografia.codificar(user.getEmail()) + "/FotoPerfil.jpg").putFile(imageData);
+                storageReference.child("FotoPerfil/" + Criptografia.codificar(user.getEmail())).putFile(imageData);
             }
         }
     }
-
-
 
     private void verificaUser() {
         if(user == null){
             finish();
         }else{
-
             //CRIA A LIGAÇÃO ENTRE O USUÁRIO LOGADO E O DATABASE DELE
             String idUsuario = Criptografia.codificar(user.getEmail());
+            storageReference.child("FotoPerfil/" + idUsuario).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    Picasso.get().load(uri).fit().centerInside().into(botaoSelecionarFoto);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d("xesque", " A imagem não existe");
+                }
+            }) ;
+
             DatabaseReference usuarioRef = databaseReference.child("Petshop").child(idUsuario);
 
             usuarioRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    Petshop petshop = dataSnapshot.getValue(Petshop.class);
                     email_petshop_perfil.setText(auth.getCurrentUser().getEmail());
-                    nome_petshop.setText(petshop.getNome());
-                    descricao_petshop.setText(petshop.getDescricaoPetshop());
+                    nome_petshop.setText((String) dataSnapshot.child("name").getValue());
+                    descricao_petshop.setText((String) dataSnapshot.child("name").getValue());
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
                 }
             });
 
@@ -166,6 +179,7 @@ public class PerfilPet_petshop extends AppCompatActivity {
         email_petshop_perfil = findViewById(R.id.email_petshop_perfil);
         botaoSelecionarFoto = findViewById(R.id.BotaoSelecionarFoto);
         fotoPerfilPetshop = findViewById(R.id.BotaoSelecionarFoto);
+
         auth = Conexao.getFirebaseAuth();
         databaseReference = Conexao.getFirebaseDatabase();
         user = auth.getCurrentUser();

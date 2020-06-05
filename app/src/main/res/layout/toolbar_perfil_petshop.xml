@@ -57,43 +57,12 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             app:tabGravity="center"
-            app:tabMode="scrollable">
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabItemRacoes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rações" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabItemBrinquedos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Brinquedos" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabItemVasilhas"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vasilhas" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabItemCasinhas"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Casinhas" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabItemServicos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Serviços" />
-
-        </com.google.android.material.tabs.TabLayout>
+            app:tabMode="scrollable" />
 
     </LinearLayout>
 

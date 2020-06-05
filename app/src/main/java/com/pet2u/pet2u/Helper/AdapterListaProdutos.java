@@ -9,11 +9,14 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.pet2u.pet2u.Petshop.PerfilPet_petshop;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Petshop;
 import com.pet2u.pet2u.modelo.Produto;
@@ -28,6 +31,7 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
     private List<Produto> data;
     private List<Produto> dataSearch;
     private OnItemClickListener mListener;
+    private Context contextDp;
 
     public interface OnItemClickListener {
         void onItemClick(int position);
@@ -41,6 +45,7 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
         this.layoutInflater = LayoutInflater.from(context);
         this.data = data;
         dataSearch = new ArrayList<>(data);
+        contextDp = context;
     }
 
     @NonNull
@@ -53,9 +58,23 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         String title = data.get(i).getNome();
-        String preco = data.get(i).getValor();
+        String categoriaTitulo = data.get(i).getCategoria();
+        if (categoriaTitulo.isEmpty()) {
+            viewHolder.tituloCategoria.setVisibility(View.GONE);
+            //float scale = contextDp.getResources().getDisplayMetrics().density;
+            //int dpAsPixels = (int) (30*scale + 0.5f);
+            //ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(500, ConstraintLayout.LayoutParams.WRAP_CONTENT);
+            //params.setMargins(0, dpAsPixels,0,0);
+            //viewHolder.tituloProduto.setLayoutParams(params);
+        }
+        else {
+            viewHolder.tituloCategoria.setVisibility(View.VISIBLE);
+        }
         viewHolder.tituloProduto.setText(title);
-        viewHolder.valorProduto.setText("R$ " + preco);
+        if (!categoriaTitulo.isEmpty()) {
+            viewHolder.tituloCategoria.setText(categoriaTitulo);
+            viewHolder.tituloCategoria.setLayoutParams(new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, 0));
+        }
     }
 
     @Override
@@ -102,7 +121,7 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         int viewSize;
-        TextView tituloProduto, descricaoProduto, valorProduto;
+        TextView tituloProduto, descricaoProduto, valorProduto, tituloCategoria;
         ImageView imagemProduto;
 
         public ViewHolder(@NonNull View itemView) {
@@ -111,6 +130,7 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
             descricaoProduto = itemView.findViewById(R.id.descricaoProduto);
             valorProduto = itemView.findViewById(R.id.valorProduto);
             imagemProduto = itemView.findViewById(R.id.imagemProduto);
+            tituloCategoria = itemView.findViewById(R.id.tituloCategoria);
             itemView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
             viewSize= itemView.getMeasuredHeight();
 
