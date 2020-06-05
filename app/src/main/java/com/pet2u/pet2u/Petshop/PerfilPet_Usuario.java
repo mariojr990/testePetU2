@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
@@ -237,5 +238,9 @@ public class PerfilPet_Usuario extends AppCompatActivity {
             return;
         }
         getDeepChildOffset(mainParent, parentGroup.getParent(), parentGroup, accumulatedOffset);
+    }
+    public void perfilpet2(View view) {
+        startActivity(new Intent(PerfilPet_Usuario.this, PerfilPet_Usuario_2.class));
+
     }
 }

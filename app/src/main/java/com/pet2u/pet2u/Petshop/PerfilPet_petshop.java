@@ -131,7 +131,7 @@ public class PerfilPet_petshop extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 Uri imageData=data.getData();
                 botaoSelecionarFoto.setImageURI(imageData);
-                storageReference.child("FotoPerfil/" + Criptografia.codificar(user.getEmail())).putFile(imageData);
+                storageReference.child("FotoPerfilPet/" + Criptografia.codificar(user.getEmail())).putFile(imageData);
             }
         }
     }
@@ -142,7 +142,7 @@ public class PerfilPet_petshop extends AppCompatActivity {
         }else{
             //CRIA A LIGAÇÃO ENTRE O USUÁRIO LOGADO E O DATABASE DELE
             String idUsuario = Criptografia.codificar(user.getEmail());
-            storageReference.child("FotoPerfil/" + idUsuario).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            storageReference.child("FotoPerfilPet/" + idUsuario).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
                     Picasso.get().load(uri).fit().centerInside().into(botaoSelecionarFoto);
