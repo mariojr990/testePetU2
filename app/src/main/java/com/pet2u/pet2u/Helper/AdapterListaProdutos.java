@@ -53,7 +53,9 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         String title = data.get(i).getNome();
+        String preco = data.get(i).getValor();
         viewHolder.tituloProduto.setText(title);
+        viewHolder.valorProduto.setText("R$ " + preco);
     }
 
     @Override

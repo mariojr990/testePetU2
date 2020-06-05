@@ -52,7 +52,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         String title = data.get(i).getNome();
+        String score = data.get(i).getScore();
         viewHolder.nomePetshop.setText(title);
+        viewHolder.scorePetshop.setText(score);
     }
 
     @Override

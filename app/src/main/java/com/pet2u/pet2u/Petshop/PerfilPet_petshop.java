@@ -6,12 +6,10 @@ package com.pet2u.pet2u.Petshop;
         import android.content.pm.PackageManager;
         import android.net.Uri;
         import android.os.Bundle;
-        import android.util.Log;
         import android.view.View;
         import android.widget.Button;
         import android.widget.ImageButton;
         import android.widget.ImageView;
-        import android.widget.Switch;
         import android.widget.TextView;
 
         import androidx.annotation.NonNull;
@@ -19,8 +17,6 @@ package com.pet2u.pet2u.Petshop;
         import androidx.appcompat.app.AlertDialog;
         import androidx.appcompat.app.AppCompatActivity;
 
-        import com.google.android.gms.tasks.OnFailureListener;
-        import com.google.android.gms.tasks.OnSuccessListener;
         import com.google.firebase.auth.FirebaseAuth;
         import com.google.firebase.auth.FirebaseUser;
         import com.google.firebase.database.DataSnapshot;
@@ -28,7 +24,6 @@ package com.pet2u.pet2u.Petshop;
         import com.google.firebase.database.DatabaseReference;
         import com.google.firebase.database.ValueEventListener;
         import com.google.firebase.storage.StorageReference;
-        import com.google.firebase.storage.UploadTask;
         import com.pet2u.pet2u.ConexaoDB.Conexao;
         import com.pet2u.pet2u.Helper.Criptografia;
         import com.pet2u.pet2u.Helper.Permissao;
@@ -36,7 +31,7 @@ package com.pet2u.pet2u.Petshop;
         import com.pet2u.pet2u.R;
         import com.pet2u.pet2u.modelo.Petshop;
 
-public class PerfilPet1Activity extends AppCompatActivity {
+public class PerfilPet_petshop extends AppCompatActivity {
     private static final int CODIGO_SELECAO_FOTO = 1;
     public String [] permissoesNecessarias = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE
@@ -57,7 +52,7 @@ public class PerfilPet1Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil_pet1);
+        setContentView(R.layout.activity_perfil_pet_petshop);
 
         //validar Permissoes
         Permissao.validarPermissoes(permissoesNecessarias, this,1);
@@ -105,6 +100,7 @@ public class PerfilPet1Activity extends AppCompatActivity {
                 startActivityForResult(intent, CODIGO_SELECAO_FOTO);
             }
         });
+
     }
 
     public void ClickNovoProduto(View view ){
@@ -133,6 +129,8 @@ public class PerfilPet1Activity extends AppCompatActivity {
             }
         }
     }
+
+
 
     private void verificaUser() {
         if(user == null){
@@ -168,7 +166,6 @@ public class PerfilPet1Activity extends AppCompatActivity {
         email_petshop_perfil = findViewById(R.id.email_petshop_perfil);
         botaoSelecionarFoto = findViewById(R.id.BotaoSelecionarFoto);
         fotoPerfilPetshop = findViewById(R.id.BotaoSelecionarFoto);
-
         auth = Conexao.getFirebaseAuth();
         databaseReference = Conexao.getFirebaseDatabase();
         user = auth.getCurrentUser();

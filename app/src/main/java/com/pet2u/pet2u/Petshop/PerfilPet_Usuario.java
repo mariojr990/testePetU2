@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,13 +35,15 @@ import com.pet2u.pet2u.modelo.Produto;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class PerfilPet extends AppCompatActivity {
+public class PerfilPet_Usuario extends AppCompatActivity {
 
     private SmartTabLayout smartTabLayout;
     private ViewPager viewPager;
     private HorizontalScrollView scrollviewTipoProdutos;
     private ConstraintLayout toolbarPerfilPetshop;
     private ScrollView petshopPerfilScrollView;
+    private  TextView nomePet;
+    private TextView enderecoPetshop;
     private boolean isToolbarOpen;
 
 
@@ -54,12 +57,12 @@ public class PerfilPet extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil_pet);
+        setContentView(R.layout.activity_perfil_pet_usuario);
 
         databaseReference = Conexao.getFirebaseDatabase();
         petshopPerfilScrollView = findViewById(R.id.petshopPerfilScrollView);
-        TextView nomePet = findViewById(R.id.nomePet);
-        TextView enderecoPetshop = findViewById(R.id.enderecoPetshop);
+        nomePet = findViewById(R.id.nomePet);
+        enderecoPetshop = findViewById(R.id.enderecoPetshop);
         TextView tituloPetshop = findViewById(R.id.tituloPetshopToolbar);
         emailCriptografado = Criptografia.codificar(getIntent().getExtras().getString("emailPetshop"));
         listaProdutos = findViewById(R.id.listaProdutos);
@@ -89,15 +92,9 @@ public class PerfilPet extends AppCompatActivity {
                         produtos.add(produtoClicked);
                     }
                 }
-
-                listaProdutos.setLayoutManager(new LinearLayoutManager(PerfilPet.this));
-                listaProdutos.setNestedScrollingEnabled(false);
-                adapter = new AdapterListaProdutos(PerfilPet.this, produtos);
+                listaProdutos.setLayoutManager(new LinearLayoutManager(PerfilPet_Usuario.this));
+                adapter = new AdapterListaProdutos(PerfilPet_Usuario.this, produtos);
                 listaProdutos.setAdapter(adapter);
-                int viewSize = adapter.getItemCount() * 368;
-                ViewGroup.LayoutParams layoutParams = listaProdutos.getLayoutParams();
-                layoutParams.height = viewSize;
-                listaProdutos.setLayoutParams(layoutParams);
             }
 
             @Override
@@ -155,6 +152,15 @@ public class PerfilPet extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void perfilpet2(View view){
+        Intent intent = new Intent(PerfilPet_Usuario.this, PerfilPet_Usuario_2.class);
+        intent.putExtra("nomePetshop", nomePet.getText().toString());
+        intent.putExtra("enderecoPetshop", enderecoPetshop.getText().toString());
+        intent.putExtra("telefonePetshop", getIntent().getExtras().getString("telefonePetshop"));
+
+        startActivity(intent);
     }
 
 }

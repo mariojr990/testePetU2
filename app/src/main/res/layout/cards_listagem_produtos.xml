@@ -35,7 +35,7 @@
 
     <TextView
         android:id="@+id/valorProduto"
-        android:layout_width="59dp"
+        android:layout_width="0dp"
         android:layout_height="22dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"

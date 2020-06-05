@@ -38,7 +38,7 @@ public class CadastroProdutoActivity extends AppCompatActivity {
         botaoVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), PerfilPet1Activity.class));
+                startActivity(new Intent(getApplicationContext(), PerfilPet_petshop.class));
                 finish();
             }
         });

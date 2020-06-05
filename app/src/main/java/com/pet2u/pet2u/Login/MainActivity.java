@@ -31,7 +31,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,13 +40,11 @@ import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.Petshop.Cad_do_Pet_Activity;
 import com.pet2u.pet2u.Petshop.ListagemPetshop_Activity;
-import com.pet2u.pet2u.Petshop.PerfilPet;
-import com.pet2u.pet2u.Petshop.PerfilPet1Activity;
+import com.pet2u.pet2u.Petshop.PerfilPet_petshop;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.Usuario.CadUsuario1_Activity;
 import com.pet2u.pet2u.Usuario.EsqueceuSenha_Activity;
 import com.pet2u.pet2u.Usuario.PerfilUsuario_Activity;
-import com.pet2u.pet2u.modelo.Petshop;
 import com.pet2u.pet2u.modelo.Usuario;
 
 
@@ -329,7 +326,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             //if(auth.getCurrentUser().isEmailVerified()){
-                                Intent i = new Intent(MainActivity.this, PerfilPet1Activity.class);
+                                Intent i = new Intent(MainActivity.this, PerfilPet_petshop.class);
                                 startActivity(i);
                                 limparCampos();
                             //}else{
