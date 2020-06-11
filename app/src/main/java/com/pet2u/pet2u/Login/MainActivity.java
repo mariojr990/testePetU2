@@ -396,15 +396,21 @@ public class MainActivity extends AppCompatActivity {
     public void verificarUsuarioLogado(){
         FirebaseUser usuarioAtual = auth.getCurrentUser();
         if(usuarioAtual != null){
-            String tipoUsuario = usuarioAtual.getDisplayName();
-            abrirTelaPrincipal(tipoUsuario);
+            if(auth.getCurrentUser().isEmailVerified()){
+                String tipoUsuario = usuarioAtual.getDisplayName();
+                abrirTelaPrincipal(tipoUsuario);
+                limparCampos();
+            }else{
+                alert("Por favor, verificar o seu email");
+            }
         }
     }
 
     private void abrirTelaPrincipal(String tipoUsuario){
         if(tipoUsuario.equals("U")){//usuario
+
             startActivity(new Intent(getApplicationContext(), PerfilUsuario_Activity.class));
-        }else{//empresa
+        }else if(tipoUsuario.equals("P")){//empresa
             startActivity(new Intent(getApplicationContext(), PerfilPet_petshop.class));
         }
     }

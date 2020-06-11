@@ -183,6 +183,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                                         petshop.setidPetshop(idPetshop);
                                         petshop.salvar();
                                         limparCampos();
+                                        Petshop.atualizarTipoUsuario(petshop.getTipoUsuario());
                                         exibirConfirmacao();
 
                                     }else{

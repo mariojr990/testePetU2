@@ -13,6 +13,7 @@
         android:id="@+id/botaoSelecionarFotoPerfil"
         android:layout_width="145dp"
         android:layout_height="106dp"
+        android:layout_marginTop="32dp"
         android:adjustViewBounds="true"
         android:background="@null"
         android:contentDescription="@string/descricao_avatar_do_usuario"
