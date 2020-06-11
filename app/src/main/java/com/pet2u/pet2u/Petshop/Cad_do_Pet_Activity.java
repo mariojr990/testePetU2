@@ -215,7 +215,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
         AlertDialog.Builder caixaDialogo = new AlertDialog.Builder(this);
         caixaDialogo.setTitle("Cadastro");
         caixaDialogo.setIcon(android.R.drawable.ic_menu_info_details);
-        caixaDialogo.setMessage("Sua conta foi cadastrada com sucesso, um E-mail de verificação foi enviado.");
+        caixaDialogo.setMessage("Conta criada :D Bem vindo ao Pet2U, verifique seu E-mail!!");
         caixaDialogo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

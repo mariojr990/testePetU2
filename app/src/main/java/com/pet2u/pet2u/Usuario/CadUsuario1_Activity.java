@@ -61,7 +61,7 @@ public class CadUsuario1_Activity extends AppCompatActivity {
                 String telefone = campoTelefone.getText().toString().trim();
 
                 if ( nome.isEmpty() || email.isEmpty() || senha.isEmpty() || cpf.isEmpty() || telefone.isEmpty()){
-                    alert("Preencha todos os campos!");
+                    alert("Opa! Você esqueceu de Preencher todos os campos!");
                 }else{
                     if(isCPF(cpf)){
                         usu = new Usuario();
@@ -132,7 +132,7 @@ public class CadUsuario1_Activity extends AppCompatActivity {
         AlertDialog.Builder caixaDialogo = new AlertDialog.Builder(this);
         caixaDialogo.setTitle("Cadastro");
         caixaDialogo.setIcon(android.R.drawable.ic_menu_info_details);
-        caixaDialogo.setMessage("Sua conta foi cadastrada com sucesso, um E-mail de verificação foi enviado.");
+        caixaDialogo.setMessage("Conta criada :D Bem vindo ao Pet2U, verifique seu E-mail!!");
         caixaDialogo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
