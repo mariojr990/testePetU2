@@ -61,37 +61,49 @@
 
         <EditText
             android:id="@+id/inputNome"
-            android:layout_width="400dp"
+            android:layout_width="0dp"
             android:layout_height="42dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginLeft="26dp"
             android:layout_marginTop="29dp"
+            android:layout_marginEnd="26dp"
+            android:layout_marginRight="26dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/Input_nome"
             android:inputType="textPersonName"
             android:maxLength="50"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtCadastro"
-            android:autofillHints="" />
+            app:layout_constraintTop_toBottomOf="@+id/txtCadastro" />
 
         <EditText
             android:id="@+id/inputEmail"
-            android:layout_width="400dp"
+            android:layout_width="0dp"
             android:layout_height="42dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginLeft="26dp"
             android:layout_marginTop="14dp"
+            android:layout_marginEnd="26dp"
+            android:layout_marginRight="26dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/input_email"
             android:inputType="textEmailAddress"
             android:maxLength="50"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputNome"
-            android:autofillHints="" />
+            app:layout_constraintTop_toBottomOf="@+id/inputNome" />
 
         <EditText
             android:id="@+id/inputCPF"
-            android:layout_width="400dp"
+            android:layout_width="0dp"
             android:layout_height="42dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginLeft="26dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="26dp"
+            android:layout_marginRight="26dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/input_cpf"
@@ -103,9 +115,13 @@
 
         <EditText
             android:id="@+id/inputTelefone"
-            android:layout_width="400dp"
+            android:layout_width="0dp"
             android:layout_height="42dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginLeft="26dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="26dp"
+            android:layout_marginRight="26dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/input_telefone"
@@ -117,9 +133,13 @@
 
         <EditText
             android:id="@+id/inputSenha"
-            android:layout_width="400dp"
+            android:layout_width="0dp"
             android:layout_height="42dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginLeft="26dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="26dp"
+            android:layout_marginRight="26dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/input_senha"

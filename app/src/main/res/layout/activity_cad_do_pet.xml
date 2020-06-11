@@ -49,9 +49,13 @@
 
         <EditText
             android:id="@+id/inputRazaoSocialPetshop2"
-            android:layout_width="400dp"
+            android:layout_width="0dp"
             android:layout_height="42dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginLeft="26dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="26dp"
+            android:layout_marginRight="26dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/Input_razao_social"
@@ -87,23 +91,31 @@
 
         <EditText
             android:id="@+id/inputNomePetshop"
-            android:layout_width="400dp"
+            android:layout_width="0dp"
             android:layout_height="42dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginLeft="26dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="26dp"
+            android:layout_marginRight="26dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/Input_nome"
             android:inputType="textPersonName"
             android:maxLength="50"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtCadPet04"
-            android:autofillHints="" />
+            app:layout_constraintTop_toBottomOf="@+id/txtCadPet04" />
 
         <EditText
             android:id="@+id/inputEmail_Petshop"
-            android:layout_width="400dp"
+            android:layout_width="0dp"
             android:layout_height="42dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginLeft="26dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="26dp"
+            android:layout_marginRight="26dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/input_email"
@@ -157,7 +169,7 @@
 
         <EditText
             android:id="@+id/inputEnderecoPetshop"
-            android:layout_width="400dp"
+            android:layout_width="0dp"
             android:layout_height="42dp"
             android:layout_marginTop="5dp"
             android:autofillHints=""
@@ -252,17 +264,17 @@
 
         <EditText
             android:id="@+id/editText_senhaPet"
-            android:layout_width="400dp"
+            android:layout_width="0dp"
             android:layout_height="42dp"
             android:layout_marginTop="5dp"
+            android:autofillHints=""
             android:ems="10"
-            android:hint="@string/input_senha"
 
+            android:hint="@string/input_senha"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="@+id/inputComplementoPetshop"
             app:layout_constraintStart_toStartOf="@+id/inputComplementoPetshop"
-            app:layout_constraintTop_toBottomOf="@+id/inputComplementoPetshop"
-            android:autofillHints="" />
+            app:layout_constraintTop_toBottomOf="@+id/inputComplementoPetshop" />
 
         <EditText
             android:id="@+id/descreva_petshop"
@@ -285,10 +297,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="320dp"
-            android:layout_marginRight="320dp"
             android:text="@string/descricao_petshop_cadastro"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/editText_senhaPet"
             app:layout_constraintTop_toBottomOf="@+id/editText_senhaPet" />
 
