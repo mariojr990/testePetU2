@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.storage.StorageReference;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.Helper.DateCustom;
@@ -33,6 +36,8 @@ public class CadUsuario1_Activity extends AppCompatActivity {
     private EditText campoNome, campoEmail, campoSenha, campoCPF, campoTelefone;
     private FirebaseAuth auth;
     private Usuario usu;
+    //private StorageReference storageReference;
+    //private Resources res = getResources();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +88,6 @@ public class CadUsuario1_Activity extends AppCompatActivity {
     }
 
 
-
     private void criarUser(String email, String senha) {
         auth.createUserWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(CadUsuario1_Activity.this, new OnCompleteListener<AuthResult>() {
@@ -95,10 +99,13 @@ public class CadUsuario1_Activity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()){
                                         String idUsuario = Criptografia.codificar(usu.getEmail());
+                                        //Drawable drawable = res.getDrawable(R.drawable.pet2uiconeavatar);
                                         usu.setDataCadastro(DateCustom.dataAtual());
                                         usu.setIdUsuario(idUsuario);
                                         usu.setTipoUsuario("U");
                                         usu.salvar();
+                                        //storageReference.child("FotoPerfilPet/" + idUsuario).putFile(drawable);
+                                        Usuario.atualizarTipoUsuario(usu.getTipoUsuario());
                                         exibirConfirmacao();
 
                                     }else{
