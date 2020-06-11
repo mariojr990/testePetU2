@@ -11,9 +11,10 @@ public class Produto_Cadastro {
     public Produto_Cadastro() {
     }
 
-    public void salvar(){
+    public void salvar(String nomeNo, String emailCriptografado,String nomeSubNo){
         databaseReference = Conexao.getFirebaseDatabase();
-        databaseReference.child("Produto").child(this.idProduto).setValue(this);
+        databaseReference.child(nomeNo).child(emailCriptografado).child(nomeSubNo).child(this.idProduto).setValue(this);
+        //databaseReference.child("Produto").child(this.idProduto).setValue(this);
     }
 
     public String getCategoria() {

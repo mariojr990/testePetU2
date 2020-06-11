@@ -64,7 +64,7 @@ public class CadastroProdutoActivity extends AppCompatActivity {
                     produto.setCategoria(categoria);
                     produto.setMarca(marca);
                     produto.setValor(valor);
-                    produto.salvar();
+                    produto.salvar("Petshop", email, "produto");
                     //exibirConfirmacao();
                     alert("Produto Cadastrado com sucesso!");
                     limparCampos();

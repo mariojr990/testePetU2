@@ -176,5 +176,6 @@
     <string name="line2">Line2</string>
     <string name="line3">Line3</string>
     <string name="numero_txt_perfilpetusu">Numero</string>
+    <string name="title_activity_perfil_pet__usuario__localizacao">Map</string>
 
 </resources>

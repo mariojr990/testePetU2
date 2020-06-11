@@ -18,6 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.pet2u.pet2u.modelo.Produto;
 import com.squareup.picasso.Picasso;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -141,6 +143,7 @@ public class PerfilPet_petshop extends AppCompatActivity {
             finish();
         }else{
             //CRIA A LIGAÇÃO ENTRE O USUÁRIO LOGADO E O DATABASE DELE
+            //produto = new Produto();
             String idUsuario = Criptografia.codificar(user.getEmail());
             storageReference.child("FotoPerfilPet/" + idUsuario).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
@@ -159,9 +162,10 @@ public class PerfilPet_petshop extends AppCompatActivity {
             usuarioRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    email_petshop_perfil.setText(auth.getCurrentUser().getEmail());
-                    nome_petshop.setText((String) dataSnapshot.child("name").getValue());
-                    descricao_petshop.setText((String) dataSnapshot.child("name").getValue());
+                    Petshop petshop = dataSnapshot.getValue(Petshop.class);
+                    email_petshop_perfil.setText(petshop.getEmail());
+                    nome_petshop.setText(petshop.getNome());
+                    descricao_petshop.setText(petshop.getDescricaoPetshop());
                 }
 
                 @Override

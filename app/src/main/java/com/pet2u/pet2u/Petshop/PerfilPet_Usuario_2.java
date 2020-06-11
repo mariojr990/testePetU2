@@ -3,11 +3,15 @@ package com.pet2u.pet2u.Petshop;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -39,14 +43,32 @@ public class PerfilPet_Usuario_2 extends AppCompatActivity {
 
     }
 
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        // Retorna o status se o usuário está com o google play services ativo ou não
+//        int errorCode = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this);
+//        switch (errorCode){
+//            case ConnectionResult.SERVICE_MISSING:
+//            case ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED:
+//            case ConnectionResult.SERVICE_DISABLED: //Case para tratar caso o services esteja desativado.
+//                Log.d("teste", "show dialog");
+//                GoogleApiAvailability.getInstance().getErrorDialog(this, errorCode, 0, new DialogInterface.OnCancelListener() {
+//                    @Override
+//                    public void onCancel(DialogInterface dialog) {
+//                        finish();
+//                    }
+//                }).show();
+//                break;
+//            case ConnectionResult.SUCCESS:
+//                Log.d("teste", "Google Play Services up-to-date");
+//                break;
+//        }
+//    }
+
     public void voltar(View view){
         finish();
     }
-
-
-
-
-
 
     private void inicializaComponenetes(){
         nome_petshop_perfil = findViewById(R.id.nome_petshop_perfil);

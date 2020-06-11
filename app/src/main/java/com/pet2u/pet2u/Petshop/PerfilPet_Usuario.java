@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.sax.StartElementListener;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,8 @@ public class PerfilPet_Usuario extends AppCompatActivity {
     private HorizontalScrollView scrollviewTipoProdutos;
     private ConstraintLayout toolbarPerfilPetshop;
     private ScrollView petshopPerfilScrollView;
+    private  TextView nomePet;
+    private TextView enderecoPetshop;
     private boolean isToolbarOpen;
 
 
@@ -66,8 +69,8 @@ public class PerfilPet_Usuario extends AppCompatActivity {
 
         databaseReference = Conexao.getFirebaseDatabase();
         petshopPerfilScrollView = findViewById(R.id.petshopPerfilScrollView);
-        TextView nomePet = findViewById(R.id.nomePet);
-        TextView enderecoPetshop = findViewById(R.id.enderecoPetshop);
+        nomePet = findViewById(R.id.nomePet);
+        enderecoPetshop = findViewById(R.id.enderecoPetshop);
         final TextView tituloPetshop = findViewById(R.id.tituloPetshopToolbar);
         emailCriptografado = Criptografia.codificar(getIntent().getExtras().getString("emailPetshop"));
         listaProdutos = findViewById(R.id.listaProdutos);
@@ -239,8 +242,14 @@ public class PerfilPet_Usuario extends AppCompatActivity {
         }
         getDeepChildOffset(mainParent, parentGroup.getParent(), parentGroup, accumulatedOffset);
     }
+
     public void perfilpet2(View view) {
-        startActivity(new Intent(PerfilPet_Usuario.this, PerfilPet_Usuario_2.class));
+        Intent intent = new Intent(PerfilPet_Usuario.this, PerfilPet_Usuario_2.class);
+        intent.putExtra("nomePetshop", nomePet.getText().toString());
+        intent.putExtra("enderecoPetshop", enderecoPetshop.getText().toString());
+        intent.putExtra("telefonePetshop", getIntent().getExtras().getString("telefonePetshop"));
+
+        startActivity(intent);
 
     }
 }
