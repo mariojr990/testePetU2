@@ -331,16 +331,16 @@ public class MainActivity extends AppCompatActivity {
                                 abrirTelaPrincipal(tipoUsuario);
                                 limparCampos();
                             }else{
-                                alert("Por favor, verificar o seu email");
+                                alert("Opa, algo deu errado! Poderia verificar o seu E-mail?");
                             }
                         }else{
                             String excecao = "";
                             try {
                                 throw task.getException();
                             }catch (FirebaseAuthInvalidCredentialsException e){
-                                excecao = "E-mail ou senha não correspondem a um usuário cadastrado";
+                                excecao = "Opa, o e-mail ou a senha não correspondem a um usuário cadastrado, poderia repetir?";
                             }catch (FirebaseAuthInvalidUserException e){
-                                excecao = "Usuário não está cadastrado";
+                                excecao = "Algo deu errado, seu usuário não está cadastrado :C";
                             }catch (Exception e){
                                 excecao = "Erro ao Logar: " + e.getMessage();
                                 e.printStackTrace();
@@ -369,16 +369,16 @@ public class MainActivity extends AppCompatActivity {
                                 abrirTelaPrincipal(tipoUsuario);
                                 limparCampos();
                             }else{
-                               alert("Por favor, verificar o seu email");
+                               alert("Opa, a conexão falhou! Poderia verificar o seu E-mail?");
                             }
                          }else{
                             String excecao = "";
                             try {
                                 throw task.getException();
                             }catch (FirebaseAuthInvalidCredentialsException e){
-                                excecao = "E-mail ou senha não correspondem a um usuário cadastrado";
+                                excecao = "Opa, o e-mail ou a senha não correspondem a um usuário cadastrado, poderia repetir?";
                             }catch (FirebaseAuthInvalidUserException e){
-                                excecao = "Usuário não está cadastrado";
+                                excecao = "Algo deu errado, seu usuário não está cadastrado :C";
                             }catch (Exception e){
                                 excecao = "Erro ao Logar: " + e.getMessage();
                                 e.printStackTrace();
@@ -401,7 +401,7 @@ public class MainActivity extends AppCompatActivity {
                 abrirTelaPrincipal(tipoUsuario);
                 limparCampos();
             }else{
-                alert("Por favor, verificar o seu email");
+                alert("Opa, a conexão falhou! Poderia verificar o seu E-mail?");
             }
         }
     }
@@ -409,7 +409,7 @@ public class MainActivity extends AppCompatActivity {
     private void abrirTelaPrincipal(String tipoUsuario){
         if(tipoUsuario.equals("U")){//usuario
 
-            startActivity(new Intent(getApplicationContext(), PerfilUsuario_Activity.class));
+            startActivity(new Intent(getApplicationContext(), ListagemPetshop_Activity.class));
         }else if(tipoUsuario.equals("P")){//empresa
             startActivity(new Intent(getApplicationContext(), PerfilPet_petshop.class));
         }

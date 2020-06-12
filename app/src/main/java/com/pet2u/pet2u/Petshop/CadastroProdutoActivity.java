@@ -1,7 +1,9 @@
 package com.pet2u.pet2u.Petshop;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -68,8 +70,8 @@ public class CadastroProdutoActivity extends AppCompatActivity {
                     produto.setMarca(marca);
                     produto.setValor(valor);
                     produto.salvar("Petshop", email, "produto");
-                    //exibirConfirmacao();
-                    alert("Uma novidade: Seu produto foi cadastrado com sucesso :P");
+                    exibirConfirmacao();
+                    //alert("Uma novidade: Seu produto foi cadastrado com sucesso :P");
                     limparCampos();
 
 
@@ -82,32 +84,35 @@ public class CadastroProdutoActivity extends AppCompatActivity {
         Toast.makeText(CadastroProdutoActivity.this, msg, Toast.LENGTH_SHORT).show();
     }
 
-//    private void exibirConfirmacao() {
-//        AlertDialog.Builder caixaDialogo = new AlertDialog.Builder(this);
-//        caixaDialogo.setTitle("Cadastro");
-//        caixaDialogo.setIcon(android.R.drawable.ic_menu_info_details);
-//        caixaDialogo.setMessage("Sua conta foi cadastrada com sucesso, um E-mail de verificação foi enviado.");
-//        caixaDialogo.setPositiveButton("Voltar para Perfil", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                Intent i = new Intent(CadastroProdutoActivity.this, PerfilPet1Activity.class);
-//                startActivity(i);
-//                finish();
-//            }
-//        });
-//        caixaDialogo.setNegativeButton("Cadastrar outro produto", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//
-//            }
-//        });
-//        caixaDialogo.show();
-//    }
+    private void exibirConfirmacao() {
+        AlertDialog.Builder caixaDialogo = new AlertDialog.Builder(this);
+        caixaDialogo.setTitle("Sucesso!");
+        caixaDialogo.setIcon(android.R.drawable.ic_menu_info_details);
+        caixaDialogo.setMessage("Uma novidade: Seu produto foi cadastrado com sucesso :P");
+        caixaDialogo.setPositiveButton("Voltar para Perfil", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        caixaDialogo.setNegativeButton("Cadastrar outro produto", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(CadastroProdutoActivity.this, CadastroProdutoActivity.class);
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
+            }
+        });
+        caixaDialogo.show();
+    }
 
     private void limparCampos(){
         campoNomeProduto.setText("");
         campoValorProduto.setText(null);
         campoMarcaProduto.setText("");
+        descricaoProduto.setText("");
     }
 
     private void inicializaComponenetes(){

@@ -72,7 +72,7 @@
             android:ems="10"
             android:hint="@string/input_email"
             android:inputType="textEmailAddress"
-            android:maxLength="25"
+            android:maxLength="120"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDescricaoAlterarSenha" />

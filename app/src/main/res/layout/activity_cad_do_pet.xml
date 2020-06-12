@@ -143,15 +143,15 @@
             android:id="@+id/inputComplementoPetshop"
             android:layout_width="0dp"
             android:layout_height="42dp"
-            android:layout_marginTop="5dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/input_complemento"
             android:inputType="textLongMessage|text"
             android:maxLength="100"
             app:layout_constraintEnd_toEndOf="@+id/inputNumeroPetshop"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/inputNumeroPetshop"
-            app:layout_constraintTop_toBottomOf="@+id/inputNumeroPetshop"
-            android:autofillHints="" />
+            app:layout_constraintTop_toBottomOf="@+id/inputNumeroPetshop" />
 
         <EditText
             android:id="@+id/inputNumeroPetshop"
@@ -279,14 +279,14 @@
         <EditText
             android:id="@+id/descreva_petshop"
             android:layout_width="0dp"
-            android:layout_height="112dp"
+            android:layout_height="140dp"
             android:layout_marginTop="3dp"
             android:autofillHints=""
             android:ems="10"
             android:gravity="start|top"
             android:hint="@string/descreva_seu_petshop"
             android:inputType="textMultiLine"
-            android:maxLength="180"
+            android:maxLength="300"
             app:layout_constraintEnd_toEndOf="@+id/editText_senhaPet"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/editText_senhaPet"
