@@ -22,6 +22,7 @@ public class CadastroProdutoActivity extends AppCompatActivity {
     private Button botaoCadastrarProduto, botaoVoltar;
     private EditText campoNomeProduto, campoMarcaProduto, campoValorProduto;
     private Produto_Cadastro produto;
+    private EditText descricaoProduto;
     private FirebaseAuth auth;
     private Spinner campoCategoria;
 
@@ -50,6 +51,7 @@ public class CadastroProdutoActivity extends AppCompatActivity {
                 String valor = campoValorProduto.getText().toString().trim();
                 valor = valor.replace(".", ",");
                 String categoria = campoCategoria.getSelectedItem().toString();
+                String descricaoProdutoo = descricaoProduto.getText().toString().trim();
 
                 if (nome.isEmpty() || marca.isEmpty() || valor.isEmpty()){
                     alert("Preencha todos os campos");
@@ -62,6 +64,7 @@ public class CadastroProdutoActivity extends AppCompatActivity {
                     produto.setDataCadastro(DateCustom.dataAtual());
                     produto.setNome(nome);
                     produto.setCategoria(categoria);
+                    produto.setDescricao(descricaoProdutoo);
                     produto.setMarca(marca);
                     produto.setValor(valor);
                     produto.salvar("Petshop", email, "produto");
@@ -114,6 +117,7 @@ public class CadastroProdutoActivity extends AppCompatActivity {
         botaoVoltar = findViewById(R.id.botaoVoltarCadProduto);
         botaoCadastrarProduto = findViewById(R.id.botaoCadastrarProduto);
         campoCategoria = findViewById(R.id.ListaCategoria);
+        descricaoProduto = findViewById(R.id.descricaoProduto);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter
                 .createFromResource(this,

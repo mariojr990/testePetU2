@@ -21,7 +21,7 @@ public class Produto {
         return descricaoProduto;
     }
 
-    public void setDescricaoPetshop(String descricaoPetshop) {
+    public void setDescricaoProduto(String descricaoProduto) {
         this.descricaoProduto = descricaoProduto;
     }
 

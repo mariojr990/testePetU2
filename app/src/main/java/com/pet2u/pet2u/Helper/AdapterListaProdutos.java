@@ -59,6 +59,13 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         String title = data.get(i).getNome();
         String categoriaTitulo = data.get(i).getCategoria();
+        String descricao = data.get(i).getDescricaoProduto();
+        String preco = data.get(i).getValor();
+        String valorfinal ="R$ " + preco.replace(".",",");
+
+        viewHolder.descricaoProduto.setText(descricao);
+        viewHolder.valorProduto.setText(valorfinal);
+
         if (categoriaTitulo.isEmpty()) {
             viewHolder.tituloCategoria.setVisibility(View.GONE);
             //float scale = contextDp.getResources().getDisplayMetrics().density;

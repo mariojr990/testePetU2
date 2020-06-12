@@ -5,7 +5,7 @@ import com.google.firebase.database.Exclude;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 
 public class Produto_Cadastro {
-    private String nome, marca, emailPetShop, valor, idProduto, dataCadastro, categoria;
+    private String nome, marca, emailPetShop, valor, idProduto, dataCadastro, categoria, descricao;
     private DatabaseReference databaseReference;
 
     public Produto_Cadastro() {
@@ -14,6 +14,14 @@ public class Produto_Cadastro {
     public void salvar(String nomeNo, String emailCriptografado,String nomeSubNo){
         databaseReference = Conexao.getFirebaseDatabase();
         databaseReference.child(nomeNo).child(emailCriptografado).child(nomeSubNo).child(this.idProduto).setValue(this);
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public String getCategoria() {

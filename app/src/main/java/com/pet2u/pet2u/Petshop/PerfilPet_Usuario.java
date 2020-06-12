@@ -111,6 +111,7 @@ public class PerfilPet_Usuario extends AppCompatActivity {
                     Produto produtoClicked = new Produto();
                     produtoClicked.setNome((String) singleUser.get("nome"));
                     produtoClicked.setValor((String) singleUser.get("valor"));
+                    produtoClicked.setDescricaoProduto((String) singleUser.get("descricao"));
                     categoriaNome = (String) singleUser.get("categoria");
                     produtoClicked.setCategoria(categoriaNome);
 

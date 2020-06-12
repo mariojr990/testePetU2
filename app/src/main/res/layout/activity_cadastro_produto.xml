@@ -112,12 +112,12 @@
         android:id="@+id/textCategoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:text="Categoria"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextValorProduto" />
+        app:layout_constraintTop_toBottomOf="@+id/descricaoProduto" />
 
     <EditText
         android:id="@+id/editTextValorProduto"
@@ -131,5 +131,29 @@
         app:layout_constraintEnd_toEndOf="@+id/editTextMarcaProduto"
         app:layout_constraintStart_toStartOf="@+id/editTextMarcaProduto"
         app:layout_constraintTop_toBottomOf="@+id/editTextMarcaProduto" />
+
+    <EditText
+        android:id="@+id/descricaoProduto"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="3dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Breve descriçao do produto"
+        android:maxLength="50"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/editTextValorProduto"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextValorProduto"
+        app:layout_constraintTop_toBottomOf="@+id/descricao_petshop2" />
+
+    <TextView
+        android:id="@+id/descricao_petshop2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/descricao_petshop_cadastro"
+        app:layout_constraintStart_toStartOf="@+id/editTextValorProduto"
+        app:layout_constraintTop_toBottomOf="@+id/editTextValorProduto" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
