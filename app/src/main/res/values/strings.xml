@@ -178,4 +178,6 @@
     <string name="numero_txt_perfilpetusu">Numero</string>
     <string name="title_activity_perfil_pet__usuario__localizacao">Map</string>
 
+    <string name="classificarFiltro">Classificar por:</string>
+
 </resources>

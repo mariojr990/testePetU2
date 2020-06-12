@@ -1,5 +1,7 @@
 package com.pet2u.pet2u.modelo;
 
+import android.util.Log;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
@@ -7,7 +9,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
 
 public class Petshop {
     private String idPetshop, nome, razao_social, cnpj, telefone, cep, uf, bairro, cidade, endereco, numero, complemento, senha, email, dataCadastro, tipoUsuario, descricaoPetshop, score;
@@ -197,4 +202,48 @@ public class Petshop {
         return nome;
     }
 
+    public static Comparator<Petshop> ByAlfabetica = new Comparator<Petshop>() {
+
+        public int compare(Petshop n1, Petshop n2)
+        {
+            return String.valueOf(n1.nome).compareTo(String.valueOf(n2.nome));
+        }
+    };
+
+    public static Comparator<Petshop> ByData = new Comparator<Petshop>() {
+        @Override
+        public int compare(Petshop three, Petshop four) {
+            SimpleDateFormat sdformat = new SimpleDateFormat("dd/MM/yyyy");
+
+            Log.d("" , three.dataCadastro);
+
+            String[] splitStr1 = three.dataCadastro.split("\\s+");
+            String[] splitStr2 = four.dataCadastro.split("\\s+");
+            System.out.println(splitStr1[0]);
+
+            Date d1 = null;
+            Date d2 = null;
+            try {
+                d1 = sdformat.parse(splitStr1[0]);
+                d2 = sdformat.parse(splitStr2[0]);
+            }
+            catch(Exception ex) {
+
+            }
+
+            return d1.compareTo(d2);
+        }
+    };
+
+    public static Comparator<Petshop> ByScore = new Comparator<Petshop>() {
+        @Override
+        public int compare(Petshop five, Petshop six) {
+            return - Integer.valueOf(five.score).compareTo(Integer.valueOf(six.score));
+        }
+    };
+
+//    @Override
+//    public int compareTo(Petshop other) {
+//        return this.nome.compareTo(other.nome);
+//    }
 }

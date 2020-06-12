@@ -9,8 +9,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.RadioGroup;
 import android.widget.SearchView;
+import android.widget.TextView;
 
+import com.google.android.material.chip.Chip;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,6 +26,8 @@ import com.pet2u.pet2u.Usuario.PerfilUsuario_Activity;
 import com.pet2u.pet2u.modelo.Petshop;
 
 import java.text.Normalizer;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Map;
 import java.util.ArrayList;
 
@@ -31,16 +37,22 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
     Adapter adapter;
     ArrayList<Petshop> items;
     private DatabaseReference databaseReference;
-    private Button button;
+    private Button button, btnAlfabetica, btnData, btnScore;
+    //private Chip filtroAlfa, filtroNew, filtroScore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listagem_petshop);
         getSupportActionBar().hide();
         button = findViewById(R.id.botao_perfil_listagemPet);
+        btnAlfabetica = findViewById(R.id.btnAlfabetica);
+        btnData = findViewById(R.id.btnData);
+        btnScore = findViewById(R.id.btnScore);
 
         databaseReference = Conexao.getFirebaseDatabase();
         items = new ArrayList<>();
+
+        //sortview();
 
         DatabaseReference usuarioRef = databaseReference.child("Petshop");
         ValueEventListener eventListener = new ValueEventListener() {
@@ -109,6 +121,38 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), PerfilUsuario_Activity.class));
             }
         });
-    }
 
+//        btnAlfabetica.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Collections.sort(items);
+//                adapter.notifyDataSetChanged();
+//            }
+//        });
+
+        btnAlfabetica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Collections.sort(items, Petshop.ByAlfabetica);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+        btnData.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Collections.sort(items, Petshop.ByData);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+        btnScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Collections.sort(items, Petshop.ByScore);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+
+    }
 }
