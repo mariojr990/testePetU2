@@ -1,5 +1,6 @@
 package com.pet2u.pet2u.Petshop;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
+import android.net.Uri;
 import android.os.Bundle;
 import android.sax.StartElementListener;
 import android.util.Log;
@@ -24,11 +26,14 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.AdapterListaProdutos;
@@ -36,6 +41,7 @@ import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Petshop;
 import com.pet2u.pet2u.modelo.Produto;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -44,6 +50,7 @@ public class PerfilPet_Usuario extends AppCompatActivity {
 
     private SmartTabLayout smartTabLayout;
     private ViewPager viewPager;
+    private ImageView imagePetshop;
     private HorizontalScrollView scrollviewTipoProdutos;
     private ConstraintLayout toolbarPerfilPetshop;
     private ScrollView petshopPerfilScrollView;
@@ -59,6 +66,7 @@ public class PerfilPet_Usuario extends AppCompatActivity {
     private ArrayList<ArrayList<Produto>> categoriasMatrix;
     private String emailCriptografado;
     private TabLayout tabLayout;
+    private StorageReference storageReference = Conexao.getFirebaseStorage();
 
     private DatabaseReference databaseReference;
 
@@ -79,7 +87,7 @@ public class PerfilPet_Usuario extends AppCompatActivity {
         toolbarPerfilPetshop.setVisibility(View.INVISIBLE);
         Button botao_voltar = findViewById(R.id.seta_voltar);
         tabLayout = findViewById(R.id.tabLayoutToolbar);
-
+        imagePetshop = findViewById(R.id.imageView4);
         produtos = new ArrayList<>();
         categoriasMatrix = new ArrayList<>();
         categoriasList = new ArrayList<>();
@@ -105,6 +113,19 @@ public class PerfilPet_Usuario extends AppCompatActivity {
                     produtoClicked.setValor((String) singleUser.get("valor"));
                     categoriaNome = (String) singleUser.get("categoria");
                     produtoClicked.setCategoria(categoriaNome);
+
+                    String petshopCriptografado = Criptografia.codificar(getIntent().getExtras().getString("emailPetshop"));
+                    storageReference.child("FotoPerfilPet/" + petshopCriptografado).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Picasso.get().load(uri).fit().centerInside().into(imagePetshop);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d("xesque", " A imagem não existe");
+                        }
+                    }) ;
 
                     if (!categoriasList.contains(categoriaNome)) {
                         categoriasList.add(categoriaNome);

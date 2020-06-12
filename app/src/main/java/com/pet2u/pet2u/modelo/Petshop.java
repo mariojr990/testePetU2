@@ -238,7 +238,7 @@ public class Petshop {
     public static Comparator<Petshop> ByScore = new Comparator<Petshop>() {
         @Override
         public int compare(Petshop five, Petshop six) {
-            return - Integer.valueOf(five.score).compareTo(Integer.valueOf(six.score));
+            return - Double.valueOf(five.score).compareTo(Double.valueOf(six.score));
         }
     };
 

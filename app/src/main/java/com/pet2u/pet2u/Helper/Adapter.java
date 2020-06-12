@@ -2,6 +2,8 @@ package com.pet2u.pet2u.Helper;
 
 
 import android.content.Context;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +16,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import 	androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.StorageReference;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Petshop;
+import com.squareup.picasso.Picasso;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
@@ -27,6 +36,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
     private List<Petshop> data;
     private List<Petshop> dataSearch;
     private OnItemClickListener mListener;
+    private StorageReference storageReference = Conexao.getFirebaseStorage();
 
     public interface OnItemClickListener {
         void onItemClick(int position);
@@ -50,11 +60,24 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
         String title = data.get(i).getNome();
         String score = data.get(i).getScore();
         viewHolder.nomePetshop.setText(title);
         viewHolder.scorePetshop.setText(score);
+
+        String petshopCriptografado = Criptografia.codificar(data.get(i).getEmail());
+        storageReference.child("FotoPerfilPet/" + petshopCriptografado).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).fit().centerInside().into(viewHolder.imagemPetshop);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("xesque", " A imagem não existe");
+            }
+        }) ;
     }
 
     @Override

@@ -73,7 +73,9 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
                     listaPetshops = findViewById(R.id.listasPetshop);
                     listaPetshops.setHasFixedSize(false);
                     listaPetshops.setLayoutManager(new LinearLayoutManager(ListagemPetshop_Activity.this));
+                    //Log.d("a", (String)dataSnapshot.getKey());
                     adapter = new Adapter(ListagemPetshop_Activity.this, items);
+                    //adapter = new Adapter(ListagemPetshop_Activity.this, items);
                     listaPetshops.setAdapter(adapter);
 
                     adapter.setOnItemClickListener(new Adapter.OnItemClickListener() {
@@ -122,26 +124,24 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
             }
         });
 
-//        btnAlfabetica.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Collections.sort(items);
-//                adapter.notifyDataSetChanged();
-//            }
-//        });
-
         btnAlfabetica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Collections.sort(items, Petshop.ByAlfabetica);
                 adapter.notifyDataSetChanged();
+
             }
         });
 
         btnData.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Collections.sort(items, Petshop.ByData);
-                adapter.notifyDataSetChanged();
+//              Collections.sort(items, Petshop.ByData);
+//              adapter.notifyDataSetChanged();
+                Intent i = new Intent(ListagemPetshop_Activity.this, ListagemPetshop_Activity.class);
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
         });
 

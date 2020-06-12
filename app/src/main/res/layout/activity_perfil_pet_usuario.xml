@@ -24,8 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="204dp"
                 android:contentDescription="@string/imagem_do_petshop"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/petshopcapa" />
+                android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/nomePet"
