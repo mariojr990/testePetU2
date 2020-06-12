@@ -37,14 +37,15 @@ import com.pet2u.pet2u.modelo.Usuario;
 import com.squareup.picasso.Picasso;
 
 public class PerfilUsuario_Activity extends AppCompatActivity {
-    private TextView nomeCompleto, telefone, email;
-    private Button botao_alterarSenha, botao_alterarTelefone, botao_alterarNome, botao_petshops_list;
-    private ImageButton fotoPerfilUsuario;
-    private final static int CODIGO_SELECAO_FOTO = 2;
+    private final static int CODIGO_SELECAO_FOTO = 1;
     public String [] permissoesNecessarias = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE
     };
 
+
+    private TextView nomeCompleto, telefone, email;
+    private Button botao_alterarSenha, botao_alterarTelefone, botao_alterarNome, botao_petshops_list;
+    private ImageButton fotoPerfilUsuario;
 
     private FirebaseAuth auth;
     private FirebaseUser user;
@@ -58,6 +59,7 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         Permissao.validarPermissoes(permissoesNecessarias, this,1);
         getSupportActionBar().hide();
         inicializaComponentes();
+        verificaUser();
         eventoClick();
     }
     @Override
@@ -123,6 +125,8 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -146,16 +150,6 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
     }
     public void clickSobre(View view){
         startActivity(new Intent(getApplicationContext(), Sobre.class));
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        auth = Conexao.getFirebaseAuth();
-        databaseReference = Conexao.getFirebaseDatabase();
-        storageReference = Conexao.getFirebaseStorage();
-        user = auth.getCurrentUser();
-        verificaUser();
     }
 
     private void verificaUser() {
@@ -208,6 +202,11 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         botao_alterarNome= findViewById(R.id.botaoAlterarNome);
         botao_petshops_list = findViewById(R.id.botaoIrpara_listagemPetshop_perfilUsu);
         fotoPerfilUsuario = findViewById(R.id.botaoSelecionarFotoPerfil);
+
+        auth = Conexao.getFirebaseAuth();
+        databaseReference = Conexao.getFirebaseDatabase();
+        storageReference = Conexao.getFirebaseStorage();
+        user = auth.getCurrentUser();
 
     }
 

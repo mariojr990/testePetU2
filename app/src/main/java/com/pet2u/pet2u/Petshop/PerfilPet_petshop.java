@@ -121,7 +121,7 @@ public class PerfilPet_petshop extends AppCompatActivity {
     public void clickLogout(View view ){
         Conexao.logOut();
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //da clear em todas as activity abertas
         startActivity(intent);
     }
 
