@@ -100,7 +100,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/Cor_botoes"
+        android:background="@drawable/botao_arredondado_azul"
         android:text="Cadastar Produto"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"

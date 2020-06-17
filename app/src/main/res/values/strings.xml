@@ -24,6 +24,10 @@
     <string name="subtitle_cad_petshop">Informações do Petshop</string>
     <string name="descricao_petshop_cadastro">Descrição:</string>
 
+    <string name="saiba_mais"><u>Saiba mais.</u></string>
+    <string name="frete_txt"><b>Frete grátis</b> para todo o Distrito Federal!! </string>
+
+
     <string-array name="states">
         <item>"UF"</item>
         <item>"AC"</item>
