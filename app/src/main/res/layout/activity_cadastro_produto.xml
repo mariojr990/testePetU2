@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Petshop.CadastroProdutoActivity">
@@ -92,9 +99,11 @@
         android:layout_width="164dp"
         android:layout_height="48dp"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/Cor_botoes"
         android:text="Cadastar Produto"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/ListaCategoria"
         app:layout_constraintStart_toStartOf="@+id/ListaCategoria"
         app:layout_constraintTop_toBottomOf="@+id/ListaCategoria" />
@@ -112,12 +121,12 @@
         android:id="@+id/textCategoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:text="Categoria"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descricaoProduto" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonImageProduto" />
 
     <EditText
         android:id="@+id/editTextValorProduto"
@@ -156,4 +165,27 @@
         app:layout_constraintStart_toStartOf="@+id/editTextValorProduto"
         app:layout_constraintTop_toBottomOf="@+id/editTextValorProduto" />
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Imagem do Produto:"
+        app:layout_constraintEnd_toEndOf="@+id/descricaoProduto"
+        app:layout_constraintStart_toStartOf="@+id/descricaoProduto"
+        app:layout_constraintTop_toBottomOf="@+id/descricaoProduto" />
+
+    <ImageButton
+        android:id="@+id/ButtonImageProduto"
+        android:layout_width="99dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="8dp"
+        android:background="#FFFFFF"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:srcCompat="@drawable/ic_baseline_image_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
