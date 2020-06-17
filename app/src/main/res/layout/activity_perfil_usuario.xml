@@ -9,21 +9,6 @@
     android:layout_height="match_parent"
     tools:context=".Usuario.PerfilUsuario_Activity">
 
-    <ImageButton
-        android:id="@+id/botaoSelecionarFotoPerfil"
-        android:layout_width="172dp"
-        android:layout_height="134dp"
-        android:layout_marginTop="32dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:contentDescription="@string/descricao_avatar_do_usuario"
-        android:scaleType="fitXY"
-        fab:layout_constraintEnd_toEndOf="parent"
-        fab:layout_constraintHorizontal_bias="0.497"
-        fab:layout_constraintStart_toStartOf="parent"
-        fab:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        fab:srcCompat="@drawable/pet2uiconeavatar" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -59,140 +44,59 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <TextView
-        android:id="@+id/nomeCompletoUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/Input_nome"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editarEmail"
-        app:layout_constraintEnd_toEndOf="@+id/botaoSelecionarFotoPerfil"
-        app:layout_constraintStart_toStartOf="@+id/botaoSelecionarFotoPerfil"
-        app:layout_constraintTop_toBottomOf="@+id/botaoSelecionarFotoPerfil" />
-
-    <TextView
-        android:id="@+id/editarEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/input_email"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomeCompletoUsuario" />
-
-    <ImageView
-        android:id="@+id/backgroundEditNome"
-        android:layout_width="269dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="20dp"
-        android:contentDescription="@string/fundo_editar_usuario"
-        app:layout_constraintBottom_toTopOf="@+id/backgroundEdit1"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundEdit1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/backgroundEdit1"
-        app:layout_constraintTop_toBottomOf="@+id/editarEmail"
-        app:layout_constraintVertical_bias="0.901"
-        app:srcCompat="@drawable/pet2uobackgroundoptionseditarperfil" />
-
-    <TextView
-        android:id="@+id/editarNome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:text="@string/editar_nome"
-        android:textColor="@android:color/background_light"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundEditNome"
-        app:layout_constraintStart_toEndOf="@+id/botaoAlterarNome"
-        app:layout_constraintTop_toTopOf="@+id/backgroundEditNome" />
-
-    <ImageView
-        android:id="@+id/backgroundEdit1"
-        android:layout_width="269dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginBottom="20dp"
-        android:contentDescription="@string/fundo_editar_usuario"
-        app:layout_constraintBottom_toTopOf="@+id/backgroundEdit3"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="281dp"
+        android:background="@color/Cor_botoes"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backgroundEditNome"
-        app:srcCompat="@drawable/pet2uobackgroundoptionseditarperfil" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-    <TextView
-        android:id="@+id/editarTelefone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:text="@string/txt_alterar_telefone"
-        android:textColor="@android:color/background_light"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundEdit1"
-        app:layout_constraintStart_toEndOf="@+id/botaoAlterarTelefone"
-        app:layout_constraintTop_toTopOf="@+id/backgroundEdit1" />
+        <ImageButton
+            android:id="@+id/botaoSelecionarFotoPerfil"
+            android:layout_width="174dp"
+            android:layout_height="147dp"
+            android:layout_marginTop="32dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:contentDescription="@string/descricao_avatar_do_usuario"
+            android:scaleType="centerInside"
+            fab:layout_constraintEnd_toEndOf="parent"
+            fab:layout_constraintHorizontal_bias="0.497"
+            fab:layout_constraintStart_toStartOf="parent"
+            fab:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            fab:srcCompat="@drawable/pet2uiconeavatar" />
 
-    <ImageView
-        android:id="@+id/backgroundEdit3"
-        android:layout_width="269dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="40dp"
-        android:contentDescription="@string/fundo_editar_usuario"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundEdit1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/backgroundEdit1"
-        app:layout_constraintTop_toBottomOf="@+id/backgroundEdit1"
-        app:srcCompat="@drawable/pet2uobackgroundoptionseditarperfil" />
+        <TextView
+            android:id="@+id/nomeCompletoUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/Input_nome"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/editarSenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:text="@string/txt_alterar_senha"
-        android:textColor="@android:color/background_light"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundEdit3"
-        app:layout_constraintStart_toEndOf="@+id/botaoAlterarSenha"
-        app:layout_constraintTop_toTopOf="@+id/backgroundEdit3" />
+        <TextView
+            android:id="@+id/editarEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/input_email"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
 
-    <Button
-        android:id="@+id/botaoAlterarNome"
-        android:layout_width="36dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/botao_edit_perfil"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundEditNome"
-        app:layout_constraintHorizontal_bias="0.051"
-        app:layout_constraintStart_toStartOf="@+id/backgroundEditNome"
-        app:layout_constraintTop_toTopOf="@+id/backgroundEditNome" />
-
-    <Button
-        android:id="@+id/botaoAlterarTelefone"
-        android:layout_width="36dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/botao_edit_perfil"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundEdit1"
-        app:layout_constraintHorizontal_bias="0.051"
-        app:layout_constraintStart_toStartOf="@+id/backgroundEdit1"
-        app:layout_constraintTop_toTopOf="@+id/backgroundEdit1" />
-
-    <Button
-        android:id="@+id/botaoAlterarSenha"
-        android:layout_width="36dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/botao_edit_perfil"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundEdit3"
-        app:layout_constraintHorizontal_bias="0.051"
-        app:layout_constraintStart_toStartOf="@+id/backgroundEdit3"
-        app:layout_constraintTop_toTopOf="@+id/backgroundEdit3" />
+        <TextView
+            android:id="@+id/editarTelefone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="Telefone"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+    </LinearLayout>
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/menu_perfilUsuario"
@@ -203,10 +107,7 @@
         android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descricao_petshop_perfil"
-        app:layout_constraintVertical_bias="1.0"
         fab:menu_animationDelayPerItem="50"
         fab:menu_backgroundColor="@android:color/transparent"
         fab:menu_buttonSpacing="0dp"
@@ -254,6 +155,18 @@
             tools:ignore="VectorDrawableCompat" />
 
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/editar_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clickEditarPerfil"
+            android:src="@drawable/ic_adicionar_branco"
+            app:fab_colorPressed="#94D8FF"
+            fab:fab_colorNormal="@color/azul_pet2u"
+            fab:fab_label="Editar Perfil"
+            fab:fab_size="mini"
+            tools:ignore="VectorDrawableCompat" />
+
+        <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_sobre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -279,6 +192,88 @@
 
 
     </com.github.clans.fab.FloatingActionMenu>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="489dp" />
+
+    <ImageView
+        android:id="@+id/line_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        fab:srcCompat="@drawable/line" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#737373"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        android:drawableTop="@drawable/ic_shopping_cart"
+        android:gravity="center"
+        android:text="Compras"
+        android:textColor="#B1B1B1"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        android:drawableTop="@drawable/ic_star"
+        android:gravity="center"
+        android:text="Favoritos"
+        android:textColor="#B1B1B1"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline5" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:drawableTop="@drawable/ic_pets_grey"
+        android:gravity="center"
+        android:text="Seu Pet"
+        android:textColor="#B1B1B1"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:drawableTop="@drawable/ic_store_24"
+        android:gravity="center"
+        android:text="Seguindo"
+        android:textColor="#B1B1B1"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
