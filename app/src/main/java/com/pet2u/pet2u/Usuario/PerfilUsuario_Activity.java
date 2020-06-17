@@ -88,32 +88,12 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         dialog.show();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == CODIGO_SELECAO_FOTO ) {
-            if (resultCode == RESULT_OK) {
-                Uri imageData=data.getData();
-                fotoPerfilUsuario.setImageURI(imageData);
-                storageReference.child("FotoPerfilUsuario/" + Criptografia.codificar(user.getEmail())).putFile(imageData);
-            }
-        }
-    }
 
     private void eventoClick() {
         botao_petshops_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), ListagemPetshop_Activity.class));
-            }
-        });
-        fotoPerfilUsuario.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(intent, CODIGO_SELECAO_FOTO);
             }
         });
     }
