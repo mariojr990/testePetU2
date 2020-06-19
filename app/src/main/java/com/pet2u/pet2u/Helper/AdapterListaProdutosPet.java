@@ -206,7 +206,7 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         int viewSize;
-        TextView tituloProduto, descricaoProduto, valorProduto, tituloCategoria, excluirProduto, editarProduto;
+        TextView tituloProduto, descricaoProduto, valorProduto, tituloCategoria;
         ImageView imagemProduto;
 
         public ViewHolder(@NonNull View itemView) {
@@ -216,8 +216,6 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
             valorProduto = itemView.findViewById(R.id.valorProduto2);
             imagemProduto = itemView.findViewById(R.id.imagemProduto2);
             tituloCategoria = itemView.findViewById(R.id.tituloCategoria2);
-            excluirProduto = itemView.findViewById(R.id.excluir_produto);
-            editarProduto = itemView.findViewById(R.id.editar_produto);
             itemView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
             viewSize = itemView.getMeasuredHeight();
 //            databaseReference = Conexao.getFirebaseDatabase();

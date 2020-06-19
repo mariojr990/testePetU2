@@ -149,6 +149,18 @@ public class lista_produtos_pet_petshop extends AppCompatActivity {
                 ViewGroup.LayoutParams layoutParams = listaProdutos.getLayoutParams();
                 layoutParams.height = viewSize;
                 listaProdutos.setLayoutParams(layoutParams);
+
+                adapter.setOnItemClickListener(new AdapterListaProdutosPet.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        Log.d("xesque", "rolou o " + produtos.get(position).getNome());
+                        Intent crudproduto = new Intent(lista_produtos_pet_petshop.this, crud_Produto.class);
+                        crudproduto.putExtra("nomeProduto", produtos.get(position).getNome());
+                        crudproduto.putExtra("descricaoProduto", produtos.get(position).getDescricaoProduto());
+                        crudproduto.putExtra("valorProduto", produtos.get(position).getValor());
+                        startActivity(crudproduto);
+                    }
+                });
             }
 
             @Override
