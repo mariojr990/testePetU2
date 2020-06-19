@@ -18,10 +18,10 @@
        android:textColor="#E10303"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toEndOf="@+id/editar_produto"
-       app:layout_constraintTop_toBottomOf="@+id/descricaoProduto" />
+       app:layout_constraintTop_toBottomOf="@+id/descricaoProduto2" />
 
    <TextView
-       android:id="@+id/tituloCategoria"
+       android:id="@+id/tituloCategoria2"
        android:layout_width="0dp"
        android:layout_height="wrap_content"
        android:layout_marginStart="4dp"
@@ -37,7 +37,7 @@
        app:layout_constraintTop_toTopOf="parent" />
 
    <TextView
-       android:id="@+id/tituloProduto"
+       android:id="@+id/tituloProduto2"
        android:layout_width="226dp"
        android:layout_height="35dp"
        android:layout_marginStart="5dp"
@@ -50,11 +50,11 @@
        android:textStyle="bold"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.12"
-       app:layout_constraintStart_toEndOf="@+id/imagemProduto"
-       app:layout_constraintTop_toBottomOf="@+id/tituloCategoria" />
+       app:layout_constraintStart_toEndOf="@+id/imagemProduto2"
+       app:layout_constraintTop_toBottomOf="@+id/tituloCategoria2" />
 
    <TextView
-       android:id="@+id/descricaoProduto"
+       android:id="@+id/descricaoProduto2"
        android:layout_width="253dp"
        android:layout_height="wrap_content"
        android:layout_marginStart="5dp"
@@ -65,11 +65,11 @@
        android:textSize="13sp"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.106"
-       app:layout_constraintStart_toEndOf="@+id/imagemProduto"
-       app:layout_constraintTop_toBottomOf="@+id/tituloProduto" />
+       app:layout_constraintStart_toEndOf="@+id/imagemProduto2"
+       app:layout_constraintTop_toBottomOf="@+id/tituloProduto2" />
 
    <TextView
-       android:id="@+id/valorProduto"
+       android:id="@+id/valorProduto2"
        android:layout_width="55dp"
        android:layout_height="26dp"
        android:layout_marginStart="20dp"
@@ -80,21 +80,21 @@
        android:text="R$ 34,99"
        android:textColor="@android:color/holo_green_dark"
        app:layout_constraintEnd_toStartOf="@+id/editar_produto"
-       app:layout_constraintStart_toEndOf="@+id/imagemProduto"
-       app:layout_constraintTop_toBottomOf="@+id/descricaoProduto" />
+       app:layout_constraintStart_toEndOf="@+id/imagemProduto2"
+       app:layout_constraintTop_toBottomOf="@+id/descricaoProduto2" />
 
    <ImageView
-       android:id="@+id/imagemProduto"
+       android:id="@+id/imagemProduto2"
        android:layout_width="93dp"
        android:layout_height="89dp"
        android:layout_marginTop="8dp"
        android:scaleType="fitXY"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/tituloCategoria"
+       app:layout_constraintTop_toBottomOf="@+id/tituloCategoria2"
        app:srcCompat="@drawable/pet2ulogoapp" />
 
    <View
-       android:id="@+id/dividerProdutoBaixo"
+       android:id="@+id/dividerProdutoBaixo2"
        android:layout_width="match_parent"
        android:layout_height="1dp"
        android:layout_marginTop="15dp"
@@ -102,7 +102,7 @@
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.0"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/valorProduto" />
+       app:layout_constraintTop_toBottomOf="@+id/valorProduto2" />
 
    <TextView
        android:id="@+id/editar_produto"
@@ -116,7 +116,7 @@
        android:text="Editar Produto"
        android:textColor="#035BE1"
        app:layout_constraintEnd_toStartOf="@+id/excluir_produto"
-       app:layout_constraintStart_toEndOf="@+id/valorProduto"
-       app:layout_constraintTop_toBottomOf="@+id/descricaoProduto" />
+       app:layout_constraintStart_toEndOf="@+id/valorProduto2"
+       app:layout_constraintTop_toBottomOf="@+id/descricaoProduto2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

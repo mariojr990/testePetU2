@@ -1,6 +1,8 @@
 package com.pet2u.pet2u.Helper;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
@@ -19,10 +21,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.storage.StorageReference;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
+import com.pet2u.pet2u.Petshop.CadastroProdutoActivity;
 import com.pet2u.pet2u.Petshop.lista_produtos_pet_petshop;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Produto;
@@ -36,12 +41,17 @@ import java.util.List;
 public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaProdutosPet.ViewHolder> implements Filterable {
 
     private LayoutInflater layoutInflater;
-    private String idProduto, idPetshop;
+    //private String idProduto, idPetshop;
     private List<Produto> data;
     private List<Produto> dataSearch;
     private AdapterListaProdutosPet.OnItemClickListener mListener;
     private Context contextDp;
     private StorageReference storageReference = Conexao.getFirebaseStorage();
+//    private FirebaseUser user;
+//    private FirebaseAuth auth;
+//    private String emailCriptografado;
+//    private DatabaseReference databaseReference;
+
 
     public interface OnItemClickListener {
         void onItemClick(int position);
@@ -65,35 +75,27 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
         return new ViewHolder(view);
     }
 
-    public String getIdProduto() {
-        return idProduto;
-    }
+//    public String getIdProduto() {
+//        return idProduto;
+//    }
+//
+//    public void setIdProduto(String idProduto) {
+//        this.idProduto = idProduto;
+//    }
+//
+//    public String getIdPetshop() {
+//        return idPetshop;
+//    }
+//
+//    public void setIdPetshop(String idPetshop) {
+//        this.idPetshop = idPetshop;
+//    }
 
-    public void setIdProduto(String idProduto) {
-        this.idProduto = idProduto;
-    }
-
-    public String getIdPetshop() {
-        return idPetshop;
-    }
-
-    public void setIdPetshop(String idPetshop) {
-        this.idPetshop = idPetshop;
-    }
-
-    public void ExcluirProdutosMet(){
-        DatabaseReference firebaseDatabase = Conexao.getFirebaseDatabase();
-        DatabaseReference produtoDatabase = firebaseDatabase
-                .child("Petshop")
-                .child( getIdPetshop() )
-                .child("produtos")
-                .child( getIdProduto() );
-        produtoDatabase.removeValue();
-    }
-
-    public void ExcluirProduto(View view){
-        ExcluirProdutosMet();
-    }
+//    public void ExcluirProduto(@NonNull final ViewHolder viewHolder, int i){
+//        String title = data.get(i).getNome();
+//        DatabaseReference usuarioRef = databaseReference.child("Petshop").child(emailCriptografado).child("produto").child(title);
+//        usuarioRef.removeValue();
+//    }
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
@@ -107,6 +109,28 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
         viewHolder.valorProduto.setText(valorfinal);
 
         String nome = Criptografia.codificar(title.replace(" ", ""));
+
+
+
+//        private void exibirConfirmacao() {
+//            AlertDialog.Builder caixaDialogo = new AlertDialog.Builder(lista_produtos_pet_petshop.class);
+//            caixaDialogo.setTitle("Sucesso!");
+//            caixaDialogo.setIcon(android.R.drawable.ic_menu_info_details);
+//            caixaDialogo.setMessage("Uma novidade: Seu produto foi cadastrado com sucesso :P");
+//            caixaDialogo.setPositiveButton("Voltar para Perfil", new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialog, int which) {
+//                    ExcluirProduto();
+//                }
+//            });
+//            caixaDialogo.setNegativeButton("Cadastrar outro produto", new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialog, int which) {
+//                }
+//            });
+//            caixaDialogo.show();
+//        }
+//        exibirConfirmacao();
 
         storageReference.child("FotoProduto/" + nome).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -182,18 +206,25 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         int viewSize;
-        TextView tituloProduto, descricaoProduto, valorProduto, tituloCategoria;
+        TextView tituloProduto, descricaoProduto, valorProduto, tituloCategoria, excluirProduto, editarProduto;
         ImageView imagemProduto;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tituloProduto = itemView.findViewById(R.id.tituloProduto);
-            descricaoProduto = itemView.findViewById(R.id.descricaoProduto);
-            valorProduto = itemView.findViewById(R.id.valorProduto);
-            imagemProduto = itemView.findViewById(R.id.imagemProduto);
-            tituloCategoria = itemView.findViewById(R.id.tituloCategoria);
+            tituloProduto = itemView.findViewById(R.id.tituloProduto2);
+            descricaoProduto = itemView.findViewById(R.id.descricaoProduto2);
+            valorProduto = itemView.findViewById(R.id.valorProduto2);
+            imagemProduto = itemView.findViewById(R.id.imagemProduto2);
+            tituloCategoria = itemView.findViewById(R.id.tituloCategoria2);
+            excluirProduto = itemView.findViewById(R.id.excluir_produto);
+            editarProduto = itemView.findViewById(R.id.editar_produto);
             itemView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-            viewSize= itemView.getMeasuredHeight();
+            viewSize = itemView.getMeasuredHeight();
+//            databaseReference = Conexao.getFirebaseDatabase();
+//            auth = Conexao.getFirebaseAuth();
+//            user = auth.getCurrentUser();
+//            emailCriptografado = Criptografia.codificar(user.getEmail());
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -66,9 +66,7 @@ public class Pagina_do_Produto extends AppCompatActivity {
         String g = valorProdutoparcelado.replace(",", ".");
         float valorparceladototal = Float.parseFloat(g);
         float a = valorparceladototal/2.0f;
-        a = (float) (Math.round(a*100.0)/100.0);
-        String b = "ou 2x R$ "+ a + " s/ juros";
-        ValorProdutoParcelado.setText(b);
+        ValorProdutoParcelado.setText(String.format("ou 2x R$ %.2f s/ juros", a));
     }
 
     private void clicks() {
