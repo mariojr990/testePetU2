@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.pet2u.pet2u.ConexaoDB.Conexao;
+import com.pet2u.pet2u.Helper.MascaraEditUtil;
 import com.pet2u.pet2u.R;
 
 
@@ -26,6 +27,7 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
         getSupportActionBar().hide();
         inicializaComponentes();
         Clicks();
+        mascarasNumeros();
 
     }
 
@@ -74,6 +76,12 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
 
     private void alert(String msg){
         Toast.makeText(Cad_do_Pet_Activity.this, msg,Toast.LENGTH_SHORT).show();
+    }
+
+    private void mascarasNumeros(){
+        campoCNPJ.addTextChangedListener(MascaraEditUtil.mask(campoCNPJ, MascaraEditUtil.FORMAT_CNPJ));
+        campoTelefone.addTextChangedListener(MascaraEditUtil.mask(campoTelefone, MascaraEditUtil.FORMAT_CELULAR));
+
     }
 
     private void inicializaComponentes(){

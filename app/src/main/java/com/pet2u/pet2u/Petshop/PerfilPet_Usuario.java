@@ -96,7 +96,7 @@ public class PerfilPet_Usuario extends AppCompatActivity {
 
         nomePet.setText(getIntent().getExtras().getString("nomePetshop"));
         tituloPetshop.setText(getIntent().getExtras().getString("nomePetshop"));
-        enderecoPetshop.setText(getIntent().getExtras().getString("enderecoPetshop"));
+        enderecoPetshop.setText(getIntent().getExtras().getString("enderecoPetshop") + ". " + getIntent().getExtras().getString("complementoEnderecoPetshop"));
 
         DatabaseReference usuarioRef = databaseReference.child("Petshop").child(emailCriptografado).child("produto");
         ValueEventListener eventListener = new ValueEventListener() {
@@ -289,6 +289,7 @@ public class PerfilPet_Usuario extends AppCompatActivity {
         intent.putExtra("telefonePetshop", getIntent().getExtras().getString("telefonePetshop"));
         intent.putExtra("dataFuncionamento", getIntent().getExtras().getString("dataFuncionamento"));
         intent.putExtra("horarioFuncionamento", getIntent().getExtras().getString("horarioFuncionamento"));
+        intent.putExtra("complementoEnderecoPetshop", getIntent().getExtras().getString("complementoEnderecoPetshop"));
 
         startActivity(intent);
 

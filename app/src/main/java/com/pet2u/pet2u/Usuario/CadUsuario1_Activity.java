@@ -25,6 +25,7 @@ import com.google.firebase.storage.StorageReference;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.Helper.DateCustom;
+import com.pet2u.pet2u.Helper.MascaraEditUtil;
 import com.pet2u.pet2u.Login.MainActivity;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Usuario;
@@ -46,6 +47,9 @@ public class CadUsuario1_Activity extends AppCompatActivity {
         getSupportActionBar().hide();
         inicializaComponentes();
         eventoClicks();
+        mascarasNumeros();
+
+
     }
 
     private void eventoClicks() {
@@ -204,6 +208,12 @@ public class CadUsuario1_Activity extends AppCompatActivity {
             erro.printStackTrace();
             return (false);
         }
+    }
+
+    private void mascarasNumeros(){
+        campoCPF.addTextChangedListener(MascaraEditUtil.mask(campoCPF, MascaraEditUtil.FORMAT_CPF));
+        campoTelefone.addTextChangedListener(MascaraEditUtil.mask(campoTelefone, MascaraEditUtil.FORMAT_CELULAR));
+
     }
 
 
