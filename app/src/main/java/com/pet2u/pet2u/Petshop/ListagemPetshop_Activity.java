@@ -75,13 +75,12 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
                     listaPetshops.setLayoutManager(new LinearLayoutManager(ListagemPetshop_Activity.this));
                     //Log.d("a", (String)dataSnapshot.getKey());
                     adapter = new Adapter(ListagemPetshop_Activity.this, items);
-                    //adapter = new Adapter(ListagemPetshop_Activity.this, items);
                     listaPetshops.setAdapter(adapter);
 
                     adapter.setOnItemClickListener(new Adapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(int position) {
-                            //Log.d("xesque", "rolou o " + items.get(position).getNome());
+                            Log.d("xesque", "rolou o " + items.get(position).getNome());
                             Intent perfilDoPetshop = new Intent(ListagemPetshop_Activity.this, PerfilPet_Usuario.class);
                             perfilDoPetshop.putExtra("nomePetshop", items.get(position).getNome());
                             perfilDoPetshop.putExtra("descricaoPetshop", items.get(position).getDescricaoPetshop());

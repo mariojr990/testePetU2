@@ -36,6 +36,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
+import com.pet2u.pet2u.Helper.Adapter;
 import com.pet2u.pet2u.Helper.AdapterListaProdutos;
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.R;
@@ -114,6 +115,7 @@ public class PerfilPet_Usuario extends AppCompatActivity {
                     produtoClicked.setDescricaoProduto((String) singleUser.get("descricao"));
                     categoriaNome = (String) singleUser.get("categoria");
                     produtoClicked.setCategoria(categoriaNome);
+                    produtos.add(produtoClicked);
 
                     String petshopCriptografado = Criptografia.codificar(getIntent().getExtras().getString("emailPetshop"));
                     storageReference.child("FotoPerfilPet/" + petshopCriptografado).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -141,6 +143,7 @@ public class PerfilPet_Usuario extends AppCompatActivity {
                     }
 
                 }
+
                 if (!categoriasList.isEmpty()) {
                     for (int i = 0; i < categoriasMatrix.size(); i++) {
                         for (int j = 0; j < categoriasMatrix.get(i).size(); j++) {
@@ -161,6 +164,18 @@ public class PerfilPet_Usuario extends AppCompatActivity {
                 ViewGroup.LayoutParams layoutParams = listaProdutos.getLayoutParams();
                 layoutParams.height = viewSize;
                 listaProdutos.setLayoutParams(layoutParams);
+
+                adapter.setOnItemClickListener(new AdapterListaProdutos.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        Log.d("xesque", "rolou o " + produtos.get(position).getNome());
+                        Intent perfilproduto = new Intent(PerfilPet_Usuario.this, Pagina_do_Produto.class);
+                        perfilproduto.putExtra("nomeProduto", produtos.get(position).getNome());
+                        perfilproduto.putExtra("descricaoProduto", produtos.get(position).getDescricaoProduto());
+                        perfilproduto.putExtra("valorProduto", produtos.get(position).getValor());
+                        startActivity(perfilproduto);
+                    }
+                });
             }
 
             @Override

@@ -40,11 +40,12 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
     private Context contextDp;
     private StorageReference storageReference = Conexao.getFirebaseStorage();
 
+
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener) {
+    public void setOnItemClickListener(AdapterListaProdutos.OnItemClickListener listener) {
         mListener = listener;
     }
 
