@@ -115,7 +115,7 @@ public class PerfilPet_Usuario extends AppCompatActivity {
                     produtoClicked.setDescricaoProduto((String) singleUser.get("descricao"));
                     categoriaNome = (String) singleUser.get("categoria");
                     produtoClicked.setCategoria(categoriaNome);
-                    produtos.add(produtoClicked);
+
 
                     String petshopCriptografado = Criptografia.codificar(getIntent().getExtras().getString("emailPetshop"));
                     storageReference.child("FotoPerfilPet/" + petshopCriptografado).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -141,7 +141,6 @@ public class PerfilPet_Usuario extends AppCompatActivity {
                         }
                         categoriasMatrix.get(categoriasList.indexOf(categoriaNome)).add(produtoClicked);
                     }
-
                 }
 
                 if (!categoriasList.isEmpty()) {
@@ -164,6 +163,7 @@ public class PerfilPet_Usuario extends AppCompatActivity {
                 ViewGroup.LayoutParams layoutParams = listaProdutos.getLayoutParams();
                 layoutParams.height = viewSize;
                 listaProdutos.setLayoutParams(layoutParams);
+
 
                 adapter.setOnItemClickListener(new AdapterListaProdutos.OnItemClickListener() {
                     @Override

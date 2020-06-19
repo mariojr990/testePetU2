@@ -21,9 +21,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.StorageReference;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
-import com.pet2u.pet2u.Petshop.PerfilPet_petshop;
 import com.pet2u.pet2u.R;
-import com.pet2u.pet2u.modelo.Petshop;
 import com.pet2u.pet2u.modelo.Produto;
 import com.squareup.picasso.Picasso;
 
@@ -45,7 +43,7 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
         void onItemClick(int position);
     }
 
-    public void setOnItemClickListener(AdapterListaProdutos.OnItemClickListener listener) {
+    public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
     }
 
