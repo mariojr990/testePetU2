@@ -93,14 +93,14 @@
             tools:ignore="VectorDrawableCompat" />
 
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/menu_NovoServico"
+            android:id="@+id/menu_listaProdutos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="clickNovoServico"
+            android:onClick="clickListaProdutos"
             android:src="@drawable/ic_adicionar_branco"
             app:fab_colorPressed="#94D8FF"
+            app:fab_label="Produtos"
             fab:fab_colorNormal="@color/azul_pet2u"
-            fab:fab_label="Novo Serviço"
             fab:fab_size="mini"
             tools:ignore="VectorDrawableCompat" />
 

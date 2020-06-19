@@ -115,8 +115,8 @@ public class PerfilPet_petshop extends AppCompatActivity {
     public void ClickNovoProduto(View view ){
         startActivity(new Intent(getApplicationContext(), CadastroProdutoActivity.class));
     }
-    public void clickNovoServico(View view ){
-        startActivity(new Intent(getApplicationContext(), CadastroServicoActivity.class));
+    public void clickListaProdutos(View view ){
+        startActivity(new Intent(getApplicationContext(), lista_produtos_pet_petshop.class));
     }
     public void clickLogout(View view ){
         Conexao.logOut();

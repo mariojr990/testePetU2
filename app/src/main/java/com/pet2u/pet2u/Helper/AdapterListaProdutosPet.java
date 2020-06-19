@@ -1,16 +1,16 @@
 package com.pet2u.pet2u.Helper;
 
-
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,24 +19,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
 import com.google.firebase.storage.StorageReference;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
-import com.pet2u.pet2u.Petshop.PerfilPet_petshop;
+import com.pet2u.pet2u.Petshop.lista_produtos_pet_petshop;
 import com.pet2u.pet2u.R;
-import com.pet2u.pet2u.modelo.Petshop;
 import com.pet2u.pet2u.modelo.Produto;
+import com.pet2u.pet2u.modelo.Petshop;
 import com.squareup.picasso.Picasso;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdutos.ViewHolder> implements Filterable {
+public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaProdutosPet.ViewHolder> implements Filterable {
 
     private LayoutInflater layoutInflater;
+    private String idProduto, idPetshop;
     private List<Produto> data;
     private List<Produto> dataSearch;
-    private OnItemClickListener mListener;
+    private AdapterListaProdutosPet.OnItemClickListener mListener;
     private Context contextDp;
     private StorageReference storageReference = Conexao.getFirebaseStorage();
 
@@ -48,7 +51,7 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
         mListener = listener;
     }
 
-    public AdapterListaProdutos(Context context, List<Produto> data) {
+    public AdapterListaProdutosPet(Context context, List<Produto> data) {
         this.layoutInflater = LayoutInflater.from(context);
         this.data = data;
         dataSearch = new ArrayList<>(data);
@@ -58,8 +61,38 @@ public class AdapterListaProdutos extends RecyclerView.Adapter<AdapterListaProdu
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = layoutInflater.inflate(R.layout.cards_listagem_produtos, viewGroup, false);
+        View view = layoutInflater.inflate(R.layout.cards_listagem_produtos_pet, viewGroup, false);
         return new ViewHolder(view);
+    }
+
+    public String getIdProduto() {
+        return idProduto;
+    }
+
+    public void setIdProduto(String idProduto) {
+        this.idProduto = idProduto;
+    }
+
+    public String getIdPetshop() {
+        return idPetshop;
+    }
+
+    public void setIdPetshop(String idPetshop) {
+        this.idPetshop = idPetshop;
+    }
+
+    public void ExcluirProdutosMet(){
+        DatabaseReference firebaseDatabase = Conexao.getFirebaseDatabase();
+        DatabaseReference produtoDatabase = firebaseDatabase
+                .child("Petshop")
+                .child( getIdPetshop() )
+                .child("produtos")
+                .child( getIdProduto() );
+        produtoDatabase.removeValue();
+    }
+
+    public void ExcluirProduto(View view){
+        ExcluirProdutosMet();
     }
 
     @Override
