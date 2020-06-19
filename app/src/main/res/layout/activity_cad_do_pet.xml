@@ -47,24 +47,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <EditText
-            android:id="@+id/inputRazaoSocialPetshop2"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="26dp"
-            android:layout_marginLeft="26dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="26dp"
-            android:layout_marginRight="26dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/Input_razao_social"
-            android:inputType="textPersonName"
-            android:maxLength="50"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputNomePetshop" />
-
         <TextView
             android:id="@+id/txtCadPet03"
             android:layout_width="wrap_content"
@@ -108,6 +90,24 @@
             app:layout_constraintTop_toBottomOf="@+id/txtCadPet04" />
 
         <EditText
+            android:id="@+id/inputRazaoSocialPetshop2"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="26dp"
+            android:layout_marginRight="26dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/Input_razao_social"
+            android:inputType="textPersonName"
+            android:maxLength="50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputNomePetshop" />
+
+        <EditText
             android:id="@+id/inputEmail_Petshop"
             android:layout_width="0dp"
             android:layout_height="42dp"
@@ -126,6 +126,20 @@
             app:layout_constraintTop_toBottomOf="@+id/inputRazaoSocialPetshop2" />
 
         <EditText
+            android:id="@+id/inputCnpjPetshop"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="5dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/input_cnpj"
+            android:inputType="number"
+            android:maxLength="14"
+            app:layout_constraintEnd_toEndOf="@+id/inputEmail_Petshop"
+            app:layout_constraintStart_toStartOf="@+id/inputEmail_Petshop"
+            app:layout_constraintTop_toBottomOf="@+id/inputEmail_Petshop" />
+
+        <EditText
             android:id="@+id/inputTelefonePetshop"
             android:layout_width="0dp"
             android:layout_height="42dp"
@@ -139,167 +153,20 @@
             app:layout_constraintStart_toStartOf="@+id/inputCnpjPetshop"
             app:layout_constraintTop_toBottomOf="@+id/inputCnpjPetshop" />
 
-        <EditText
-            android:id="@+id/inputComplementoPetshop"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/input_complemento"
-            android:inputType="textLongMessage|text"
-            android:maxLength="100"
-            app:layout_constraintEnd_toEndOf="@+id/inputNumeroPetshop"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/inputNumeroPetshop"
-            app:layout_constraintTop_toBottomOf="@+id/inputNumeroPetshop" />
-
-        <EditText
-            android:id="@+id/inputNumeroPetshop"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/input_numero_endereco"
-            android:inputType="number"
-            android:maxLength="5"
-            app:layout_constraintEnd_toEndOf="@+id/inputEnderecoPetshop"
-            app:layout_constraintStart_toStartOf="@+id/inputEnderecoPetshop"
-            app:layout_constraintTop_toBottomOf="@+id/inputEnderecoPetshop"
-            android:autofillHints="" />
-
-        <EditText
-            android:id="@+id/inputEnderecoPetshop"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="5dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/input_endereco"
-            android:inputType="textLongMessage"
-            android:maxLength="100"
-            app:layout_constraintEnd_toEndOf="@+id/inputBairroPetshop"
-            app:layout_constraintStart_toStartOf="@+id/inputBairroPetshop"
-            app:layout_constraintTop_toBottomOf="@+id/inputBairroPetshop" />
-
-        <EditText
-            android:id="@+id/inputBairroPetshop"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="5dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/input_bairro"
-            android:inputType="textLongMessage"
-            android:maxLength="40"
-            app:layout_constraintEnd_toEndOf="@+id/inputCidadePetshop"
-            app:layout_constraintStart_toStartOf="@+id/inputUfPetshop"
-            app:layout_constraintTop_toBottomOf="@+id/inputCidadePetshop" />
-
-        <EditText
-            android:id="@+id/inputCidadePetshop"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/input_cidade"
-            android:inputType="textLongMessage"
-            android:maxLength="40"
-            app:layout_constraintEnd_toEndOf="@+id/inputCepPetshop"
-            app:layout_constraintStart_toEndOf="@+id/inputUfPetshop"
-            app:layout_constraintTop_toBottomOf="@+id/inputCepPetshop" />
-
-        <Spinner
-            android:id="@+id/inputUfPetshop"
-            android:layout_width="100dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintStart_toStartOf="@+id/inputCepPetshop"
-            app:layout_constraintTop_toBottomOf="@+id/inputCepPetshop" />
-
-        <EditText
-            android:id="@+id/inputCnpjPetshop"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/input_cnpj"
-            android:inputType="number"
-            android:maxLength="14"
-            app:layout_constraintEnd_toEndOf="@+id/inputEmail_Petshop"
-            app:layout_constraintStart_toStartOf="@+id/inputEmail_Petshop"
-            app:layout_constraintTop_toBottomOf="@+id/inputEmail_Petshop"
-            android:autofillHints="" />
-
-        <EditText
-            android:id="@+id/inputCepPetshop"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/input_cep"
-            android:inputType="number"
-            android:maxLength="8"
+        <Button
+            android:id="@+id/botaoProximoPetshop"
+            android:layout_width="244dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="28dp"
+            android:background="@color/Cor_botoes"
+            android:text="Próximo"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/inputTelefonePetshop"
             app:layout_constraintStart_toStartOf="@+id/inputTelefonePetshop"
             app:layout_constraintTop_toBottomOf="@+id/inputTelefonePetshop"
-            android:autofillHints="" />
-
-        <Button
-            android:id="@+id/botaoCadastrarPetshop"
-            android:layout_width="244dp"
-            android:layout_height="47dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="28dp"
-            android:background="@color/Cor_botoes"
-            android:text="@string/botao_cadastrar"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/descreva_petshop"
-            app:layout_constraintStart_toStartOf="@+id/descreva_petshop"
-            app:layout_constraintTop_toBottomOf="@+id/descreva_petshop"
             app:layout_constraintVertical_bias="0.107" />
-
-        <EditText
-            android:id="@+id/editText_senhaPet"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="5dp"
-            android:autofillHints=""
-            android:ems="10"
-
-            android:hint="@string/input_senha"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="@+id/inputComplementoPetshop"
-            app:layout_constraintStart_toStartOf="@+id/inputComplementoPetshop"
-            app:layout_constraintTop_toBottomOf="@+id/inputComplementoPetshop" />
-
-        <EditText
-            android:id="@+id/descreva_petshop"
-            android:layout_width="0dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="3dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="@string/descreva_seu_petshop"
-            android:inputType="textMultiLine"
-            android:maxLength="300"
-            app:layout_constraintEnd_toEndOf="@+id/editText_senhaPet"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/editText_senhaPet"
-            app:layout_constraintTop_toBottomOf="@+id/descricao_petshop" />
-
-        <TextView
-            android:id="@+id/descricao_petshop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="@string/descricao_petshop_cadastro"
-            app:layout_constraintStart_toStartOf="@+id/editText_senhaPet"
-            app:layout_constraintTop_toBottomOf="@+id/editText_senhaPet" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

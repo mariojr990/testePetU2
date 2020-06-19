@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 
+import com.pet2u.pet2u.Petshop.Cad_do_Pet2_Activity;
 import com.pet2u.pet2u.Petshop.Cad_do_Pet_Activity;
 
 public class ZipCodeListener implements TextWatcher {
@@ -18,7 +19,7 @@ public class ZipCodeListener implements TextWatcher {
         String zipCode = editable.toString();
 
         if( zipCode.length() == 8 ){
-            new AddressRequest( (Cad_do_Pet_Activity) context ).execute();
+            new AddressRequest( (Cad_do_Pet2_Activity) context ).execute();
         }
     }
 

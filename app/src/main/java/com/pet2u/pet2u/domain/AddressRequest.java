@@ -3,14 +3,15 @@ package com.pet2u.pet2u.domain;
 import android.os.AsyncTask;
 
 import com.google.gson.Gson;
+import com.pet2u.pet2u.Petshop.Cad_do_Pet2_Activity;
 import com.pet2u.pet2u.Petshop.Cad_do_Pet_Activity;
 
 import java.lang.ref.WeakReference;
 
 public class AddressRequest extends AsyncTask<Void, Void, Address> {
-    private WeakReference<Cad_do_Pet_Activity> activity;
+    private WeakReference<Cad_do_Pet2_Activity> activity;
 
-    public AddressRequest( Cad_do_Pet_Activity activity ){
+    public AddressRequest( Cad_do_Pet2_Activity activity ){
         this.activity = new WeakReference<>( activity );
     }
 
