@@ -15,7 +15,9 @@ import java.util.Comparator;
 import java.util.Date;
 
 public class Petshop {
-    private String idPetshop, nome, razao_social, cnpj, telefone, cep, uf, bairro, cidade, endereco, numero, complemento, senha, email, dataCadastro, tipoUsuario, descricaoPetshop, score;
+    private String idPetshop, nome, razao_social, cnpj, telefone, cep, uf, bairro, cidade, endereco, numero, complemento
+                 , senha, email, dataCadastro, tipoUsuario, descricaoPetshop, score, data_funcionamento, horario_funcionamento;
+
     private DatabaseReference databaseReference;
 
     public Petshop() {
@@ -49,6 +51,22 @@ public class Petshop {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public String getData_funcionamento() {
+        return data_funcionamento;
+    }
+
+    public void setData_funcionamento(String data_funcionamento) {
+        this.data_funcionamento = data_funcionamento;
+    }
+
+    public String getHorario_funcionamento() {
+        return horario_funcionamento;
+    }
+
+    public void setHorario_funcionamento(String horario_funcionamento) {
+        this.horario_funcionamento = horario_funcionamento;
     }
 
     public String getScore() {

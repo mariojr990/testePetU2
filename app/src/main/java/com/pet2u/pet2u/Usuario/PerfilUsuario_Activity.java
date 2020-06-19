@@ -115,7 +115,7 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
 
     public void clickEditarPerfil(View view){
         startActivity(new Intent(getApplicationContext(), PerfilUsuario_EditarPefil.class));
-        finish();
+        //finish();
     }
 
     private void verificaUser() {

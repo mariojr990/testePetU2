@@ -40,6 +40,9 @@ public class PerfilPet_Usuario_2 extends AppCompatActivity {
         nome_petshop_perfil.setText(getIntent().getExtras().getString("nomePetshop"));
         enderecoPetshop2.setText(getIntent().getExtras().getString("enderecoPetshop"));
         numeroPetshop2.setText(getIntent().getExtras().getString("telefonePetshop"));
+        String horariopet = getIntent().getExtras().getString("horarioFuncionamento");
+        String datapet = getIntent().getExtras().getString("dataFuncionamento");
+        horarioPetshop2.setText(horariopet + "\n" + datapet);
 
     }
 

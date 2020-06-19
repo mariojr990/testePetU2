@@ -117,6 +117,8 @@ public class Cad_do_Pet2_Activity extends AppCompatActivity {
                 String email = getIntent().getExtras().getString("emailPetshop");
                 String cnpj = getIntent().getExtras().getString("cnpjPetshop");
                 String telefone = getIntent().getExtras().getString("telefonePetshop");
+                String data_funcionamentoo = getIntent().getExtras().getString("dataFuncionamentoPetshop");
+                String horario_funcionamentoo = getIntent().getExtras().getString("horarioFuncionamentoPetshop");
 
 
 
@@ -151,6 +153,8 @@ public class Cad_do_Pet2_Activity extends AppCompatActivity {
                         petshop.setNumero(numero);
                         petshop.setComplemento(complemento);
                         petshop.setDescricaoPetshop(descricao);
+                        petshop.setData_funcionamento(data_funcionamentoo);
+                        petshop.setHorario_funcionamento(horario_funcionamentoo);
                         petshop.setTipoUsuario("P");
 
                         criarPet(petshop.getEmail(), petshop.getSenha());

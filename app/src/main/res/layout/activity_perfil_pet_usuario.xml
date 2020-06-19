@@ -33,7 +33,7 @@
                 android:gravity="center"
                 android:text="@string/Perfil_petshop_name"
                 android:textSize="36sp" />
-
+            <!--
             <TextView
                 android:id="@+id/tagsPetshop"
                 android:layout_width="match_parent"
@@ -42,6 +42,7 @@
                 android:paddingTop="20dp"
                 android:paddingRight="20dp"
                 android:text="$$ • Cachorros • Gatos • Pássaros • 24 Horas" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -73,7 +74,7 @@
                     android:layout_weight="1"
                     android:text=" • 3.99R$" />
             </LinearLayout>
-
+                -->
             <View
                 android:id="@+id/divisor1PerfilPetshop"
                 android:layout_width="match_parent"
@@ -86,18 +87,16 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp">
+                android:layout_height="87dp">
 
                 <TextView
                     android:id="@+id/restaurantInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="14dp"
                     android:text="@string/perfil_petshop_infoLoja"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/enderecoPetshop"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.085"
                     app:layout_constraintStart_toStartOf="parent"
@@ -105,24 +104,23 @@
 
                 <TextView
                     android:id="@+id/enderecoPetshop"
-                    android:layout_width="228dp"
-                    android:layout_height="26dp"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="QSD 6, Casa 39"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.114"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/restaurantInfo"
-                    app:layout_constraintVertical_bias="1.0" />
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/restaurantInfo"
+                    app:layout_constraintTop_toBottomOf="@+id/restaurantInfo" />
 
                 <Button
                     android:id="@+id/maisInfoButton"
                     style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="141dp"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_width="137dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
                     android:background="#00FF1A1A"
                     android:onClick="perfilpet2"
                     android:text="@string/perfil_petshop_maisInfo"
@@ -130,10 +128,11 @@
                     android:textColor="#2658E1"
                     android:textSize="14sp"
                     android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/enderecoPetshop" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View

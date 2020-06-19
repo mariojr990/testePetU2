@@ -168,13 +168,14 @@
 
 
     <string name="perfil_petshop_infoLoja">Informações da Loja</string>
-    <string name="perfil_petshop_maisInfo">Mais Informações</string>
+    <string name="perfil_petshop_maisInfo"><u>Mais Informações</u></string>
     <string name="perfil_petshop_menu">Menu</string>
     <string name="sobre_pet2u">sobre</string>
     <string name="title_activity_teste">teste</string>
     <string name="txt_endereo">Endereço</string>
     <string name="informacoes_do_petshop_txt">Informações do Petshop</string>
-    <string name="horatio_perfilpet2">Horário</string>
+    <string name="data_perfilpet2">Segunda - Sexta</string>
+    <string name="horario_perfilpet2">7:30 - 18:30</string>
     <string name="mapalocalizacao_perfilpetusu2">MapaLocalizacao</string>
     <string name="line1">Line1</string>
     <string name="line2">Line2</string>

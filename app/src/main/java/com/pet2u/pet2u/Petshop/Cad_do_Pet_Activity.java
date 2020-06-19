@@ -15,7 +15,7 @@ import com.pet2u.pet2u.R;
 
 public class Cad_do_Pet_Activity extends AppCompatActivity {
 
-    private EditText campoNome, campoRazaoSocial, campoEmail, campoCNPJ, campoTelefone;
+    private EditText campoNome, campoRazaoSocial, campoEmail, campoCNPJ, campoTelefone, data_funcionamento, horario_funcionamento;
 
     private Button botao_proximo, botao_voltar;
 
@@ -47,6 +47,8 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                 String email = campoEmail.getText().toString().trim().toLowerCase();
                 String cnpj = campoCNPJ.getText().toString().trim();
                 String telefone = campoTelefone.getText().toString().trim();
+                String data_funcionamentoo = data_funcionamento.getText().toString().trim();
+                String horario_funcionamentoo = horario_funcionamento.getText().toString().trim();
 
                 if ( nome.isEmpty() || razaoSocial.isEmpty() || email.isEmpty() || cnpj.isEmpty() || telefone.isEmpty()){
                     alert("Preencha todos os campos!");
@@ -58,6 +60,8 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
                     cadPetshop1.putExtra("emailPetshop", email);
                     cadPetshop1.putExtra("cnpjPetshop", cnpj);
                     cadPetshop1.putExtra("telefonePetshop", telefone);
+                    cadPetshop1.putExtra("dataFuncionamentoPetshop", data_funcionamentoo);
+                    cadPetshop1.putExtra("horarioFuncionamentoPetshop", horario_funcionamentoo);
                     startActivity(cadPetshop1);
 
                 }
@@ -78,6 +82,8 @@ public class Cad_do_Pet_Activity extends AppCompatActivity {
         campoCNPJ = findViewById(R.id.inputCnpjPetshop);
         campoTelefone = findViewById(R.id.inputTelefonePetshop);
         campoEmail = findViewById(R.id.inputEmail_Petshop);
+        data_funcionamento = findViewById(R.id.data_funcionamento);
+        horario_funcionamento = findViewById(R.id.horario_funcionamento);
 
         botao_proximo = findViewById(R.id.botaoProximoPetshop);
         botao_voltar = findViewById(R.id.botaoVoltarCadPetshop);

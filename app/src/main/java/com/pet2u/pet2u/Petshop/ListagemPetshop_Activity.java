@@ -69,6 +69,8 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
                     petshopClicked.setEmail((String) singleUser.get("email"));
                     petshopClicked.setTelefone((String) singleUser.get("telefone"));
                     petshopClicked.setScore((String) singleUser.get("score"));
+                    petshopClicked.setData_funcionamento((String) singleUser.get("data_funcionamento"));
+                    petshopClicked.setHorario_funcionamento((String) singleUser.get("horario_funcionamento"));
                     items.add(petshopClicked);
                     listaPetshops = findViewById(R.id.listasPetshop);
                     listaPetshops.setHasFixedSize(false);
@@ -87,6 +89,8 @@ public class ListagemPetshop_Activity extends AppCompatActivity {
                             perfilDoPetshop.putExtra("enderecoPetshop", items.get(position).getEndereco());
                             perfilDoPetshop.putExtra("emailPetshop", items.get(position).getEmail());
                             perfilDoPetshop.putExtra("telefonePetshop", items.get(position).getTelefone());
+                            perfilDoPetshop.putExtra("dataFuncionamento", items.get(position).getData_funcionamento());
+                            perfilDoPetshop.putExtra("horarioFuncionamento", items.get(position).getHorario_funcionamento());
                             startActivity(perfilDoPetshop);
                         }
                     });

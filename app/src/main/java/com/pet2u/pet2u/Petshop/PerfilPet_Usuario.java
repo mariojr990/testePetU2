@@ -103,6 +103,7 @@ public class PerfilPet_Usuario extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String categoriaNome = "";
+
                 for (Map.Entry<String, Object> entry : ((Map<String,Object>)dataSnapshot.getValue()).entrySet()){
 
                     Map singleUser = (Map) entry.getValue();
@@ -286,6 +287,8 @@ public class PerfilPet_Usuario extends AppCompatActivity {
         intent.putExtra("nomePetshop", nomePet.getText().toString());
         intent.putExtra("enderecoPetshop", enderecoPetshop.getText().toString());
         intent.putExtra("telefonePetshop", getIntent().getExtras().getString("telefonePetshop"));
+        intent.putExtra("dataFuncionamento", getIntent().getExtras().getString("dataFuncionamento"));
+        intent.putExtra("horarioFuncionamento", getIntent().getExtras().getString("horarioFuncionamento"));
 
         startActivity(intent);
 
