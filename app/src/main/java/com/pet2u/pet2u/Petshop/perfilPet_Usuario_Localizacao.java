@@ -1,62 +1,62 @@
 package com.pet2u.pet2u.Petshop;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+        import androidx.annotation.NonNull;
+        import androidx.appcompat.app.AlertDialog;
+        import androidx.core.app.ActivityCompat;
+        import androidx.fragment.app.FragmentActivity;
+        import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.Manifest;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Camera;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.Log;
+        import android.Manifest;
+        import android.content.DialogInterface;
+        import android.content.Intent;
+        import android.content.pm.PackageManager;
+        import android.graphics.Camera;
+        import android.location.Address;
+        import android.location.Geocoder;
+        import android.location.Location;
+        import android.os.AsyncTask;
+        import android.os.Bundle;
+        import android.util.Log;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
-import com.pet2u.pet2u.ConexaoDB.Conexao;
-import com.pet2u.pet2u.Helper.Adapter;
-import com.pet2u.pet2u.Helper.Criptografia;
-import com.pet2u.pet2u.Helper.Permissao;
-import com.pet2u.pet2u.R;
-import com.pet2u.pet2u.modelo.Petshop;
+        import com.google.android.gms.location.FusedLocationProviderClient;
+        import com.google.android.gms.location.LocationServices;
+        import com.google.android.gms.maps.CameraUpdate;
+        import com.google.android.gms.maps.CameraUpdateFactory;
+        import com.google.android.gms.maps.GoogleMap;
+        import com.google.android.gms.maps.OnMapReadyCallback;
+        import com.google.android.gms.maps.SupportMapFragment;
+        import com.google.android.gms.maps.model.LatLng;
+        import com.google.android.gms.maps.model.LatLngBounds;
+        import com.google.android.gms.maps.model.Marker;
+        import com.google.android.gms.maps.model.MarkerOptions;
+        import com.google.android.gms.tasks.OnCompleteListener;
+        import com.google.android.gms.tasks.OnSuccessListener;
+        import com.google.android.gms.tasks.Task;
+        import com.google.firebase.database.DataSnapshot;
+        import com.google.firebase.database.DatabaseError;
+        import com.google.firebase.database.DatabaseReference;
+        import com.google.firebase.database.ValueEventListener;
+        import com.pet2u.pet2u.ConexaoDB.Conexao;
+        import com.pet2u.pet2u.Helper.Adapter;
+        import com.pet2u.pet2u.Helper.Criptografia;
+        import com.pet2u.pet2u.Helper.Permissao;
+        import com.pet2u.pet2u.R;
+        import com.pet2u.pet2u.modelo.Petshop;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+        import org.json.JSONArray;
+        import org.json.JSONException;
+        import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+        import java.io.BufferedReader;
+        import java.io.IOException;
+        import java.io.InputStream;
+        import java.io.InputStreamReader;
+        import java.net.HttpURLConnection;
+        import java.net.URL;
+        import java.util.ArrayList;
+        import java.util.List;
+        import java.util.Locale;
+        import java.util.Map;
 
 public class perfilPet_Usuario_Localizacao extends FragmentActivity implements OnMapReadyCallback {
 
@@ -100,6 +100,7 @@ public class perfilPet_Usuario_Localizacao extends FragmentActivity implements O
             @Override
             public void onSuccess(Location location) {
                 LatLng latlng = new LatLng(location.getLatitude(), location.getLongitude());
+                Log.d("aa", String.valueOf(location.getLatitude()));
                 MarkerOptions m1 = new MarkerOptions();
                 mMap.addMarker(m1.position(latlng).title("Você"));
                 markersList[0] = m1;

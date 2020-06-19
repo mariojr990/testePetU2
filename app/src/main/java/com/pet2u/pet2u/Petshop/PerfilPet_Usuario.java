@@ -3,13 +3,16 @@ package com.pet2u.pet2u.Petshop;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.Manifest;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -253,6 +257,37 @@ public class PerfilPet_Usuario extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    Intent intent = new Intent(PerfilPet_Usuario.this, perfilPet_Usuario_Localizacao.class);
+                    intent.putExtra("nomePetshop", nomePet.getText().toString());
+                    intent.putExtra("enderecoPetshop", enderecoPetshop.getText().toString());
+                    intent.putExtra("telefonePetshop", getIntent().getExtras().getString("telefonePetshop"));
+                    intent.putExtra("emailPetshop", emailCriptografado);
+                    startActivity(intent);
+
+                } else {
+
+                    Toast.makeText(this, "Permissão de Localização GPS negada!", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
+    }
+
     private void scrollToView(final ScrollView scrollViewParent, final View view) {
         // Get deepChild Offset
         Point childOffset = new Point();
@@ -283,15 +318,20 @@ public class PerfilPet_Usuario extends AppCompatActivity {
     }
 
     public void perfilpet2(View view) {
-        Intent intent = new Intent(PerfilPet_Usuario.this, perfilPet_Usuario_Localizacao.class);
-        intent.putExtra("nomePetshop", nomePet.getText().toString());
-        intent.putExtra("enderecoPetshop", enderecoPetshop.getText().toString());
-        intent.putExtra("telefonePetshop", getIntent().getExtras().getString("telefonePetshop"));
-        intent.putExtra("dataFuncionamento", getIntent().getExtras().getString("dataFuncionamento"));
-        intent.putExtra("horarioFuncionamento", getIntent().getExtras().getString("horarioFuncionamento"));
-        intent.putExtra("complementoEnderecoPetshop", getIntent().getExtras().getString("complementoEnderecoPetshop"));
-        intent.putExtra("emailPetshop", emailCriptografado);
-        startActivity(intent);
-
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        }
+        else {
+            Intent intent = new Intent(PerfilPet_Usuario.this, perfilPet_Usuario_Localizacao.class);
+            //Intent intent = new Intent(PerfilPet_Usuario.this, PerfilPet_Usuario_2.class);
+            intent.putExtra("nomePetshop", nomePet.getText().toString());
+            intent.putExtra("enderecoPetshop", enderecoPetshop.getText().toString());
+            intent.putExtra("telefonePetshop", getIntent().getExtras().getString("telefonePetshop"));
+            intent.putExtra("dataFuncionamento", getIntent().getExtras().getString("dataFuncionamento"));
+            intent.putExtra("horarioFuncionamento", getIntent().getExtras().getString("horarioFuncionamento"));
+            intent.putExtra("complementoEnderecoPetshop", getIntent().getExtras().getString("complementoEnderecoPetshop"));
+            intent.putExtra("emailPetshop", emailCriptografado);
+            startActivity(intent);
+        }
     }
 }
