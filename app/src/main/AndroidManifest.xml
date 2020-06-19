@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Petshop.Cad_do_Pet2_Activity"></activity>
+        <activity android:name=".Petshop.crud_Produto"></activity>
+        <activity android:name=".Petshop.Cad_do_Pet2_Activity" />
         <activity android:name=".Petshop.lista_servicos_pet_petshop" />
         <activity android:name=".Petshop.lista_produtos_pet_petshop" />
         <activity android:name=".Petshop.Pagina_do_Produto" />
