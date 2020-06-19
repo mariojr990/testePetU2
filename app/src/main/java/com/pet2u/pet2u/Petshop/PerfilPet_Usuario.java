@@ -268,7 +268,7 @@ public class PerfilPet_Usuario extends AppCompatActivity {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                    Intent intent = new Intent(PerfilPet_Usuario.this, perfilPet_Usuario_Localizacao.class);
+                    Intent intent = new Intent(PerfilPet_Usuario.this, PerfilPet_Usuario_2.class);
                     intent.putExtra("nomePetshop", nomePet.getText().toString());
                     intent.putExtra("enderecoPetshop", enderecoPetshop.getText().toString());
                     intent.putExtra("telefonePetshop", getIntent().getExtras().getString("telefonePetshop"));
@@ -322,8 +322,8 @@ public class PerfilPet_Usuario extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
         else {
-            Intent intent = new Intent(PerfilPet_Usuario.this, perfilPet_Usuario_Localizacao.class);
-            //Intent intent = new Intent(PerfilPet_Usuario.this, PerfilPet_Usuario_2.class);
+            //Intent intent = new Intent(PerfilPet_Usuario.this, perfilPet_Usuario_Localizacao.class);
+            Intent intent = new Intent(PerfilPet_Usuario.this, PerfilPet_Usuario_2.class);
             intent.putExtra("nomePetshop", nomePet.getText().toString());
             intent.putExtra("enderecoPetshop", enderecoPetshop.getText().toString());
             intent.putExtra("telefonePetshop", getIntent().getExtras().getString("telefonePetshop"));

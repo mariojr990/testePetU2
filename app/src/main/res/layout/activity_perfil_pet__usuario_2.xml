@@ -16,12 +16,13 @@
         android:id="@+id/imageView10"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="140dp"
         android:contentDescription="@string/line3"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageMaps"
+        app:layout_constraintTop_toBottomOf="@+id/map"
         app:srcCompat="@drawable/line" />
 
     <ImageView
@@ -36,51 +37,63 @@
         app:srcCompat="@drawable/setavoltar" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botaoVoltar_PerfiPetUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/nome_petshop_perfil"
+        app:srcCompat="@drawable/line" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/map"
         app:srcCompat="@drawable/line" />
 
     <TextView
         android:id="@+id/nome_petshop_perfil"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:gravity="center"
         android:text="@string/Perfil_petshop_name"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageMaps"
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="0dp"
-        android:layout_height="336dp"
-        android:layout_marginTop="8dp"
-        android:contentDescription="@string/mapalocalizacao_perfilpetusu2"
-        android:scaleType="fitXY"
+        android:layout_height="465dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nome_petshop_perfil"
-        app:srcCompat="@drawable/maps" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        tools:context=".Petshop.perfilPet_Usuario_Localizacao" />
 
     <TextView
         android:id="@+id/InformacaoPetshopUsuario2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:text="@string/informacoes_do_petshop_txt"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageMaps" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <TextView
         android:id="@+id/enderecoPetshop2"
@@ -88,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginLeft="26dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="26dp"
         android:layout_marginRight="26dp"
         android:drawableStart="@drawable/ic_location_"
@@ -124,8 +137,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:drawableStart="@drawable/ic_watch_later_black_24dp"
         android:drawableLeft="@drawable/ic_watch_later_black_24dp"
         android:drawablePadding="5dp"
@@ -137,28 +150,16 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
     <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="-1dp"
-        android:contentDescription="@string/line1"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageMaps"
-        app:srcCompat="@drawable/line" />
-
-    <ImageView
         android:id="@+id/imageView9"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="90dp"
         android:contentDescription="@string/line2"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageMaps"
+        app:layout_constraintTop_toBottomOf="@+id/map"
         app:srcCompat="@drawable/line" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
