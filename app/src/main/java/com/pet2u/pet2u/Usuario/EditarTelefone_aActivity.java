@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,11 +14,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Criptografia;
+import com.pet2u.pet2u.Helper.MascaraEditUtil;
 import com.pet2u.pet2u.R;
 
 public class EditarTelefone_aActivity extends AppCompatActivity {
 
-    private TextView campoTelefone;
+    private EditText campoTelefone;
     private Button botao_enviar, botao_voltar;
     private DatabaseReference firebaseDatabase = Conexao.getFirebaseDatabase();
     private FirebaseAuth auth= Conexao.getFirebaseAuth();
@@ -31,6 +33,7 @@ public class EditarTelefone_aActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         inicializaComponentes();
         eventoClick();
+        mascarasNumeros();
     }
 
     private void eventoClick() {
@@ -51,6 +54,11 @@ public class EditarTelefone_aActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void mascarasNumeros(){
+        campoTelefone.addTextChangedListener(MascaraEditUtil.mask(campoTelefone, MascaraEditUtil.FORMAT_CELULAR));
+
     }
 
     private void alert(String msg){

@@ -283,14 +283,14 @@ public class PerfilPet_Usuario extends AppCompatActivity {
     }
 
     public void perfilpet2(View view) {
-        Intent intent = new Intent(PerfilPet_Usuario.this, PerfilPet_Usuario_2.class);
+        Intent intent = new Intent(PerfilPet_Usuario.this, perfilPet_Usuario_Localizacao.class);
         intent.putExtra("nomePetshop", nomePet.getText().toString());
         intent.putExtra("enderecoPetshop", enderecoPetshop.getText().toString());
         intent.putExtra("telefonePetshop", getIntent().getExtras().getString("telefonePetshop"));
         intent.putExtra("dataFuncionamento", getIntent().getExtras().getString("dataFuncionamento"));
         intent.putExtra("horarioFuncionamento", getIntent().getExtras().getString("horarioFuncionamento"));
         intent.putExtra("complementoEnderecoPetshop", getIntent().getExtras().getString("complementoEnderecoPetshop"));
-
+        intent.putExtra("emailPetshop", emailCriptografado);
         startActivity(intent);
 
     }
