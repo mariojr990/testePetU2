@@ -40,13 +40,13 @@ import java.util.List;
 
 public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaProdutosPet.ViewHolder> implements Filterable {
 
-    private LayoutInflater layoutInflater;
+    private LayoutInflater layoutInflater1;
     //private String idProduto, idPetshop;
-    private List<Produto> data;
-    private List<Produto> dataSearch;
-    private AdapterListaProdutosPet.OnItemClickListener mListener;
+    private List<Produto> data1;
+    private List<Produto> dataSearch1;
+    private AdapterListaProdutosPet.OnItemClickListener mListener1;
     private Context contextDp;
-    private StorageReference storageReference = Conexao.getFirebaseStorage();
+    private StorageReference storageReference1 = Conexao.getFirebaseStorage();
 //    private FirebaseUser user;
 //    private FirebaseAuth auth;
 //    private String emailCriptografado;
@@ -58,20 +58,20 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
-        mListener = listener;
+        mListener1 = listener;
     }
 
     public AdapterListaProdutosPet(Context context, List<Produto> data) {
-        this.layoutInflater = LayoutInflater.from(context);
-        this.data = data;
-        dataSearch = new ArrayList<>(data);
+        this.layoutInflater1 = LayoutInflater.from(context);
+        this.data1 = data;
+        dataSearch1 = new ArrayList<>(data);
         contextDp = context;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = layoutInflater.inflate(R.layout.cards_listagem_produtos_pet, viewGroup, false);
+        View view = layoutInflater1.inflate(R.layout.cards_listagem_produtos_pet, viewGroup, false);
         return new ViewHolder(view);
     }
 
@@ -99,16 +99,16 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
-        String title = data.get(i).getNome();
-        String categoriaTitulo = data.get(i).getCategoria();
-        String descricao = data.get(i).getDescricaoProduto();
-        String preco = data.get(i).getValor();
-        String valorfinal ="R$ " + preco.replace(".",",");
+        String title1 = data1.get(i).getNome();
+        String categoriaTitulo1 = data1.get(i).getCategoria();
+        String descricao1 = data1.get(i).getDescricaoProduto();
+        String preco1 = data1.get(i).getValor();
+        String valorfinal1 ="R$ " + preco1.replace(".",",");
 
-        viewHolder.descricaoProduto.setText(descricao);
-        viewHolder.valorProduto.setText(valorfinal);
+        viewHolder.descricaoProduto.setText(descricao1);
+        viewHolder.valorProduto.setText(valorfinal1);
 
-        String nome = Criptografia.codificar(title.replace(" ", ""));
+        String nome = Criptografia.codificar(title1.replace(" ", ""));
 
 
 
@@ -132,7 +132,7 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
 //        }
 //        exibirConfirmacao();
 
-        storageReference.child("FotoProduto/" + nome).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        storageReference1.child("FotoProduto/" + nome).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Picasso.get().load(uri).fit().centerInside().into(viewHolder.imagemProduto);
@@ -144,7 +144,7 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
             }
         }) ;
 
-        if (categoriaTitulo.isEmpty()) {
+        if (categoriaTitulo1.isEmpty()) {
             viewHolder.tituloCategoria.setVisibility(View.GONE);
             //float scale = contextDp.getResources().getDisplayMetrics().density;
             //int dpAsPixels = (int) (30*scale + 0.5f);
@@ -155,16 +155,16 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
         else {
             viewHolder.tituloCategoria.setVisibility(View.VISIBLE);
         }
-        viewHolder.tituloProduto.setText(title);
-        if (!categoriaTitulo.isEmpty()) {
-            viewHolder.tituloCategoria.setText(categoriaTitulo);
+        viewHolder.tituloProduto.setText(title1);
+        if (!categoriaTitulo1.isEmpty()) {
+            viewHolder.tituloCategoria.setText(categoriaTitulo1);
             viewHolder.tituloCategoria.setLayoutParams(new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, 0));
         }
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return data1.size();
     }
 
     @Override
@@ -177,12 +177,12 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
         protected FilterResults performFiltering(CharSequence constraint) {
             List<Produto> filteredList = new ArrayList<>();
             if (constraint == null || constraint.length() == 0) {
-                filteredList.addAll(dataSearch);
+                filteredList.addAll(dataSearch1);
             }
             else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
-                for (Produto item : dataSearch) {
+                for (Produto item : dataSearch1) {
                     if (Normalizer.normalize(item.getNome().toLowerCase(), Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").contains(filterPattern)) {
                         filteredList.add(item);
                     }
@@ -196,8 +196,8 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
 
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            data.clear();
-            data.addAll((List)results.values);
+            data1.clear();
+            data1.addAll((List)results.values);
             notifyDataSetChanged();
         }
     };
@@ -229,10 +229,10 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(mListener != null) {
+                    if(mListener1 != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
-                            mListener.onItemClick(position);
+                            mListener1.onItemClick(position);
                         }
                     }
                 }
