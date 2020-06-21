@@ -69,10 +69,13 @@
 
         <TextView
             android:id="@+id/txt_desenvolvido_por"
-            android:layout_width="123dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="11dp"
+            android:singleLine="true"
             android:text="@string/txt_desenvolvido_por"
+            app:layout_constraintBottom_toTopOf="@+id/pet2u_logo_desen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/desenvolvido_por" />

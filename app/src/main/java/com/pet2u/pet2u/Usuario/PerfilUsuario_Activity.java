@@ -73,6 +73,12 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        inicializarFotoDePerfil();
+    }
+
     private void alertaValidacaoPermissao(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Permissões Negados");
@@ -122,18 +128,6 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         if(user == null){
             finish();
         }else{
-            String idUsuarioFoto = Criptografia.codificar(user.getEmail());
-            storageReference.child("FotoPerfilUsuario/" + idUsuarioFoto).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                @Override
-                public void onSuccess(Uri uri) {
-                    Picasso.get().load(uri).fit().centerInside().into(fotoPerfilUsuario);
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.d("xesque", " A imagem não existe");
-                }
-            }) ;
 
             //CRIA A LIGAÇÃO ENTRE O USUÁRIO LOGADO E O DATABASE DELE
             String emailUsuario = user.getEmail();
@@ -157,6 +151,21 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
             });
 
         }
+    }
+
+    private void inicializarFotoDePerfil() {
+        String idUsuarioFoto = Criptografia.codificar(user.getEmail());
+        storageReference.child("FotoPerfilUsuario/" + idUsuarioFoto).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).fit().centerInside().into(fotoPerfilUsuario);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("xesque", " A imagem não existe");
+            }
+        }) ;
     }
 
     private void inicializaComponentes(){

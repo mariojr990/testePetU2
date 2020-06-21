@@ -135,7 +135,6 @@ public class PerfilUsuario_EditarPefil extends AppCompatActivity {
         voltar_editarpefilusuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), PerfilUsuario_Activity.class));
                 finish();
             }
         });
