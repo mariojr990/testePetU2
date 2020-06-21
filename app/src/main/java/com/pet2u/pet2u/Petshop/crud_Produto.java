@@ -22,7 +22,7 @@ import com.squareup.picasso.Picasso;
 
 public class crud_Produto extends AppCompatActivity {
 
-    private Button botaoVoltar_paginaproduto, BotaoEditarProduto, BotaoExcluirProduto;
+    private Button botaoVoltar_paginaproduto, BotaoEditarNome, BotaoEditarNomeProd, BotaoEditarPrecoProd, BotaoEditarDescProd, BotaoEditarImagemProd, BotaoExcluirProduto;
     private TextView NomeProdutoPagina, DescricaoProdutoPagina, ValorProdutoPagina;
     private ImageView fotoPerfilProduto;
 
@@ -50,7 +50,7 @@ public class crud_Produto extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 Log.d("xesque", " A imagem não existe");
             }
-        }) ;
+        });
 
         NomeProdutoPagina.setText(getIntent().getExtras().getString("nomeProduto"));
         DescricaoProdutoPagina.setText(getIntent().getExtras().getString("descricaoProduto"));
@@ -70,7 +70,10 @@ public class crud_Produto extends AppCompatActivity {
 
     private void inicializaComponenetes(){
         botaoVoltar_paginaproduto = findViewById(R.id.botaoVoltar_paginaproduto2);
-        BotaoEditarProduto = findViewById(R.id.BotaoEditarProduto);
+        BotaoEditarNome = findViewById(R.id.BotaoEditarNome);
+        BotaoEditarDescProd = findViewById(R.id.botaoEditarDescricao);
+        BotaoEditarImagemProd = findViewById(R.id.botaoEditarImagem);
+        BotaoEditarPrecoProd = findViewById(R.id.botaoEditarPreco);
         BotaoExcluirProduto = findViewById(R.id.BotaoExcluirProduto);
 
         NomeProdutoPagina = findViewById(R.id.NomeProdutoPagina2);
@@ -81,5 +84,9 @@ public class crud_Produto extends AppCompatActivity {
 
         storageReference = Conexao.getFirebaseStorage();
         auth = Conexao.getFirebaseAuth();
+    }
+
+    public void ExlcuirProduto(View view) {
+
     }
 }

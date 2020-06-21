@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".Usuario.EditarTelefone_aActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/Cor_botoes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/logobrancopet2u_editarTelefone"
+                android:layout_width="81dp"
+                android:layout_height="34dp"
+                android:contentDescription="@string/logo_pet2u"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.02"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/ptlogobranco" />
+
+            <Button
+                android:id="@+id/botaoVoltar_alterarTelefone"
+                android:layout_width="34dp"
+                android:layout_height="32dp"
+                android:background="@drawable/pngtree_exit_icon_vectors_png_image_1737870"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/txtAlterarTelefone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif-thin"
+            android:text="@string/title_alterar_telefone"
+            android:textSize="46sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+        <TextView
+            android:id="@+id/txtDescricaoAlterarTelefone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/subtitle_alterar_telefone"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtAlterarTelefone" />
+
+        <EditText
+            android:id="@+id/inputEditarTelefone"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="26dp"
+            android:layout_marginRight="26dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/input_telefone"
+            android:inputType="phone"
+            android:maxLength="14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDescricaoAlterarTelefone" />
+
+        <Button
+            android:id="@+id/botao_Enviar_Redefinir_Telefone"
+            android:layout_width="224dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="39dp"
+            android:background="@color/Cor_botoes"
+            android:text="@string/botao_alterar"
+            android:textColor="@color/design_default_color_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputEditarTelefone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

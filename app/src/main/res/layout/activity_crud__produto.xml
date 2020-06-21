@@ -97,7 +97,7 @@
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="40dp"
             android:layout_marginRight="20dp"
@@ -108,7 +108,7 @@
 
             <LinearLayout
                 android:layout_width="300dp"
-                android:layout_height="match_parent"
+                android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:orientation="horizontal">
 
@@ -127,7 +127,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/BotaoEditarProduto"
+                android:id="@+id/BotaoEditarNome"
                 android:layout_width="345dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -135,7 +135,43 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/botao_arredondado_azul"
-                android:text="EDITAR PRODUTO"
+                android:text="EDITAR NOME"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/botaoEditarDescricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/botao_arredondado_azul"
+                android:text="EDITAR DESCRIÇÃO"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/botaoEditarPreco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/botao_arredondado_azul"
+                android:text="EDITAR PREÇO"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/botaoEditarImagem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/botao_arredondado_azul"
+                android:text="EDITAR IMAGEM"
                 android:textColor="#FFFFFF" />
 
             <Button
@@ -148,6 +184,7 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/botao_arredondado_vermelho"
+                android:onClick="ExlcuirProduto"
                 android:text="EXCLUIR PRODUTO"
                 android:textColor="#FFFFFF" />
 
