@@ -18,6 +18,12 @@
 
     <!-- PETSHOP -->
     <string name="descreva_seu_petshop">Descreva seu Petshop</string>
+    <string name="nome_produto_atual">Nome Atual:</string>
+    <string name="descricao_produto_atual">Descrição Atual:</string>
+    <string name="preco_produto_atual">Preço Atual:</string>
+    <string name="novo_nome_produto">Novo Nome</string>
+    <string name="nova_descricao_produto">Nova Descrição</string>
+    <string name="novo_preco_produto">Novo Preço</string>
 
     <!-- PETSHOP CADASTRO-->
     <string name="Title_cadastro_petshop">Cadastro Petshop</string>
@@ -106,6 +112,12 @@
     <string name="botao_criar_nova_conta_de_usuario">CRIAR NOVA CONTA DE USUÁRIO</string>
     <string name="botao_novo_servico">Novo Serviço</string>
     <string name="botao_logout">Logout</string>
+    <string name="botao_atualizar_produto">Atualizar</string>
+    <string name="botao_cancelar_atualizar_produto">Cancelar</string>
+    <string name="confirmacao_excluir_produto">Tem certeza que deseja excluir este produto?</string>
+    <string name="sim_excluir_produto">Sim</string>
+    <string name="nao_excluir_produto">Não</string>
+
 
 
     <string name="descricao_petshop_listagem">Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum.</string>

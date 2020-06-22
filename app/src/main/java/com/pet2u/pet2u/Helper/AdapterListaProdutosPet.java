@@ -142,7 +142,7 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
             public void onFailure(@NonNull Exception e) {
                 Log.d("xesque", " A imagem não existe");
             }
-        }) ;
+        });
 
         if (categoriaTitulo1.isEmpty()) {
             viewHolder.tituloCategoria.setVisibility(View.GONE);

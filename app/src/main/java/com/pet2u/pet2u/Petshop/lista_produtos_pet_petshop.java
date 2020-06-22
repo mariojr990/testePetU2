@@ -211,18 +211,27 @@ public class lista_produtos_pet_petshop extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
+            int position = data.getIntExtra("position", 0);
             if (resultCode == Activity.RESULT_OK) {
-                Log.d("pamonha", produtos.size() + " TAMANHOOOOOOOOOOOOOOOO");
-                if (data.getBooleanExtra("delete", true)) {
-
-                    int position = data.getIntExtra("position", 0);
-                    Log.d("mingau", position + " POSICAO INTENT");
+                if (data.getBooleanExtra("delete", false)) {
                     produtos.remove(position);
                     adapter.notifyItemRemoved(position);
                 }
+                if (data.getBooleanExtra("updateNome", false)) {
+                    produtos.get(position).setNome(data.getStringExtra("novoNome"));
+                    adapter.notifyDataSetChanged();
+                }
+                if (data.getBooleanExtra("updateDescricao", false)) {
+                    produtos.get(position).setDescricaoProduto(data.getStringExtra("novaDescricao"));
+                    adapter.notifyDataSetChanged();
+                }
+                if (data.getBooleanExtra("updateValor", false)) {
+                    produtos.get(position).setValor(data.getStringExtra("novoValor"));
+                    adapter.notifyDataSetChanged();
+                }
             }
             if (resultCode == Activity.RESULT_CANCELED) {
-                Toast.makeText(lista_produtos_pet_petshop.this, "Erro ao deletar produto!", Toast.LENGTH_SHORT);
+                Toast.makeText(lista_produtos_pet_petshop.this, "Erro ao editar produto!", Toast.LENGTH_SHORT);
             }
         }
     }//onActivityResult

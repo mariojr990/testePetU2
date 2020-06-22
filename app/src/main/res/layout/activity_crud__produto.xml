@@ -41,6 +41,7 @@
                 android:layout_width="34dp"
                 android:layout_height="32dp"
                 android:background="@drawable/pngtree_exit_icon_vectors_png_image_1737870"
+                android:onClick="BotaoVoltarListaProdutosPetshop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -50,8 +51,8 @@
 
         <ImageView
             android:id="@+id/ImagemProdutoPagina2"
-            android:layout_width="352dp"
-            android:layout_height="365dp"
+            android:layout_width="300dp"
+            android:layout_height="199dp"
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="28dp"
@@ -64,7 +65,7 @@
 
         <TextView
             android:id="@+id/NomeProdutoPagina2"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="13dp"
             android:layout_marginLeft="13dp"
@@ -80,7 +81,7 @@
 
         <TextView
             android:id="@+id/DescricaoProdutoPagina2"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="13dp"
             android:layout_marginLeft="13dp"
@@ -106,35 +107,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/DescricaoProdutoPagina2">
 
-            <LinearLayout
-                android:layout_width="300dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/ValorProdutoPagina2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="95dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="R$ 109,90"
-                    android:textColor="@color/azul_pet2u"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/ValorProdutoPagina2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="R$ 109,90"
+                android:textColor="@color/azul_pet2u"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/BotaoEditarNome"
-                android:layout_width="345dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/botao_arredondado_azul"
+                android:onClick="EditarNomeProduto"
                 android:text="EDITAR NOME"
                 android:textColor="#FFFFFF" />
 
@@ -147,6 +139,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/botao_arredondado_azul"
+                android:onClick="EditarDescricaoProduto"
                 android:text="EDITAR DESCRIÇÃO"
                 android:textColor="#FFFFFF" />
 
@@ -159,6 +152,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/botao_arredondado_azul"
+                android:onClick="EditarPrecoProduto"
                 android:text="EDITAR PREÇO"
                 android:textColor="#FFFFFF" />
 
@@ -176,7 +170,7 @@
 
             <Button
                 android:id="@+id/BotaoExcluirProduto"
-                android:layout_width="345dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="15dp"
