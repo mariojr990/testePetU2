@@ -1,6 +1,7 @@
 package com.pet2u.pet2u.Petshop;
 
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Point;
 import android.net.Uri;
@@ -15,6 +16,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,6 +46,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Objects;
 
 public class lista_produtos_pet_petshop extends AppCompatActivity {
 
@@ -91,18 +94,19 @@ public class lista_produtos_pet_petshop extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String categoriaNome = "";
-                for (Map.Entry<String, Object> entry : ((Map<String,Object>)dataSnapshot.getValue()).entrySet()){
+                if (dataSnapshot.exists()) {
+                    for (Map.Entry<String, Object> entry : ((Map<String,Object>)dataSnapshot.getValue()).entrySet()){
 
-                    Map singleUser = (Map) entry.getValue();
+                        Map singleUser = (Map) entry.getValue();
 
-                    Boolean titulo = false;
+                        Boolean titulo = false;
 
-                    Produto produtoClicked = new Produto();
-                    produtoClicked.setNome((String) singleUser.get("nome"));
-                    produtoClicked.setValor((String) singleUser.get("valor"));
-                    produtoClicked.setDescricaoProduto((String) singleUser.get("descricao"));
-                    categoriaNome = (String) singleUser.get("categoria");
-                    produtoClicked.setCategoria(categoriaNome);
+                        Produto produtoClicked = new Produto();
+                        produtoClicked.setNome((String) singleUser.get("nome"));
+                        produtoClicked.setValor((String) singleUser.get("valor"));
+                        produtoClicked.setDescricaoProduto((String) singleUser.get("descricao"));
+                        categoriaNome = (String) singleUser.get("categoria");
+                        produtoClicked.setCategoria(categoriaNome);
 
 //                    storageReference.child("FotoPerfilPet/" + emailCriptografado).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
 //                        @Override
@@ -116,51 +120,52 @@ public class lista_produtos_pet_petshop extends AppCompatActivity {
 //                        }
 //                    }) ;
 
-                    if (!categoriasList.contains(categoriaNome)) {
-                        categoriasList.add(categoriaNome);
-                        titulo = true;
+                        if (!categoriasList.contains(categoriaNome)) {
+                            categoriasList.add(categoriaNome);
+                            titulo = true;
+                        }
+                        if (!categoriasList.isEmpty()) {
+                            categoriasMatrix.add(new ArrayList<Produto>());
+                            if (!titulo) {
+                                produtoClicked.setCategoria("");
+                            }
+                            categoriasMatrix.get(categoriasList.indexOf(categoriaNome)).add(produtoClicked);
+                        }
+
                     }
                     if (!categoriasList.isEmpty()) {
-                        categoriasMatrix.add(new ArrayList<Produto>());
-                        if (!titulo) {
-                            produtoClicked.setCategoria("");
-                        }
-                        categoriasMatrix.get(categoriasList.indexOf(categoriaNome)).add(produtoClicked);
-                    }
-
-                }
-                if (!categoriasList.isEmpty()) {
-                    for (int i = 0; i < categoriasMatrix.size(); i++) {
-                        for (int j = 0; j < categoriasMatrix.get(i).size(); j++) {
-                            produtos.add(categoriasMatrix.get(i).get(j));
+                        for (int i = 0; i < categoriasMatrix.size(); i++) {
+                            for (int j = 0; j < categoriasMatrix.get(i).size(); j++) {
+                                produtos.add(categoriasMatrix.get(i).get(j));
+                            }
                         }
                     }
-                }
 //                for (String nomeCategoria : categoriasList) {
 //                    tabLayout.addTab(tabLayout.newTab().setText(nomeCategoria));
 //                }
 
 
-                listaProdutos.setLayoutManager(new LinearLayoutManager(lista_produtos_pet_petshop.this));
-                listaProdutos.setNestedScrollingEnabled(false);
-                adapter = new AdapterListaProdutosPet(lista_produtos_pet_petshop.this, produtos);
-                listaProdutos.setAdapter(adapter);
-                int viewSize = adapter.getItemCount() * 520;
-                ViewGroup.LayoutParams layoutParams = listaProdutos.getLayoutParams();
-                layoutParams.height = viewSize;
-                listaProdutos.setLayoutParams(layoutParams);
+                    listaProdutos.setLayoutManager(new LinearLayoutManager(lista_produtos_pet_petshop.this));
+                    listaProdutos.setNestedScrollingEnabled(false);
+                    adapter = new AdapterListaProdutosPet(lista_produtos_pet_petshop.this, produtos);
+                    listaProdutos.setAdapter(adapter);
+                    int viewSize = adapter.getItemCount() * 520;
+                    ViewGroup.LayoutParams layoutParams = listaProdutos.getLayoutParams();
+                    layoutParams.height = viewSize;
+                    listaProdutos.setLayoutParams(layoutParams);
 
-                adapter.setOnItemClickListener(new AdapterListaProdutosPet.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(int position) {
-                        Log.d("xesque", "rolou o " + produtos.get(position).getNome());
-                        Intent crudproduto = new Intent(lista_produtos_pet_petshop.this, crud_Produto.class);
-                        crudproduto.putExtra("nomeProduto", produtos.get(position).getNome());
-                        crudproduto.putExtra("descricaoProduto", produtos.get(position).getDescricaoProduto());
-                        crudproduto.putExtra("valorProduto", produtos.get(position).getValor());
-                        startActivity(crudproduto);
-                    }
-                });
+                    adapter.setOnItemClickListener(new AdapterListaProdutosPet.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(int position) {
+                            Intent crudproduto = new Intent(lista_produtos_pet_petshop.this, crud_Produto.class);
+                            crudproduto.putExtra("nomeProduto", produtos.get(position).getNome());
+                            crudproduto.putExtra("descricaoProduto", produtos.get(position).getDescricaoProduto());
+                            crudproduto.putExtra("valorProduto", produtos.get(position).getValor());
+                            crudproduto.putExtra("posicaoProduto", position);
+                            startActivityForResult(crudproduto, 1);
+                        }
+                    });
+                }
             }
 
             @Override
@@ -169,6 +174,8 @@ public class lista_produtos_pet_petshop extends AppCompatActivity {
             }
         };
         usuarioRef.addListenerForSingleValueEvent(eventListener);
+
+
 
 //        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 //            @Override
@@ -199,4 +206,25 @@ public class lista_produtos_pet_petshop extends AppCompatActivity {
 //            }
 //        });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK) {
+                Log.d("pamonha", produtos.size() + " TAMANHOOOOOOOOOOOOOOOO");
+                if (data.getBooleanExtra("delete", true)) {
+
+                    int position = data.getIntExtra("position", 0);
+                    Log.d("mingau", position + " POSICAO INTENT");
+                    produtos.remove(position);
+                    adapter.notifyItemRemoved(position);
+                }
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                Toast.makeText(lista_produtos_pet_petshop.this, "Erro ao deletar produto!", Toast.LENGTH_SHORT);
+            }
+        }
+    }//onActivityResult
+
 }

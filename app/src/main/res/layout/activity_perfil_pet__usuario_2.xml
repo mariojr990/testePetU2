@@ -107,6 +107,7 @@
         android:drawableStart="@drawable/ic_location_"
         android:drawableLeft="@drawable/ic_location_"
         android:drawablePadding="5dp"
+        android:onClick="EnderecoRotaMaps"
         android:text="@string/txt_endereo"
         app:layout_constraintBottom_toTopOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"
