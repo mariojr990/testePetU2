@@ -1,4 +1,4 @@
-package com.pet2u.pet2u.Usuario;
+package com.pet2u.pet2u.Petshop;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,26 +15,24 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.R;
 
-public class EsqueceuSenha_Activity extends AppCompatActivity {
-    private EditText campoEmail;
+public class EditarSenhaPet extends AppCompatActivity {
+    private EditText campoEmailPet;
     private Button botao_enviar, botao_voltar;
-
     private FirebaseAuth auth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_esqueceu_senha);
-        getSupportActionBar().hide();
+        setContentView(R.layout.activity_editar_senha_pet);
         inicializaComponentes();
         eventoClick();
     }
-
     private void eventoClick() {
         botao_enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = campoEmail.getText().toString().trim();
+                String email = campoEmailPet.getText().toString().trim();
                 resetSenha(email);
             }
         });
@@ -49,7 +47,7 @@ public class EsqueceuSenha_Activity extends AppCompatActivity {
 
     private void resetSenha(String email) {
         auth.sendPasswordResetEmail(email)
-                .addOnCompleteListener(EsqueceuSenha_Activity.this, new OnCompleteListener<Void>() {
+                .addOnCompleteListener(EditarSenhaPet.this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
@@ -63,7 +61,7 @@ public class EsqueceuSenha_Activity extends AppCompatActivity {
     }
 
     private void alert(String s) {
-        Toast.makeText(EsqueceuSenha_Activity.this, s, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -75,7 +73,7 @@ public class EsqueceuSenha_Activity extends AppCompatActivity {
     }
 
     private void inicializaComponentes(){
-        campoEmail = findViewById(R.id.inputEditarEmail);
+        campoEmailPet = findViewById(R.id.inputEditarEmailPet);
         botao_enviar = findViewById(R.id.botao_EnviarPet);
         botao_voltar = findViewById(R.id.botaoVoltar_redefinirSenha);
     }

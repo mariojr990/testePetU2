@@ -60,7 +60,7 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
         <EditText
-            android:id="@+id/inputEditarEmail"
+            android:id="@+id/inputEditarEmailPet"
             android:layout_width="0dp"
             android:layout_height="42dp"
             android:layout_marginStart="26dp"
@@ -98,7 +98,7 @@
             android:textColor="@color/design_default_color_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputEditarEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/inputEditarEmailPet" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

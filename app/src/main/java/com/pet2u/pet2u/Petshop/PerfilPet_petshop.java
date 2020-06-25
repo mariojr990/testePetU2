@@ -125,6 +125,10 @@ public class PerfilPet_petshop extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //da clear em todas as activity abertas
         startActivity(intent);
     }
+    public void clickEditarPerfil(View view ){
+        Intent intent = new Intent(getApplicationContext(), EditarPerfilPet.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -184,7 +188,6 @@ public class PerfilPet_petshop extends AppCompatActivity {
         email_petshop_perfil = findViewById(R.id.email_petshop_perfil);
         botaoSelecionarFoto = findViewById(R.id.BotaoSelecionarFoto);
         fotoPerfilPetshop = findViewById(R.id.BotaoSelecionarFoto);
-
         auth = Conexao.getFirebaseAuth();
         databaseReference = Conexao.getFirebaseDatabase();
         user = auth.getCurrentUser();

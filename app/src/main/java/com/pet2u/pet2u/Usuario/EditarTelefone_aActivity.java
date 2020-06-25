@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -75,7 +74,7 @@ public class EditarTelefone_aActivity extends AppCompatActivity {
 
     private void inicializaComponentes(){
         campoTelefone = findViewById(R.id.inputEditarTelefone);
-        botao_enviar = findViewById(R.id.botao_Enviar_Redefinir_Telefone);
+        botao_enviar = findViewById(R.id.botao_Enviar_Redefinir_TelefonePet);
         botao_voltar = findViewById(R.id.botaoVoltar_alterarTelefone);
     }
 }

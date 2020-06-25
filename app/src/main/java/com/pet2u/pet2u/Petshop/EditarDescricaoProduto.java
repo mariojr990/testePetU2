@@ -75,7 +75,7 @@ public class EditarDescricaoProduto extends AppCompatActivity {
 
     private void inicializaComponentes(){
         campoTelefone = findViewById(R.id.inputEditarTelefone);
-        botao_enviar = findViewById(R.id.botao_Enviar_Redefinir_Telefone);
+        botao_enviar = findViewById(R.id.botao_Enviar_Redefinir_TelefonePet);
         botao_voltar = findViewById(R.id.botaoVoltar_alterarTelefone);
     }
 }

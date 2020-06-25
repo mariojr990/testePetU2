@@ -89,7 +89,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtDescricaoAlterarTelefone" />
 
         <Button
-            android:id="@+id/botao_Enviar_Redefinir_Telefone"
+            android:id="@+id/botao_Enviar_Redefinir_TelefonePet"
             android:layout_width="224dp"
             android:layout_height="43dp"
             android:layout_marginTop="39dp"
