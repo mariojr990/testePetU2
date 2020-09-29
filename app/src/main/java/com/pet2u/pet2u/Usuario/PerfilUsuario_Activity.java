@@ -1,7 +1,6 @@
 package com.pet2u.pet2u.Usuario;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,6 +32,7 @@ import com.pet2u.pet2u.Login.MainActivity;
 import com.pet2u.pet2u.Petshop.ListagemPetshop_Activity;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.Sobre.Sobre;
+import com.pet2u.pet2u.Usuario.CadastroMeuPet.Cadastro_Meu_Pet;
 import com.pet2u.pet2u.modelo.Usuario;
 import com.squareup.picasso.Picasso;
 
@@ -44,7 +44,7 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
             Manifest.permission.READ_EXTERNAL_STORAGE
     };
 
-    private TextView nomeCompleto, telefone, email;
+    private TextView nomeCompleto, telefone, email, seuPet;
     private Button botao_petshops_list;
     private ImageButton fotoPerfilUsuario;
 
@@ -100,6 +100,16 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), ListagemPetshop_Activity.class));
+            }
+        });
+        seuPet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Cadastro_Meu_Pet.class);
+
+                intent.putExtra("nomeUsuario", nomeCompleto.getText().toString());
+
+                startActivity(intent);
             }
         });
     }
@@ -174,6 +184,7 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         email = findViewById(R.id.editarEmail);
         botao_petshops_list = findViewById(R.id.botaoIrpara_listagemPetshop_perfilUsu);
         fotoPerfilUsuario = findViewById(R.id.botaoSelecionarFotoPerfil);
+        seuPet = findViewById(R.id.seuPet);
 
         auth = Conexao.getFirebaseAuth();
         databaseReference = Conexao.getFirebaseDatabase();

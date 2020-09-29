@@ -7,11 +7,9 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -20,12 +18,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Petshop.EditarNomePet"></activity>
-        <activity android:name=".Petshop.EditraNomePet" />
+        <activity android:name=".Usuario.CadastroMeuPet.Cadastro_Meu_Pet_7" />
+        <activity android:name=".Usuario.CadastroMeuPet.Cadastro_Meu_Pet_6" />
+        <activity android:name=".Usuario.CadastroMeuPet.Cadastro_Meu_Pet_5" />
+        <activity android:name=".Usuario.CadastroMeuPet.Cadastro_Meu_Pet_4" />
+        <activity android:name=".Usuario.CadastroMeuPet.Cadastro_Meu_Pet_3" />
+        <activity android:name=".Usuario.CadastroMeuPet.Cadastro_Meu_Pet_2" />
+        <activity android:name=".Usuario.CadastroMeuPet.Cadastro_Meu_Pet" />
+        <activity android:name=".Petshop.crud_Produto" />
+        <activity android:name=".Petshop.EditarNomePet" />
         <activity android:name=".Petshop.EditarTelefonePet" />
         <activity android:name=".Petshop.EditarSenhaPet" />
         <activity android:name=".Petshop.EditarPerfilPet" />
-        <activity android:name=".Petshop.crud_Produto" />
         <activity android:name=".Petshop.Cad_do_Pet2_Activity" />
         <activity android:name=".Petshop.lista_servicos_pet_petshop" />
         <activity android:name=".Petshop.lista_produtos_pet_petshop" />

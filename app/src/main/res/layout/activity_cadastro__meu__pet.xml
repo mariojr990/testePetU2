@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Usuario.CadastroMeuPet.Cadastro_Meu_Pet">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/BackgroundTopBarCadastroMeupet"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/Cor_botoes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logobrancopet2u_CadastroMeuPet"
+            android:layout_width="81dp"
+            android:layout_height="34dp"
+            android:contentDescription="@string/logo_pet2u"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ptlogobranco" />
+
+        <Button
+            android:id="@+id/botaoIrpara_listagemPetshop_CadastroMeuPet"
+            android:layout_width="34dp"
+            android:layout_height="32dp"
+            android:background="@drawable/ic_petshops"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.984"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/botaoIrpara_listagemPetshop_perfilUsu3"
+        android:layout_width="34dp"
+        android:layout_height="32dp"
+        android:background="@drawable/ic_petshops"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TxtPrincipal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:text="Olá user, qual a espécie do seu pet?"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BackgroundTopBarCadastroMeupet" />
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="30dp"
+        android:clickable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TxtPrincipal"
+        app:layout_constraintVertical_bias="0.135">
+
+
+        <TextView
+            android:id="@+id/OpcaoCachorro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:drawableTop="@drawable/dog_icon"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="Cachoro"
+            android:textColor="@color/azul_pet2u" />
+
+        <TextView
+            android:id="@+id/OpcaoGato"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:drawableTop="@drawable/cat_icon"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="Gato"
+            android:textColor="@color/azul_pet2u" />
+
+        <TextView
+            android:id="@+id/OpcaoPassaro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_margin="20dp"
+            android:drawableTop="@drawable/bird_icon"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="Pássaro"
+            android:textColor="@color/azul_pet2u" />
+
+        <TextView
+            android:id="@+id/OpcaoRoedor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_margin="20dp"
+            android:drawableTop="@drawable/rodent_icon"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="Roedor"
+            android:textColor="@color/azul_pet2u" />
+
+        <TextView
+            android:id="@+id/OpcaoReptil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_margin="20dp"
+            android:drawableTop="@drawable/reptil_icon"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="Réptil"
+            android:textColor="@color/azul_pet2u" />
+
+        <TextView
+            android:id="@+id/OpcaoPeixe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:layout_margin="20dp"
+            android:drawableTop="@drawable/fish_icon"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="Peixe"
+            android:textColor="@color/azul_pet2u" />
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

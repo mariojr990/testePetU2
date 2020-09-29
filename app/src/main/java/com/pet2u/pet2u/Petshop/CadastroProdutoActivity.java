@@ -47,7 +47,7 @@ public class CadastroProdutoActivity extends AppCompatActivity {
     private ImageButton ButtonImageProduto;
     private Produto_Cadastro produto;
     private EditText descricaoProduto;
-     private Spinner campoCategoria;
+    private Spinner campoCategoria;
 
     private FirebaseAuth auth;
     private StorageReference storageReference;
