@@ -102,22 +102,29 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ListagemPetshop_Activity.class));
             }
         });
-        seuPet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Cadastro_Meu_Pet.class);
-
-                intent.putExtra("nomeUsuario", nomeCompleto.getText().toString());
-
-                startActivity(intent);
-            }
-        });
+//        seuPet.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), Cadastro_Meu_Pet.class);
+//
+//                intent.putExtra("nomeUsuario", nomeCompleto.getText().toString());
+//
+//                startActivity(intent);
+//            }
+//        });
     }
 
 
 
     public void ClickListagemPetshop(View view){
         startActivity(new Intent(getApplicationContext(), ListagemPetshop_Activity.class));
+    }
+
+    public void ClickCadastrarPet(View view){
+        Intent intent = new Intent(getApplicationContext(), Cadastro_Meu_Pet.class);
+        intent.putExtra("nomeUsuario", nomeCompleto.getText().toString());
+        startActivity(intent);
+
     }
     public void clickLogoutUsuario(View view){
         Conexao.logOut();

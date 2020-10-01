@@ -33,7 +33,7 @@ public class Cadastro_Meu_Pet_3 extends AppCompatActivity {
                 intent.putExtra("nomeUsuario", getIntent().getExtras().getString("nomeUsuario"));
                 intent.putExtra("nomePet", getIntent().getExtras().getString("nomePet"));
                 intent.putExtra("nomeCategoriaPet", getIntent().getExtras().getString("nomeCategoriaPet"));
-                intent.putExtra("GeneroPet", "Menino");
+                intent.putExtra("GeneroPet", "Macho");
                 startActivity(intent);
 
             }
@@ -46,7 +46,7 @@ public class Cadastro_Meu_Pet_3 extends AppCompatActivity {
                 intent.putExtra("nomeUsuario", getIntent().getExtras().getString("nomeUsuario"));
                 intent.putExtra("nomePet", getIntent().getExtras().getString("nomePet"));
                 intent.putExtra("nomeCategoriaPet", getIntent().getExtras().getString("nomeCategoriaPet"));
-                intent.putExtra("GeneroPet", "Menina");
+                intent.putExtra("GeneroPet", "Fêmea");
                 startActivity(intent);
             }
         });

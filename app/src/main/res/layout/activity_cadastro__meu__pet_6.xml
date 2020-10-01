@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".Usuario.CadastroMeuPet.Cadastro_Meu_Pet_6">
 
     <ImageView
@@ -73,11 +73,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagemCategoriaPetCadastrado6" />
 
+    <ImageButton
+        android:id="@+id/buttonImagemDoBichinho"
+        android:layout_width="147dp"
+        android:layout_height="153dp"
+        android:layout_marginTop="32dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMensagemPrincipal6"
+        app:srcCompat="@drawable/ic_baseline_image_24" />
+
+    <Button
+        android:id="@+id/buttonAdicionarFoto"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/borda_arrendondada"
+        android:text="ADICIONAR FOTO"
+        android:textColor="@color/cardview_light_background"
+        app:layout_constraintEnd_toEndOf="@+id/buttonImagemDoBichinho"
+        app:layout_constraintStart_toStartOf="@+id/buttonImagemDoBichinho"
+        app:layout_constraintTop_toBottomOf="@+id/buttonImagemDoBichinho" />
+
     <TextView
         android:id="@+id/botaoAdicionarDepois_CadMeuPet6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
         android:text="@string/Add_depois"
         android:textColor="@color/colorPrimaryDark"
@@ -85,18 +108,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonImagemDoBichinho" />
-
-    <ImageButton
-        android:id="@+id/buttonImagemDoBichinho"
-        android:layout_width="147dp"
-        android:layout_height="153dp"
-        android:layout_marginTop="32dp"
-        android:background="#FDFCFC"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtMensagemPrincipal6"
-        app:srcCompat="@drawable/ic_baseline_image_24" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonAdicionarFoto" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pet2u.pet2u.R;
 
@@ -33,18 +34,23 @@ public class Cadastro_Meu_Pet_5 extends AppCompatActivity {
         buttonThumbsUpCastrado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String anoNascimento = spinnerMeuPetAnoNascimento.getSelectedItem().toString();
 
-                Intent intent = new Intent(getApplicationContext(), Cadastro_Meu_Pet_6.class);
-                intent.putExtra("nomeUsuario", getIntent().getExtras().getString("nomeUsuario"));
-                intent.putExtra("nomeCategoriaPet", getIntent().getExtras().getString("nomeCategoriaPet"));
-                intent.putExtra("nomePet", getIntent().getExtras().getString("nomePet"));
-                intent.putExtra("GeneroPet", getIntent().getExtras().getString("GeneroPet"));
-                intent.putExtra("racaPet",  getIntent().getExtras().getString("racaPet"));
-                intent.putExtra("anoNascimentoPet",  anoNascimento);
-                intent.putExtra("castradoPet",  "sim");
-                startActivity(intent);
+                if(anoNascimento != ""){
+
+                    Intent intent = new Intent(getApplicationContext(), Cadastro_Meu_Pet_6.class);
+                    intent.putExtra("nomeUsuario", getIntent().getExtras().getString("nomeUsuario"));
+                    intent.putExtra("nomeCategoriaPet", getIntent().getExtras().getString("nomeCategoriaPet"));
+                    intent.putExtra("nomePet", getIntent().getExtras().getString("nomePet"));
+                    intent.putExtra("GeneroPet", getIntent().getExtras().getString("GeneroPet"));
+                    intent.putExtra("racaPet",  getIntent().getExtras().getString("racaPet"));
+                    intent.putExtra("anoNascimentoPet",  anoNascimento);
+                    intent.putExtra("castradoPet",  "sim");
+                    startActivity(intent);
+                }else{
+                    alert("Opa! parece que você não selecionou o ano de nascimento do seu Pet!");
+                }
+
             }
         });
 
@@ -54,15 +60,20 @@ public class Cadastro_Meu_Pet_5 extends AppCompatActivity {
 
                 String anoNascimento = spinnerMeuPetAnoNascimento.getSelectedItem().toString();
 
-                Intent intent = new Intent(getApplicationContext(), Cadastro_Meu_Pet_6.class);
-                intent.putExtra("nomeUsuario", getIntent().getExtras().getString("nomeUsuario"));
-                intent.putExtra("nomeCategoriaPet", getIntent().getExtras().getString("nomeCategoriaPet"));
-                intent.putExtra("nomePet", getIntent().getExtras().getString("nomePet"));
-                intent.putExtra("GeneroPet", getIntent().getExtras().getString("GeneroPet"));
-                intent.putExtra("racaPet", getIntent().getExtras().getString("racaPet"));
-                intent.putExtra("anoNascimentoPet",  anoNascimento);
-                intent.putExtra("castradoPet",  "não");
-                startActivity(intent);
+                if(anoNascimento != ""){
+
+                    Intent intent = new Intent(getApplicationContext(), Cadastro_Meu_Pet_6.class);
+                    intent.putExtra("nomeUsuario", getIntent().getExtras().getString("nomeUsuario"));
+                    intent.putExtra("nomeCategoriaPet", getIntent().getExtras().getString("nomeCategoriaPet"));
+                    intent.putExtra("nomePet", getIntent().getExtras().getString("nomePet"));
+                    intent.putExtra("GeneroPet", getIntent().getExtras().getString("GeneroPet"));
+                    intent.putExtra("racaPet",  getIntent().getExtras().getString("racaPet"));
+                    intent.putExtra("anoNascimentoPet",  anoNascimento);
+                    intent.putExtra("castradoPet",  "não");
+                    startActivity(intent);
+                }else{
+                    alert("Opa! parece que você não selecionou o ano de nascimento do seu Pet!");
+                }
 
             }
         });
@@ -81,7 +92,14 @@ public class Cadastro_Meu_Pet_5 extends AppCompatActivity {
 
         txtMensagemPrincipal5.setText("Legal " + getIntent().getExtras().getString("nomeUsuario") + ", seu bichinho é um " + getIntent().getExtras().getString("racaPet") +"!!");
         txtPeguntaAnoNascimento.setText("Em qual ano " + getIntent().getExtras().getString("nomePet") + " nasceu?");
-        txtPeguntaCastrado.setText(getIntent().getExtras().getString("nomePet") + " é castrado?");
+
+        String genero = getIntent().getExtras().getString("GeneroPet");
+        if(genero.equals("Macho")){
+            txtPeguntaCastrado.setText(getIntent().getExtras().getString("nomePet") + " é castrado?");
+        }else{
+            txtPeguntaCastrado.setText(getIntent().getExtras().getString("nomePet") + " é castrada?");
+        }
+
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter
                 .createFromResource(this,
@@ -123,4 +141,8 @@ public class Cadastro_Meu_Pet_5 extends AppCompatActivity {
             break;
         }
     }
+    private void alert(String msg) {
+        Toast.makeText(Cadastro_Meu_Pet_5.this, msg,Toast.LENGTH_SHORT).show();
+    }
+
 }

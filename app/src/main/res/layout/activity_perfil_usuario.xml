@@ -155,6 +155,18 @@
             tools:ignore="VectorDrawableCompat" />
 
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/cadastrar_pet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="ClickCadastrarPet"
+            android:src="@drawable/ic_adicionar_branco"
+            app:fab_colorPressed="#94D8FF"
+            fab:fab_colorNormal="@color/azul_pet2u"
+            fab:fab_label="Cadastar Pet"
+            fab:fab_size="mini"
+            tools:ignore="VectorDrawableCompat" />
+
+        <com.github.clans.fab.FloatingActionButton
             android:id="@+id/editar_perfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
