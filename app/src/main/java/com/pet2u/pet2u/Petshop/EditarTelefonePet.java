@@ -29,6 +29,7 @@ public class EditarTelefonePet extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_telefone_pet);
+        getSupportActionBar().hide();
         inicializaComponentes();
         eventoClick();
         mascarasNumeros();

@@ -25,6 +25,7 @@ public class EditarNomePet extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_nome_pet);
+        getSupportActionBar().hide();
         inicializaComponentes();
         eventoClick();
     }
@@ -62,7 +63,7 @@ public class EditarNomePet extends AppCompatActivity {
 
 
     private void inicializaComponentes(){
-        botao_enviar_nome = findViewById(R.id.botao_Enviar_Redefinir_Nome);
+        botao_enviar_nome = findViewById(R.id.botao_Enviar_Redefinir_NomePet);
         botao_voltar_nome= findViewById(R.id.botaoVoltar_alterarNome);
         campoNomePet = findViewById(R.id.inputEditarNomePet);
     }
