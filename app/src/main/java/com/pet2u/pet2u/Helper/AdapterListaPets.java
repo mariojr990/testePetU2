@@ -113,7 +113,7 @@ public class AdapterListaPets extends RecyclerView.Adapter<AdapterListaPets.View
             int calculoIdade = (anoAtual - nascimentoPet);
             String nascimentoPetFinal = "";
             if(calculoIdade > 0){
-                nascimentoPetFinal = "Idade: " + calculoIdade + "Anos";
+                nascimentoPetFinal = "Idade: " + calculoIdade + " anos";
             }else{
                 nascimentoPetFinal = "Idade: Menos de 1 ano";
             }
