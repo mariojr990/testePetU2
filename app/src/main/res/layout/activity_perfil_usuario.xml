@@ -231,6 +231,20 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
+    <Button
+        android:id="@+id/button_seuPet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:background="@color/cardview_shadow_end_color"
+        android:drawableTop="@drawable/ic_pets_grey"
+        android:text="Seu Pet"
+        android:textColor="#B1B1B1"
+        android:typeface="normal"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -258,20 +272,6 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5" />
-
-    <TextView
-        android:id="@+id/seuPet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:drawableTop="@drawable/ic_pets_grey"
-        android:gravity="center"
-        android:text="Seu Pet"
-        android:textColor="#B1B1B1"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <TextView
         android:id="@+id/textView5"

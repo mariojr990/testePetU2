@@ -33,6 +33,7 @@ import com.pet2u.pet2u.Petshop.ListagemPetshop_Activity;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.Sobre.Sobre;
 import com.pet2u.pet2u.Usuario.CadastroMeuPet.Cadastro_Meu_Pet;
+import com.pet2u.pet2u.Usuario.ListagemPets.ListagemPets;
 import com.pet2u.pet2u.modelo.Usuario;
 import com.squareup.picasso.Picasso;
 
@@ -44,8 +45,8 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
             Manifest.permission.READ_EXTERNAL_STORAGE
     };
 
-    private TextView nomeCompleto, telefone, email, seuPet;
-    private Button botao_petshops_list;
+    private TextView nomeCompleto, telefone, email;
+    private Button botao_petshops_list, button_seuPet;
     private ImageButton fotoPerfilUsuario;
 
     private FirebaseAuth auth;
@@ -102,16 +103,12 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ListagemPetshop_Activity.class));
             }
         });
-//        seuPet.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), Cadastro_Meu_Pet.class);
-//
-//                intent.putExtra("nomeUsuario", nomeCompleto.getText().toString());
-//
-//                startActivity(intent);
-//            }
-//        });
+        button_seuPet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ListagemPets.class));
+            }
+        });
     }
 
 
@@ -191,7 +188,7 @@ public class PerfilUsuario_Activity extends AppCompatActivity {
         email = findViewById(R.id.editarEmail);
         botao_petshops_list = findViewById(R.id.botaoIrpara_listagemPetshop_perfilUsu);
         fotoPerfilUsuario = findViewById(R.id.botaoSelecionarFotoPerfil);
-        seuPet = findViewById(R.id.seuPet);
+        button_seuPet = findViewById(R.id.button_seuPet);
 
         auth = Conexao.getFirebaseAuth();
         databaseReference = Conexao.getFirebaseDatabase();
