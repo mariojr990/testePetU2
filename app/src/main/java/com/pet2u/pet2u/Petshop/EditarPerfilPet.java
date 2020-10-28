@@ -116,14 +116,21 @@ public class EditarPerfilPet extends AppCompatActivity {
 
 
         //ESSE METODO ESTA COM PROBLEMA ELE NÃO INICIALIZA
+        
 
+//        botaoEditarNomePet.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(), EditarNomePet.class));
+//                }
+//       });
 
-        botaoEditarNomePet.setOnClickListener(new View.OnClickListener() {
+        /*botao_alterarNomePet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), EditarNomePet.class));
-                }
-       });
+            }
+        });*/
 
         voltar_editarpefilusuarioPet.setOnClickListener(new View.OnClickListener() {
             @Override

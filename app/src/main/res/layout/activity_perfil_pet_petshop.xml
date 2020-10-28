@@ -33,6 +33,19 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!--
+    <ImageView
+        android:id="@+id/avatarPerfilUsuario2"
+        android:layout_width="145dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/descricao_avatar_do_usuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:srcCompat="@drawable/pet2uiconeavatar" />
+        -->
+
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/menu_perfilPetshop"
         android:layout_width="0dp"
@@ -42,10 +55,10 @@
         android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descricao_petshop_perfil"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.909"
         fab:menu_animationDelayPerItem="50"
         fab:menu_backgroundColor="@android:color/transparent"
         fab:menu_buttonSpacing="0dp"
@@ -93,6 +106,30 @@
             tools:ignore="VectorDrawableCompat" />
 
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/menu_novoServico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clickNovoServico"
+            android:src="@drawable/ic_adicionar_branco"
+            app:fab_colorPressed="#94D8FF"
+            fab:fab_colorNormal="@color/azul_pet2u"
+            fab:fab_label="Novo Serviço"
+            fab:fab_size="mini"
+            tools:ignore="VectorDrawableCompat" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/menu_Servicos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clickIrServico"
+            android:src="@drawable/ic_adicionar_branco"
+            app:fab_colorPressed="#94D8FF"
+            fab:fab_colorNormal="@color/azul_pet2u"
+            fab:fab_label="Serviço"
+            fab:fab_size="mini"
+            tools:ignore="OnClick,VectorDrawableCompat" />
+
+        <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_listaProdutos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,6 +140,7 @@
             fab:fab_colorNormal="@color/azul_pet2u"
             fab:fab_size="mini"
             tools:ignore="VectorDrawableCompat" />
+
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_editarPerfilPet"
             android:layout_width="wrap_content"
@@ -128,18 +166,6 @@
             tools:ignore="VectorDrawableCompat" />
 
     </com.github.clans.fab.FloatingActionMenu>
-    <!--
-    <ImageView
-        android:id="@+id/avatarPerfilUsuario2"
-        android:layout_width="145dp"
-        android:layout_height="106dp"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/descricao_avatar_do_usuario"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:srcCompat="@drawable/pet2uiconeavatar" />
-        -->
 
     <ImageButton
         android:id="@+id/BotaoSelecionarFoto"

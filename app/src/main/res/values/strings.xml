@@ -66,6 +66,7 @@
     </string-array>
 
     <string-array name="categorias">
+        <item>Selecione uma categoria</item>
         <item>Rações</item>
         <item>Saúde</item>
         <item>Limpeza e Higiene</item>
@@ -81,6 +82,15 @@
         <item>Roupas e Acessórios</item>
         <item>Shampoos e Cosméticos</item>
     </string-array>
+
+    <string-array name="categorias_servico">
+        <item>Selecione uma categoria</item>
+        <item>Higiene</item>
+        <item>Lazer</item>
+        <item>Saúde</item>
+        <item>Estéticos</item>
+    </string-array>
+
 
     <string-array name="raca_gato">
         <item>Sem Raça Definida (Vira Lata)</item>

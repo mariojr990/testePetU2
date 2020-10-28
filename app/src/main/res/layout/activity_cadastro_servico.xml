@@ -6,4 +6,145 @@
     android:layout_height="match_parent"
     tools:context=".Petshop.CadastroServicoActivity">
 
+    <Button
+        android:id="@+id/botaoCadastrarServico"
+        android:layout_width="164dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/botao_arredondado_azul"
+        android:text="Cadastar Serviço"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/listaCategoriaServico"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/listaCategoriaServico"
+        app:layout_constraintTop_toBottomOf="@+id/listaCategoriaServico" />
+
+    <Spinner
+        android:id="@+id/listaCategoriaServico"
+        android:layout_width="297dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/textCategoria2"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/textCategoria2"
+        app:layout_constraintTop_toBottomOf="@+id/textCategoria2" />
+
+    <EditText
+        android:id="@+id/descricaoServico"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Breve descriçao do serviço"
+        android:inputType="textMultiLine"
+        android:maxLength="150"
+        app:layout_constraintEnd_toEndOf="@+id/editValorServico"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/descricao_petshop"
+        app:layout_constraintTop_toBottomOf="@+id/descricao_petshop" />
+
+    <TextView
+        android:id="@+id/descricao_petshop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/descricao_petshop_cadastro"
+        app:layout_constraintStart_toStartOf="@+id/editValorServico"
+        app:layout_constraintTop_toBottomOf="@+id/editValorServico" />
+
+    <EditText
+        android:id="@+id/editValorServico"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:ems="10"
+        android:hint="Valor"
+        android:inputType="number"
+        android:maxLength="30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomeServico" />
+
+    <EditText
+        android:id="@+id/editTextNomeServico"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:ems="10"
+        android:hint="Nome do Produto"
+        android:inputType="textPersonName"
+        android:maxLength="100"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextCadastrarServico" />
+
+    <TextView
+        android:id="@+id/TextCadastrarServico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="Cadastro Servico"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/Cor_botoes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logobrancopet2u_cadServico"
+            android:layout_width="81dp"
+            android:layout_height="34dp"
+            android:contentDescription="@string/logo_pet2u"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ptlogobranco" />
+
+        <Button
+            android:id="@+id/botaoVoltarCadServico"
+            android:layout_width="34dp"
+            android:layout_height="32dp"
+            android:background="@drawable/pngtree_exit_icon_vectors_png_image_1737870"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textCategoria2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Categoria"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricaoServico" />
 </androidx.constraintlayout.widget.ConstraintLayout>
