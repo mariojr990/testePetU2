@@ -104,8 +104,10 @@ public class AdapterListaPets extends RecyclerView.Adapter<AdapterListaPets.View
         String castradoPetFinal = "";
             if(castradoPet.equals("sim")){
                  castradoPetFinal = "Castrado";
+            }else if(castradoPet.equals("naoPossui")){
+                 castradoPetFinal = "";
             }else{
-                 castradoPetFinal = "Não castrado";
+                castradoPetFinal = "Não Castrado";
             }
         String racaPet = data1.get(i).getRacaPet();
         int nascimentoPet = Integer.parseInt(data1.get(i).getNascimentoPet());

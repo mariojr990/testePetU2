@@ -34,7 +34,7 @@
                 android:paddingTop="15dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="15dp"
-                android:text="@string/perfil_petshop_menu"
+                android:text="Seu(s) Pet(s) Cadastrado(s)!"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 

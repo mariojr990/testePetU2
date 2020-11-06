@@ -36,10 +36,9 @@ public class Cadastro_Meu_Pet_4 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String nomeCategoriaPet = getIntent().getExtras().getString("nomeCategoriaPet");
-                if (!nomeCategoriaPet.equals("Peixe")){
+                if (nomeCategoriaPet.equals("Peixe") || nomeCategoriaPet.equals("Pássaro") || nomeCategoriaPet.equals("Réptil") ){
                     String racaPet = spinnerMeuPetCadastro4.getSelectedItem().toString();
-
-                    Intent intent = new Intent(getApplicationContext(), Cadastro_Meu_Pet_5.class);
+                    Intent intent = new Intent(getApplicationContext(), Cadastro_Meu_Pet_5_2.class);
                     intent.putExtra("nomeUsuario", getIntent().getExtras().getString("nomeUsuario"));
                     intent.putExtra("nomeCategoriaPet", getIntent().getExtras().getString("nomeCategoriaPet"));
                     intent.putExtra("nomePet", getIntent().getExtras().getString("nomePet"));
@@ -48,7 +47,7 @@ public class Cadastro_Meu_Pet_4 extends AppCompatActivity {
                     startActivity(intent);
                 }else{
                     String racaPet = spinnerMeuPetCadastro4.getSelectedItem().toString();
-                    Intent intent = new Intent(getApplicationContext(), Cadastro_Meu_Pet_6.class);
+                    Intent intent = new Intent(getApplicationContext(), Cadastro_Meu_Pet_5.class);
                     intent.putExtra("nomeUsuario", getIntent().getExtras().getString("nomeUsuario"));
                     intent.putExtra("nomeCategoriaPet", getIntent().getExtras().getString("nomeCategoriaPet"));
                     intent.putExtra("nomePet", getIntent().getExtras().getString("nomePet"));

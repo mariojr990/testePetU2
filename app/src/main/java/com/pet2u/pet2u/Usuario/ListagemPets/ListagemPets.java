@@ -149,12 +149,12 @@ public class ListagemPets extends AppCompatActivity {
 
 
                             Intent crudpets = new Intent(ListagemPets.this, Crud_pets.class);
-                            crudpets.putExtra("nomePets", pets.get(position).getNomePet());
-                            crudpets.putExtra("racaPet", pets.get(position).getRacaPet());
+                            crudpets.putExtra("nomePet", pets.get(position).getNomePet());
+                            //crudpets.putExtra("racaPet", pets.get(position).getRacaPet());
                             crudpets.putExtra("nascimentoPet", pets.get(position).getNascimentoPet());
-                            crudpets.putExtra("generoPet", pets.get(position).getGeneroPet());
+                            //crudpets.putExtra("generoPet", pets.get(position).getGeneroPet());
                             crudpets.putExtra("castradoPet", pets.get(position).getCastradoPet());
-                            crudpets.putExtra("posicaoProduto", position);
+                            crudpets.putExtra("posicaoPet", position);
                             startActivityForResult(crudpets, 1);
                         }
                     });
@@ -180,24 +180,16 @@ public class ListagemPets extends AppCompatActivity {
                     pets.remove(position);
                     adapter.notifyItemRemoved(position);
                 }
-                if (data.getBooleanExtra("updateNomePet", false)) {
-                    pets.get(position).setNomePet(data.getStringExtra("novoNomePet"));
+                if (data.getBooleanExtra("updateNome", false)) {
+                    pets.get(position).setNomePet(data.getStringExtra("novoNome"));
                     adapter.notifyDataSetChanged();
                 }
-                if(data.getBooleanExtra("updateRacaPet", false)){
-                    pets.get(position).setRacaPet(data.getStringExtra("novaRacaPet"));
+                if(data.getBooleanExtra("updateAnoNascimento", false)){
+                    pets.get(position).setNascimentoPet(data.getStringExtra("novoAnoNascimento"));
                     adapter.notifyDataSetChanged();
                 }
-                if(data.getBooleanExtra("updateNascimentoPet", false)){
-                    pets.get(position).setNascimentoPet(data.getStringExtra("novaNascimentoPet"));
-                    adapter.notifyDataSetChanged();
-                }
-                if(data.getBooleanExtra("updateGeneroPet", false)){
-                    pets.get(position).setGeneroPet(data.getStringExtra("novaGeneroPet"));
-                    adapter.notifyDataSetChanged();
-                }
-                if(data.getBooleanExtra("updateCastradoPet", false)){
-                    pets.get(position).setCastradoPet(data.getStringExtra("novaCastradoPet"));
+                if(data.getBooleanExtra("updateEstadoCastracao", false)){
+                    pets.get(position).setCastradoPet(data.getStringExtra("novoEstadoCastracao"));
                     adapter.notifyDataSetChanged();
                 }
             }

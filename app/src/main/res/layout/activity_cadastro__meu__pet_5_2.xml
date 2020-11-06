@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Usuario.CadastroMeuPet.Cadastro_Meu_Pet_5_2">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/BackgroundTopBarCadastroMeupet6"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/Cor_botoes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logobrancopet2u_CadastroMeuPet5_2"
+            android:layout_width="81dp"
+            android:layout_height="34dp"
+            android:contentDescription="@string/logo_pet2u"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ptlogobranco" />
+
+        <Button
+            android:id="@+id/botaoIrpara_listagemPetshop_CadastroMeuPet5_2"
+            android:layout_width="34dp"
+            android:layout_height="32dp"
+            android:background="@drawable/ic_petshops"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.984"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imagemCategoriaPetCadastrado5_2"
+        android:layout_width="98dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="40dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BackgroundTopBarCadastroMeupet6"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txtPeguntaAnoNascimento2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:text='Em qual ano "pet_name" nasceu?'
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMensagemPrincipal5_2" />
+
+    <TextView
+        android:id="@+id/txtMensagemPrincipal5_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:text='Legal "user_name", seu bichinho é um "pet_raça"!!'
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagemCategoriaPetCadastrado5_2" />
+
+    <TextView
+        android:id="@+id/nomeDoPet_CadastroPet5_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="196dp"
+        android:layout_marginRight="196dp"
+        android:text="Ano*"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtMensagemPrincipal5_2"
+        app:layout_constraintTop_toBottomOf="@+id/txtPeguntaAnoNascimento2" />
+
+    <Spinner
+        android:id="@+id/spinnerMeuPetAnoNascimento2"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonProximo_5_2"
+        app:layout_constraintEnd_toEndOf="@+id/txtPeguntaAnoNascimento2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtMensagemPrincipal5_2"
+        app:layout_constraintTop_toBottomOf="@+id/nomeDoPet_CadastroPet5_2" />
+
+    <Button
+        android:id="@+id/buttonProximo_5_2"
+        android:layout_width="207dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/botao_arredondado_azul"
+        android:text="Próximo"
+        android:textColor="@color/cardview_light_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerMeuPetAnoNascimento2"
+        app:layout_constraintStart_toStartOf="@+id/spinnerMeuPetAnoNascimento2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

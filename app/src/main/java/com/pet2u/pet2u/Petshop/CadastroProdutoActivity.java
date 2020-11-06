@@ -132,7 +132,7 @@ public class CadastroProdutoActivity extends AppCompatActivity {
                 String categoria = campoCategoria.getSelectedItem().toString();
                 String descricaoProdutoo = descricaoProduto.getText().toString().trim();
 
-                if (nome.isEmpty() || marca.isEmpty() || valor.isEmpty()){
+                if (nome.isEmpty() || marca.isEmpty() || valor.isEmpty() || categoria.equals("Selecione uma categoria")){
                     alert("Preencha todos os campos");
                 }
                 else{

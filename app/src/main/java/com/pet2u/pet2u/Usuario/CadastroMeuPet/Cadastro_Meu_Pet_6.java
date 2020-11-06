@@ -85,6 +85,7 @@ public class Cadastro_Meu_Pet_6 extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 Uri imageData=data.getData();
                 buttonImagemDoBichinho.setImageURI(imageData);
+
                 String nome = auth.getCurrentUser().getEmail();
                 nome += getIntent().getExtras().getString("nomePet");
                 String nomefinal = nome.replace(" ", "");

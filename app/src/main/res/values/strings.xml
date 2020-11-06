@@ -25,6 +25,14 @@
     <string name="nova_descricao_produto">Nova Descrição</string>
     <string name="novo_preco_produto">Novo Preço</string>
 
+    <!-- PETS USUARIO -->
+    <string name="nome_pet_atual">Nome Atual:</string>
+    <string name="nascimento_pet_atual">Data de Nascimento Atual:</string>
+    <string name="castrado_pet_atual">Castração Atual:</string>
+    <string name="novo_nome_pet">Novo Nome</string>
+    <string name="novo_nascimento_pet">Nova Data de Nascimento</string>
+    <string name="novo_castrado_pet">Novo Status de Castração</string>
+
     <!-- PETSHOP CADASTRO-->
     <string name="Title_cadastro_petshop">Cadastro Petshop</string>
     <string name="subtitle_cad_petshop">Informações do Petshop</string>
@@ -658,6 +666,7 @@
     <string name="botao_atualizar_produto">Atualizar</string>
     <string name="botao_cancelar_atualizar_produto">Cancelar</string>
     <string name="confirmacao_excluir_produto">Tem certeza que deseja excluir este produto?</string>
+    <string name="confirmacao_excluir_pet">Tem certeza que deseja excluir este pet?</string>
     <string name="sim_excluir_produto">Sim</string>
     <string name="nao_excluir_produto">Não</string>
 
