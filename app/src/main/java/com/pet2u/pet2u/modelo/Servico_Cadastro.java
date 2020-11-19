@@ -5,15 +5,16 @@ import com.google.firebase.database.Exclude;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 
 public class Servico_Cadastro {
-    private String nomeServico, valorServico, descricaoServico, emailPetShopServico, idServico, dataCadastroServico ;
+    private String nomeServico, valorServico, descricaoServico, categoriaServico, emailPetShop, idServico, dataCadastroServico ;
     private DatabaseReference databaseReference;
 
-    public Servico_Cadastro(){
 
+    public Servico_Cadastro(){
     }
-    public void salvar(String nomeNo,String emailPetShopServico, String nomeSubNo){
+
+    public void salvar(String nomeNo,String emailPetShop, String nomeSubNo){
         databaseReference = Conexao.getFirebaseDatabase();
-        databaseReference.child(nomeNo).child(emailPetShopServico).child(nomeNo).child(this.idServico).setValue(this);
+        databaseReference.child(nomeNo).child(emailPetShop).child(nomeSubNo).child(this.idServico).setValue(this);
     }
 
     public String getNomeServico() {
@@ -40,12 +41,20 @@ public class Servico_Cadastro {
         this.descricaoServico = descricaoServico;
     }
 
-    public String getEmailPetShopServico() {
-        return emailPetShopServico;
+    public String getCategoriaServico() {
+        return categoriaServico;
     }
 
-    public void setEmailPetShopServico(String emailPetShopServico) {
-        this.emailPetShopServico = emailPetShopServico;
+    public void setCategoriaServico(String categoriaServico) {
+        this.categoriaServico = categoriaServico;
+    }
+
+    public String getEmailPetShop() {
+        return emailPetShop;
+    }
+
+    public void setEmailPetShop(String emailPetShop) {
+        this.emailPetShop = emailPetShop;
     }
 
     @Exclude
@@ -65,11 +74,4 @@ public class Servico_Cadastro {
         this.dataCadastroServico = dataCadastroServico;
     }
 
-    public DatabaseReference getDatabaseReference() {
-        return databaseReference;
-    }
-
-    public void setDatabaseReference(DatabaseReference databaseReference) {
-        this.databaseReference = databaseReference;
-    }
 }

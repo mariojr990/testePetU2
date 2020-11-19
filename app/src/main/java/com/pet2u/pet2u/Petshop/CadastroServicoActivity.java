@@ -28,18 +28,12 @@ import java.util.UUID;
 
 public class CadastroServicoActivity extends AppCompatActivity {
 
-//    private final static int CODIGO_SELECAO_FOTO = 1;
-//    public String [] permissoesNecessarias = new String[]{
-//            Manifest.permission.READ_EXTERNAL_STORAGE
-//    };
-
     private Button botaoCadastrarServico, botaoVoltarServico;
     private EditText campoNomeServico, campoValorServico, campoDescricaoServico;
     private Spinner campoCategoriaServico;
     private Servico_Cadastro servico;
 
     private FirebaseAuth auth;
-    private StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,28 +44,6 @@ public class CadastroServicoActivity extends AppCompatActivity {
         clicks();
     }
 
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-////        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-////        for( int permissaoResultados : grantResults ){
-////            if(permissaoResultados == PackageManager.PERMISSION_DENIED){
-////                alertaValidacaoPermissao();
-////            }
-////        }
-////    }
-//    private void alertaValidacaoPermissao(){
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setTitle("Permissões Negados");
-//        builder.setMessage("Para utilizar o app é necessario aceitar as permissões");
-//        builder.setCancelable(false);
-//        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                finish();
-//            }
-//        });
-//        AlertDialog dialog=builder.create();
-//        dialog.show();
-//    }
 
     private void alert(String msg){
         Toast.makeText(CadastroServicoActivity.this, msg, Toast.LENGTH_SHORT).show();
@@ -88,16 +60,16 @@ public class CadastroServicoActivity extends AppCompatActivity {
                 finish();
             }
         });
-//        caixaDialogo.setNegativeButton("Cadastrar outro serviço", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                Intent i = new Intent(CadastroServicoActivity.this, CadastroServicoActivity.class);
-//                finish();
-//                overridePendingTransition(0, 0);
-//                startActivity(i);
-//                overridePendingTransition(0, 0);
-//            }
-//        });
+        caixaDialogo.setNegativeButton("Cadastrar outro serviço", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(CadastroServicoActivity.this, CadastroServicoActivity.class);
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
+            }
+        });
         caixaDialogo.show();
     }
 
@@ -114,26 +86,29 @@ public class CadastroServicoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String nomeServiço = campoNomeServico.getText().toString().trim();
-                String valorServico = campoValorServico.getText().toString().trim();
                 String descricaoServico = campoDescricaoServico.getText().toString().trim();
+                String valorServico = campoValorServico.getText().toString().trim();
                 valorServico = valorServico.replace(".", ",");
                 String categoriaServico = campoCategoriaServico.getSelectedItem().toString();
 
                 if (nomeServiço.isEmpty() || valorServico.isEmpty()){
                     alert("Preencha todos os campos");
+                }else if(categoriaServico.equals("Selecione uma categoria")){
+                    alert("Por favor, selecione uma categoria");
                 }
                 else{
                     servico = new Servico_Cadastro();
                     String email = Criptografia.codificar(auth.getCurrentUser().getEmail());
                     servico.setIdServico(UUID.randomUUID().toString());
-                    servico.setEmailPetShopServico(email);
+                    servico.setEmailPetShop(email);
                     servico.setDataCadastroServico(DateCustom.dataAtual());
                     servico.setNomeServico(nomeServiço);
+                    servico.setDescricaoServico(descricaoServico);
+                    servico.setCategoriaServico(categoriaServico);
                     servico.setValorServico(valorServico);
-                    servico.salvar("petshop", email, "servico");
+                    servico.salvar("Petshop", email, "servico");
                     exibirConfirmacao();
                     limparCampos();
-
                 }
             }
         });
@@ -160,7 +135,7 @@ public class CadastroServicoActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         campoCategoriaServico.setAdapter(adapter);
 
-        storageReference = Conexao.getFirebaseStorage();
+        //storageReference = Conexao.getFirebaseStorage();
         auth = Conexao.getFirebaseAuth();
     }
 }
