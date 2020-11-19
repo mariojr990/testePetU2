@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Petshop.Adocao_Cadastro">
+
+    <ImageButton
+        android:id="@+id/buttonImagePetAdocao"
+        android:layout_width="99dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_baseline_image_24" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Foto do Pet"
+        app:layout_constraintEnd_toEndOf="@+id/descricaoPetAdocao"
+        app:layout_constraintStart_toStartOf="@+id/descricaoPetAdocao"
+        app:layout_constraintTop_toBottomOf="@+id/descricaoPetAdocao" />
+
+    <EditText
+        android:id="@+id/descricaoPetAdocao"
+        android:layout_width="345dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Descreva o Pet informando raça, tamanho, cor, etc"
+        android:inputType="textMultiLine"
+        android:maxLength="150"
+        app:layout_constraintEnd_toEndOf="@+id/editTextIdadePetAdocao"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextIdadePetAdocao"
+        app:layout_constraintTop_toBottomOf="@+id/editTextIdadePetAdocao" />
+
+    <TextView
+        android:id="@+id/txtCadastroAdocao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="Cadastro para adoção"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <EditText
+        android:id="@+id/editTextNomePetAdocao"
+        android:layout_width="345dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:ems="10"
+        android:hint="Nome do Pet"
+        android:inputType="textPersonName"
+        android:maxLength="100"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCadastroAdocao" />
+
+    <EditText
+        android:id="@+id/editTextIdadePetAdocao"
+        android:layout_width="345dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:ems="10"
+        android:hint="Idade do Pet"
+        android:inputType="textPersonName"
+        android:maxLength="100"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomePetAdocao" />
+
+    <Button
+        android:id="@+id/botaoVoltarCadProduto2"
+        android:layout_width="34dp"
+        android:layout_height="32dp"
+        android:background="@drawable/pngtree_exit_icon_vectors_png_image_1737870"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/Cor_botoes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logobrancopet2u_cadProduto"
+            android:layout_width="81dp"
+            android:layout_height="34dp"
+            android:contentDescription="@string/logo_pet2u"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ptlogobranco" />
+
+        <Button
+            android:id="@+id/botaoVoltarCadPetAdocao"
+            android:layout_width="34dp"
+            android:layout_height="32dp"
+            android:background="@drawable/pngtree_exit_icon_vectors_png_image_1737870"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/logobrancopet2u_cadProduto2"
+        android:layout_width="81dp"
+        android:layout_height="34dp"
+        android:contentDescription="@string/logo_pet2u"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ptlogobranco" />
+
+    <Button
+        android:id="@+id/botaoCadAdocao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/botao_arredondado_azul"
+        android:text="Cadastrar Pet para Adoção"
+        android:textColor="@color/cardview_light_background"
+        app:layout_constraintEnd_toEndOf="@+id/buttonImagePetAdocao"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="@+id/buttonImagePetAdocao"
+        app:layout_constraintTop_toBottomOf="@+id/buttonImagePetAdocao" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Petshop.crud_Servico"></activity>
         <activity android:name=".Usuario.CadastroMeuPet.Cadastro_Meu_Pet_5_2" />
+        <activity android:name=".Petshop.Adocao_Cadastro"></activity>
+        <activity android:name=".Usuario.CadastroMeuPet.Cadastro_Meu_Pet_5_2" />
         <activity android:name=".Usuario.ListagemPets.Crud_pets" />
         <activity android:name=".Usuario.ListagemPets.ListagemPets" />
         <activity android:name=".Usuario.CadastroMeuPet.Cadastro_Meu_Pet_7" />

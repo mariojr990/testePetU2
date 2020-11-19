@@ -137,6 +137,10 @@ public class PerfilPet_petshop extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), lista_servicos_pet_petshop.class);
         startActivity(intent);
     }
+    public void ClickNovoPetAdoca(View view){
+        Intent intent = new Intent(getApplicationContext(), Adocao_Cadastro.class);
+        startActivity((intent));
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
