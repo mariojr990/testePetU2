@@ -25,16 +25,11 @@ import java.util.List;
 public class AdapterListaServicoPet extends RecyclerView.Adapter<AdapterListaServicoPet.ViewHolder> implements Filterable {
 
     private LayoutInflater layoutInflater1;
-    //private String idProduto, idPetshop;
     private List<Servico> data1;
     private List<Servico> dataSearch1;
-    private OnItemClickListener mListener1;
+    private AdapterListaServicoPet.OnItemClickListener mListener1;
     private Context contextDp;
     private StorageReference storageReference1 = Conexao.getFirebaseStorage();
-//    private FirebaseUser user;
-//    private FirebaseAuth auth;
-//    private String emailCriptografado;
-//    private DatabaseReference databaseReference;
 
 
     public interface OnItemClickListener {
@@ -59,32 +54,10 @@ public class AdapterListaServicoPet extends RecyclerView.Adapter<AdapterListaSer
         return new ViewHolder(view);
     }
 
-//    public String getIdProduto() {
-//        return idProduto;
-//    }
-//
-//    public void setIdProduto(String idProduto) {
-//        this.idProduto = idProduto;
-//    }
-//
-//    public String getIdPetshop() {
-//        return idPetshop;
-//    }
-//
-//    public void setIdPetshop(String idPetshop) {
-//        this.idPetshop = idPetshop;
-//    }
-
-//    public void ExcluirProduto(@NonNull final ViewHolder viewHolder, int i){
-//        String title = data.get(i).getNome();
-//        DatabaseReference usuarioRef = databaseReference.child("Petshop").child(emailCriptografado).child("produto").child(title);
-//        usuarioRef.removeValue();
-//    }
-
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
         String title1 = data1.get(i).getNomeServico();
-        String categoriaTitulo1 = data1.get(i).getTituloCategoria();
+        String categoriaTitulo1 = data1.get(i).getCategoriaServico();
         String descricao1 = data1.get(i).getDescricaoServico();
         String preco1 = data1.get(i).getValorServico();
         String valorfinal1 ="R$ " + preco1.replace(".",",");
@@ -92,58 +65,18 @@ public class AdapterListaServicoPet extends RecyclerView.Adapter<AdapterListaSer
         viewHolder.descricaoServico.setText(descricao1);
         viewHolder.valorServico.setText(valorfinal1);
 
-        String nome = Criptografia.codificar(title1.replace(" ", ""));
-
-
-
-//        private void exibirConfirmacao() {
-//            AlertDialog.Builder caixaDialogo = new AlertDialog.Builder(lista_produtos_pet_petshop.class);
-//            caixaDialogo.setTitle("Sucesso!");
-//            caixaDialogo.setIcon(android.R.drawable.ic_menu_info_details);
-//            caixaDialogo.setMessage("Uma novidade: Seu produto foi cadastrado com sucesso :P");
-//            caixaDialogo.setPositiveButton("Voltar para Perfil", new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialog, int which) {
-//                    ExcluirProduto();
-//                }
-//            });
-//            caixaDialogo.setNegativeButton("Cadastrar outro produto", new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialog, int which) {
-//                }
-//            });
-//            caixaDialogo.show();
-//        }
-//        exibirConfirmacao();
-
-//        storageReference1.child("FotoProduto/" + nome).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//            @Override
-//            public void onSuccess(Uri uri) {
-//                Picasso.get().load(uri).fit().centerInside().into(viewHolder.imagemProduto);
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Log.d("xesque", " A imagem não existe");
-//            }
-//        });
 
         if (categoriaTitulo1.isEmpty()) {
         viewHolder.tituloCategoria.setVisibility(View.GONE);
-        //float scale = contextDp.getResources().getDisplayMetrics().density;
-        //int dpAsPixels = (int) (30*scale + 0.5f);
-        //ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(500, ConstraintLayout.LayoutParams.WRAP_CONTENT);
-        //params.setMargins(0, dpAsPixels,0,0);
-        //viewHolder.tituloProduto.setLayoutParams(params);
-    }
+        }
         else {
         viewHolder.tituloCategoria.setVisibility(View.VISIBLE);
-    }
+        }
         viewHolder.tituloServico.setText(title1);
         if (!categoriaTitulo1.isEmpty()) {
         viewHolder.tituloCategoria.setText(categoriaTitulo1);
         viewHolder.tituloCategoria.setLayoutParams(new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, 0));
-    }
+        }
 }
 
     @Override
@@ -199,11 +132,6 @@ public class AdapterListaServicoPet extends RecyclerView.Adapter<AdapterListaSer
             tituloCategoria = itemView.findViewById(R.id.tituloCategoria);
             itemView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
             viewSize = itemView.getMeasuredHeight();
-//            databaseReference = Conexao.getFirebaseDatabase();
-//            auth = Conexao.getFirebaseAuth();
-//            user = auth.getCurrentUser();
-//            emailCriptografado = Criptografia.codificar(user.getEmail());
-
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -36,7 +36,7 @@ public class lista_servicos_pet_petshop extends AppCompatActivity {
     private SmartTabLayout smartTabLayout;
     private ViewPager viewPager;
     private HorizontalScrollView scrollView;
-    private boolean isToolbBarOpen;
+    private boolean isToolBarOpen;
     private FirebaseUser user;
     private FirebaseAuth auth;
 
@@ -59,6 +59,7 @@ public class lista_servicos_pet_petshop extends AppCompatActivity {
         servicos = new ArrayList<>();
         categoriasMatrix = new ArrayList<>();
         categoriasList = new ArrayList<>();
+        isToolBarOpen = false;
         auth = Conexao.getFirebaseAuth();
         user = auth.getCurrentUser();
         emailCriptografado = Criptografia.codificar(user.getEmail());
@@ -75,11 +76,11 @@ public class lista_servicos_pet_petshop extends AppCompatActivity {
                         Boolean titulo = false;
 
                         Servico servicoClicked = new Servico();
-                        servicoClicked.setNomeServico((String) singleUser.get("nome"));
-                        servicoClicked.setValorServico((String) singleUser.get("valor"));
-                        servicoClicked.setDescricaoServico((String) singleUser.get("descricao"));
-                        categoriaNome = (String) singleUser.get("categoria");
-                        servicoClicked.setTituloCategoria(categoriaNome);
+                        servicoClicked.setNomeServico((String) singleUser.get("nomeServico"));
+                        servicoClicked.setValorServico((String) singleUser.get("valorServico"));
+                        servicoClicked.setDescricaoServico((String) singleUser.get("descricaoServico"));
+                        categoriaNome = (String) singleUser.get("categoriaServico");
+                        servicoClicked.setCategoriaServico(categoriaNome);
 
                         if(!categoriasList.contains(categoriaNome)){
                             categoriasList.add(categoriaNome);
@@ -88,44 +89,42 @@ public class lista_servicos_pet_petshop extends AppCompatActivity {
                         if(!categoriasList.isEmpty()){
                             categoriasMatrix.add(new ArrayList<Servico>());
                             if(!titulo){
-                                servicoClicked.setTituloCategoria("");
+                                servicoClicked.setCategoriaServico("");
                             }
                             categoriasMatrix.get(categoriasList.indexOf(categoriaNome)).add(servicoClicked);
                         }
-                        if(!categoriasList.isEmpty()){
-                            for(int i = 0; i < categoriasMatrix.size(); i++){
-                                for(int j = 0; j < categoriasMatrix.get(i).size(); j++){
-                                    servicos.add(categoriasMatrix.get(i).get(j));
-                                }
+                    }
+                    if(!categoriasList.isEmpty()){
+                        for(int i = 0; i < categoriasMatrix.size(); i++){
+                            for(int j = 0; j < categoriasMatrix.get(i).size(); j++){
+                                servicos.add(categoriasMatrix.get(i).get(j));
                             }
                         }
                     }
+
+                    listarServico.setLayoutManager(new LinearLayoutManager(lista_servicos_pet_petshop.this));
+                    listarServico.setNestedScrollingEnabled(false);
+                    adapter = new AdapterListaServicoPet(lista_servicos_pet_petshop.this, servicos);
+                    listarServico.setAdapter(adapter);
+                    int ViewSize = adapter.getItemCount() * 520;
+                    ViewGroup.LayoutParams layoutParams = listarServico.getLayoutParams();
+                    layoutParams.height = ViewSize;
+                    listarServico.setLayoutParams(layoutParams);
+
+                    adapter.setOnItemClickListener(new AdapterListaServicoPet.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(int position) {
+                            Intent crudServico = new Intent(lista_servicos_pet_petshop.this, crud_Servico.class);
+//                        crudServico.putExtra("nomeServico", servicos.get(position).getNomeServico());
+//                        crudServico.putExtra("nomeValor", servicos.get(position).getValorServico());
+//                        crudServico.putExtra("nomeDescricao", servicos.get(position).getDescricaoServico());
+//                        crudServico.putExtra("posicaoServico", position);
+//                        startActivityForResult(crudServico, 1);
+                            startActivity(crudServico);
+                        }
+                    });
                 }
-
-                listarServico.setLayoutManager(new LinearLayoutManager(lista_servicos_pet_petshop.this));
-                listarServico.setNestedScrollingEnabled(false);
-                adapter = new AdapterListaServicoPet(lista_servicos_pet_petshop.this, servicos);
-                listarServico.setAdapter(adapter);
-                int ViewSize = adapter.getItemCount() * 520;
-                ViewGroup.LayoutParams layoutParams = listarServico.getLayoutParams();
-                layoutParams.height = ViewSize;
-                listarServico.setLayoutParams(layoutParams);
-
-                adapter.setOnItemClickListener(new AdapterListaServicoPet.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(int position) {
-                        Intent crudServico = new Intent(lista_servicos_pet_petshop.this, crud_Servico.class);
-                        crudServico.putExtra("nomeServico", servicos.get(position).getNomeServico());
-                        crudServico.putExtra("nomeValor", servicos.get(position).getValorServico());
-                        crudServico.putExtra("nomeDescricao", servicos.get(position).getDescricaoServico());
-                        crudServico.putExtra("posicaoServico", position);
-                        startActivityForResult(crudServico, 1);
-                    }
-                });
             }
-
-
-
 
             @Override
             public void onCancelled(@NonNull DatabaseError dbError) {
@@ -133,8 +132,6 @@ public class lista_servicos_pet_petshop extends AppCompatActivity {
             }
         };
         usuarioRef.addListenerForSingleValueEvent(eventListener);
-
-
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data){

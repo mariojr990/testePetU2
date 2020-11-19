@@ -1,17 +1,20 @@
 package com.pet2u.pet2u.modelo;
 
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 
 public class Servico {
-    private String nomeServico, descricaoServico, tituloCategoria, valorServico;
+    private String nomeServico, valorServico, descricaoServico, categoriaServico, emailPetShop, idServico, dataCadastroServico ;
     private DatabaseReference databaseReference;
+
 
     public Servico(){
     }
 
     public void salvar(){
         databaseReference = Conexao.getFirebaseDatabase();
+        //databaseReference.child(nomeNo).child(emailPetShop).child(nomeSubNo).child(this.idServico).setValue(this);
     }
 
     public String getNomeServico() {
@@ -22,22 +25,6 @@ public class Servico {
         this.nomeServico = nomeServico;
     }
 
-    public String getDescricaoServico() {
-        return descricaoServico;
-    }
-
-    public void setDescricaoServico(String descricaoServico) {
-        this.descricaoServico = descricaoServico;
-    }
-
-    public String getTituloCategoria() {
-        return tituloCategoria;
-    }
-
-    public void setTituloCategoria(String tituloCategoria) {
-        this.tituloCategoria = tituloCategoria;
-    }
-
     public String getValorServico() {
         return valorServico;
     }
@@ -46,13 +33,45 @@ public class Servico {
         this.valorServico = valorServico;
     }
 
+    public String getDescricaoServico() {
+        return descricaoServico;
+    }
 
+    public void setDescricaoServico(String descricaoServico) {
+        this.descricaoServico = descricaoServico;
+    }
 
-//    public DatabaseReference getDatabaseReference() {
-//        return databaseReference;
-//    }
-//
-//    public void setDatabaseReference(DatabaseReference databaseReference) {
-//        this.databaseReference = databaseReference;
-//    }
+    public String getCategoriaServico() {
+        return categoriaServico;
+    }
+
+    public void setCategoriaServico(String categoriaServico) {
+        this.categoriaServico = categoriaServico;
+    }
+
+    public String getEmailPetShop() {
+        return emailPetShop;
+    }
+
+    public void setEmailPetShop(String emailPetShop) {
+        this.emailPetShop = emailPetShop;
+    }
+
+    @Exclude
+    public String getIdServico() {
+        return idServico;
+    }
+
+    public void setIdServico(String idServico) {
+        this.idServico = idServico;
+    }
+
+    public String getDataCadastroServico() {
+        return dataCadastroServico;
+    }
+
+    public void setDataCadastroServico(String dataCadastroServico) {
+        this.dataCadastroServico = dataCadastroServico;
+    }
+
 }

@@ -108,18 +108,6 @@ public class lista_produtos_pet_petshop extends AppCompatActivity {
                         categoriaNome = (String) singleUser.get("categoria");
                         produtoClicked.setCategoria(categoriaNome);
 
-//                    storageReference.child("FotoPerfilPet/" + emailCriptografado).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//                        @Override
-//                        public void onSuccess(Uri uri) {
-//                            Picasso.get().load(uri).fit().centerInside().into(imagePetshop);
-//                        }
-//                    }).addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                            Log.d("xesque", " A imagem não existe");
-//                        }
-//                    }) ;
-
                         if (!categoriasList.contains(categoriaNome)) {
                             categoriasList.add(categoriaNome);
                             titulo = true;
@@ -140,10 +128,6 @@ public class lista_produtos_pet_petshop extends AppCompatActivity {
                             }
                         }
                     }
-//                for (String nomeCategoria : categoriasList) {
-//                    tabLayout.addTab(tabLayout.newTab().setText(nomeCategoria));
-//                }
-
 
                     listaProdutos.setLayoutManager(new LinearLayoutManager(lista_produtos_pet_petshop.this));
                     listaProdutos.setNestedScrollingEnabled(false);
@@ -174,37 +158,6 @@ public class lista_produtos_pet_petshop extends AppCompatActivity {
             }
         };
         usuarioRef.addListenerForSingleValueEvent(eventListener);
-
-
-
-//        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//            @Override
-//            public void onTabSelected(TabLayout.Tab tab) {
-//                //int tamanhoToolbar = toolbarPerfilPetshop.getHeight();
-//                //petshopPerfilScrollView.scrollTo(0, getRelativeTop(listaProdutos) - tamanhoToolbar - 25);
-//            }
-//
-//            @Override
-//            public void onTabUnselected(TabLayout.Tab tab) {
-//
-//            }
-//
-//            @Override
-//            public void onTabReselected(TabLayout.Tab tab) {
-//
-//            }
-//        });
-
-        //LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
-        //listaProdutos.setLayoutParams(lp);
-
-
-//        botao_voltar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                finish();
-//            }
-//        });
     }
 
     @Override

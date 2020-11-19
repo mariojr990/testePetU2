@@ -110,7 +110,7 @@ public class AdapterListaPets extends RecyclerView.Adapter<AdapterListaPets.View
                 castradoPetFinal = "Não Castrado";
             }
         String racaPet = data1.get(i).getRacaPet();
-        int nascimentoPet = Integer.parseInt(data1.get(i).getNascimentoPet());
+            int nascimentoPet = Integer.parseInt(data1.get(i).getNascimentoPet());
             int anoAtual = Calendar.getInstance().get(Calendar.YEAR);
             int calculoIdade = (anoAtual - nascimentoPet);
             String nascimentoPetFinal = "";
@@ -133,25 +133,6 @@ public class AdapterListaPets extends RecyclerView.Adapter<AdapterListaPets.View
         email += nomePet;
         String nomefinal = email.replace(" ", "");
 
-//        private void exibirConfirmacao() {
-//            AlertDialog.Builder caixaDialogo = new AlertDialog.Builder(lista_Petss_pet_petshop.class);
-//            caixaDialogo.setTitle("Sucesso!");
-//            caixaDialogo.setIcon(android.R.drawable.ic_menu_info_details);
-//            caixaDialogo.setMessage("Uma novidade: Seu Pets foi cadastrado com sucesso :P");
-//            caixaDialogo.setPositiveButton("Voltar para Perfil", new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialog, int which) {
-//                    ExcluirPets();
-//                }
-//            });
-//            caixaDialogo.setNegativeButton("Cadastrar outro Pets", new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialog, int which) {
-//                }
-//            });
-//            caixaDialogo.show();
-//        }
-//        exibirConfirmacao();
 
         storageReference1.child("FotoPets/" + Criptografia.codificar(nomefinal)).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -167,11 +148,6 @@ public class AdapterListaPets extends RecyclerView.Adapter<AdapterListaPets.View
 
         if (tituloCategoriaPet.isEmpty()) {
             viewHolder.tituloCategoriaPet.setVisibility(View.GONE);
-            //float scale = contextDp.getResources().getDisplayMetrics().density;
-            //int dpAsPixels = (int) (30*scale + 0.5f);
-            //ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(500, ConstraintLayout.LayoutParams.WRAP_CONTENT);
-            //params.setMargins(0, dpAsPixels,0,0);
-            //viewHolder.tituloPets.setLayoutParams(params);
         }
         else {
             viewHolder.tituloCategoriaPet.setVisibility(View.VISIBLE);
@@ -242,8 +218,6 @@ public class AdapterListaPets extends RecyclerView.Adapter<AdapterListaPets.View
             itemView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
             viewSize = itemView.getMeasuredHeight();
             auth = Conexao.getFirebaseAuth();
-
-
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
