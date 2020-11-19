@@ -151,15 +151,14 @@
 
     <Button
         android:id="@+id/botaoCadAdocao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="237dp"
+        android:layout_height="48dp"
         android:layout_marginTop="44dp"
         android:background="@drawable/botao_arredondado_azul"
         android:text="Cadastrar Pet para Adoção"
         android:textColor="@color/cardview_light_background"
-        app:layout_constraintEnd_toEndOf="@+id/buttonImagePetAdocao"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="@+id/buttonImagePetAdocao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonImagePetAdocao" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

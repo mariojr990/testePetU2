@@ -48,6 +48,7 @@ public class Adocao_Cadastro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adocao_cadastro);
         Permissao.validarPermissoes(permissoesNecessarias, this, 1);
+        getSupportActionBar().hide();
         inicializaComponenetes();
         clicks();
 
