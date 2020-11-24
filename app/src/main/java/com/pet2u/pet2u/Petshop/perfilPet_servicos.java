@@ -1,6 +1,7 @@
 package com.pet2u.pet2u.Petshop;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
@@ -11,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.Manifest;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
@@ -41,17 +43,17 @@ import com.google.firebase.storage.StorageReference;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Adapter;
-import com.pet2u.pet2u.Helper.AdapterListaProdutos;
+import com.pet2u.pet2u.Helper.AdapterListaServico;
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Petshop;
-import com.pet2u.pet2u.modelo.Produto;
+import com.pet2u.pet2u.modelo.Servico;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Map;
 
-public class PerfilPet_Usuario extends AppCompatActivity {
+public class perfilPet_servicos extends AppCompatActivity {
 
     private SmartTabLayout smartTabLayout;
     private ViewPager viewPager;
@@ -59,16 +61,16 @@ public class PerfilPet_Usuario extends AppCompatActivity {
     private HorizontalScrollView scrollviewTipoProdutos;
     private ConstraintLayout toolbarPerfilPetshop;
     private ScrollView petshopPerfilScrollView;
-    private  TextView nomePet;
+    private TextView nomePet;
     private TextView enderecoPetshop;
     private boolean isToolbarOpen;
 
 
-    private RecyclerView listaProdutos;
-    private AdapterListaProdutos adapter;
-    private ArrayList<Produto> produtos;
+    private RecyclerView listaServicos;
+    private AdapterListaServico adapter;
+    private ArrayList<Servico> servicos;
     private ArrayList<String> categoriasList;
-    private ArrayList<ArrayList<Produto>> categoriasMatrix;
+    private ArrayList<ArrayList<Servico>> categoriasMatrix;
     private String emailCriptografado;
     private TabLayout tabLayout;
     private StorageReference storageReference = Conexao.getFirebaseStorage();
@@ -78,22 +80,23 @@ public class PerfilPet_Usuario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil_pet_usuario);
+        setContentView(R.layout.activity_perfil_pet_servicos);
+        getSupportActionBar().hide();
 
         databaseReference = Conexao.getFirebaseDatabase();
-        petshopPerfilScrollView = findViewById(R.id.petshopPerfilScrollView);
-        nomePet = findViewById(R.id.nomePet);
-        enderecoPetshop = findViewById(R.id.enderecoPetshop);
+        petshopPerfilScrollView = findViewById(R.id.petshopPerfilScrollView2);
+        nomePet = findViewById(R.id.nomePetServico);
+        enderecoPetshop = findViewById(R.id.enderecoPetshopServico);
         final TextView tituloPetshop = findViewById(R.id.tituloPetshopToolbar);
         emailCriptografado = Criptografia.codificar(getIntent().getExtras().getString("emailPetshop"));
-        listaProdutos = findViewById(R.id.listaProdutos);
-        Button maisInfoButton = findViewById(R.id.maisInfoButton);
+        listaServicos = findViewById(R.id.listaServicosPetshop);
+        Button maisInfoButton = findViewById(R.id.maisInfoButtonServico);
         toolbarPerfilPetshop = findViewById(R.id.toolbarPerfilPetshop);
         toolbarPerfilPetshop.setVisibility(View.INVISIBLE);
         Button botao_voltar = findViewById(R.id.seta_voltar);
         tabLayout = findViewById(R.id.tabLayoutToolbar);
-        imagePetshop = findViewById(R.id.imageView4);
-        produtos = new ArrayList<>();
+        imagePetshop = findViewById(R.id.imageViewServico);
+        servicos = new ArrayList<>();
         categoriasMatrix = new ArrayList<>();
         categoriasList = new ArrayList<>();
         isToolbarOpen = false;
@@ -102,85 +105,88 @@ public class PerfilPet_Usuario extends AppCompatActivity {
         tituloPetshop.setText(getIntent().getExtras().getString("nomePetshop"));
         enderecoPetshop.setText(getIntent().getExtras().getString("enderecoPetshop") + ". " + getIntent().getExtras().getString("complementoEnderecoPetshop"));
 
-        DatabaseReference usuarioRef = databaseReference.child("Petshop").child(emailCriptografado).child("produto");
+        DatabaseReference usuarioRef = databaseReference.child("Petshop").child(emailCriptografado).child("servico");
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String categoriaNome = "";
+                if (dataSnapshot.exists()) {
+                    for (Map.Entry<String, Object> entry : ((Map<String, Object>) dataSnapshot.getValue()).entrySet()) {
 
-                for (Map.Entry<String, Object> entry : ((Map<String,Object>)dataSnapshot.getValue()).entrySet()){
+                        Map singleUser = (Map) entry.getValue();
 
-                    Map singleUser = (Map) entry.getValue();
+                        Boolean titulo = false;
 
-                    Boolean titulo = false;
+                        Servico servicoClicked = new Servico();
+                        servicoClicked.setNomeServico((String) singleUser.get("nomeServico"));
+                        servicoClicked.setValorServico((String) singleUser.get("valorServico"));
+                        servicoClicked.setDescricaoServico((String) singleUser.get("descricaoServico"));
+                        categoriaNome = (String) singleUser.get("categoriaServico");
+                        servicoClicked.setCategoriaServico(categoriaNome);
 
-                    Produto produtoClicked = new Produto();
-                    produtoClicked.setNome((String) singleUser.get("nome"));
-                    produtoClicked.setValor((String) singleUser.get("valor"));
-                    produtoClicked.setDescricaoProduto((String) singleUser.get("descricao"));
-                    categoriaNome = (String) singleUser.get("categoria");
-                    produtoClicked.setCategoria(categoriaNome);
+                        String petshopCriptografado = Criptografia.codificar(getIntent().getExtras().getString("emailPetshop"));
+                        storageReference.child("FotoPerfilPet/" + petshopCriptografado).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                Picasso.get().load(uri).fit().centerInside().into(imagePetshop);
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.d("xesque", " A imagem não existe");
+                            }
+                        }) ;
 
 
-                    String petshopCriptografado = Criptografia.codificar(getIntent().getExtras().getString("emailPetshop"));
-                    storageReference.child("FotoPerfilPet/" + petshopCriptografado).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            Picasso.get().load(uri).fit().centerInside().into(imagePetshop);
+                        if (!categoriasList.contains(categoriaNome)) {
+                            categoriasList.add(categoriaNome);
+                            titulo = true;
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.d("xesque", " A imagem não existe");
+                        if (!categoriasList.isEmpty()) {
+                            categoriasMatrix.add(new ArrayList<Servico>());
+                            if (!titulo) {
+                                servicoClicked.setCategoriaServico("");
+                            }
+                            categoriasMatrix.get(categoriasList.indexOf(categoriaNome)).add(servicoClicked);
                         }
-                    }) ;
-
-                    if (!categoriasList.contains(categoriaNome)) {
-                        categoriasList.add(categoriaNome);
-                        titulo = true;
                     }
+
                     if (!categoriasList.isEmpty()) {
-                        categoriasMatrix.add(new ArrayList<Produto>());
-                        if (!titulo) {
-                            produtoClicked.setCategoria("");
-                        }
-                        categoriasMatrix.get(categoriasList.indexOf(categoriaNome)).add(produtoClicked);
-                    }
-                }
-
-                if (!categoriasList.isEmpty()) {
-                    for (int i = 0; i < categoriasMatrix.size(); i++) {
-                        for (int j = 0; j < categoriasMatrix.get(i).size(); j++) {
-                            produtos.add(categoriasMatrix.get(i).get(j));
+                        for (int i = 0; i < categoriasMatrix.size(); i++) {
+                            for (int j = 0; j < categoriasMatrix.get(i).size(); j++) {
+                                servicos.add(categoriasMatrix.get(i).get(j));
+                            }
                         }
                     }
-                }
-                for (String nomeCategoria : categoriasList) {
-                    tabLayout.addTab(tabLayout.newTab().setText(nomeCategoria));
-                }
-
-
-                listaProdutos.setLayoutManager(new LinearLayoutManager(PerfilPet_Usuario.this));
-                listaProdutos.setNestedScrollingEnabled(false);
-                adapter = new AdapterListaProdutos(PerfilPet_Usuario.this, produtos);
-                listaProdutos.setAdapter(adapter);
-                int viewSize = adapter.getItemCount() * 520;
-                ViewGroup.LayoutParams layoutParams = listaProdutos.getLayoutParams();
-                layoutParams.height = viewSize;
-                listaProdutos.setLayoutParams(layoutParams);
-
-
-                adapter.setOnItemClickListener(new AdapterListaProdutos.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(int position) {
-                        Log.d("xesque", "rolou o " + produtos.get(position).getNome());
-                        Intent perfilproduto = new Intent(PerfilPet_Usuario.this, Pagina_do_Produto.class);
-                        perfilproduto.putExtra("nomeProduto", produtos.get(position).getNome());
-                        perfilproduto.putExtra("descricaoProduto", produtos.get(position).getDescricaoProduto());
-                        perfilproduto.putExtra("valorProduto", produtos.get(position).getValor());
-                        startActivity(perfilproduto);
+                    for (String nomeCategoria : categoriasList) {
+                        tabLayout.addTab(tabLayout.newTab().setText(nomeCategoria));
                     }
-                });
+
+
+                    listaServicos.setLayoutManager(new LinearLayoutManager(perfilPet_servicos.this));
+                    listaServicos.setNestedScrollingEnabled(false);
+                    adapter = new AdapterListaServico(perfilPet_servicos.this, servicos);
+                    listaServicos.setAdapter(adapter);
+                    int viewSize = adapter.getItemCount() * 520;
+                    ViewGroup.LayoutParams layoutParams = listaServicos.getLayoutParams();
+                    layoutParams.height = viewSize;
+                    listaServicos.setLayoutParams(layoutParams);
+
+
+                    adapter.setOnItemClickListener(new AdapterListaServico.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(int position) {
+                            Intent perfilservico = new Intent(perfilPet_servicos.this, Pagina_do_servico.class);
+                            perfilservico.putExtra("nomeServico", servicos.get(position).getNomeServico());
+                            perfilservico.putExtra("nomeValor", servicos.get(position).getValorServico());
+                            perfilservico.putExtra("nomeDescricao", servicos.get(position).getDescricaoServico());
+                            startActivity(perfilservico);
+
+                        }
+                    });
+                }else{
+                    exibirAviso();
+                }
 
             }
 
@@ -195,8 +201,8 @@ public class PerfilPet_Usuario extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int tamanhoToolbar = toolbarPerfilPetshop.getHeight();
-                scrollToView(petshopPerfilScrollView, listaProdutos);
-                //petshopPerfilScrollView.scrollTo(0, getRelativeTop(listaProdutos) - tamanhoToolbar - 25);
+                scrollToView(petshopPerfilScrollView, listaServicos);
+                //petshopPerfilScrollView.scrollTo(0, getRelativeTop(listaServicos) - tamanhoToolbar - 25);
             }
 
             @Override
@@ -211,7 +217,7 @@ public class PerfilPet_Usuario extends AppCompatActivity {
         });
 
         //LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
-        //listaProdutos.setLayoutParams(lp);
+        //listaServicos.setLayoutParams(lp);
 
         petshopPerfilScrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override
@@ -268,7 +274,7 @@ public class PerfilPet_Usuario extends AppCompatActivity {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                    Intent intent = new Intent(PerfilPet_Usuario.this, PerfilPet_Usuario_2.class);
+                    Intent intent = new Intent(perfilPet_servicos.this, PerfilPet_Usuario_2.class);
                     intent.putExtra("nomePetshop", nomePet.getText().toString());
                     intent.putExtra("enderecoPetshop", enderecoPetshop.getText().toString());
                     intent.putExtra("telefonePetshop", getIntent().getExtras().getString("telefonePetshop"));
@@ -320,24 +326,39 @@ public class PerfilPet_Usuario extends AppCompatActivity {
         getDeepChildOffset(mainParent, parentGroup.getParent(), parentGroup, accumulatedOffset);
     }
 
-    public void irServicos(View view){
-        Intent intent = new Intent(PerfilPet_Usuario.this, perfilPet_servicos.class);
-        intent.putExtra("nomePetshop", nomePet.getText().toString());
-        intent.putExtra("enderecoPetshop", enderecoPetshop.getText().toString());
-        intent.putExtra("telefonePetshop", getIntent().getExtras().getString("telefonePetshop"));
-        intent.putExtra("dataFuncionamento", getIntent().getExtras().getString("dataFuncionamento"));
-        intent.putExtra("horarioFuncionamento", getIntent().getExtras().getString("horarioFuncionamento"));
-        intent.putExtra("complementoEnderecoPetshop", getIntent().getExtras().getString("complementoEnderecoPetshop"));
-        intent.putExtra("emailPetshop", getIntent().getExtras().getString("emailPetshop"));
-        startActivity(intent);
+    private void exibirAviso() {
+        AlertDialog.Builder caixaDialogo = new AlertDialog.Builder(this);
+        caixaDialogo.setTitle("Aviso!");
+        caixaDialogo.setIcon(android.R.drawable.ic_menu_info_details);
+        caixaDialogo.setMessage("O petshop não possui serviços cadastrados.");
+        caixaDialogo.setPositiveButton("Voltar para o perfil do petshop", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        caixaDialogo.show();
     }
 
-    public void perfilpet2(View view) {
+    public void irProduto(View view){
+//        Intent intent = new Intent(perfilPet_servicos.this, perfilPet_servicos.class);
+//        intent.putExtra("nomePetshop", nomePet.getText().toString());
+//        intent.putExtra("enderecoPetshop", enderecoPetshop.getText().toString());
+//        intent.putExtra("telefonePetshop", getIntent().getExtras().getString("telefonePetshop"));
+//        intent.putExtra("dataFuncionamento", getIntent().getExtras().getString("dataFuncionamento"));
+//        intent.putExtra("horarioFuncionamento", getIntent().getExtras().getString("horarioFuncionamento"));
+//        intent.putExtra("complementoEnderecoPetshop", getIntent().getExtras().getString("complementoEnderecoPetshop"));
+//        intent.putExtra("emailPetshop", emailCriptografado);
+//        startActivity(intent);
+        finish();
+    }
+
+    public void perfilpet3(View view) {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
         else {
-            Intent intent = new Intent(PerfilPet_Usuario.this, PerfilPet_Usuario_2.class);
+            Intent intent = new Intent(perfilPet_servicos.this, PerfilPet_Usuario_2.class);
             intent.putExtra("nomePetshop", nomePet.getText().toString());
             intent.putExtra("enderecoPetshop", enderecoPetshop.getText().toString());
             intent.putExtra("telefonePetshop", getIntent().getExtras().getString("telefonePetshop"));

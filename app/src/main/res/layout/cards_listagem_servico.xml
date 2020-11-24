@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tituloCategoria"
+        android:id="@+id/tituloCategoriaservico"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="15dp"
         android:text="Teste"
         android:textColor="@android:color/tertiary_text_light"
         android:textSize="24sp"
@@ -20,16 +22,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
+        android:id="@+id/constraintLayout3servico"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/borda_arredondada_sombra"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloCategoria">
+        app:layout_constraintTop_toBottomOf="@+id/tituloCategoriaservico">
 
         <TextView
-            android:id="@+id/tituloServico"
+            android:id="@+id/tituloServico2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -43,7 +47,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/valorServico"
+            android:id="@+id/valorServico2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -53,12 +57,12 @@
             android:textColor="@android:color/holo_green_light"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/descricaoServico"
-            app:layout_constraintStart_toStartOf="@+id/descricaoServico"
-            app:layout_constraintTop_toBottomOf="@+id/descricaoServico" />
+            app:layout_constraintEnd_toEndOf="@+id/descricaoServico2"
+            app:layout_constraintStart_toStartOf="@+id/descricaoServico2"
+            app:layout_constraintTop_toBottomOf="@+id/descricaoServico2" />
 
         <TextView
-            android:id="@+id/descricaoServico"
+            android:id="@+id/descricaoServico2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -67,9 +71,9 @@
             android:textColor="@color/cardview_light_background"
             android:textSize="14sp"
             android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="@+id/tituloServico"
-            app:layout_constraintStart_toStartOf="@+id/tituloServico"
-            app:layout_constraintTop_toBottomOf="@+id/tituloServico" />
+            app:layout_constraintEnd_toEndOf="@+id/tituloServico2"
+            app:layout_constraintStart_toStartOf="@+id/tituloServico2"
+            app:layout_constraintTop_toBottomOf="@+id/tituloServico2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

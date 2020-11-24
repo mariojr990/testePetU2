@@ -75,28 +75,6 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
         return new ViewHolder(view);
     }
 
-//    public String getIdProduto() {
-//        return idProduto;
-//    }
-//
-//    public void setIdProduto(String idProduto) {
-//        this.idProduto = idProduto;
-//    }
-//
-//    public String getIdPetshop() {
-//        return idPetshop;
-//    }
-//
-//    public void setIdPetshop(String idPetshop) {
-//        this.idPetshop = idPetshop;
-//    }
-
-//    public void ExcluirProduto(@NonNull final ViewHolder viewHolder, int i){
-//        String title = data.get(i).getNome();
-//        DatabaseReference usuarioRef = databaseReference.child("Petshop").child(emailCriptografado).child("produto").child(title);
-//        usuarioRef.removeValue();
-//    }
-
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
         String title1 = data1.get(i).getNome();
@@ -110,27 +88,6 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
 
         String nome = Criptografia.codificar(title1.replace(" ", ""));
 
-
-
-//        private void exibirConfirmacao() {
-//            AlertDialog.Builder caixaDialogo = new AlertDialog.Builder(lista_produtos_pet_petshop.class);
-//            caixaDialogo.setTitle("Sucesso!");
-//            caixaDialogo.setIcon(android.R.drawable.ic_menu_info_details);
-//            caixaDialogo.setMessage("Uma novidade: Seu produto foi cadastrado com sucesso :P");
-//            caixaDialogo.setPositiveButton("Voltar para Perfil", new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialog, int which) {
-//                    ExcluirProduto();
-//                }
-//            });
-//            caixaDialogo.setNegativeButton("Cadastrar outro produto", new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialog, int which) {
-//                }
-//            });
-//            caixaDialogo.show();
-//        }
-//        exibirConfirmacao();
 
         storageReference1.child("FotoProduto/" + nome).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -218,11 +175,6 @@ public class AdapterListaProdutosPet extends RecyclerView.Adapter<AdapterListaPr
             tituloCategoria = itemView.findViewById(R.id.tituloCategoria2);
             itemView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
             viewSize = itemView.getMeasuredHeight();
-//            databaseReference = Conexao.getFirebaseDatabase();
-//            auth = Conexao.getFirebaseAuth();
-//            user = auth.getCurrentUser();
-//            emailCriptografado = Criptografia.codificar(user.getEmail());
-
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

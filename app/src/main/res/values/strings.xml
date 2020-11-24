@@ -733,6 +733,8 @@
     <string name="perfil_petshop_infoLoja">Informações da Loja</string>
     <string name="perfil_petshop_maisInfo"><u>Mais Informações</u></string>
     <string name="perfil_petshop_menu">Menu</string>
+    <string name="perfil_petshop_produtos">Produtos</string>
+    <string name="perfil_petshop_servicos">Serviços</string>
     <string name="sobre_pet2u">sobre</string>
     <string name="title_activity_teste">teste</string>
     <string name="txt_endereo">Endereço</string>
