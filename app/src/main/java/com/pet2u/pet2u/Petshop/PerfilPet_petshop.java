@@ -8,10 +8,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,13 +17,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.pet2u.pet2u.modelo.Produto;
-import com.squareup.picasso.Picasso;
-
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,13 +26,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.Helper.Permissao;
 import com.pet2u.pet2u.Login.MainActivity;
 import com.pet2u.pet2u.R;
 import com.pet2u.pet2u.modelo.Petshop;
+import com.squareup.picasso.Picasso;
 
 public class PerfilPet_petshop extends AppCompatActivity {
     private static final int CODIGO_SELECAO_FOTO = 1;
@@ -140,6 +133,10 @@ public class PerfilPet_petshop extends AppCompatActivity {
     public void ClickNovoPetAdoca(View view){
         Intent intent = new Intent(getApplicationContext(), Adocao_Cadastro.class);
         startActivity((intent));
+    }
+    public void ClickIrPetAdocao(View view){
+        Intent intent = new Intent(getApplicationContext(), lista_pet_adocao_petshop.class);
+        startActivity(intent);
     }
 
     @Override

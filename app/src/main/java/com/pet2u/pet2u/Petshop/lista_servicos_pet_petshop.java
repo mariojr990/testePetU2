@@ -1,11 +1,5 @@
 package com.pet2u.pet2u.Petshop;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +7,12 @@ import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,7 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.pet2u.pet2u.ConexaoDB.Conexao;
-import com.pet2u.pet2u.Helper.Adapter;
 import com.pet2u.pet2u.Helper.AdapterListaServicoPet;
 import com.pet2u.pet2u.Helper.Criptografia;
 import com.pet2u.pet2u.R;
@@ -102,6 +101,9 @@ public class lista_servicos_pet_petshop extends AppCompatActivity {
                         }
                     }
 
+
+
+
                     listarServico.setLayoutManager(new LinearLayoutManager(lista_servicos_pet_petshop.this));
                     listarServico.setNestedScrollingEnabled(false);
                     adapter = new AdapterListaServicoPet(lista_servicos_pet_petshop.this, servicos);
@@ -140,6 +142,7 @@ public class lista_servicos_pet_petshop extends AppCompatActivity {
             int position = data.getIntExtra("position", 0);
             if (resultCode == Activity.RESULT_OK) {
                 if (data.getBooleanExtra("delete", false)) {
+
                     servicos.remove(position);
                     adapter.notifyItemRemoved(position);
                 }
